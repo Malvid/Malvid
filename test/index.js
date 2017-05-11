@@ -37,7 +37,7 @@ describe('index()', function() {
 
 			assert.isString(data)
 
-			fs.writeFileSync('./index.html', str)
+			fs.writeFileSync('./index.html', data)
 
 		})
 

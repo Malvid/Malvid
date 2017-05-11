@@ -12,6 +12,7 @@ module.exports = (props, css, ids) => `
 			<meta name="description" content="${ props.description }">
 
 			<!-- CSS -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
 
 			<!-- Glamor CSS -->
