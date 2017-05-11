@@ -28,7 +28,11 @@
     "test": "istanbul cover node_modules/mocha/bin/_mocha"
   },
   "dependencies": {
-    "pify": "^2.3.0"
+    "glamor": "^2.20.25",
+    "pify": "^2.3.0",
+    "preact": "^8.1.0",
+    "preact-render-to-string": "^3.6.1",
+    "rosid-handler-js": "^8.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

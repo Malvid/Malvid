@@ -1,7 +1,10 @@
 'use strict'
 
-const fs   = require('fs')
-const pify = require('pify')
+const path   = require('path')
+// const pify   = require('pify')
+const jsPath = path.resolve(__dirname, './client.js')
+const js     = require('rosid-handler-js')(jsPath)
+const server = require('./server')
 
 /**
  * Return the HTML of the UI that can be viewed in the browser.
@@ -19,24 +22,20 @@ module.exports = function(filePath, opts) {
 	}).then(() => {
 
 		// Get the components data
-		return ''
+		return {}
 
 	}).then((data) => {
 
-		// const jsFile = './assets/client.js'
-
-		// Get the contents of the js file and pass both js and data to next promise
-		// return pify(fs.readFile)(jsFile, 'utf8').then((js) => ({
-		// 	js,
-		// 	data
-		// }))
-
-		return {}
+		// Use transformed js file and pass both js and data to next promise
+		return js.then((js) => ({
+			js,
+			data
+		}))
 
 	}).then(({ js, data }) => {
 
 		// Render the page
-		return ''
+		return server(js, data)
 
 	}).then((str) => {
 

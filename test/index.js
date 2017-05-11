@@ -1,5 +1,6 @@
 'use strict'
 
+const fs     = require('fs')
 // const os     = require('os')
 // const path   = require('path')
 const assert = require('chai').assert
@@ -30,9 +31,13 @@ describe('index()', function() {
 
 	it('should render a page', function() {
 
+		this.timeout(5000)
+
 		return index().then((data) => {
 
 			assert.isString(data)
+
+			fs.writeFileSync('./index.html', str)
 
 		})
 
