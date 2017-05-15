@@ -1,9 +1,9 @@
 'use strict'
 
-const fs     = require('fs')
+const fs = require('fs')
 const assert = require('chai').assert
-const uuid   = require('uuid/v4')
-const index  = require('./../src/index')
+const uuid = require('uuid/v4')
+const index = require('./../src/index')
 
 describe('index()', function() {
 
@@ -35,7 +35,7 @@ describe('index()', function() {
 
 		return index(null, opts).then((data) => {
 
-			assert.include(data, `<html lang="${ state.siteData.lang }">`)
+			assert.include(data, `<html lang="${ opts.siteData.lang }">`)
 			assert.include(data, `<title>${ opts.siteData.title }</title>`)
 			assert.include(data, `<meta name="description" content="${ opts.siteData.description }">`)
 
