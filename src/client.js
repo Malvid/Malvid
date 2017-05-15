@@ -1,35 +1,36 @@
 'use strict'
 
 const { h, render } = require('preact')
+const { Provider } = require('preact-redux')
 const { css, rehydrate } = require('glamor')
 
+const createStore = require('./utils/createStore')
 const global = require('./styles/global')
 
 const Main = require('./components/Main')
 
-const output = (props) => {
+const output = (store) => {
 
 	const root = document.body
+	const html = h(Provider, { store }, h(Main))
 
-	render(h(Main, props), root, root.firstElementChild)
+	render(html, root, root.firstElementChild)
 
 }
 
 const init = () => {
 
-	const state = {
-		glamor : window._state['glamor'],
-		props  : window._state['props']
-	}
-
 	// Rehydrate glamor state
-	rehydrate(state.glamor)
+	rehydrate(window.__GLAMOR__)
 
 	// Inject global CSS
 	css.insert(global)
 
+	// Rehydrate store from state
+	const store = createStore(window.__STATE__)
+
 	// Render component with the same props as the server
-	output(state.props)
+	output(store)
 
 }
 

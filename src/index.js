@@ -1,7 +1,6 @@
 'use strict'
 
 const path   = require('path')
-// const pify   = require('pify')
 const jsPath = path.resolve(__dirname, './client.js')
 const js     = require('rosid-handler-js')(jsPath)
 const server = require('./server')
@@ -18,24 +17,31 @@ module.exports = function(filePath, opts) {
 	return Promise.resolve().then(() => {
 
 		if (typeof opts!=='object' && opts!=null) throw new Error(`'opts' must be undefined, null or an object`)
+		if (opts==null) opts = {}
 
 	}).then(() => {
 
 		// Get the components data
 		return {}
 
-	}).then((data) => {
+	}).then((components) => {
 
-		// Use transformed js file and pass both js and data to next promise
+		// Use transformed js file and pass both js and components to next promise
 		return js.then((js) => ({
 			js,
-			data
+			components
 		}))
 
-	}).then(({ js, data }) => {
+	}).then(({ js, components }) => {
+
+		// Initial state of the site
+		const initalState = {
+			components : components,
+			siteData   : opts.siteData
+		}
 
 		// Render the page
-		return server(js, data)
+		return server(initalState, js)
 
 	}).then((str) => {
 

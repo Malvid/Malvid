@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = (props, js) => `
+module.exports = (state, js) => `
 			<!-- JS -->
 			<script>${ js }</script>
 

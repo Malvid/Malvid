@@ -1,17 +1,9 @@
 'use strict'
 
 const fs     = require('fs')
-// const os     = require('os')
-// const path   = require('path')
 const assert = require('chai').assert
-// const uuid   = require('uuid/v4')
+const uuid   = require('uuid/v4')
 const index  = require('./../src/index')
-
-// const fsify = require('fsify')({
-// 	cwd        : os.tmpdir(),
-// 	persistent : false,
-// 	force      : true
-// })
 
 describe('index()', function() {
 
@@ -29,13 +21,33 @@ describe('index()', function() {
 
 	})
 
+	it('should render a page with siteData', function() {
+
+		this.timeout(5000)
+
+		const opts = {
+			siteData: {
+				lang: uuid(),
+				title: uuid(),
+				description: uuid()
+			}
+		}
+
+		return index(null, opts).then((data) => {
+
+			assert.include(data, `<html lang="${ state.siteData.lang }">`)
+			assert.include(data, `<title>${ opts.siteData.title }</title>`)
+			assert.include(data, `<meta name="description" content="${ opts.siteData.description }">`)
+
+		})
+
+	})
+
 	it('should render a page', function() {
 
 		this.timeout(5000)
 
 		return index().then((data) => {
-
-			assert.isString(data)
 
 			fs.writeFileSync('./index.html', data)
 
