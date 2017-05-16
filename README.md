@@ -36,7 +36,6 @@ Add the following object to your `rosidfile.json`, `rosidfile.js` or [routes arr
 
 - `filePath` `{?*}` Not used by this module.
 - `opts` `{?Object}` Options.
-	- `componentLookup` `{?Object}` - Options for [component-lookup](https://github.com/electerious/component-lookup).
 
 ## Returns
 
