@@ -20,7 +20,7 @@ describe('index()', function() {
 
 		}, (err) => {
 
-			assert.strictEqual(`'opts' must be undefined, null or an object`, err.message)
+			assert.strictEqual(`'opts' must be an object, null or undefined`, err.message)
 
 		})
 
@@ -31,21 +31,16 @@ describe('index()', function() {
 		this.timeout(3000)
 
 		const opts = {
-			componentLookup: {
-				pattern: '*/[^_]*.njk'
-			},
-			siteData: {
-				lang: uuid(),
-				title: uuid(),
-				description: uuid()
-			}
+			lang: uuid(),
+			title: uuid(),
+			description: uuid()
 		}
 
 		return index(null, opts).then((data) => {
 
-			assert.include(data, `<html lang="${ opts.siteData.lang }">`)
-			assert.include(data, `<title>${ opts.siteData.title }</title>`)
-			assert.include(data, `<meta name="description" content="${ opts.siteData.description }">`)
+			assert.include(data, `<html lang="${ opts.lang }">`)
+			assert.include(data, `<title>${ opts.title }</title>`)
+			assert.include(data, `<meta name="description" content="${ opts.description }">`)
 
 		})
 
@@ -85,13 +80,7 @@ describe('index()', function() {
 		return fsify(structure).then((structure) => {
 
 			const opts = {
-				componentLookup: {
-					pattern: '*/[^_]*.njk',
-					opts: {
-						cwd: structure[0].name,
-						dataPaths: (fileName) => [ `${ fileName }.data.json` ]
-					}
-				}
+				src: structure[0].name
 			}
 
 			return index(null, opts)

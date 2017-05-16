@@ -2,8 +2,9 @@
 
 const path = require('path')
 const deepAssign = require('deep-assign')
+const isPlainObj = require('is-plain-obj')
 const jsPath = path.resolve(__dirname, './client.js')
-const js = require('rosid-handler-js')(jsPath)
+const js = require('rosid-handler-js')(jsPath, { optimize: false })
 const componentLookup = require('component-lookup')
 const server = require('./server')
 
@@ -18,21 +19,30 @@ module.exports = function(filePath, opts = {}) {
 
 	return Promise.resolve().then(() => {
 
-		if (typeof opts!=='object' && opts!=null) throw new Error(`'opts' must be undefined, null or an object`)
+		if (isPlainObj(opts)===false && opts!=null) {
+			throw new Error(`'opts' must be an object, null or undefined`)
+		}
+
+		const files = {
+			view: (fileName, fileExt) => [ `${ fileName }.${ fileExt }` ],
+			data: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ],
+			notes: (fileName, fileExt) => [ `${ fileName }.md` ]
+		}
 
 		opts = deepAssign({
-			componentLookup: {},
-			siteData: {
-				lang: 'en',
-				title: 'Rosid',
-				description: 'UI to help you build & document web components.'
-			}
+			lang: 'en',
+			title: 'Rosid',
+			description: 'UI to help you build & document web components.',
+			pattern: '**/[^_]*.{ejs,njk,html}',
+			files: files
 		}, opts)
 
 	}).then(() => {
 
 		// Get the components data
-		return componentLookup(opts.componentLookup.pattern, opts.componentLookup.opts)
+		return componentLookup(opts.pattern, opts.files, {
+			cwd: opts.src
+		})
 
 	}).then((components) => {
 
@@ -46,16 +56,12 @@ module.exports = function(filePath, opts = {}) {
 
 		// Initial state of the site
 		const initalState = {
-			components : components,
-			siteData   : opts.siteData
+			components,
+			opts
 		}
 
 		// Render the page
 		return server(initalState, js)
-
-	}).then((str) => {
-
-		return str
 
 	})
 
