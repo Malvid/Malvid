@@ -28,6 +28,8 @@
     "test": "istanbul cover node_modules/mocha/bin/_mocha"
   },
   "dependencies": {
+    "component-lookup": "0.0.2",
+    "deep-assign": "^2.0.0",
     "glamor": "^2.20.25",
     "preact": "^8.1.0",
     "preact-redux": "^2.0.1",

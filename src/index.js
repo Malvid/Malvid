@@ -1,8 +1,10 @@
 'use strict'
 
-const path   = require('path')
+const path = require('path')
+const deepAssign = require('deep-assign')
 const jsPath = path.resolve(__dirname, './client.js')
-const js     = require('rosid-handler-js')(jsPath)
+const js = require('rosid-handler-js')(jsPath)
+const componentLookup = require('component-lookup')
 const server = require('./server')
 
 /**
@@ -12,17 +14,25 @@ const server = require('./server')
  * @param {?Object} opts - Options.
  * @returns {Promise} Returns the following properties if resolved: {String}.
  */
-module.exports = function(filePath, opts) {
+module.exports = function(filePath, opts = {}) {
 
 	return Promise.resolve().then(() => {
 
 		if (typeof opts!=='object' && opts!=null) throw new Error(`'opts' must be undefined, null or an object`)
-		if (opts==null) opts = {}
+
+		opts = deepAssign({
+			componentLookup: {},
+			siteData: {
+				lang: 'en',
+				title: 'Rosid',
+				description: 'UI to help you build & document web components.'
+			}
+		}, opts)
 
 	}).then(() => {
 
 		// Get the components data
-		return {}
+		return componentLookup(opts.componentLookup.pattern, opts.componentLookup.opts)
 
 	}).then((components) => {
 

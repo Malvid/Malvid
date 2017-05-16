@@ -1,9 +1,14 @@
 'use strict'
 
+const os = require('os')
 const fs = require('fs')
 const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const index = require('./../src/index')
+
+const fsify = require('fsify')({
+	cwd: os.tmpdir()
+})
 
 describe('index()', function() {
 
@@ -43,11 +48,54 @@ describe('index()', function() {
 
 	})
 
-	it('should render a page', function() {
+	it.only('should render a page with components', function() {
 
 		this.timeout(5000)
 
-		return index().then((data) => {
+		const componentName = uuid()
+
+		const structure = [
+			{
+				type: fsify.DIRECTORY,
+				name: uuid(),
+				contents: [
+					{
+						type: fsify.DIRECTORY,
+						name: componentName,
+						contents: [
+							{
+								type: fsify.FILE,
+								name: `${ componentName }.njk`,
+								contents: 'Hello World!'
+							},
+							{
+								type: fsify.FILE,
+								name: `${ componentName }.data.json`,
+								contents: JSON.stringify({})
+							}
+						]
+					}
+				]
+			}
+		]
+
+		return fsify(structure).then((structure) => {
+
+			const opts = {
+				componentLookup: {
+					pattern: '*/[^_]*.njk',
+					opts: {
+						cwd: structure[0].name,
+						dataPaths: (fileName) => [ `${ fileName }.data.json` ]
+					}
+				}
+			}
+
+			return index(null, opts)
+
+		}).then((data) => {
+
+			assert.include(data, componentName)
 
 			fs.writeFileSync('./index.html', data)
 
