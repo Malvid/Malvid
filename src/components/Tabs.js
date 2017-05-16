@@ -19,7 +19,9 @@ const style = {
 }
 
 module.exports = (props) => (
+
 	h('section', { class: style.self.toString() },
 		h('div', { class: style.shadowBox.toString() })
 	)
+
 )

@@ -18,8 +18,10 @@ const style = {
 }
 
 module.exports = (props) => (
+
 	h('content', { class: style.self.toString() },
 		h(Preview, props),
 		h(Tabs, props)
 	)
+
 )
