@@ -29,6 +29,11 @@ const style = {
 
 }
 
-module.exports = (props) => (
-	h('button', { class: style.self.toString() }, props.label)
+module.exports = ({ id, label, active, setCurrentComponent }) => (
+
+	h('button', {
+		class: style.self.toString(),
+		onClick: setCurrentComponent.bind(null, id)
+	}, label)
+
 )

@@ -12,9 +12,10 @@ const Main = require('./components/Main')
 const output = (store) => {
 
 	const root = document.body
+	const child = root.querySelector('#main')
 	const html = h(Provider, { store }, h(Main))
 
-	render(html, root, root.firstElementChild)
+	render(html, root, child)
 
 }
 

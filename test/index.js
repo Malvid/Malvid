@@ -28,9 +28,12 @@ describe('index()', function() {
 
 	it('should render a page with siteData', function() {
 
-		this.timeout(5000)
+		this.timeout(3000)
 
 		const opts = {
+			componentLookup: {
+				pattern: '*/[^_]*.njk'
+			},
 			siteData: {
 				lang: uuid(),
 				title: uuid(),
@@ -48,9 +51,9 @@ describe('index()', function() {
 
 	})
 
-	it.only('should render a page with components', function() {
+	it('should render a page with components', function() {
 
-		this.timeout(5000)
+		this.timeout(3000)
 
 		const componentName = uuid()
 
@@ -96,8 +99,6 @@ describe('index()', function() {
 		}).then((data) => {
 
 			assert.include(data, componentName)
-
-			fs.writeFileSync('./index.html', data)
 
 		})
 

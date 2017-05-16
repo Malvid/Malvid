@@ -5,11 +5,13 @@ const { h } = require('preact')
 const { connect } = require('preact-redux')
 const { css } = require('glamor')
 
+const enhanceState = require('../utils/enhanceState')
+
 const Nav = require('./Nav')
 const Content = require('./Content')
 const actions = require('../actions')
 
-const mapStateToProps    = (state) => state
+const mapStateToProps    = (state) => enhanceState(state)
 const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch)
 
 const style = {
@@ -22,10 +24,12 @@ const style = {
 }
 
 const Main = (props) => (
-	h('div', { class: style.self.toString() },
+
+	h('div', { id: 'main', class: style.self.toString() },
 		h(Nav, props),
 		h(Content, props)
 	)
+
 )
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Main)

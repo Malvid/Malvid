@@ -29,12 +29,19 @@ const style = {
 
 }
 
-module.exports = (props) => {console.log(props); return (
+module.exports = ({ components, currentComponent, setCurrentComponent }) => (
+
 	h('nav', { class: style.self.toString() },
 		h('div', { class: style.scroller.toString() },
-			props.components.map((component) =>
-				h(NavItem, { label: component.id })
+			components.map((component) =>
+				h(NavItem, {
+					id: component.id,
+					label: component.id,
+					active: component.id===(currentComponent || {}).id,
+					setCurrentComponent
+				})
 			)
 		)
 	)
-)}
+
+)

@@ -22,7 +22,9 @@ const style = {
 }
 
 module.exports = (props) => (
+
 	h('section', { class: style.self.toString() },
-		h('iframe', { class: style.shadowBox.toString() })
+		h('div', { class: style.shadowBox.toString() }, (props.currentComponent || {}).id)
 	)
+
 )
