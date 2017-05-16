@@ -1,4 +1,4 @@
-const { SET_CURRENT_COMPONENT }  = require('./types')
+const { SET_CURRENT_COMPONENT } = require('./types')
 
 const { setCurrentComponent } = require('./currentComponent')
 
