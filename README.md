@@ -27,7 +27,7 @@ Add the following object to your `rosidfile.json`, `rosidfile.js` or [routes arr
 ```json
 {
 	"name"    : "Components",
-	"path"    : "/ui/**/*.html*",
+	"path"    : "ui/**/*.html*",
 	"handler" : "rosid-handler-components"
 }
 ```
