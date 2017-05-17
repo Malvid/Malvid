@@ -14,7 +14,7 @@ const style = {
 		display: 'flex',
 		flexDirection: 'column',
 		position: 'relative',
-		padding: '.5em 1em 1em .5em',
+		padding: '.5em 1em 1em .5em'
 	}),
 
 	shadowBox: css(shadowBox)
@@ -24,8 +24,6 @@ const style = {
 module.exports = (props) => {
 
 	if (props.currentTab==null) return null
-
-	console.log(props.currentTab)
 
 	return (
 		h('section', { class: style.self.toString() },
