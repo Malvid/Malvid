@@ -24,7 +24,8 @@ const style = {
 		flex: '1 1 auto',
 		padding: '1em 0',
 		height: '100%',
-		overflow: 'auto'
+		overflow: 'auto',
+		WebkitOverflowScrolling: 'touch'
 	})
 
 }
