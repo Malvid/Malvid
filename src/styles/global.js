@@ -7,7 +7,7 @@ module.exports = `
 		width: 100%;
 		height: 100%;
 		font: normal 400 100%/1.6 'Open Sans', sans-serif;
-		color: ${ DARK }
+		color: ${ DARK };
 	}
 
 	@media (max-width: 900px) {
