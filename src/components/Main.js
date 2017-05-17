@@ -6,10 +6,10 @@ const { connect } = require('preact-redux')
 const { css } = require('glamor')
 
 const enhanceState = require('../utils/enhanceState')
+const actions = require('../actions')
 
 const Nav = require('./Nav')
 const Content = require('./Content')
-const actions = require('../actions')
 
 const mapStateToProps    = (state) => enhanceState(state)
 const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch)
