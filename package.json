@@ -28,7 +28,7 @@
     "test": "istanbul cover node_modules/mocha/bin/_mocha"
   },
   "dependencies": {
-    "component-lookup": "0.0.5",
+    "component-lookup": "0.0.6",
     "deep-assign": "^2.0.0",
     "glamor": "^2.20.25",
     "is-plain-obj": "^1.1.0",
@@ -36,7 +36,8 @@
     "preact-redux": "^2.0.1",
     "preact-render-to-string": "^3.6.2",
     "redux": "^3.6.0",
-    "rosid-handler-js": "^8.0.0"
+    "rosid-handler-js": "^8.0.0",
+    "uppercamelcase": "^3.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

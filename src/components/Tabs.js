@@ -2,26 +2,29 @@
 
 const { h } = require('preact')
 const { css } = require('glamor')
+const upperCamelCase = require('uppercamelcase')
 
-const shadowBox = require('../styles/shadowBox.js')
+const Tab = require('./Tab')
 
 const style = {
 
 	self: css({
-		flex: '1 1 auto',
-		position: 'relative',
-		padding: '.5em 1em 1em .5em',
 		display: 'flex'
-	}),
-
-	shadowBox: css(shadowBox)
+	})
 
 }
 
-module.exports = (props) => (
+module.exports = ({ data, currentTab, setCurrentTab }) => (
 
-	h('section', { class: style.self.toString() },
-		h('div', { class: style.shadowBox.toString() })
+	h('div', { class: style.self.toString() },
+		Object.keys(data).map((key) =>
+			h(Tab, {
+				id: key,
+				label: upperCamelCase(key),
+				active: key===currentTab,
+				setCurrentTab
+			})
+		)
 	)
 
 )

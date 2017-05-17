@@ -37,7 +37,7 @@ module.exports = ({ components, currentComponent, setCurrentComponent }) => (
 			components.map((component) =>
 				h(NavItem, {
 					id: component.id,
-					label: component.id,
+					label: component.name,
 					active: component.id===(currentComponent || {}).id,
 					setCurrentComponent
 				})

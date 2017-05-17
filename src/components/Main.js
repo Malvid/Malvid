@@ -25,7 +25,10 @@ const style = {
 
 const Main = (props) => (
 
-	h('div', { id: 'main', class: style.self.toString() },
+	h('div', {
+		id: 'main',
+		class: style.self.toString()
+	},
 		h(Nav, props),
 		h(Content, props)
 	)

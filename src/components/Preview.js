@@ -17,14 +17,19 @@ const style = {
 		maxHeight: '90vh'
 	}),
 
-	shadowBox: css(shadowBox)
+	iframe: css(shadowBox, {
+		padding: '.5em'
+	})
 
 }
 
-module.exports = (props) => (
+module.exports = ({ src }) => (
 
 	h('section', { class: style.self.toString() },
-		h('div', { class: style.shadowBox.toString() }, (props.currentComponent || {}).id)
+		h('iframe', {
+			class: style.iframe.toString(),
+			src
+		})
 	)
 
 )

@@ -4,7 +4,7 @@ const { h } = require('preact')
 const { css } = require('glamor')
 
 const Preview = require('./Preview')
-const Tabs = require('./Tabs')
+const Inspector = require('./Inspector')
 
 const style = {
 
@@ -20,8 +20,8 @@ const style = {
 module.exports = (props) => (
 
 	h('content', { class: style.self.toString() },
-		h(Preview, props),
-		h(Tabs, props)
+		h(Preview, { src: (props.currentComponent || {}).url }),
+		h(Inspector, props)
 	)
 
 )
