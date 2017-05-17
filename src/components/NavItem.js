@@ -8,10 +8,11 @@ const { DARK } = require('../styles/colors')
 const style = {
 
 	self: css({
+		marginBottom: '.1em',
 		padding: '.9em 1.2em',
 		width: '100%',
 		appearance: 'none',
-		background: 'rgba(0, 0, 0, 0)',
+		background: 'transparent',
 		border: 'none',
 		color: DARK,
 		textAlign: 'left',
@@ -25,6 +26,13 @@ const style = {
 		':active': {
 			background: 'rgba(0, 0, 0, .1)'
 		}
+	}),
+
+	active: css({
+		background: 'rgba(0, 0, 0, .1)',
+		':hover': {
+			background: 'rgba(0, 0, 0, .1)'
+		}
 	})
 
 }
@@ -32,7 +40,7 @@ const style = {
 module.exports = ({ id, label, active, setCurrentComponent }) => (
 
 	h('button', {
-		class: style.self.toString(),
+		class: css(style.self, active && style.active).toString(),
 		onClick: setCurrentComponent.bind(null, id)
 	}, label)
 
