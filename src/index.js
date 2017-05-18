@@ -24,7 +24,7 @@ module.exports = function(filePath, opts = {}) {
 		}
 
 		const files = {
-			view: (fileName, fileExt) => [ `${ fileName }.${ fileExt }` ],
+			view: (fileName, fileExt) => [ `${ fileName }${ fileExt }` ],
 			data: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ],
 			notes: (fileName, fileExt) => [ `${ fileName }.md` ]
 		}
