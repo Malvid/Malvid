@@ -25,15 +25,15 @@ module.exports = function(filePath, opts = {}) {
 
 		const files = {
 			view: {
-				language: [ 'twig' ],
+				languages: [ 'twig' ],
 				resolver: (fileName, fileExt) => [ `${ fileName }${ fileExt }` ]
 			},
 			data: {
-				language: [ 'json', 'js' ],
+				languages: [ 'json', 'js' ],
 				resolver: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
 			},
 			notes: {
-				language: [ 'markdown' ],
+				languages: [ 'markdown' ],
 				resolver: (fileName, fileExt) => [ `${ fileName }.md` ]
 			}
 		}
@@ -52,7 +52,7 @@ module.exports = function(filePath, opts = {}) {
 		// Component lookup only cares about the resolvers
 		const resolvers = Object.keys(opts.files).reduce((acc, key) => {
 
-			acc[key] = opts.files[key].loader
+			acc[key] = opts.files[key].resolver
 			return acc
 
 		}, {})

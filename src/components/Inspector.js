@@ -6,18 +6,20 @@ const { css } = require('glamor')
 const shadowBox = require('../styles/shadowBox.js')
 
 const Tabs = require('./Tabs')
+const Code = require('./Code')
 
 const style = {
 
 	self: css({
 		flex: '1 1 auto',
 		display: 'flex',
-		flexDirection: 'column',
-		position: 'relative',
 		padding: '.5em 1em 1em .5em'
 	}),
 
-	shadowBox: css(shadowBox)
+	shadowBox: css(shadowBox, {
+		display: 'flex',
+		flexDirection: 'column'
+	})
 
 }
 
@@ -33,9 +35,10 @@ module.exports = (props) => {
 					currentTab: props.currentTab,
 					setCurrentTab: props.setCurrentTab
 				}),
-				h('div', null,
-					props.currentComponent.data[props.currentTab]
-				)
+				h(Code, {
+					languages: props.opts.files[props.currentTab].languages,
+					code: props.currentComponent.data[props.currentTab]
+				})
 			)
 		)
 	)
