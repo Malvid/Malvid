@@ -27,7 +27,7 @@ describe('index()', function() {
 
 	it('should render a page with siteData', function() {
 
-		this.timeout(3000)
+		this.timeout(5000)
 
 		const opts = {
 			lang: uuid(),
@@ -47,7 +47,7 @@ describe('index()', function() {
 
 	it('should render a page with components', function() {
 
-		this.timeout(3000)
+		this.timeout(5000)
 
 		const componentName = uuid()
 
