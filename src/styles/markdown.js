@@ -64,10 +64,6 @@ module.exports = `
 		background-color: #b52a1d;
 	}
 
-	.markdown .pl-c2::before {
-		content: "^M";
-	}
-
 	.markdown .pl-sr .pl-cce {
 		font-weight: bold;
 		color: #63a35c;
@@ -601,12 +597,6 @@ module.exports = `
 		font-size: 85%;
 		background-color: rgba(27,31,35,0.05);
 		border-radius: 3px;
-	}
-
-	.markdown code::before,
-	.markdown code::after {
-		letter-spacing: -0.2em;
-		content: "\00a0";
 	}
 
 	.markdown pre {
