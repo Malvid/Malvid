@@ -1,7 +1,6 @@
 'use strict'
 
 const os = require('os')
-const fs = require('fs')
 const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const index = require('./../src/index')
@@ -58,20 +57,14 @@ describe('index()', function() {
 				name: uuid(),
 				contents: [
 					{
-						type: fsify.DIRECTORY,
-						name: componentName,
-						contents: [
-							{
-								type: fsify.FILE,
-								name: `${ componentName }.njk`,
-								contents: 'Hello World!'
-							},
-							{
-								type: fsify.FILE,
-								name: `${ componentName }.data.json`,
-								contents: JSON.stringify({})
-							}
-						]
+						type: fsify.FILE,
+						name: `${ componentName }.njk`,
+						contents: 'Hello World!'
+					},
+					{
+						type: fsify.FILE,
+						name: `${ componentName }.data.json`,
+						contents: JSON.stringify({})
 					}
 				]
 			}
