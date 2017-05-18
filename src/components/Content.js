@@ -9,9 +9,10 @@ const Inspector = require('./Inspector')
 const style = {
 
 	self: css({
-		flex: '1 1 auto',
+		flex: '0 0 auto',
 		display: 'flex',
-		flexDirection: 'column'
+		flexDirection: 'column',
+		width: 'calc(100% - 300px)'
 	})
 
 }
