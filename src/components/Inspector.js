@@ -24,12 +24,10 @@ const style = {
 
 }
 
-module.exports = (props) => {
+module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
 
-	if (props.currentTab==null) return null
-
-	const languages = props.opts.files[props.currentTab].languages
-	const data = props.currentComponent.data[props.currentTab]
+	const languages = files[currentTab].languages
+	const data = currentComponent.data[currentTab]
 
 	const Viewer = languages[0]==='markdown' ? Markdown : Code
 
@@ -37,9 +35,9 @@ module.exports = (props) => {
 		h('section', { class: style.self.toString() },
 			h('div', { class: style.shadowBox.toString() },
 				h(Tabs, {
-					data: props.currentComponent.data,
-					currentTab: props.currentTab,
-					setCurrentTab: props.setCurrentTab
+					data: currentComponent.data,
+					currentTab: currentTab,
+					setCurrentTab: setCurrentTab
 				}),
 				h(Viewer, {
 					languages,
