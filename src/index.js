@@ -24,9 +24,18 @@ module.exports = function(filePath, opts = {}) {
 		}
 
 		const files = {
-			view: (fileName, fileExt) => [ `${ fileName }${ fileExt }` ],
-			data: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ],
-			notes: (fileName, fileExt) => [ `${ fileName }.md` ]
+			view: {
+				language: [ 'twig' ],
+				resolver: (fileName, fileExt) => [ `${ fileName }${ fileExt }` ]
+			},
+			data: {
+				language: [ 'json', 'js' ],
+				resolver: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
+			},
+			notes: {
+				language: [ 'markdown' ],
+				resolver: (fileName, fileExt) => [ `${ fileName }.md` ]
+			}
 		}
 
 		opts = deepAssign({
@@ -40,8 +49,16 @@ module.exports = function(filePath, opts = {}) {
 
 	}).then(() => {
 
+		// Component lookup only cares about the resolvers
+		const resolvers = Object.keys(opts.files).reduce((acc, key) => {
+
+			acc[key] = opts.files[key].loader
+			return acc
+
+		}, {})
+
 		// Get the components data
-		return componentLookup(opts.pattern, opts.files, {
+		return componentLookup(opts.pattern, resolvers, {
 			cwd: opts.src
 		})
 
