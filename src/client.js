@@ -6,6 +6,7 @@ const { css, rehydrate } = require('glamor')
 
 const createStore = require('./utils/createStore')
 const global = require('./styles/global')
+const markdown = require('./styles/markdown')
 
 const Main = require('./components/Main')
 
@@ -26,6 +27,7 @@ const init = () => {
 
 	// Inject global CSS
 	css.insert(global)
+	css.insert(markdown)
 
 	// Rehydrate store from state
 	const store = createStore(window.__STATE__)

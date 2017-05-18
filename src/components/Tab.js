@@ -3,7 +3,7 @@
 const { h } = require('preact')
 const { css } = require('glamor')
 
-const { BLUE, LIGHT, DARK } = require('../styles/colors')
+const { BLUE, MID, DARK } = require('../styles/colors')
 
 const style = {
 
@@ -19,14 +19,14 @@ const style = {
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
 		border: 'none',
-		boxShadow: `inset 0 -1px 0 ${ LIGHT }, inset -1px 0 0 ${ LIGHT }`,
+		boxShadow: `inset 0 -1px 0 ${ MID }, inset -1px 0 0 ${ MID }`,
 		':last-child': {
-			boxShadow: `inset 0 -1px 0 ${ LIGHT }`
+			boxShadow: `inset 0 -1px 0 ${ MID }`
 		}
 	}),
 
 	active: css({
-		boxShadow: `inset 0 -2px 0 ${ BLUE }, inset -1px 0 0 ${ LIGHT }`,
+		boxShadow: `inset 0 -2px 0 ${ BLUE }, inset -1px 0 0 ${ MID }`,
 		':last-child': {
 			boxShadow: `inset 0 -2px 0 ${ BLUE }`
 		}

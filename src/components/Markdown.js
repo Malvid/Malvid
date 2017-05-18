@@ -2,6 +2,7 @@
 
 const { h, Component } = require('preact')
 const { css } = require('glamor')
+const marked = require('marked')
 const highlight = require('highlight.js')
 
 const style = {
@@ -13,7 +14,7 @@ const style = {
 		margin: '0'
 	}),
 
-	code: css({
+	content: css({
 		flex: '1 1 auto',
 		padding: '1.5em 2em',
 		height: '100%',
@@ -24,13 +25,15 @@ const style = {
 
 }
 
-module.exports = ({ data, languages }) => (
+module.exports = ({ data }) => (
 
-	h('pre', { class: style.self.toString() },
-		h('code', {
-			class: style.code.toString(),
+	h('div', { class: style.self.toString() },
+		h('div', {
+			class: `${ style.content.toString() } markdown`,
 			dangerouslySetInnerHTML: {
-				__html: highlight.highlightAuto(data, languages).value
+				__html: marked(data, {
+					highlight: (code) => highlight.highlightAuto(code).value
+				})
 			}
 		})
 	)

@@ -65,6 +65,11 @@ describe('index()', function() {
 						type: fsify.FILE,
 						name: `${ componentName }.data.json`,
 						contents: JSON.stringify({})
+					},
+					{
+						type: fsify.FILE,
+						name: `${ componentName }.md`,
+						contents: '# Hello World'
 					}
 				]
 			}

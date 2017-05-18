@@ -7,6 +7,7 @@ const shadowBox = require('../styles/shadowBox.js')
 
 const Tabs = require('./Tabs')
 const Code = require('./Code')
+const Markdown = require('./Markdown')
 
 const style = {
 
@@ -27,6 +28,11 @@ module.exports = (props) => {
 
 	if (props.currentTab==null) return null
 
+	const languages = props.opts.files[props.currentTab].languages
+	const data = props.currentComponent.data[props.currentTab]
+
+	const Viewer = languages[0]==='markdown' ? Markdown : Code
+
 	return (
 		h('section', { class: style.self.toString() },
 			h('div', { class: style.shadowBox.toString() },
@@ -35,9 +41,9 @@ module.exports = (props) => {
 					currentTab: props.currentTab,
 					setCurrentTab: props.setCurrentTab
 				}),
-				h(Code, {
-					languages: props.opts.files[props.currentTab].languages,
-					code: props.currentComponent.data[props.currentTab]
+				h(Viewer, {
+					languages,
+					data
 				})
 			)
 		)

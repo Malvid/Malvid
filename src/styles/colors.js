@@ -2,12 +2,14 @@
 
 const BLUE = '#2887fc'
 const WHITE = '#ffffff'
-const LIGHT = '#f7f7f7'
-const DARK = '#444444'
+const LIGHT = '#f8f8f8'
+const MID = '#eeeeee'
+const DARK = '#333333'
 
 module.exports = {
 	BLUE,
 	WHITE,
 	LIGHT,
+	MID,
 	DARK
 }
