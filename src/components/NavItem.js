@@ -21,17 +21,17 @@ const style = {
 		overflow: 'hidden',
 		borderRadius: '6px',
 		':hover': {
-			background: 'rgba(0, 0, 0, .05)'
+			background: 'rgba(0, 0, 0, .04)'
 		},
 		':active': {
-			background: 'rgba(0, 0, 0, .1)'
+			background: 'rgba(0, 0, 0, .08)'
 		}
 	}),
 
 	active: css({
-		background: 'rgba(0, 0, 0, .1)',
+		background: 'rgba(0, 0, 0, .08)',
 		':hover': {
-			background: 'rgba(0, 0, 0, .1)'
+			background: 'rgba(0, 0, 0, .08)'
 		}
 	})
 
