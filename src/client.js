@@ -4,6 +4,7 @@ const { h, render } = require('preact')
 const { Provider } = require('preact-redux')
 const { css, rehydrate } = require('glamor')
 
+const isClient = require('./utils/isClient')
 const createStore = require('./utils/createStore')
 const global = require('./styles/global')
 const markdown = require('./styles/markdown')
@@ -37,4 +38,4 @@ const init = () => {
 
 }
 
-if (typeof window!=='undefined') init()
+if (isClient===true) init()
