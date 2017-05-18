@@ -18,7 +18,7 @@ module.exports = `
 
 	body {
 		display: flex;
-		min-height: 100%;
+		height: 100%;
 		background: ${ LIGHT };
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;

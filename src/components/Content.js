@@ -10,7 +10,6 @@ const style = {
 
 	self: css({
 		flex: '1 1 auto',
-		position: 'relative',
 		display: 'flex',
 		flexDirection: 'column'
 	})

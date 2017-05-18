@@ -9,6 +9,7 @@ const Tab = require('./Tab')
 const style = {
 
 	self: css({
+		flex: '0 0 auto',
 		display: 'flex'
 	})
 

@@ -13,7 +13,6 @@ const style = {
 		flex: '0 0 auto',
 		display: 'flex',
 		flexDirection: 'column',
-		position: 'relative',
 		padding: '0 .5em 0 1em',
 		minWidth: '10vw',
 		width: '300px',

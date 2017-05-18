@@ -9,7 +9,6 @@ const style = {
 
 	self: css({
 		flex: '0 0 auto',
-		position: 'relative',
 		display: 'flex',
 		padding: '1em 1em .5em .5em',
 		minHeight: '10vh',
