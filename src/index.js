@@ -3,6 +3,7 @@
 const path = require('path')
 const deepAssign = require('deep-assign')
 const isPlainObj = require('is-plain-obj')
+const pify = require('pify')
 const jsPath = path.resolve(__dirname, './client.js')
 const js = require('rosid-handler-js')(jsPath, { optimize: false })
 const componentsLookup = require('components-lookup')
@@ -79,7 +80,11 @@ module.exports = function(filePath, opts = {}) {
 		}
 
 		// Render the page
-		return server(initalState, js)
+		return pify(server)(initalState, js)
+
+	}).then((str) => {
+
+		return str
 
 	})
 

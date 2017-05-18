@@ -17,13 +17,16 @@ const whitelist = [
 ]
 
 // Create the store
-module.exports = (state) => {
+module.exports = (state, next) => {
 
 	const store = createStore(reducers, state, enhancers)
 
 	// Begin periodically persisting the store
-	persistStore(store, { whitelist })
+	persistStore(store, { whitelist }, () => {
 
-	return store
+		// Rehydration complete
+		next(null, store)
+
+	})
 
 }

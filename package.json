@@ -34,6 +34,7 @@
     "highlight.js": "^9.11.0",
     "is-plain-obj": "^1.1.0",
     "marked": "^0.3.6",
+    "pify": "^2.3.0",
     "preact": "^8.1.0",
     "preact-redux": "^2.0.1",
     "preact-render-to-string": "^3.6.2",

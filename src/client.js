@@ -6,8 +6,6 @@ const { css, rehydrate } = require('glamor')
 
 const isClient = require('./utils/isClient')
 const createStore = require('./utils/createStore')
-const global = require('./styles/global')
-const markdown = require('./styles/markdown')
 
 const Main = require('./components/Main')
 
@@ -26,15 +24,15 @@ const init = () => {
 	// Rehydrate glamor state
 	rehydrate(window.__GLAMOR__)
 
-	// Inject global CSS
-	css.insert(global)
-	css.insert(markdown)
-
 	// Rehydrate store from state
-	const store = createStore(window.__STATE__)
+	createStore(window.__STATE__, (err, store) => {
 
-	// Render component with the same props as the server
-	output(store)
+		if (err!=null) throw err
+
+		// Render component with the same props as the server
+		output(store)
+
+	})
 
 }
 
