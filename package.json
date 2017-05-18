@@ -28,6 +28,7 @@
     "test": "istanbul cover node_modules/mocha/bin/_mocha"
   },
   "dependencies": {
+    "components-lookup": "^1.0.0",
     "deep-assign": "^2.0.0",
     "glamor": "^2.20.25",
     "highlight.js": "^9.11.0",

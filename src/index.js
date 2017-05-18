@@ -5,7 +5,7 @@ const deepAssign = require('deep-assign')
 const isPlainObj = require('is-plain-obj')
 const jsPath = path.resolve(__dirname, './client.js')
 const js = require('rosid-handler-js')(jsPath, { optimize: false })
-const componentLookup = require('component-lookup')
+const componentsLookup = require('components-lookup')
 const server = require('./server')
 
 /**
@@ -58,7 +58,7 @@ module.exports = function(filePath, opts = {}) {
 		}, {})
 
 		// Get the components data
-		return componentLookup(opts.pattern, resolvers, {
+		return componentsLookup(opts.pattern, resolvers, {
 			cwd: opts.src
 		})
 
