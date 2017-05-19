@@ -3,6 +3,8 @@
 const { h } = require('preact')
 const { css } = require('glamor')
 
+const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../styles/sizes')
+
 const Preview = require('./Preview')
 const Resizer = require('./Resizer')
 const Inspector = require('./Inspector')
@@ -10,11 +12,12 @@ const Inspector = require('./Inspector')
 const style = {
 
 	self: css({
-		flex: '1 1 auto',
 		display: 'flex',
 		flexDirection: 'column',
 		padding: '1em 1em 1em 0',
-		width: 'calc(100% - 300px + var(--currentSize-horizontal, 0px))'
+		minWidth: CONTENT_MIN_WIDTH,
+		width: `calc(100% - ${ NAV_WIDTH } + var(--currentSize-horizontal, 0px))`,
+		maxWidth: `calc(100% - ${ NAV_MIN_WIDTH })`
 	})
 
 }

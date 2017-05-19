@@ -4,17 +4,19 @@ const { h } = require('preact')
 const { css } = require('glamor')
 
 const { LIGHT } = require('../styles/colors')
+const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../styles/sizes')
 
 const NavItem = require('./NavItem')
 
 const style = {
 
 	self: css({
-		flex: '0 0 auto',
 		display: 'flex',
 		flexDirection: 'column',
 		padding: '0 0 0 1em',
-		width: `calc(300px - var(--currentSize-horizontal, 0px))`
+		minWidth: NAV_MIN_WIDTH,
+		width: `calc(${ NAV_WIDTH } - var(--currentSize-horizontal, 0px))`,
+		maxWidth: `calc(100% - ${ CONTENT_MIN_WIDTH })`
 	}),
 
 	scroller: css({
