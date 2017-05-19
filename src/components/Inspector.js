@@ -11,10 +11,9 @@ const Markdown = require('./Markdown')
 
 const style = {
 
-	self: css({
+	self: ({ currentSize }) => css({
 		flex: '1 1 auto',
-		display: 'flex',
-		padding: '.5em 1em 1em .5em'
+		display: 'flex'
 	}),
 
 	shadowBox: css(shadowBox, {
@@ -24,7 +23,7 @@ const style = {
 
 }
 
-module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
+module.exports = ({ files, currentComponent, currentSize, currentTab, setCurrentTab }) => {
 
 	const languages = files[currentTab].languages
 	const data = currentComponent.data[currentTab]
@@ -32,12 +31,12 @@ module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
 	const Viewer = languages[0]==='markdown' ? Markdown : Code
 
 	return (
-		h('section', { class: style.self.toString() },
+		h('section', { class: style.self({ currentSize }).toString() },
 			h('div', { class: style.shadowBox.toString() },
 				h(Tabs, {
 					data: currentComponent.data,
-					currentTab: currentTab,
-					setCurrentTab: setCurrentTab
+					currentTab,
+					setCurrentTab
 				}),
 				h(Viewer, {
 					languages,

@@ -9,12 +9,12 @@ const NavItem = require('./NavItem')
 
 const style = {
 
-	self: css({
+	self: ({ currentSize }) => css({
 		flex: '1 1 auto',
 		display: 'flex',
 		flexDirection: 'column',
-		padding: '0 .5em 0 1em',
-		width: '300px'
+		padding: '0 0 0 1em',
+		width: `calc(300px - ${ currentSize.horizontal }px)`
 	}),
 
 	scroller: css({
@@ -27,9 +27,9 @@ const style = {
 
 }
 
-module.exports = ({ components, currentComponent, setCurrentComponent }) => (
+module.exports = ({ components, currentSize, currentComponent, setCurrentComponent }) => (
 
-	h('nav', { class: style.self.toString() },
+	h('nav', { class: style.self({ currentSize }).toString() },
 		h('div', { class: style.scroller.toString() },
 			components.map((component) =>
 				h(NavItem, {

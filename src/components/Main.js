@@ -9,6 +9,7 @@ const enhanceState = require('../utils/enhanceState')
 const actions = require('../actions')
 
 const Nav = require('./Nav')
+const Resizer = require('./Resizer')
 const Content = require('./Content')
 
 const mapStateToProps    = (state) => enhanceState(state)
@@ -29,7 +30,16 @@ const Main = (props) => (
 		id: 'main',
 		class: style.self.toString()
 	},
-		h(Nav, props),
+		h(Nav, {
+			components: props.components,
+			currentSize: props.currentSize,
+			currentComponent: props.currentComponent,
+			setCurrentComponent: props.setCurrentComponent
+		}),
+		h(Resizer, {
+			direction: 'horizontal',
+			setCurrentSize: props.setCurrentSizeHorizontal
+		}),
 		h(Content, props)
 	)
 

@@ -7,24 +7,22 @@ const shadowBox = require('../styles/shadowBox.js')
 
 const style = {
 
-	self: css({
+	self: ({ currentSize }) => css({
 		flex: '0 0 auto',
 		display: 'flex',
-		padding: '1em 1em .5em .5em',
-		minHeight: '10vh',
-		height: '50vh',
-		maxHeight: '90vh'
+		height: `calc(50vh - ${ currentSize.vertical }px)`
 	}),
 
 	iframe: css(shadowBox, {
-		padding: '.5em'
+		padding: '.5em',
+		'pointer-events':'none'
 	})
 
 }
 
-module.exports = ({ src }) => (
+module.exports = ({ src, currentSize }) => (
 
-	h('section', { class: style.self.toString() },
+	h('section', { class: style.self({ currentSize }).toString() },
 		h('iframe', {
 			class: style.iframe.toString(),
 			src
