@@ -51,47 +51,6 @@ const style = {
 
 }
 
-// const resizable = function(elem, listener) {
-//
-// 	const id = +new Date()
-//
-// 	let isResizing = false
-//
-// 	elem.onmousedown = (e) => {
-//
-// 		console.log('start')
-//
-// 		const startPos = eventPos(e)
-//
-// 		isResizing = true
-//
-// 		resizing(id, startPos)
-//
-// 	}
-//
-// 	document.onmouseup = (e) => {
-//
-// 		console.log('stop')
-//
-// 		isResizing = false
-//
-// 	}
-//
-// 	const resizing = (id, startPos) => {
-//
-// 		if (isResizing==false) return
-//
-// 		listener({
-// 			vertical: startPos.y - mousePos().y,
-// 			horizontal: startPos.x - mousePos().x
-// 		})
-//
-// 		requestAnimationFrame(() => resizing(id, startPos))
-//
-// 	}
-//
-// }
-
 module.exports = class extends Component {
 
 	constructor(props) {
@@ -139,8 +98,6 @@ module.exports = class extends Component {
 			vertical: this.state.startPos.y - mousePos().y,
 			horizontal: this.state.startPos.x - mousePos().x
 		}
-
-		console.log(offsets);
 
 		this.props.setCurrentSize(offsets[direction])
 

@@ -32,7 +32,6 @@ const Main = (props) => (
 	},
 		h(Nav, {
 			components: props.components,
-			currentSize: props.currentSize,
 			currentComponent: props.currentComponent,
 			setCurrentComponent: props.setCurrentComponent
 		}),
