@@ -3,13 +3,13 @@
 const { compose, applyMiddleware, createStore } = require('redux')
 const { persistStore, autoRehydrate } = require('redux-persist')
 
-const metaSync = require('./metaSync')
+const sync = require('./sync')
 const reducers = require('../reducers')
 
 // Enhance the store with third-party capabilities
 const enhancers = compose(
 	autoRehydrate(),
-	applyMiddleware(metaSync)
+	applyMiddleware(sync)
 )
 
 // Reducers to persist
