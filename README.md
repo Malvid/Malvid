@@ -17,7 +17,7 @@ npm install rosid-handler-components
 ```js
 const components = require('rosid-handler-components')
 
-components(null).then((data) => {})
+components().then((data) => {})
 ```
 
 ### Rosid
