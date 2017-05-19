@@ -1,6 +1,6 @@
 'use strict'
 
-const { h, Component } = require('preact')
+const { h } = require('preact')
 const { css } = require('glamor')
 const highlight = require('highlight.js')
 
