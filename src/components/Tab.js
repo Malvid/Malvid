@@ -19,6 +19,7 @@ const style = {
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
 		border: 'none',
+		transition: 'box-shadow .3s ease',
 		boxShadow: `inset 0 -1px 0 ${ MID }, inset -1px 0 0 ${ MID }`,
 		':last-child': {
 			boxShadow: `inset 0 -1px 0 ${ MID }`
