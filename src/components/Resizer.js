@@ -58,8 +58,7 @@ module.exports = class extends Component {
 		super(props)
 
 		this.setState({
-			isResizing: false,
-			startPos: null
+			isResizing: false
 		})
 
 	}
@@ -72,6 +71,14 @@ module.exports = class extends Component {
 			isResizing: true,
 			startPos: this.state.startPos || eventPos(e)
 		})
+
+		document.documentElement.onmouseup = () => {
+
+			this.setState({
+				isResizing: false
+			})
+
+		}
 
 		this.onResize.bind(this)()
 
