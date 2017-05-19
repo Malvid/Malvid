@@ -20,6 +20,10 @@ module.exports = `
 		display: flex;
 		height: 100%;
 		background: ${ LIGHT };
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}

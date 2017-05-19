@@ -19,7 +19,11 @@ const style = {
 		height: '100%',
 		background: 'transparent',
 		overflow: 'auto',
-		WebkitOverflowScrolling: 'touch'
+		WebkitOverflowScrolling: 'touch',
+		WebkitUserSelect: 'auto',
+		MozUserSelect: 'auto',
+		MsUserSelect: 'auto',
+		UserSelect: 'auto'
 	})
 
 }
