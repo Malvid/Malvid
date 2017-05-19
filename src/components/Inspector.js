@@ -3,7 +3,8 @@
 const { h } = require('preact')
 const { css } = require('glamor')
 
-const shadowBox = require('../styles/shadowBox.js')
+const shadowBox = require('../styles/shadowBox')
+const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../styles/sizes')
 
 const Tabs = require('./Tabs')
 const Code = require('./Code')
@@ -12,8 +13,10 @@ const Markdown = require('./Markdown')
 const style = {
 
 	self: css({
-		flex: '1 1 auto',
-		display: 'flex'
+		display: 'flex',
+		minHeight: INSPECTOR_MIN_HEIGHT,
+		height: `calc(100vh - ${ PREVIEW_HEIGHT } + var(--currentSize-vertical, 0))`,
+		maxHeight: `calc(100vh - ${ PREVIEW_MIN_HEIGHT })`
 	}),
 
 	shadowBox: css(shadowBox, {

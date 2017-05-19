@@ -3,14 +3,16 @@
 const { h } = require('preact')
 const { css } = require('glamor')
 
-const shadowBox = require('../styles/shadowBox.js')
+const shadowBox = require('../styles/shadowBox')
+const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../styles/sizes')
 
 const style = {
 
 	self: css({
-		flex: '0 0 auto',
 		display: 'flex',
-		height: 'calc(50vh - var(--currentSize-vertical, 0))'
+		minHeight: PREVIEW_MIN_HEIGHT,
+		height: `calc(${ PREVIEW_HEIGHT } - var(--currentSize-vertical, 0))`,
+		maxHeight: `calc(100vh - ${ INSPECTOR_MIN_HEIGHT })`
 	}),
 
 	iframe: css(shadowBox, {
