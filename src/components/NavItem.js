@@ -20,19 +20,14 @@ const style = {
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
 		borderRadius: '6px',
-		':hover': {
-			background: 'rgba(0, 0, 0, .04)'
-		},
+		transition: 'background 0s .05s',
 		':active': {
 			background: 'rgba(0, 0, 0, .08)'
 		}
 	}),
 
 	active: css({
-		background: 'rgba(0, 0, 0, .08)',
-		':hover': {
-			background: 'rgba(0, 0, 0, .08)'
-		}
+		background: 'rgba(0, 0, 0, .08)'
 	})
 
 }
