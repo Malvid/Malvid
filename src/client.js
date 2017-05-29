@@ -9,17 +9,7 @@ const createStore = require('./utils/createStore')
 
 const Main = require('./components/Main')
 
-const output = (store) => {
-
-	const root = document.body
-	const child = root.querySelector('#main')
-	const html = h(Provider, { store }, h(Main))
-
-	render(html, root, child)
-
-}
-
-const init = () => {
+if (isClient===true) {
 
 	// Rehydrate glamor state
 	rehydrate(window.__GLAMOR__)
@@ -29,11 +19,13 @@ const init = () => {
 
 		if (err!=null) throw err
 
+		const root = document.body
+		const child = root.querySelector('#main')
+		const html = h(Provider, { store }, h(Main))
+
 		// Render component with the same props as the server
-		output(store)
+		render(html, root, child)
 
 	})
 
 }
-
-if (isClient===true) init()
