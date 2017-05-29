@@ -3,8 +3,8 @@
 const { h } = require('preact')
 const { css } = require('glamor')
 
-const { LIGHT } = require('../styles/colors')
-const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../styles/sizes')
+const { LIGHT } = require('../constants/colors')
+const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 
 const NavItem = require('./NavItem')
 

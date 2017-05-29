@@ -1,6 +1,6 @@
 'use strict'
 
-const { LIGHT, DARK } = require('./colors')
+const { LIGHT, DARK } = require('../constants/colors')
 
 module.exports = `
 	html {

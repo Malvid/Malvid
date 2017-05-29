@@ -3,7 +3,7 @@
 const { h } = require('preact')
 const { css } = require('glamor')
 
-const { BLUE, MID, DARK } = require('../styles/colors')
+const { BLUE, MID, DARK } = require('../constants/colors')
 
 const style = {
 

@@ -4,7 +4,7 @@ const { h } = require('preact')
 const { css } = require('glamor')
 
 const shadowBox = require('../styles/shadowBox')
-const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../styles/sizes')
+const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
 
 const Tabs = require('./Tabs')
 const Code = require('./Code')

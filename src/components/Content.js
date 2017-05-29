@@ -3,7 +3,7 @@
 const { h } = require('preact')
 const { css } = require('glamor')
 
-const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../styles/sizes')
+const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 
 const Preview = require('./Preview')
 const Resizer = require('./Resizer')

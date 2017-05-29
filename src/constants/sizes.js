@@ -2,11 +2,11 @@
 
 const NAV_MIN_WIDTH = '200px'
 const NAV_WIDTH = '300px'
-const CONTENT_MIN_WIDTH = '200px'
+const CONTENT_MIN_WIDTH = '300px'
 
 const PREVIEW_MIN_HEIGHT = '200px'
 const PREVIEW_HEIGHT = '50vh'
-const INSPECTOR_MIN_HEIGHT = '200px'
+const INSPECTOR_MIN_HEIGHT = '300px'
 
 module.exports = {
 	NAV_MIN_WIDTH,
