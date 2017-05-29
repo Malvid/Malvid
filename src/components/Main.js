@@ -37,7 +37,8 @@ const Main = (props) => (
 		}),
 		h(Resizer, {
 			direction: 'horizontal',
-			setCurrentSize: props.setCurrentSizeHorizontal
+			setCurrentSize: props.setCurrentSizeHorizontal,
+			setCurrentSizeStatus: props.setCurrentSizeStatus
 		}),
 		h(Content, props)
 	)

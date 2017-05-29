@@ -1,4 +1,4 @@
-const { SET_CURRENT_TAB } = require('../actions/types')
+const { SET_CURRENT_TAB } = require('../constants/actions')
 
 const setCurrentTab = (state, tabId) => tabId
 

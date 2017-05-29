@@ -6,6 +6,7 @@ const { css } = require('glamor')
 const isClient = require('../utils/isClient')
 const eventPos = require('../utils/eventPos')
 const mousePos = require('../utils/mousePos')
+const { CURRENT_SIZE_STATUS_INACTIVE, CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')
 
 const style = {
 
@@ -15,12 +16,14 @@ const style = {
 		justifyContent: 'center',
 		alignItems: 'center',
 		padding: '.4em',
-		'> *': {
-			opacity: 0
-		},
-		'&:hover > *': {
+		transition: 'opacity .3s ease',
+		':hover': {
 			opacity: 1
 		}
+	}),
+
+	selfVisibility: ({ status }) => css({
+		opacity: status===CURRENT_SIZE_STATUS_ACTIVE ? 1 : 0
 	}),
 
 	selfVertical: css({
@@ -35,8 +38,7 @@ const style = {
 
 	handle: css({
 		margin: '.5px',
-		background: 'rgba(0, 0, 0, .15)',
-		transition: 'opacity .3s ease'
+		background: 'rgba(0, 0, 0, .15)'
 	}),
 
 	handleVertical: css({
@@ -57,70 +59,70 @@ module.exports = class extends Component {
 
 		super(props)
 
-		this.setState({
-			isResizing: false
-		})
+		this.state = {
+			status: CURRENT_SIZE_STATUS_INACTIVE,
+			startPos: null
+		}
 
 	}
 
-	onMouseDown(e) {
-
-		console.log('start')
-
-		this.setState({
-			isResizing: true,
-			startPos: this.state.startPos || eventPos(e)
-		})
-
-		document.documentElement.onmouseup = () => {
-
-			this.setState({
-				isResizing: false
-			})
-
-		}
+	componentDidMount() {
 
 		this.onResize.bind(this)()
 
 	}
 
-	onMouseUp() {
+	onMouseDown(e) {
 
-		console.log('stop')
+		this.props.setCurrentSizeStatus(CURRENT_SIZE_STATUS_ACTIVE)
 
 		this.setState({
-			isResizing: false
+			status: CURRENT_SIZE_STATUS_ACTIVE,
+			startPos: this.state.startPos || eventPos(e)
 		})
+
+		document.documentElement.onmouseup = () => {
+
+			this.props.setCurrentSizeStatus(CURRENT_SIZE_STATUS_INACTIVE)
+
+			this.setState({
+				status: CURRENT_SIZE_STATUS_INACTIVE
+			})
+
+		}
 
 	}
 
 	onResize() {
 
-		if (this.state.isResizing===false) return
-
 		const self = this.onResize.bind(this)
-		const direction = this.props.direction
 
-		const offsets = {
-			vertical: this.state.startPos.y - mousePos().y,
-			horizontal: this.state.startPos.x - mousePos().x
+		if (this.state.status==CURRENT_SIZE_STATUS_ACTIVE) {
+
+			const direction = this.props.direction
+
+			const offsets = {
+				vertical: this.state.startPos.y - mousePos().y,
+				horizontal: this.state.startPos.x - mousePos().x
+			}
+
+			this.props.setCurrentSize(offsets[direction])
+
 		}
-
-		this.props.setCurrentSize(offsets[direction])
 
 		requestAnimationFrame(self)
 
 	}
 
-	render({ direction }) {
+	render({ direction }, { status }) {
 
 		return (
 			h('div', {
 				ref: (ref) => this.ref = ref,
 				onMouseDown: this.onMouseDown.bind(this),
-				onMouseUp: this.onMouseUp.bind(this),
 				class: css(
 					style.self,
+					style.selfVisibility({ status }),
 					direction==='horizontal' && style.selfHorizontal,
 					direction==='vertical' && style.selfVertical
 				).toString()

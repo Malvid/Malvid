@@ -1,4 +1,4 @@
-const { SET_CURRENT_COMPONENT } = require('./types')
+const { SET_CURRENT_COMPONENT } = require('../constants/actions')
 
 const setCurrentComponent = (componentId) => ({
 	type: SET_CURRENT_COMPONENT,

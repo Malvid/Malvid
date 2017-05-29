@@ -29,11 +29,13 @@ module.exports = (props) => {
 	return (
 		h('content', { class: style.self.toString() },
 			h(Preview, {
-				src: props.currentComponent.url
+				src: props.currentComponent.url,
+				currentSizeStatus: props.currentSize.status
 			}),
 			h(Resizer, {
 				direction: 'vertical',
-				setCurrentSize: props.setCurrentSizeVertical
+				setCurrentSize: props.setCurrentSizeVertical,
+				setCurrentSizeStatus: props.setCurrentSizeStatus
 			}),
 			h(Inspector, {
 				files: props.opts.files,
