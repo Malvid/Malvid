@@ -34,20 +34,20 @@
     "highlight.js": "^9.11.0",
     "is-plain-obj": "^1.1.0",
     "marked": "^0.3.6",
-    "pify": "^2.3.0",
+    "pify": "^3.0.0",
     "preact": "^8.1.0",
     "preact-redux": "^2.0.1",
-    "preact-render-to-string": "^3.6.2",
+    "preact-render-to-string": "^3.6.3",
     "redux": "^3.6.0",
     "redux-persist": "^4.8.0",
-    "rosid-handler-js": "^8.0.0",
+    "rosid-handler-js": "^8.0.1",
     "uppercamelcase": "^3.0.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.0.0",
     "coveralls": "^2.13.1",
-    "fsify": "^2.0.1",
+    "fsify": "^2.0.2",
     "istanbul": "^0.4.5",
-    "mocha": "^3.4.1"
+    "mocha": "^3.4.2"
   }
 }
