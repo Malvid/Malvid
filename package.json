@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha"
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- recursive"
   },
   "dependencies": {
     "components-lookup": "^1.0.0",
