@@ -40,7 +40,7 @@
     "preact-render-to-string": "^3.6.3",
     "redux": "^3.6.0",
     "redux-persist": "^4.8.0",
-    "rosid-handler-js": "^8.0.1",
+    "rosid-handler-js": "^9.0.0",
     "uppercamelcase": "^3.0.0"
   },
   "devDependencies": {
