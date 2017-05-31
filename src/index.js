@@ -42,7 +42,7 @@ module.exports = function(filePath, opts = {}) {
 		opts = deepAssign({
 			lang: 'en',
 			title: 'Rosid',
-			description: 'UI to help you build & document web components.',
+			description: 'UI to help you build and document web components.',
 			pattern: '**/[^_]*.{ejs,njk}',
 			src: '',
 			files: files
