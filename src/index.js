@@ -5,7 +5,7 @@ const deepAssign = require('deep-assign')
 const isPlainObj = require('is-plain-obj')
 const pify = require('pify')
 const jsPath = path.resolve(__dirname, './client.js')
-const js = require('rosid-handler-js')(jsPath, { optimize: false })
+const js = require('rosid-handler-js')(jsPath, { optimize: false, babel: {} })
 const componentsLookup = require('components-lookup')
 const server = require('./server')
 
