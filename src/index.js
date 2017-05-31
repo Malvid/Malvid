@@ -4,10 +4,19 @@ const path = require('path')
 const deepAssign = require('deep-assign')
 const isPlainObj = require('is-plain-obj')
 const pify = require('pify')
-const jsPath = path.resolve(__dirname, './client.js')
-const js = require('rosid-handler-js')(jsPath, { optimize: false, babel: {} })
 const componentsLookup = require('components-lookup')
 const server = require('./server')
+
+const js = (() => {
+
+	const filePath = path.resolve(__dirname, './client.js')
+	const babel = { babelrc: false }
+	const opts = { optimize: false, babel }
+
+	// Load and transform js for the client
+	return require('rosid-handler-js')(filePath, opts)
+
+})()
 
 /**
  * Return the HTML of the UI that can be viewed in the browser.
