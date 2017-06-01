@@ -1,8 +1,11 @@
+const { BORDER_RADIUS } = require('../constants/sizes')
+const { WHITE } = require('../constants/colors')
+
 module.exports = {
 	flex: '1 1 auto',
 	width: '100%',
-	background: 'white',
+	background: WHITE,
 	boxShadow: '0 1px 3px rgba(0, 0, 0, .10)',
 	border: 'none',
-	borderRadius: '6px'
+	borderRadius: BORDER_RADIUS
 }

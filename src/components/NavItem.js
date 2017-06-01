@@ -3,6 +3,7 @@
 const { h } = require('preact')
 const { css } = require('glamor')
 
+const { BORDER_RADIUS } = require('../constants/sizes')
 const { DARK } = require('../constants/colors')
 
 const style = {
@@ -19,7 +20,7 @@ const style = {
 		textOverflow: 'ellipsis',
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
-		borderRadius: '6px',
+		borderRadius: BORDER_RADIUS,
 		transition: 'background 0s .05s',
 		':active': {
 			background: 'rgba(0, 0, 0, .08)'
