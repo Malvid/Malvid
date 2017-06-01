@@ -21,6 +21,7 @@ const style = {
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
 		borderRadius: BORDER_RADIUS,
+		outline: 'none',
 		transition: 'background 0s .05s',
 		':active': {
 			background: 'rgba(0, 0, 0, .08)'
