@@ -28,10 +28,10 @@ const style = {
 
 module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
 
-	const languages = files[currentTab].languages
+	const languages = files[currentTab]==null ? null : files[currentTab].languages
 	const data = currentComponent.data[currentTab]
 
-	const Viewer = languages[0]==='markdown' ? Markdown : Code
+	const Viewer = (languages!=null && languages[0]==='markdown') ? Markdown : Code
 
 	return (
 		h('section', { class: style.self.toString() },

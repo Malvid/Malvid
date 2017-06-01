@@ -23,12 +23,13 @@ const style = {
 
 }
 
-module.exports = ({ src, currentSizeStatus }) => (
+module.exports = ({ currentComponent, currentSizeStatus, setComponentData }) => (
 
 	h('section', { class: style.self.toString() },
 		h('iframe', {
 			class: style.iframe({ currentSizeStatus }).toString(),
-			src
+			onload: (e) => setComponentData(currentComponent.id, 'output', e.target.contentDocument.body.outerHTML),
+			src: currentComponent.url
 		})
 	)
 

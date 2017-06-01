@@ -29,8 +29,9 @@ module.exports = (props) => {
 	return (
 		h('content', { class: style.self.toString() },
 			h(Preview, {
-				src: props.currentComponent.url,
-				currentSizeStatus: props.currentSize.status
+				currentComponent: props.currentComponent,
+				currentSizeStatus: props.currentSize.status,
+				setComponentData: props.setComponentData
 			}),
 			h(Resizer, {
 				direction: 'vertical',

@@ -32,6 +32,7 @@
     "deep-assign": "^2.0.0",
     "glamor": "^2.20.25",
     "highlight.js": "^9.12.0",
+    "immutability-helper": "^2.2.2",
     "is-plain-obj": "^1.1.0",
     "marked": "^0.3.6",
     "pify": "^3.0.0",
