@@ -6,6 +6,5 @@ module.exports = {
 	width: '100%',
 	background: WHITE,
 	boxShadow: '0 1px 3px rgba(0, 0, 0, .10)',
-	border: 'none',
 	borderRadius: BORDER_RADIUS
 }
