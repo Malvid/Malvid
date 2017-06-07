@@ -5,10 +5,6 @@ module.exports = (state) => {
 	// Replace currentComponent with real component data or the first component of all components
 	const currentComponent = (() => {
 
-		// Don't set a currentComponent on the server as the client shows the last viewed component.
-		// Rendering a component on the server only leads to an unnecessary flash of wrong content.
-		if (isClient===false) return null
-
 		const hasComponents = state.components.length>0
 
 		// Don't show a component when there're no components
@@ -16,9 +12,11 @@ module.exports = (state) => {
 
 		const component = state.components.filter((component) => component.id===state.currentComponent)[0]
 		const hasComponent = component!=null
-		const firstComponent = state.components[0]
 
-		return hasComponent===true ? component : firstComponent
+		if (hasComponent===true) return component
+
+		// Return the first component as fallback
+		return state.components[0]
 
 	})()
 
@@ -32,10 +30,14 @@ module.exports = (state) => {
 
 		if (hasData===false) return null
 
-		const hasTab = data[state.currentTab]!=null
+		// A tab can be null when the content is empty, but not undefined
+		const hasTab = data[state.currentTab]!==undefined
 		const firstTab = Object.keys(data)[0]
 
-		return hasTab===true ? state.currentTab : firstTab
+		if (hasTab===true) return state.currentTab
+
+		// Return the first tab as fallback
+		return Object.keys(data)[0]
 
 	})()
 
