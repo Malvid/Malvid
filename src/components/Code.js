@@ -8,14 +8,14 @@ const h = require('../utils/h')
 const style = {
 
 	self: css({
-		flex: '1 1 auto',
+		flexGrow: '1',
 		display: 'flex',
 		flexDirection: 'column',
 		margin: '0'
 	}),
 
 	code: css({
-		flex: '1 1 auto',
+		flexGrow: '1',
 		padding: '1.5em 2em',
 		height: '100%',
 		background: 'transparent',

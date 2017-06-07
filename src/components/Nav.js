@@ -20,7 +20,7 @@ const style = {
 	}),
 
 	scroller: css({
-		flex: '1 1 auto',
+		flexGrow: '1',
 		padding: '1em 0',
 		height: '100%',
 		overflow: 'auto',

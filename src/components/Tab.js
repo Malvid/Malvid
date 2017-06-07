@@ -8,7 +8,7 @@ const { BLUE, MID, DARK } = require('../constants/colors')
 const style = {
 
 	self: css({
-		flex: '1 1 auto',
+		flexGrow: '1',
 		padding: '1.1em',
 		width: '100%',
 		appearance: 'none',

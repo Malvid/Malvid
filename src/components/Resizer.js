@@ -12,7 +12,7 @@ const { CURRENT_SIZE_STATUS_INACTIVE, CURRENT_SIZE_STATUS_ACTIVE } = require('..
 const style = {
 
 	self: css({
-		flex: '0 0 auto',
+		flexShrink: '0',
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
