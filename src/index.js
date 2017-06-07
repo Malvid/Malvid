@@ -45,9 +45,6 @@ module.exports = function(filePath, opts = {}) {
 			notes: {
 				languages: [ 'markdown' ],
 				resolver: (fileName, fileExt) => [ `${ fileName }.md` ]
-			},
-			output: {
-				languages: [ 'html' ]
 			}
 		}
 
@@ -84,6 +81,15 @@ module.exports = function(filePath, opts = {}) {
 		}))
 
 	}).then(({ js, components }) => {
+
+		// Add output to each components. This placeholder will be filled by the UI,
+		// but must exist too show up in the inspector.
+		components.forEach((component) => component.data.output = null)
+
+		// Add syntax highlighting support for output
+		opts.files.output = {
+			languages: [ 'html' ]
+		}
 
 		// Initial state of the site
 		const initalState = {
