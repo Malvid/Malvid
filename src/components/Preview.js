@@ -1,8 +1,8 @@
 'use strict'
 
-const { h } = require('preact')
 const { css } = require('glamor')
 
+const h = require('../utils/h')
 const shadowBox = require('../styles/shadowBox')
 const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
 const { CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')
@@ -25,10 +25,10 @@ const style = {
 
 module.exports = ({ currentComponent, currentSizeStatus, setComponentData }) => (
 
-	h('section', { class: style.self.toString() },
+	h('section', { className: style.self.toString() },
 		h('iframe', {
-			class: style.iframe({ currentSizeStatus }).toString(),
-			onload: (e) => setComponentData(currentComponent.id, 'output', e.target.contentDocument.body.outerHTML),
+			className: style.iframe({ currentSizeStatus }).toString(),
+			onLoad: (e) => setComponentData(currentComponent.id, 'output', e.target.contentDocument.body.outerHTML),
 			src: currentComponent.url
 		})
 	)

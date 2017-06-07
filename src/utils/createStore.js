@@ -14,7 +14,6 @@ const enhancers = compose(
 
 // Reducers to persist
 const whitelist = [
-	'currentComponent',
 	'currentTab'
 ]
 

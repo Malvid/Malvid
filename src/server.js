@@ -1,11 +1,11 @@
 'use strict'
 
-const { h } = require('preact')
-const { Provider } = require('preact-redux')
-const render = require('preact-render-to-string')
+const { Provider } = require('react-redux')
+const { renderToString } = require('react-dom/server')
 const { css } = require('glamor')
 const { renderStaticOptimized } = require('glamor/server')
 
+const h = require('./utils/h')
 const createStore = require('./utils/createStore')
 const global = require('./styles/global')
 const markdown = require('./styles/markdown')
@@ -25,11 +25,11 @@ module.exports = (initalState, js, next) => {
 
 		const state = store.getState()
 		const html = h(Provider, { store }, h(Main))
-		const output = renderStaticOptimized(() => render(html))
+		const output = renderStaticOptimized(() => renderToString(html))
 
 		next(null, `
 			${ start(state, output.css, output.ids) }
-			${ output.html }
+			<div id="main">${ output.html }</div>
 			${ end(state, js) }
 		`)
 

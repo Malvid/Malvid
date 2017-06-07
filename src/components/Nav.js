@@ -1,8 +1,8 @@
 'use strict'
 
-const { h } = require('preact')
 const { css } = require('glamor')
 
+const h = require('../utils/h')
 const { LIGHT } = require('../constants/colors')
 const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 
@@ -31,10 +31,11 @@ const style = {
 
 module.exports = ({ components, currentComponent, setCurrentComponent }) => (
 
-	h('nav', { class: style.self.toString() },
-		h('div', { class: style.scroller.toString() },
+	h('nav', { className: style.self.toString() },
+		h('div', { className: style.scroller.toString() },
 			components.map((component) =>
 				h(NavItem, {
+					key: component.id,
 					id: component.id,
 					label: component.name,
 					active: component.id===(currentComponent || {}).id,

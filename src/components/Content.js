@@ -1,8 +1,8 @@
 'use strict'
 
-const { h } = require('preact')
 const { css } = require('glamor')
 
+const h = require('../utils/h')
 const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 
 const Preview = require('./Preview')
@@ -27,7 +27,7 @@ module.exports = (props) => {
 	if (props.currentComponent==null) return null
 
 	return (
-		h('content', { class: style.self.toString() },
+		h('content', { className: style.self.toString() },
 			h(Preview, {
 				currentComponent: props.currentComponent,
 				currentSizeStatus: props.currentSize.status,

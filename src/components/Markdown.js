@@ -1,9 +1,10 @@
 'use strict'
 
-const { h } = require('preact')
 const { css } = require('glamor')
 const marked = require('marked')
 const highlight = require('highlight.js')
+
+const h = require('../utils/h')
 
 const style = {
 
@@ -31,9 +32,9 @@ const style = {
 
 module.exports = ({ data }) => (
 
-	h('div', { class: style.self.toString() },
+	h('div', { className: style.self.toString() },
 		h('div', {
-			class: `${ style.content.toString() } markdown`,
+			className: `${ style.content.toString() } markdown`,
 			dangerouslySetInnerHTML: {
 				__html: marked(data, {
 					highlight: (code) => highlight.highlightAuto(code).value

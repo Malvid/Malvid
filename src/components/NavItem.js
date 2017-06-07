@@ -1,8 +1,8 @@
 'use strict'
 
-const { h } = require('preact')
 const { css } = require('glamor')
 
+const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
 const { DARK } = require('../constants/colors')
 
@@ -22,7 +22,6 @@ const style = {
 		overflow: 'hidden',
 		borderRadius: BORDER_RADIUS,
 		outline: 'none',
-		transition: 'background 0s .05s',
 		':active': {
 			background: 'rgba(0, 0, 0, .08)'
 		}
@@ -37,7 +36,7 @@ const style = {
 module.exports = ({ id, label, active, setCurrentComponent }) => (
 
 	h('button', {
-		class: css(style.self, active && style.active).toString(),
+		className: css(style.self, active && style.active).toString(),
 		onClick: setCurrentComponent.bind(null, id)
 	}, label)
 

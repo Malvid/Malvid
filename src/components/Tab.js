@@ -1,8 +1,8 @@
 'use strict'
 
-const { h } = require('preact')
 const { css } = require('glamor')
 
+const h = require('../utils/h')
 const { BLUE, MID, DARK } = require('../constants/colors')
 
 const style = {
@@ -39,7 +39,7 @@ const style = {
 module.exports = ({ id, label, active, setCurrentTab }) => (
 
 	h('button', {
-		class: css(style.self, active && style.active).toString(),
+		className: css(style.self, active && style.active).toString(),
 		onClick: setCurrentTab.bind(null, id)
 	}, label)
 

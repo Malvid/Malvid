@@ -1,8 +1,9 @@
 'use strict'
 
-const { h } = require('preact')
 const { css } = require('glamor')
 const highlight = require('highlight.js')
+
+const h = require('../utils/h')
 
 const style = {
 
@@ -30,9 +31,9 @@ const style = {
 
 module.exports = ({ data, languages }) => (
 
-	h('pre', { class: style.self.toString() },
+	h('pre', { className: style.self.toString() },
 		h('code', {
-			class: style.code.toString(),
+			className: style.code.toString(),
 			dangerouslySetInnerHTML: {
 				__html: highlight.highlightAuto(data, languages).value
 			}

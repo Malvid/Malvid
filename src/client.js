@@ -1,9 +1,10 @@
 'use strict'
 
-const { h, render } = require('preact')
-const { Provider } = require('preact-redux')
+const { render } = require('react-dom')
+const { Provider } = require('react-redux')
 const { css, rehydrate } = require('glamor')
 
+const h = require('./utils/h')
 const isClient = require('./utils/isClient')
 const createStore = require('./utils/createStore')
 
@@ -19,12 +20,11 @@ if (isClient===true) {
 
 		if (err!=null) throw err
 
-		const root = document.body
-		const child = root.querySelector('#main')
+		const root = document.querySelector('#main')
 		const html = h(Provider, { store }, h(Main))
 
 		// Render component with the same props as the server
-		render(html, root, child)
+		render(html, root)
 
 	})
 

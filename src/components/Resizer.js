@@ -1,8 +1,9 @@
 'use strict'
 
-const { h, Component } = require('preact')
+const { Component } = require('react')
 const { css } = require('glamor')
 
+const h = require('../utils/h')
 const isClient = require('../utils/isClient')
 const eventPos = require('../utils/eventPos')
 const mousePos = require('../utils/mousePos')
@@ -114,22 +115,25 @@ module.exports = class extends Component {
 
 	}
 
-	render({ direction }, { status }) {
+	render() {
+
+		const direction = this.props.direction
 
 		return (
 			h('div', {
 				ref: (ref) => this.ref = ref,
 				onMouseDown: this.onMouseDown.bind(this),
-				class: css(
+				className: css(
 					style.self,
-					style.selfVisibility({ status }),
+					style.selfVisibility({ status: this.state.status }),
 					direction==='horizontal' && style.selfHorizontal,
 					direction==='vertical' && style.selfVertical
 				).toString()
 			},
-				Array.apply(null, { length: 3 }).map((component) =>
+				Array.apply(null, { length: 3 }).map((item, i) =>
 					h('div', {
-						class: css(
+						key: i,
+						className: css(
 							style.handle,
 							direction==='horizontal' && style.handleHorizontal,
 							direction==='vertical' && style.handleVertical

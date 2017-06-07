@@ -1,8 +1,8 @@
 'use strict'
 
-const { h } = require('preact')
 const { css } = require('glamor')
 
+const h = require('../utils/h')
 const shadowBox = require('../styles/shadowBox')
 const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
 
@@ -34,8 +34,8 @@ module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
 	const Viewer = (languages!=null && languages[0]==='markdown') ? Markdown : Code
 
 	return (
-		h('section', { class: style.self.toString() },
-			h('div', { class: style.shadowBox.toString() },
+		h('section', { className: style.self.toString() },
+			h('div', { className: style.shadowBox.toString() },
 				h(Tabs, {
 					data: currentComponent.data,
 					currentTab,
@@ -43,7 +43,7 @@ module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
 				}),
 				h(Viewer, {
 					languages,
-					data
+					data: data || ''
 				})
 			)
 		)

@@ -17,7 +17,6 @@ module.exports = `
 	}
 
 	body {
-		display: flex;
 		height: 100%;
 		background: ${ LIGHT };
 		-webkit-user-select: none;
@@ -32,5 +31,11 @@ module.exports = `
 	body *::before,
 	body *::after {
 		box-sizing: border-box;
+	}
+
+	#main {
+		display: flex;
+		width: 100vw;
+		height: 100%;
 	}
 `

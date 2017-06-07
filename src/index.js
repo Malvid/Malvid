@@ -45,6 +45,9 @@ module.exports = function(filePath, opts = {}) {
 			notes: {
 				languages: [ 'markdown' ],
 				resolver: (fileName, fileExt) => [ `${ fileName }.md` ]
+			},
+			output: {
+				languages: [ 'html' ]
 			}
 		}
 

@@ -1,10 +1,10 @@
 'use strict'
 
 const { bindActionCreators } = require('redux')
-const { h } = require('preact')
-const { connect } = require('preact-redux')
+const { connect } = require('react-redux')
 const { css } = require('glamor')
 
+const h = require('../utils/h')
 const enhanceState = require('../utils/enhanceState')
 const actions = require('../actions')
 
@@ -28,7 +28,7 @@ const Main = (props) => (
 
 	h('div', {
 		id: 'main',
-		class: style.self.toString()
+		className: style.self.toString()
 	},
 		h(Nav, {
 			components: props.components,
