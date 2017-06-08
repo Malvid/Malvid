@@ -4,7 +4,6 @@ const { Component } = require('react')
 const { css } = require('glamor')
 
 const h = require('../utils/h')
-const isClient = require('../utils/isClient')
 const eventPos = require('../utils/eventPos')
 const mousePos = require('../utils/mousePos')
 const { CURRENT_SIZE_STATUS_INACTIVE, CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')

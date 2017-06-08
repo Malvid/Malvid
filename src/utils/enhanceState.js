@@ -1,5 +1,3 @@
-const isClient = require('./isClient')
-
 module.exports = (state) => {
 
 	// Replace currentComponent with real component data or the first component of all components
