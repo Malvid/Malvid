@@ -1,8 +1,8 @@
 'use strict'
 
-const BLUE = '#2887fc'
+const BLUE = '#2d90e8'
 const WHITE = '#ffffff'
-const LIGHT = '#f8f8f8'
+const LIGHT = '#f5f5f5'
 const MID = '#ececec'
 const DARK = '#333333'
 
