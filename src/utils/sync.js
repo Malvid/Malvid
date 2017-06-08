@@ -1,5 +1,6 @@
 const isClient = require('./isClient')
 const enhanceState = require('./enhanceState')
+const { CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')
 
 module.exports = (store) => (next) => (action) => {
 
@@ -13,8 +14,10 @@ module.exports = (store) => (next) => (action) => {
 
 		document.title = `${ nextState.currentComponent.name } | ${ nextState.opts.title }`
 
-		document.documentElement.style.setProperty('--currentSize-vertical', `${ nextState.currentSize.vertical }px`)
-		document.documentElement.style.setProperty('--currentSize-horizontal', `${ nextState.currentSize.horizontal }px`)
+		if (nextState.currentSize.status===CURRENT_SIZE_STATUS_ACTIVE) {
+			document.documentElement.style.setProperty('--currentSize-vertical', `${ nextState.currentSize.vertical }px`)
+			document.documentElement.style.setProperty('--currentSize-horizontal', `${ nextState.currentSize.horizontal }px`)
+		}
 
 	}
 
