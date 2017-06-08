@@ -22,29 +22,26 @@ const style = {
 
 }
 
-module.exports = (props) => {
+module.exports = (props) => (
 
-	if (props.currentComponent==null) return null
-
-	return (
-		h('content', { className: style.self.toString() },
-			h(Preview, {
-				currentComponent: props.currentComponent,
-				currentSizeStatus: props.currentSize.status,
-				setComponentData: props.setComponentData
-			}),
-			h(Resizer, {
-				direction: 'vertical',
-				setCurrentSize: props.setCurrentSizeVertical,
-				setCurrentSizeStatus: props.setCurrentSizeStatus
-			}),
-			h(Inspector, {
-				files: props.opts.files,
-				currentComponent: props.currentComponent,
-				currentTab: props.currentTab,
-				setCurrentTab: props.setCurrentTab
-			})
-		)
+	h('content', { className: style.self.toString() },
+		h(Preview, {
+			statuses: props.opts.statuses,
+			currentComponent: props.currentComponent,
+			currentSizeStatus: props.currentSize.status,
+			setComponentData: props.setComponentData
+		}),
+		h(Resizer, {
+			direction: 'vertical',
+			setCurrentSize: props.setCurrentSizeVertical,
+			setCurrentSizeStatus: props.setCurrentSizeStatus
+		}),
+		h(Inspector, {
+			files: props.opts.files,
+			currentComponent: props.currentComponent,
+			currentTab: props.currentTab,
+			setCurrentTab: props.setCurrentTab
+		})
 	)
 
-}
+)

@@ -3,6 +3,7 @@
 const { css } = require('glamor')
 
 const h = require('../utils/h')
+const getStatus = require('../utils/getStatus')
 const { LIGHT } = require('../constants/colors')
 const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 
@@ -29,7 +30,7 @@ const style = {
 
 }
 
-module.exports = ({ components, currentComponent, setCurrentComponent }) => (
+module.exports = ({ statuses, components, currentComponent, setCurrentComponent }) => (
 
 	h('nav', { className: style.self.toString() },
 		h('div', { className: style.scroller.toString() },
@@ -38,6 +39,7 @@ module.exports = ({ components, currentComponent, setCurrentComponent }) => (
 					key: component.id,
 					id: component.id,
 					label: component.name,
+					status: getStatus(statuses, component),
 					active: component.id===(currentComponent || {}).id,
 					setCurrentComponent
 				})

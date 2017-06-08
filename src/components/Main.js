@@ -31,6 +31,7 @@ const Main = (props) => (
 		className: style.self.toString()
 	},
 		h(Nav, {
+			statuses: props.opts.statuses,
 			components: props.components,
 			currentComponent: props.currentComponent,
 			setCurrentComponent: props.setCurrentComponent

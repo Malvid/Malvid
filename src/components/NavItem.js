@@ -6,6 +6,8 @@ const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
 const { DARK } = require('../constants/colors')
 
+const NavStatus = require('./NavStatus')
+
 const style = {
 
 	self: css({
@@ -29,15 +31,25 @@ const style = {
 
 	active: css({
 		background: 'rgba(0, 0, 0, .08)'
+	}),
+
+	inner: css({
+		display: 'flex',
+		alignItems: 'center'
 	})
 
 }
 
-module.exports = ({ id, label, active, setCurrentComponent }) => (
+module.exports = ({ id, label, status, active, setCurrentComponent }) => (
 
 	h('button', {
 		className: css(style.self, active && style.active).toString(),
 		onClick: setCurrentComponent.bind(null, id)
-	}, label)
+	},
+		h('div', { className: style.inner.toString() },
+			label,
+			status!=null && h(NavStatus, status)
+		)
+	)
 
 )

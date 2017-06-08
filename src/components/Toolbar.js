@@ -5,6 +5,8 @@ const { css } = require('glamor')
 const h = require('../utils/h')
 const { BLUE, MID, DARK } = require('../constants/colors')
 
+const Status = require('./Status')
+
 const style = {
 
 	self: css({
@@ -24,6 +26,15 @@ const style = {
 		fontWeight: 'normal'
 	}),
 
+	tools: css({
+		display: 'flex',
+		alignItems: 'center'
+	}),
+
+	separator: css({
+		width: '1em'
+	}),
+
 	button: css({
 		padding: '.85em .4em',
 		background: 'transparent',
@@ -41,19 +52,21 @@ const style = {
 
 }
 
-module.exports = ({ label, url }) => (
+module.exports = ({ status, label, url }) => (
 
 	h('div', { className: style.self.toString() },
 		h('h1', { className: style.label.toString() },
 			label
 		),
-		h('div', {},
+		h('div', { className: style.tools.toString() },
 			h('a', {
 				className: `${ style.button.toString() } ion ion-android-exit`,
 				title: 'Open in new tab',
 				href: url,
 				target: '_blank'
-			})
+			}),
+			status!=null && h('div', { className: style.separator.toString() }),
+			status!=null && h(Status, status)
 		)
 	)
 

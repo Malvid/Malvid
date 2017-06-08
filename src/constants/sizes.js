@@ -1,6 +1,7 @@
 'use strict'
 
 const BORDER_RADIUS = '6px'
+const BORDER_RADIUS_INNER = '4px'
 
 const NAV_MIN_WIDTH = '200px'
 const NAV_WIDTH = '300px'
@@ -12,6 +13,7 @@ const INSPECTOR_MIN_HEIGHT = '300px'
 
 module.exports = {
 	BORDER_RADIUS,
+	BORDER_RADIUS_INNER,
 	NAV_MIN_WIDTH,
 	NAV_WIDTH,
 	CONTENT_MIN_WIDTH,

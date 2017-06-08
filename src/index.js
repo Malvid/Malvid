@@ -1,7 +1,6 @@
 'use strict'
 
 const path = require('path')
-const deepAssign = require('deep-assign')
 const isPlainObj = require('is-plain-obj')
 const pify = require('pify')
 const componentsLookup = require('components-lookup')
@@ -42,19 +41,42 @@ module.exports = function(filePath, opts = {}) {
 				languages: [ 'json', 'js' ],
 				resolver: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
 			},
+			config: {
+				languages: [ 'json', 'js' ],
+				resolver: (fileName, fileExt) => [ `${ fileName }.config.json`, `${ fileName }.config.js` ]
+			},
 			notes: {
 				languages: [ 'markdown' ],
 				resolver: (fileName, fileExt) => [ `${ fileName }.md` ]
 			}
 		}
 
-		opts = deepAssign({
+		const statuses = {
+			wip: {
+				label: 'WIP',
+				description: 'Work in progress',
+				color: '#fe913d'
+			},
+			pending: {
+				label: 'Pending',
+				description: 'Ready, but waiting for finalization',
+				color: '#fe913d'
+			},
+			ready: {
+				label: 'Ready',
+				description: 'Ready to implement',
+				color: '#2d90e8'
+			}
+		}
+
+		opts = Object.assign({
 			lang: 'en',
 			title: 'Rosid',
 			description: 'UI to help you build and document web components.',
 			pattern: '**/[^_]*.{ejs,njk}',
 			src: '',
-			files: files
+			files,
+			statuses
 		}, opts)
 
 	}).then(() => {
@@ -82,14 +104,21 @@ module.exports = function(filePath, opts = {}) {
 
 	}).then(({ js, components }) => {
 
-		// Add output to each components. This placeholder will be filled by the UI,
-		// but must exist too show up in the inspector.
-		components.forEach((component) => component.data.output = null)
-
 		// Add syntax highlighting support for output
 		opts.files.output = {
 			languages: [ 'html' ]
 		}
+
+		components.forEach((component) => {
+
+			// Add output to each components. This placeholder will be filled by the UI,
+			// but must exist too show up in the inspector.
+			component.data.output = null
+
+			// Config is a special kind of data and should be parsed
+			if (component.data.config!=null) component.data.config = JSON.parse(component.data.config)
+
+		})
 
 		// Initial state of the site
 		const initalState = {
