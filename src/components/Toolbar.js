@@ -50,6 +50,7 @@ module.exports = ({ label, url }) => (
 		h('div', {},
 			h('a', {
 				className: `${ style.button.toString() } ion ion-android-exit`,
+				title: 'Open in new tab',
 				href: url,
 				target: '_blank'
 			})
