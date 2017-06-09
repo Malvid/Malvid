@@ -60,12 +60,12 @@ module.exports = function(filePath, opts = {}) {
 			pending: {
 				label: 'Pending',
 				description: 'Ready, but waiting for finalization',
-				color: '#fe913d'
+				color: '#2d90e8'
 			},
 			ready: {
 				label: 'Ready',
 				description: 'Ready to implement',
-				color: '#2d90e8'
+				color: '#2bc052'
 			}
 		}
 
