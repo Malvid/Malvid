@@ -3,7 +3,7 @@
 const { css } = require('glamor')
 
 const h = require('../utils/h')
-const getStatus = require('../utils/getStatus')
+const getStatus = require('../selectors/getStatus')
 const { LIGHT } = require('../constants/colors')
 const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 
@@ -30,18 +30,18 @@ const style = {
 
 }
 
-module.exports = ({ statuses, components, currentComponent, setCurrentComponent }) => (
+module.exports = (props) => (
 
 	h('nav', { className: style.self.toString() },
 		h('div', { className: style.scroller.toString() },
-			components.map((component) =>
+			props.components.map((component) =>
 				h(NavItem, {
 					key: component.id,
 					id: component.id,
 					label: component.name,
-					status: getStatus(statuses, component),
-					active: component.id===(currentComponent || {}).id,
-					setCurrentComponent
+					status: getStatus(props.opts.statuses, component),
+					active: component.id===props.currentComponent.id,
+					setCurrentComponent: props.setCurrentComponent
 				})
 			)
 		)

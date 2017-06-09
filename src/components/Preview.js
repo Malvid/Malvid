@@ -3,7 +3,7 @@
 const { css } = require('glamor')
 
 const h = require('../utils/h')
-const getStatus = require('../utils/getStatus')
+const getStatus = require('../selectors/getStatus')
 const shadowBox = require('../styles/shadowBox')
 const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
 const { CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')

@@ -5,7 +5,7 @@ const propTypes = require('prop-types')
 const upperCamelCase = require('uppercamelcase')
 
 const h = require('../utils/h')
-const filterTabs = require('../utils/filterTabs')
+const getTabs = require('../selectors/getTabs')
 
 const Tab = require('./Tab')
 
@@ -18,10 +18,10 @@ const style = {
 
 }
 
-module.exports = ({ data, currentTab, setCurrentTab }) => (
+module.exports = ({ currentComponent, currentTab, setCurrentTab }) => (
 
 	h('div', { className: style.self.toString() },
-		Object.keys(data).filter(filterTabs).map((key) =>
+		getTabs(currentComponent).map((key) =>
 			h(Tab, {
 				key: key,
 				id: key,
