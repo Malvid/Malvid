@@ -11,6 +11,7 @@ const actions = require('../actions')
 const Nav = require('./Nav')
 const Resizer = require('./Resizer')
 const Content = require('./Content')
+const NoComponents = require('./NoComponents')
 
 const mapStateToProps    = (state) => enhanceState(state)
 const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch)
@@ -24,26 +25,31 @@ const style = {
 
 }
 
-const Main = (props) => (
+const Main = (props) => {
 
-	h('div', {
-		id: 'main',
-		className: style.self.toString()
-	},
-		h(Nav, {
-			statuses: props.opts.statuses,
-			components: props.components,
-			currentComponent: props.currentComponent,
-			setCurrentComponent: props.setCurrentComponent
-		}),
-		h(Resizer, {
-			direction: 'horizontal',
-			setCurrentSize: props.setCurrentSizeHorizontal,
-			setCurrentSizeStatus: props.setCurrentSizeStatus
-		}),
-		h(Content, props)
+	// No currentComponent means that there are no components at all
+	if (props.currentComponent==null) return h(NoComponents)
+
+	return (
+		h('div', {
+			id: 'main',
+			className: style.self.toString()
+		},
+			h(Nav, {
+				statuses: props.opts.statuses,
+				components: props.components,
+				currentComponent: props.currentComponent,
+				setCurrentComponent: props.setCurrentComponent
+			}),
+			h(Resizer, {
+				direction: 'horizontal',
+				setCurrentSize: props.setCurrentSizeHorizontal,
+				setCurrentSizeStatus: props.setCurrentSizeStatus
+			}),
+			h(Content, props)
+		)
 	)
 
-)
+}
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Main)
