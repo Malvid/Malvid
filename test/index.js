@@ -45,6 +45,34 @@ describe('index()', function() {
 
 	})
 
+	it('should render a page without components', function() {
+
+		this.timeout(20000)
+
+		const structure = [
+			{
+				type: fsify.DIRECTORY,
+				name: uuid(),
+				contents: []
+			}
+		]
+
+		return fsify(structure).then((structure) => {
+
+			const opts = {
+				src: structure[0].name
+			}
+
+			return index(null, opts)
+
+		}).then((data) => {
+
+			assert.include(data, 'No components found')
+
+		})
+
+	})
+
 	it('should render a page with components', function() {
 
 		this.timeout(20000)
