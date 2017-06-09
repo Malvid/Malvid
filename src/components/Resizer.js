@@ -18,13 +18,14 @@ const style = {
 		alignItems: 'center',
 		padding: '.4em',
 		transition: 'opacity .3s ease',
+		willChange: 'opacity',
 		':hover': {
-			opacity: 1
+			opacity: .99
 		}
 	}),
 
 	selfVisibility: ({ status }) => css({
-		opacity: status===CURRENT_SIZE_STATUS_ACTIVE ? 1 : 0
+		opacity: status===CURRENT_SIZE_STATUS_ACTIVE ? .99 : .01
 	}),
 
 	selfVertical: css({
