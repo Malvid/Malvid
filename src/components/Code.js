@@ -1,6 +1,7 @@
 'use strict'
 
 const { css } = require('glamor')
+const propTypes = require('prop-types')
 const highlight = require('highlight.js')
 
 const h = require('../utils/h')
@@ -41,3 +42,10 @@ module.exports = ({ data, languages }) => (
 	)
 
 )
+
+module.exports.propTypes = {
+
+	data: propTypes.string.isRequired,
+	languages: propTypes.array.isRequired
+
+}

@@ -2,6 +2,7 @@
 
 const { Component } = require('react')
 const { css } = require('glamor')
+const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const eventPos = require('../utils/eventPos')
@@ -143,5 +144,13 @@ module.exports = class extends Component {
 		)
 
 	}
+
+}
+
+module.exports.propTypes = {
+
+	direction: propTypes.string.isRequired,
+	setCurrentSizeStatus: propTypes.func.isRequired,
+	setCurrentSize: propTypes.func.isRequired
 
 }

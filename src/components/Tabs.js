@@ -1,6 +1,7 @@
 'use strict'
 
 const { css } = require('glamor')
+const propTypes = require('prop-types')
 const upperCamelCase = require('uppercamelcase')
 
 const h = require('../utils/h')
@@ -32,3 +33,11 @@ module.exports = ({ data, currentTab, setCurrentTab }) => (
 	)
 
 )
+
+module.exports.propTypes = {
+
+	currentComponent: propTypes.object.isRequired,
+	currentTab: propTypes.string.isRequired,
+	setCurrentTab: propTypes.func.isRequired
+
+}
