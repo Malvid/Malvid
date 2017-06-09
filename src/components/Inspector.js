@@ -3,13 +3,15 @@
 const { css } = require('glamor')
 
 const h = require('../utils/h')
-const getTabs = require('../selectors/getTabs')
+const getTab = require('../selectors/getTab')
 const shadowBox = require('../styles/shadowBox')
+const { MID } = require('../constants/colors')
 const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
 
 const Tabs = require('./Tabs')
 const Code = require('./Code')
 const Markdown = require('./Markdown')
+const Empty = require('./Empty')
 
 const style = {
 
@@ -30,7 +32,7 @@ const style = {
 module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
 
 	const languages = files[currentTab].languages
-	const data = getTabs(currentComponent)[currentTab]
+	const data = getTab(currentComponent, currentTab)
 
 	const Viewer = languages[0]==='markdown' ? Markdown : Code
 
@@ -42,9 +44,13 @@ module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
 					currentTab,
 					setCurrentTab
 				}),
-				h(Viewer, {
+				data!=null && h(Viewer, {
 					languages,
-					data: data || ''
+					data: data
+				}),
+				data==null && h(Empty, {
+					color: '#ccc',
+					text: 'No data found'
 				})
 			)
 		)

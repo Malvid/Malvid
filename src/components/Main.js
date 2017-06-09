@@ -7,11 +7,12 @@ const { css } = require('glamor')
 const h = require('../utils/h')
 const enhanceState = require('../utils/enhanceState')
 const actions = require('../actions')
+const { DARK } = require('../constants/colors')
 
 const Nav = require('./Nav')
 const Resizer = require('./Resizer')
 const Content = require('./Content')
-const NoComponents = require('./NoComponents')
+const Empty = require('./Empty')
 
 const mapStateToProps    = (state) => enhanceState(state)
 const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch)
@@ -28,7 +29,10 @@ const style = {
 const Main = (props) => {
 
 	// No currentComponent means that there are no components at all
-	if (props.currentComponent==null) return h(NoComponents)
+	if (props.currentComponent==null) return h(Empty, {
+		color: DARK,
+		text: 'No components found'
+	})
 
 	return (
 		h('div', {
