@@ -22,7 +22,7 @@ createStore(window.__STATE__, (err, store) => {
 	const root = document.querySelector('#main')
 	const html = h(Provider, { store }, h(Main))
 
-	// Render component with the same props as the server
+	// Render component with the state from the server
 	render(html, root)
 
 })
