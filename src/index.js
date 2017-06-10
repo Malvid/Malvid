@@ -116,7 +116,10 @@ module.exports = function(filePath, opts = {}) {
 			component.data.output = null
 
 			// Config is a special kind of data and should be parsed
-			if (component.data.config!=null) component.data.config = JSON.parse(component.data.config)
+			if (component.data.config!=null) {
+				try { component.data.config = JSON.parse(component.data.config) }
+				catch (err) { throw new Error(`Failed to parse config of '${ component.name }' component`) }
+			}
 
 		})
 
