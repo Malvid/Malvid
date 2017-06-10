@@ -39,6 +39,7 @@ module.exports = ({ statuses, currentComponent, currentSizeStatus, setComponentD
 			url: currentComponent.url
 		}),
 		h('iframe', {
+			key: currentComponent.id,
 			className: style.iframe({ currentSizeStatus }).toString(),
 			onLoad: (e) => setComponentData(currentComponent.id, 'output', e.target.contentDocument.body.outerHTML),
 			src: currentComponent.url
