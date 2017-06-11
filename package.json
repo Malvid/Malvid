@@ -42,13 +42,13 @@
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",
     "redux-persist": "^4.8.0",
-    "rosid-handler-js": "^9.0.0",
     "uppercamelcase": "^3.0.0"
+    "rosid-handler-js": "^9.0.1",
   },
   "devDependencies": {
     "chai": "^4.0.2",
     "coveralls": "^2.13.1",
-    "fsify": "^2.0.2",
+    "fsify": "^2.0.3",
     "istanbul": "^0.4.5",
     "mocha": "^3.4.2"
   }
