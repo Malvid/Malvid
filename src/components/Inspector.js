@@ -5,7 +5,6 @@ const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const shadowBox = require('../styles/shadowBox')
-const { MID } = require('../constants/colors')
 const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
 
 const Tabs = require('./Tabs')

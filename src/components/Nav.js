@@ -5,7 +5,6 @@ const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const getStatus = require('../selectors/getStatus')
-const { LIGHT } = require('../constants/colors')
 const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 
 const NavItem = require('./NavItem')
