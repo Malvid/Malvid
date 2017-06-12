@@ -21,10 +21,6 @@ module.exports = (location, components) => {
 	const componentId = params.componentId
 	const tabId = params.tabId
 
-	console.log(location.pathname);
-	console.log(componentId);
-	console.log(tabId);
-
 	// Use the specified or the first component depending on what's available
 	const hasComponentId = getComponent(components, componentId)!=null
 	const nextComponentId = hasComponentId===true ? componentId : components[0].id
