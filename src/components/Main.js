@@ -39,7 +39,11 @@ const Main = (props) => {
 			id: 'main',
 			className: style.self.toString()
 		},
-			h(Nav, props),
+			h(Nav, {
+				statuses: props.opts.statuses,
+				components: props.components,
+				currentComponent: props.currentComponent
+			}),
 			h(Resizer, {
 				direction: 'horizontal',
 				setCurrentSize: props.setCurrentSizeHorizontal,

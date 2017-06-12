@@ -32,24 +32,33 @@ module.exports = function(filePath, opts = {}) {
 			throw new Error(`'opts' must be an object, null or undefined`)
 		}
 
-		const files = {
-			view: {
+		const resolvers = [
+			{
+				id: 'view',
+				label: 'View',
 				languages: [ 'twig' ],
-				resolver: (fileName, fileExt) => [ `${ fileName }${ fileExt }` ]
+				resolve: (fileName, fileExt) => [ `${ fileName }${ fileExt }` ]
 			},
-			data: {
+			{
+				id: 'data',
+				label: 'Data',
 				languages: [ 'json', 'js' ],
-				resolver: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
+				resolve: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
 			},
-			config: {
-				languages: [ 'json', 'js' ],
-				resolver: (fileName, fileExt) => [ `${ fileName }.config.json`, `${ fileName }.config.js` ]
-			},
-			notes: {
+			{
+				id: 'notes',
+				label: 'Notes',
 				languages: [ 'markdown' ],
-				resolver: (fileName, fileExt) => [ `${ fileName }.md` ]
+				resolve: (fileName, fileExt) => [ `${ fileName }.md` ]
+			},
+			{
+				id: 'config',
+				label: 'Config',
+				languages: [ 'json' ],
+				parse: (contents) => JSON.parse(contents),
+				resolve: (fileName, fileExt) => [ `${ fileName }.config.json` ]
 			}
-		}
+		]
 
 		const statuses = {
 			wip: {
@@ -75,22 +84,14 @@ module.exports = function(filePath, opts = {}) {
 			description: 'UI to help you build and document web components.',
 			pattern: '**/[^_]*.{ejs,njk}',
 			src: '',
-			files,
+			resolvers,
 			statuses
 		}, opts)
 
 	}).then(() => {
 
-		// Component lookup only cares about the resolvers
-		const resolvers = Object.keys(opts.files).reduce((acc, key) => {
-
-			acc[key] = opts.files[key].resolver
-			return acc
-
-		}, {})
-
 		// Get the components data
-		return componentsLookup(opts.pattern, resolvers, {
+		return componentsLookup(opts.pattern, opts.resolvers, {
 			cwd: opts.src
 		})
 
@@ -104,22 +105,17 @@ module.exports = function(filePath, opts = {}) {
 
 	}).then(({ js, components }) => {
 
-		// Add syntax highlighting support for output
-		opts.files.output = {
-			languages: [ 'html' ]
-		}
-
 		components.forEach((component) => {
 
 			// Add output to each components. This placeholder will be filled by the UI,
 			// but must exist too show up in the inspector.
-			component.data.output = null
-
-			// Config is a special kind of data and should be parsed
-			if (component.data.config!=null) {
-				try { component.data.config = JSON.parse(component.data.config) }
-				catch (err) { throw new Error(`Failed to parse config of '${ component.name }' component`) }
-			}
+			component.data.push({
+				index: component.data.length,
+				id: 'output',
+				label: 'Output',
+				languages: [ 'html' ],
+				data: null
+			})
 
 		})
 

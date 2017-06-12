@@ -1,6 +1,7 @@
 'use strict'
 
 const { css } = require('glamor')
+const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const getStatus = require('../selectors/getStatus')
@@ -47,3 +48,12 @@ module.exports = ({ statuses, currentComponent, currentSizeStatus, setComponentD
 	)
 
 )
+
+module.exports.propTypes = {
+
+	statuses: propTypes.object.isRequired,
+	currentComponent: propTypes.object.isRequired,
+	currentSizeStatus: propTypes.string.isRequired,
+	setComponentData: propTypes.func.isRequired
+
+}

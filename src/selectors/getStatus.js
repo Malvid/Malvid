@@ -1,10 +1,14 @@
+const getTab = require('./getTab')
+
 module.exports = (statuses, component) => {
 
-	if (component==null) return null
-	if (component.data==null) return null
-	if (component.data.config==null) return null
-	if (component.data.config.status==null) return null
+	const config = getTab(component, 'config')
 
-	return statuses[component.data.config.status]
+	// The config is optional
+	if (config==null) return null
+	if (config.data==null) return null
+
+	// Returns undefined when the config has no status
+	return statuses[config.data.status]
 
 }

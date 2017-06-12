@@ -1,19 +1,17 @@
 const update = require('immutability-helper')
 
+const getComponent = require('../selectors/getComponent')
+const getTab = require('../selectors/getTab')
+
 const { SET_COMPONENT_DATA } = require('../constants/actions')
 
 const setComponentData = (state, componentId, dataId, data) => {
 
-	let index = state.reduce((acc, component, i) => {
-
-		if (component.id===componentId) acc = i
-
-		return acc
-
-	}, null)
+	const component = getComponent(state, componentId)
+	const tab = getTab(component, dataId)
 
 	return update(state, {
-		[index]: { data: { $merge: { [dataId]: data } } }
+		[component.index]: { data: { [tab.index]: { $merge: { data } } } }
 	})
 
 }

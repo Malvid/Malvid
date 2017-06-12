@@ -12,6 +12,8 @@ const NavStatus = require('./NavStatus')
 const style = {
 
 	self: css({
+		display: 'flex',
+		alignItems: 'center',
 		marginBottom: '.1em',
 		padding: '.9em 1.2em',
 		width: '100%',
@@ -24,6 +26,7 @@ const style = {
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
 		borderRadius: BORDER_RADIUS,
+		textDecoration: 'none',
 		outline: 'none',
 		':active': {
 			background: 'rgba(0, 0, 0, .08)'
@@ -32,25 +35,18 @@ const style = {
 
 	active: css({
 		background: 'rgba(0, 0, 0, .08)'
-	}),
-
-	inner: css({
-		display: 'flex',
-		alignItems: 'center'
 	})
 
 }
 
-module.exports = ({ id, label, status, active, setCurrentComponent }) => (
+module.exports = ({ id, label, status, active }) => (
 
-	h('button', {
+	h('a', {
 		className: css(style.self, active && style.active).toString(),
-		onClick: setCurrentComponent.bind(null, id)
+		href: `#${ id }`
 	},
-		h('div', { className: style.inner.toString() },
-			label,
-			status!=null && h(NavStatus, status)
-		)
+		label,
+		status!=null && h(NavStatus, status)
 	)
 
 )
@@ -60,7 +56,6 @@ module.exports.propTypes = {
 	id: propTypes.string.isRequired,
 	label: propTypes.string.isRequired,
 	status: propTypes.object,
-	active: propTypes.bool.isRequired,
-	setCurrentComponent: propTypes.func.isRequired
+	active: propTypes.bool.isRequired
 
 }

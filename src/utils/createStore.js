@@ -13,10 +13,7 @@ const enhancers = compose(
 )
 
 // Reducers to persist
-const whitelist = [
-	'currentComponent',
-	'currentTab'
-]
+const whitelist = []
 
 // Create the store
 module.exports = (state, next) => {

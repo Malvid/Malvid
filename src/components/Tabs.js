@@ -2,7 +2,6 @@
 
 const { css } = require('glamor')
 const propTypes = require('prop-types')
-const upperCamelCase = require('uppercamelcase')
 
 const h = require('../utils/h')
 const getTabs = require('../selectors/getTabs')
@@ -21,12 +20,12 @@ const style = {
 module.exports = ({ currentComponent, currentTab, setCurrentTab }) => (
 
 	h('div', { className: style.self.toString() },
-		getTabs(currentComponent).map((key) =>
+		getTabs(currentComponent).map((tab) =>
 			h(Tab, {
-				key: key,
-				id: key,
-				label: upperCamelCase(key),
-				active: key===currentTab,
+				key: tab.id,
+				id: tab.id,
+				label: tab.label,
+				active: tab.id===currentTab.id,
 				setCurrentTab
 			})
 		)
@@ -37,7 +36,7 @@ module.exports = ({ currentComponent, currentTab, setCurrentTab }) => (
 module.exports.propTypes = {
 
 	currentComponent: propTypes.object.isRequired,
-	currentTab: propTypes.string.isRequired,
+	currentTab: propTypes.object.isRequired,
 	setCurrentTab: propTypes.func.isRequired
 
 }

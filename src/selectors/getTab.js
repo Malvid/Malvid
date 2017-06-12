@@ -1,9 +1,8 @@
-const getTabs = require('./getTabs')
-
 module.exports = (component, tabId) => {
 
-	const tabs = getTabs(component)
+	if (component==null) return null
+	if (component.data==null) return null
 
-	return tabs==null ? null : component.data[tabId]
+	return component.data.filter((tab) => tab.id===tabId)[0]
 
 }

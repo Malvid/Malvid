@@ -1,6 +1,7 @@
 'use strict'
 
 const { css } = require('glamor')
+const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const getStatus = require('../selectors/getStatus')
@@ -30,21 +31,28 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = ({ statuses, components, currentComponent }) => (
 
 	h('nav', { className: style.self.toString() },
 		h('div', { className: style.scroller.toString() },
-			props.components.map((component) =>
+			components.map((component) =>
 				h(NavItem, {
 					key: component.id,
 					id: component.id,
 					label: component.name,
-					status: getStatus(props.opts.statuses, component),
-					active: component.id===props.currentComponent.id,
-					setCurrentComponent: props.setCurrentComponent
+					status: getStatus(statuses, component),
+					active: component.id===currentComponent.id
 				})
 			)
 		)
 	)
 
 )
+
+module.exports.propTypes = {
+
+	statuses: propTypes.object.isRequired,
+	components: propTypes.array.isRequired,
+	currentComponent: propTypes.object.isRequired
+
+}

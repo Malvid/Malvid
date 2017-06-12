@@ -29,9 +29,10 @@
     "prepublish": "npm test"
   },
   "dependencies": {
-    "components-lookup": "^1.0.2",
+    "components-lookup": "^3.1.1",
     "glamor": "^2.20.25",
     "highlight.js": "^9.12.0",
+    "history": "^4.6.1",
     "immutability-helper": "^2.2.2",
     "is-plain-obj": "^1.1.0",
     "marked": "^0.3.6",
@@ -42,8 +43,8 @@
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",
     "redux-persist": "^4.8.0",
-    "uppercamelcase": "^3.0.0"
     "rosid-handler-js": "^9.0.1",
+    "url-pattern": "^1.0.3"
   },
   "devDependencies": {
     "chai": "^4.0.2",

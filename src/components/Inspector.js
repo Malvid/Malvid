@@ -1,9 +1,9 @@
 'use strict'
 
 const { css } = require('glamor')
+const propTypes = require('prop-types')
 
 const h = require('../utils/h')
-const getTab = require('../selectors/getTab')
 const shadowBox = require('../styles/shadowBox')
 const { MID } = require('../constants/colors')
 const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
@@ -29,10 +29,9 @@ const style = {
 
 }
 
-module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
+module.exports = ({ currentComponent, currentTab, setCurrentTab }) => {
 
-	const languages = files[currentTab].languages
-	const data = getTab(currentComponent, currentTab)
+	const { data, languages } = currentTab
 
 	const Viewer = languages[0]==='markdown' ? Markdown : Code
 
@@ -46,7 +45,7 @@ module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
 				}),
 				data!=null && h(Viewer, {
 					languages,
-					data: data
+					data
 				}),
 				data==null && h(Empty, {
 					color: '#ccc',
@@ -55,5 +54,13 @@ module.exports = ({ files, currentComponent, currentTab, setCurrentTab }) => {
 			)
 		)
 	)
+
+}
+
+module.exports.propTypes = {
+
+	currentComponent: propTypes.object.isRequired,
+	currentTab: propTypes.object.isRequired,
+	setCurrentTab: propTypes.func.isRequired
 
 }

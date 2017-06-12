@@ -37,7 +37,6 @@ module.exports = (props) => (
 			setCurrentSizeStatus: props.setCurrentSizeStatus
 		}),
 		h(Inspector, {
-			files: props.opts.files,
 			currentComponent: props.currentComponent,
 			currentTab: props.currentTab,
 			setCurrentTab: props.setCurrentTab
