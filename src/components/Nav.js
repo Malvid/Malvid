@@ -31,7 +31,7 @@ const style = {
 
 }
 
-module.exports = ({ statuses, components, currentComponent }) => (
+module.exports = ({ statuses, components, currentComponent, currentTab }) => (
 
 	h('nav', { className: style.self.toString() },
 		h('div', { className: style.scroller.toString() },
@@ -41,7 +41,8 @@ module.exports = ({ statuses, components, currentComponent }) => (
 					id: component.id,
 					label: component.name,
 					status: getStatus(statuses, component),
-					active: component.id===currentComponent.id
+					active: component.id===currentComponent.id,
+					currentTab
 				})
 			)
 		)
@@ -53,6 +54,7 @@ module.exports.propTypes = {
 
 	statuses: propTypes.object.isRequired,
 	components: propTypes.array.isRequired,
-	currentComponent: propTypes.object.isRequired
+	currentComponent: propTypes.object.isRequired,
+	currentTab: propTypes.object.isRequired
 
 }

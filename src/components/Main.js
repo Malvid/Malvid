@@ -42,7 +42,8 @@ const Main = (props) => {
 			h(Nav, {
 				statuses: props.opts.statuses,
 				components: props.components,
-				currentComponent: props.currentComponent
+				currentComponent: props.currentComponent,
+				currentTab: props.currentTab
 			}),
 			h(Resizer, {
 				direction: 'horizontal',

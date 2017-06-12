@@ -38,8 +38,7 @@ module.exports = (props) => (
 		}),
 		h(Inspector, {
 			currentComponent: props.currentComponent,
-			currentTab: props.currentTab,
-			setCurrentTab: props.setCurrentTab
+			currentTab: props.currentTab
 		})
 	)
 

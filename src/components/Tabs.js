@@ -17,7 +17,7 @@ const style = {
 
 }
 
-module.exports = ({ currentComponent, currentTab, setCurrentTab }) => (
+module.exports = ({ currentComponent, currentTab }) => (
 
 	h('div', { className: style.self.toString() },
 		getTabs(currentComponent).map((tab) =>
@@ -26,7 +26,7 @@ module.exports = ({ currentComponent, currentTab, setCurrentTab }) => (
 				id: tab.id,
 				label: tab.label,
 				active: tab.id===currentTab.id,
-				setCurrentTab
+				currentComponent
 			})
 		)
 	)
@@ -36,7 +36,6 @@ module.exports = ({ currentComponent, currentTab, setCurrentTab }) => (
 module.exports.propTypes = {
 
 	currentComponent: propTypes.object.isRequired,
-	currentTab: propTypes.object.isRequired,
-	setCurrentTab: propTypes.func.isRequired
+	currentTab: propTypes.object.isRequired
 
 }

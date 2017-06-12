@@ -14,7 +14,7 @@ const getTabs = require('./selectors/getTabs')
 
 const history = require('./utils/history')()
 const UrlPattern = require('url-pattern')
-const { setCurrentComponent, setCurrentTab } = require('./actions')
+const { setRoute } = require('./actions')
 
 const Main = require('./components/Main')
 
@@ -56,8 +56,7 @@ createStore(window.__STATE__, (err, store) => {
 		// Use the specified or the first tab depending on what's available
 		const nextTabId = hasTabId===true ? tabId : getTabs(nextComponent)[0].id
 
-		store.dispatch(setCurrentComponent(nextComponentId))
-		store.dispatch(setCurrentTab(nextTabId))
+		store.dispatch(setRoute(nextComponentId, nextTabId))
 
 	}
 

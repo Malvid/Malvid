@@ -29,7 +29,7 @@ const style = {
 
 }
 
-module.exports = ({ currentComponent, currentTab, setCurrentTab }) => {
+module.exports = ({ currentComponent, currentTab }) => {
 
 	const { data, languages } = currentTab
 
@@ -40,8 +40,7 @@ module.exports = ({ currentComponent, currentTab, setCurrentTab }) => {
 			h('div', { className: style.shadowBox.toString() },
 				h(Tabs, {
 					currentComponent,
-					currentTab,
-					setCurrentTab
+					currentTab
 				}),
 				data!=null && h(Viewer, {
 					languages,
@@ -60,7 +59,6 @@ module.exports = ({ currentComponent, currentTab, setCurrentTab }) => {
 module.exports.propTypes = {
 
 	currentComponent: propTypes.object.isRequired,
-	currentTab: propTypes.object.isRequired,
-	setCurrentTab: propTypes.func.isRequired
+	currentTab: propTypes.object.isRequired
 
 }

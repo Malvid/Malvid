@@ -73,51 +73,6 @@ describe('index()', function() {
 
 	})
 
-	it('should throw an error when component config is not parsable', function() {
-
-		this.timeout(20000)
-
-		const componentName = uuid()
-
-		const structure = [
-			{
-				type: fsify.DIRECTORY,
-				name: uuid(),
-				contents: [
-					{
-						type: fsify.FILE,
-						name: `${ componentName }.njk`,
-						contents: 'Hello World!'
-					},
-					{
-						type: fsify.FILE,
-						name: `${ componentName }.config.json`,
-						contents: ''
-					}
-				]
-			}
-		]
-
-		return fsify(structure).then((structure) => {
-
-			const opts = {
-				src: structure[0].name
-			}
-
-			return index(null, opts)
-
-		}).then((data) => {
-
-			throw new Error('Returned without error')
-
-		}, (err) => {
-
-			assert.strictEqual(`Failed to parse config of '${ componentName }' component`, err.message)
-
-		})
-
-	})
-
 	it('should render a page with components', function() {
 
 		this.timeout(20000)
