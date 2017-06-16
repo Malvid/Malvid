@@ -3,10 +3,11 @@
 const { render } = require('react-dom')
 const { Provider } = require('react-redux')
 const { css } = require('glamor')
+const createHistory = require('history').createHashHistory
 
 const h = require('./utils/h')
 const createStore = require('./utils/createStore')
-const createHistory = require('./utils/createHistory')
+const parsePath = require('./utils/parsePath')
 const global = require('./styles/global')
 const markdown = require('./styles/markdown')
 const { setRoute } = require('./actions')
@@ -16,23 +17,33 @@ const Main = require('./components/Main')
 css.insert(global)
 css.insert(markdown)
 
-// Rehydrate store from state
+// Create store with the data from the server
 createStore(window.__STATE__, (err, store) => {
 
 	if (err!=null) throw err
 
-	const history = createHistory(store, setRoute)
+	const history = createHistory()
+
+	// Set the state based on the location
+	const parseLocation = (location) => {
+
+		const components = store.getState().components
+		const parsedPath = parsePath(location.pathname, components)
+		const action = setRoute(parsedPath.componentId, parsedPath.tabId)
+
+		store.dispatch(action)
+
+	}
 
 	// Parse the initial location
-	history.parse(history.location())
+	parseLocation(history.location)
 
 	// Reparse the location when the user navigates
-	history.listen(history.parse)
+	history.listen(parseLocation)
 
 	const root = document.querySelector('#main')
 	const html = h(Provider, { store }, h(Main))
 
-	// Render component with the state from the server
 	render(html, root)
 
 })

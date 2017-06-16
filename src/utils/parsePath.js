@@ -6,18 +6,17 @@ const getTabs = require('../selectors/getTabs')
 
 const pattern = new UrlPattern('/(:componentId(/:tabId))')
 
-module.exports = (location, components) => {
+module.exports = (path, components) => {
 
 	const hasComponents = components.length>0
 
-	// Reset route when there're no components to show
 	if (hasComponents===false) return {
 		componentId: null,
 		tabId: null
 	}
 
-	// Params is null when path is invalid
-	const params = pattern.match(location.pathname) || {}
+	// Params is null when path is invalid so we use an object as fallback
+	const params = pattern.match(path) || {}
 	const componentId = params.componentId
 	const tabId = params.tabId
 
