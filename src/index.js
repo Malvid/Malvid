@@ -82,8 +82,8 @@ module.exports = function(filePath, opts = {}) {
 			lang: 'en',
 			title: 'Rosid',
 			description: 'UI to help you build and document web components.',
-			pattern: '**/[^_]*.{ejs,njk}',
 			src: '',
+			pattern: '**/[^_]*.{ejs,njk}',
 			resolvers,
 			statuses
 		}, opts)
