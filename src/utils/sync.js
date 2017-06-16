@@ -12,14 +12,8 @@ module.exports = (store) => (next) => (action) => {
 	// Sync data that is not part of a component
 	if (isClient===true) {
 
-		if (nextState.currentComponent!=null) {
-			document.title = `${ nextState.currentComponent.name } | ${ nextState.opts.title }`
-		}
-
-		if (nextState.currentSize.status===CURRENT_SIZE_STATUS_ACTIVE) {
-			document.documentElement.style.setProperty('--currentSize-vertical', `${ nextState.currentSize.vertical }px`)
-			document.documentElement.style.setProperty('--currentSize-horizontal', `${ nextState.currentSize.horizontal }px`)
-		}
+		if (nextState.currentComponent!=null) document.title = `${ nextState.currentComponent.name } | ${ nextState.opts.title }`
+		else document.title = nextState.opts.title
 
 	}
 

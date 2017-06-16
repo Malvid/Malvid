@@ -37,7 +37,11 @@ const Main = (props) => {
 	return (
 		h('div', {
 			id: 'main',
-			className: style.self.toString()
+			className: style.self.toString(),
+			style: {
+				'--currentSize-vertical': `${ props.currentSize.vertical }px`,
+				'--currentSize-horizontal': `${ props.currentSize.horizontal }px`
+			}
 		},
 			h(Nav, {
 				statuses: props.opts.statuses,
