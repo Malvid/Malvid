@@ -1,3 +1,5 @@
+'use strict'
+
 const isClient = require('./isClient')
 const enhanceState = require('./enhanceState')
 const { CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')

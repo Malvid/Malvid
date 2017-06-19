@@ -1,3 +1,5 @@
+'use strict'
+
 const { SET_ROUTE } = require('../constants/actions')
 
 const setRoute = (componentId, tabId) => ({

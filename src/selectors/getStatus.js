@@ -1,3 +1,5 @@
+'use strict'
+
 const getTab = require('./getTab')
 
 module.exports = (statuses, component) => {

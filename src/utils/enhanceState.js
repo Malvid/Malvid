@@ -1,3 +1,5 @@
+'use strict'
+
 const getComponent = require('../selectors/getComponent')
 const getTab = require('../selectors/getTab')
 

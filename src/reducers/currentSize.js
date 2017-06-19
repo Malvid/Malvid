@@ -1,3 +1,5 @@
+'use strict'
+
 const { SET_CURRENT_SIZE_STATUS, SET_CURRENT_SIZE_VERTICAL, SET_CURRENT_SIZE_HORIZONTAL } = require('../constants/actions')
 const { CURRENT_SIZE_STATUS_INACTIVE, CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')
 

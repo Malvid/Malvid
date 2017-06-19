@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = (state) => `
+module.exports = (body, js, state) => `
 	<!doctype html>
 	<html lang="${ state.opts.lang }">
 		<head>
@@ -24,4 +24,12 @@ module.exports = (state) => `
 
 		</head>
 		<body>
+
+			${ body }
+
+			<!-- JS -->
+			<script>${ js }</script>
+
+		</body>
+	</html>
 `

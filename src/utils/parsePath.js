@@ -1,3 +1,5 @@
+'use strict'
+
 const UrlPattern = require('url-pattern')
 
 const getComponent = require('../selectors/getComponent')

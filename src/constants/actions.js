@@ -1,3 +1,5 @@
+'use strict'
+
 const SET_COMPONENT_DATA = 'set_component_data'
 const SET_ROUTE = 'set_route'
 const SET_CURRENT_SIZE_STATUS = 'set_current_size_status'

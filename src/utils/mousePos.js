@@ -1,3 +1,5 @@
+'use strict'
+
 const isClient = require('./isClient')
 const eventPos = require('./eventPos')
 

@@ -3,8 +3,7 @@
 const { css } = require('glamor')
 
 const createStore = require('./utils/createStore')
-const start = require('./layout/start')
-const end = require('./layout/end')
+const layout = require('./utils/layout')
 
 module.exports = (initalState, js, next) => {
 
@@ -13,12 +12,9 @@ module.exports = (initalState, js, next) => {
 		if (err!=null) return next(err)
 
 		const state = store.getState()
+		const html = layout('<div id="main"></div>', js, state)
 
-		next(null, `
-			${ start(state) }
-			<div id="main"></div>
-			${ end(state, js) }
-		`)
+		next(null, html)
 
 	})
 

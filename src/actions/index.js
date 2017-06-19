@@ -1,3 +1,5 @@
+'use strict'
+
 const {
 	SET_COMPONENT_DATA,
 	SET_ROUTE,

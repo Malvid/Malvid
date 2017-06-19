@@ -1,3 +1,5 @@
+'use strict'
+
 const { BORDER_RADIUS } = require('../constants/sizes')
 const { WHITE } = require('../constants/colors')
 

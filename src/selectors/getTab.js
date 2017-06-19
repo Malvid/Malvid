@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = (component, tabId) => {
 
 	if (component==null) return null

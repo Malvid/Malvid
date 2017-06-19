@@ -1,3 +1,5 @@
+'use strict'
+
 const update = require('immutability-helper')
 
 const getComponent = require('../selectors/getComponent')
