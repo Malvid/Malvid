@@ -39,6 +39,7 @@
     "pify": "^3.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
+    "react-document-title": "^2.0.3",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",

@@ -1,15 +1,13 @@
 'use strict'
 
-const { compose, applyMiddleware, createStore } = require('redux')
+const { compose, createStore } = require('redux')
 const { persistStore, autoRehydrate } = require('redux-persist')
 
-const sync = require('./sync')
 const reducers = require('../reducers')
 
 // Enhance the store with third-party capabilities
 const enhancers = compose(
-	autoRehydrate(),
-	applyMiddleware(sync)
+	autoRehydrate()
 )
 
 // Reducers to persist
