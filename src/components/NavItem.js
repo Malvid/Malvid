@@ -7,6 +7,7 @@ const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
 const { DARK } = require('../constants/colors')
 
+const NavIcon = require('./NavIcon')
 const NavStatus = require('./NavStatus')
 
 const style = {
@@ -36,12 +37,13 @@ const style = {
 
 }
 
-module.exports = ({ id, label, status, active, currentTab }) => (
+module.exports = ({ id, label, icon, status, active, currentTab }) => (
 
 	h('a', {
 		className: css(style.self, active && style.active).toString(),
 		href: `#/${ id }/${ currentTab.id }`
 	},
+		icon!=null && h(NavIcon, { icon }),
 		label,
 		status!=null && h(NavStatus, status)
 	)
@@ -52,6 +54,7 @@ module.exports.propTypes = {
 
 	id: propTypes.string.isRequired,
 	label: propTypes.string.isRequired,
+	icon: propTypes.string,
 	status: propTypes.object,
 	active: propTypes.bool.isRequired,
 	currentTab: propTypes.object.isRequired

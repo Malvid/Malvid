@@ -4,6 +4,7 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
+const getIcon = require('../selectors/getIcon')
 const getStatus = require('../selectors/getStatus')
 const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 
@@ -39,6 +40,7 @@ module.exports = ({ statuses, components, currentComponent, currentTab }) => (
 					key: component.id,
 					id: component.id,
 					label: component.name,
+					icon: getIcon(component),
 					status: getStatus(statuses, component),
 					active: component.id===currentComponent.id,
 					currentTab
