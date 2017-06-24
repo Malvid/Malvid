@@ -22,7 +22,7 @@ components().then((data) => {})
 
 ### Rosid
 
-Add the following object to your `rosidfile.json`, `rosidfile.js` or [routes array](https://github.com/electerious/Rosid#routes). `rosid-handler-components` will always return the HTML of the UI that can be viewed in the browser.
+Add the following object to your `rosidfile.json`, `rosidfile.js` or [routes array](https://github.com/electerious/Rosid/blob/master/docs/Routes.md). `rosid-handler-components` will always return the HTML of the UI that can be viewed in the browser.
 
 ```json
 {
