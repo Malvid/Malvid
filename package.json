@@ -24,8 +24,8 @@
     "src"
   ],
   "scripts": {
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- recursive",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "nyc node_modules/mocha/bin/_mocha -- recursive",
     "prepublish": "npm test"
   },
   "dependencies": {
@@ -51,7 +51,7 @@
     "chai": "^4.0.2",
     "coveralls": "^2.13.1",
     "fsify": "^2.0.3",
-    "istanbul": "^0.4.5",
+    "nyc": "^11.0.2",
     "mocha": "^3.4.2"
   }
 }
