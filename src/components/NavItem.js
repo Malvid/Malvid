@@ -14,11 +14,10 @@ const style = {
 	self: css({
 		display: 'flex',
 		alignItems: 'center',
-		marginBottom: '.1em',
-		padding: '.9em 1.2em',
+		marginBottom: '1px',
+		padding: '.8em 1.2em',
 		width: '100%',
 		color: DARK,
-		textAlign: 'left',
 		textOverflow: 'ellipsis',
 		textDecoration: 'none',
 		whiteSpace: 'nowrap',
