@@ -4,6 +4,7 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
+const { HEIGHT } = require('../constants/sizes')
 const { BLUE, MID, DARK } = require('../constants/colors')
 
 const Status = require('./Status')
@@ -16,12 +17,13 @@ const style = {
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		padding: '0 1.2em',
+		height: HEIGHT,
 		borderBottom: `1px solid ${ MID }`
 	}),
 
 	label: css({
 		margin: '0',
-		padding: '.85em .4em',
+		padding: '.4em',
 		color: DARK,
 		fontSize: '1em',
 		fontWeight: 'normal'
@@ -37,7 +39,7 @@ const style = {
 	}),
 
 	button: css({
-		padding: '.85em .4em',
+		padding: '.4em',
 		background: 'transparent',
 		appearance: 'none',
 		border: 'none',

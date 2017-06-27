@@ -4,16 +4,20 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
+const { HEIGHT } = require('../constants/sizes')
 const { BLUE, MID, DARK } = require('../constants/colors')
 
 const style = {
 
 	self: css({
 		flexGrow: '1',
-		padding: '1.1em',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		padding: '0 .95em',
 		width: '100%',
+		height: HEIGHT,
 		color: DARK,
-		textAlign: 'center',
 		textOverflow: 'ellipsis',
 		textDecoration: 'none',
 		whiteSpace: 'nowrap',
