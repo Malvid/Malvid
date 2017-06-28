@@ -18,10 +18,7 @@ const style = {
 		padding: '.8em 1.2em',
 		width: '100%',
 		color: DARK,
-		textOverflow: 'ellipsis',
 		textDecoration: 'none',
-		whiteSpace: 'nowrap',
-		overflow: 'hidden',
 		borderRadius: BORDER_RADIUS,
 		outline: 'none',
 		':active': {
@@ -31,6 +28,13 @@ const style = {
 
 	active: css({
 		background: 'rgba(0, 0, 0, .08)'
+	}),
+
+	label: css({
+		textOverflow: 'ellipsis',
+		textDecoration: 'none',
+		whiteSpace: 'nowrap',
+		overflow: 'hidden'
 	})
 
 }
@@ -41,7 +45,7 @@ module.exports = ({ id, label, status, active, currentTab }) => (
 		className: css(style.self, active && style.active).toString(),
 		href: `#/${ id }/${ currentTab.id }`
 	},
-		label,
+		h('span', { className: style.label.toString() }, label),
 		status!=null && h(NavStatus, status)
 	)
 

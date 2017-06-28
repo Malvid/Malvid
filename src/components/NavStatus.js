@@ -8,6 +8,7 @@ const h = require('../utils/h')
 const style = {
 
 	self: ({ color }) => css({
+		flexShrink: '0',
 		marginLeft: '.5em',
 		width: '11px',
 		height: '11px',
