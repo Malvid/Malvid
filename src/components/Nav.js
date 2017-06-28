@@ -4,7 +4,7 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
-const getGroup = require('../selectors/getGroup')
+const sort = require('../utils/sort')
 const getStatus = require('../selectors/getStatus')
 const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 
@@ -52,43 +52,7 @@ module.exports = ({ statuses, components, currentComponent, currentTab }) => {
 		})
 	)
 
-	const ungrouped = components.reduce((acc, component) => {
-
-		const hasGroup = getGroup(component)!=null
-
-		if (hasGroup===true) return acc
-
-		return [
-			...acc,
-			component
-		]
-
-	}, [])
-
-	const grouped = components.reduce((acc, component) => {
-
-		const group = getGroup(component)
-		const hasGroup = group!=null
-
-		if (hasGroup===false) return acc
-
-		acc[group] = [
-			...(acc[group] || []),
-			component
-		]
-
-		return acc
-
-	}, {})
-
-	const items = [
-		...ungrouped.map(toNavItem),
-		...Object.keys(grouped).reduce((acc, group) => [
-			...acc,
-			toNavGroup(group),
-			...grouped[group].map(toNavItem)
-		], [])
-	]
+	const items = sort(components, toNavGroup, toNavItem)
 
 	return (
 		h('nav', { className: style.self.toString() },
