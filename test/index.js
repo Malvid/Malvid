@@ -11,9 +11,9 @@ const fsify = require('fsify')({
 
 describe('index()', function() {
 
-	it('should return an error when called with invalid options', function() {
+	it('should return an error when called with invalid options', async function() {
 
-		return index(null, '').then((data) => {
+		return index(null, '').then((result) => {
 
 			throw new Error('Returned without error')
 
@@ -25,7 +25,7 @@ describe('index()', function() {
 
 	})
 
-	it('should render a page with siteData', function() {
+	it('should render a page with siteData', async function() {
 
 		this.timeout(20000)
 
@@ -35,51 +35,43 @@ describe('index()', function() {
 			description: uuid()
 		}
 
-		return index(null, opts).then((data) => {
+		const result = await index(null, opts)
 
-			assert.include(data, `<html lang="${ opts.lang }">`)
-			assert.include(data, `<title>${ opts.title }</title>`)
-			assert.include(data, `<meta name="description" content="${ opts.description }">`)
-
-		})
+		assert.include(result, `<html lang="${ opts.lang }">`)
+		assert.include(result, `<title>${ opts.title }</title>`)
+		assert.include(result, `<meta name="description" content="${ opts.description }">`)
 
 	})
 
-	it('should render a page without components', function() {
+	it('should render a page without components', async function() {
 
 		this.timeout(20000)
 
-		const structure = [
+		const structure = await fsify([
 			{
 				type: fsify.DIRECTORY,
 				name: uuid(),
 				contents: []
 			}
-		]
+		])
 
-		return fsify(structure).then((structure) => {
+		const opts = {
+			src: structure[0].name
+		}
 
-			const opts = {
-				src: structure[0].name
-			}
+		const result = await index(null, opts)
 
-			return index(null, opts)
-
-		}).then((data) => {
-
-			assert.include(data, 'No components found')
-
-		})
+		assert.include(result, 'No components found')
 
 	})
 
-	it('should render a page with components', function() {
+	it('should render a page with components', async function() {
 
 		this.timeout(20000)
 
 		const componentName = uuid()
 
-		const structure = [
+		const structure = await fsify([
 			{
 				type: fsify.DIRECTORY,
 				name: uuid(),
@@ -101,21 +93,15 @@ describe('index()', function() {
 					}
 				]
 			}
-		]
+		])
 
-		return fsify(structure).then((structure) => {
+		const opts = {
+			src: structure[0].name
+		}
 
-			const opts = {
-				src: structure[0].name
-			}
+		const result = await index(null, opts)
 
-			return index(null, opts)
-
-		}).then((data) => {
-
-			assert.include(data, componentName)
-
-		})
+		assert.include(result, componentName)
 
 	})
 
