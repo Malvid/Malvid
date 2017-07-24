@@ -9,3 +9,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### New
 
 - Only support Node.js 7 and 8
+
+### Changed
+
+- Improved scrolling area in sidebar
+- Color of active item in sidebar
+
+### Fixed
+
+- iframe not scrollable after resize
