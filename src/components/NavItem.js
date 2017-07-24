@@ -5,7 +5,7 @@ const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
-const { DARK } = require('../constants/colors')
+const { BLUE_LIGHT, DARK } = require('../constants/colors')
 
 const NavStatus = require('./NavStatus')
 
@@ -22,12 +22,12 @@ const style = {
 		borderRadius: BORDER_RADIUS,
 		outline: 'none',
 		':active': {
-			background: 'rgba(0, 0, 0, .08)'
+			background: BLUE_LIGHT
 		}
 	}),
 
 	active: css({
-		background: 'rgba(0, 0, 0, .08)'
+		background: BLUE_LIGHT
 	}),
 
 	label: css({
