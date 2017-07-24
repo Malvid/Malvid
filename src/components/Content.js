@@ -28,7 +28,6 @@ module.exports = (props) => (
 		h(Preview, {
 			statuses: props.opts.statuses,
 			currentComponent: props.currentComponent,
-			currentSizeStatus: props.currentSize.status,
 			setComponentData: props.setComponentData
 		}),
 		h(Resizer, {

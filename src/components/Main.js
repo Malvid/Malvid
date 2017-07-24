@@ -8,8 +8,10 @@ const h = require('../utils/h')
 const enhanceState = require('../utils/enhanceState')
 const actions = require('../actions')
 const { DARK } = require('../constants/colors')
+const { CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')
 
 const DocumentTitle = require('react-document-title')
+const ResizeOverlay = require('./ResizeOverlay')
 const Nav = require('./Nav')
 const Resizer = require('./Resizer')
 const Content = require('./Content')
@@ -60,7 +62,10 @@ const Main = (props) => {
 					setCurrentSize: props.setCurrentSizeHorizontal,
 					setCurrentSizeStatus: props.setCurrentSizeStatus
 				}),
-				h(Content, props)
+				h(Content, props),
+				h(ResizeOverlay, {
+					visible: props.currentSize.status===CURRENT_SIZE_STATUS_ACTIVE
+				})
 			)
 		)
 	)

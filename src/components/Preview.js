@@ -7,7 +7,6 @@ const h = require('../utils/h')
 const getStatus = require('../selectors/getStatus')
 const shadowBox = require('../styles/shadowBox')
 const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
-const { CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')
 
 const Toolbar = require('./Toolbar')
 
@@ -21,17 +20,16 @@ const style = {
 		maxHeight: `calc(100vh - ${ INSPECTOR_MIN_HEIGHT })`
 	}),
 
-	iframe: ({ currentSizeStatus }) => css({
+	iframe: css({
 		flexGrow: '1',
 		padding: '.5em',
 		minHeight: '0',
-		border: 'none',
-		pointerEvents: currentSizeStatus===CURRENT_SIZE_STATUS_ACTIVE && 'none'
+		border: 'none'
 	})
 
 }
 
-module.exports = ({ statuses, currentComponent, currentSizeStatus, setComponentData }) => (
+module.exports = ({ statuses, currentComponent, setComponentData }) => (
 
 	h('section', { className: style.self.toString() },
 		h(Toolbar, {
@@ -41,7 +39,7 @@ module.exports = ({ statuses, currentComponent, currentSizeStatus, setComponentD
 		}),
 		h('iframe', {
 			key: currentComponent.id,
-			className: style.iframe({ currentSizeStatus }).toString(),
+			className: style.iframe.toString(),
 			onLoad: (e) => setComponentData(currentComponent.id, 'output', e.target.contentDocument.body.outerHTML),
 			src: currentComponent.url
 		})
@@ -53,7 +51,6 @@ module.exports.propTypes = {
 
 	statuses: propTypes.object.isRequired,
 	currentComponent: propTypes.object.isRequired,
-	currentSizeStatus: propTypes.string.isRequired,
 	setComponentData: propTypes.func.isRequired
 
 }
