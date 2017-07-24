@@ -16,7 +16,6 @@ const style = {
 	self: css({
 		display: 'flex',
 		flexDirection: 'column',
-		padding: '0 0 0 1em',
 		minWidth: NAV_MIN_WIDTH,
 		width: `calc(${ NAV_WIDTH } - var(--currentSize-horizontal, 0px))`,
 		maxWidth: `calc(100% - ${ CONTENT_MIN_WIDTH })`
@@ -24,7 +23,7 @@ const style = {
 
 	scroller: css({
 		flexGrow: '1',
-		padding: '1em 0',
+		padding: '1em 0 1em 1em',
 		height: '100%',
 		overflow: 'auto',
 		WebkitOverflowScrolling: 'touch'
