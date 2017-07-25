@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+### Changed
+
+- Label in preview toolbar is now selectable
+
 ### Fixed
 
 - Initial component should respect sorting of sidebar
