@@ -30,10 +30,10 @@ const setCurrentSizeHorizontal = ({ status, vertical }, size) => ({
 module.exports = (state = defaultState, action) => {
 
 	switch (action.type) {
-		case SET_CURRENT_SIZE_STATUS     : return setCurrentSizeStatus(state, action.status)
-		case SET_CURRENT_SIZE_VERTICAL   : return setCurrentSizeVertical(state, action.size)
-		case SET_CURRENT_SIZE_HORIZONTAL : return setCurrentSizeHorizontal(state, action.size)
-		default                          : return state
+		case SET_CURRENT_SIZE_STATUS: return setCurrentSizeStatus(state, action.status)
+		case SET_CURRENT_SIZE_VERTICAL: return setCurrentSizeVertical(state, action.size)
+		case SET_CURRENT_SIZE_HORIZONTAL: return setCurrentSizeHorizontal(state, action.size)
+		default: return state
 	}
 
 }

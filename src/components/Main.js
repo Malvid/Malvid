@@ -17,7 +17,7 @@ const Resizer = require('./Resizer')
 const Content = require('./Content')
 const Empty = require('./Empty')
 
-const mapStateToProps    = (state) => enhanceState(state)
+const mapStateToProps = (state) => enhanceState(state)
 const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch)
 
 const style = {
