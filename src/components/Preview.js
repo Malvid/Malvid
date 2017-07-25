@@ -29,7 +29,7 @@ const style = {
 
 }
 
-module.exports = ({ statuses, currentComponent, setComponentData }) => (
+module.exports = ({ statuses, currentComponent }) => (
 
 	h('section', { className: style.self.toString() },
 		h(Toolbar, {
@@ -40,7 +40,6 @@ module.exports = ({ statuses, currentComponent, setComponentData }) => (
 		h('iframe', {
 			key: currentComponent.id,
 			className: style.iframe.toString(),
-			onLoad: (e) => setComponentData(currentComponent.id, 'output', e.target.contentDocument.body.outerHTML),
 			src: currentComponent.url
 		})
 	)
@@ -50,7 +49,6 @@ module.exports = ({ statuses, currentComponent, setComponentData }) => (
 module.exports.propTypes = {
 
 	statuses: propTypes.object.isRequired,
-	currentComponent: propTypes.object.isRequired,
-	setComponentData: propTypes.func.isRequired
+	currentComponent: propTypes.object.isRequired
 
 }

@@ -3,7 +3,14 @@
 const { compose, createStore } = require('redux')
 const { persistStore, autoRehydrate } = require('redux-persist')
 
-const reducers = require('../reducers')
+const hydratable = require('./hydratable')
+const { HYDRATE } = require('../constants/actions')
+
+// Make reducers hydratable by wrapping a function around
+const reducers = hydratable(
+	require('../reducers'),
+	HYDRATE
+)
 
 // Enhance the store with third-party capabilities
 const enhancers = compose(

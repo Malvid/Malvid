@@ -87,20 +87,6 @@ module.exports = async function(filePath, opts = {}) {
 	const components = componentsLookup(opts.pattern, opts.resolvers, { cwd: opts.src })
 	const js = await clientJS
 
-	components.forEach((component) => {
-
-		// Add output to each components. This placeholder will be filled by the UI,
-		// but must exist too show up in the inspector.
-		component.data.push({
-			index: component.data.length,
-			id: 'output',
-			label: 'Output',
-			languages: [ 'html' ],
-			data: null
-		})
-
-	})
-
 	const initalState = {
 		components,
 		opts
