@@ -6,6 +6,7 @@ const marked = require('marked')
 const highlight = require('highlight.js')
 
 const h = require('../utils/h')
+const selectable = require('../styles/selectable')
 
 const style = {
 
@@ -16,17 +17,13 @@ const style = {
 		margin: '0'
 	}),
 
-	content: css({
+	content: css(selectable, {
 		flexGrow: '1',
 		padding: '1.5em 2em',
 		height: '100%',
 		background: 'transparent',
 		overflow: 'auto',
-		WebkitOverflowScrolling: 'touch',
-		WebkitUserSelect: 'auto',
-		MozUserSelect: 'auto',
-		MsUserSelect: 'auto',
-		UserSelect: 'auto'
+		WebkitOverflowScrolling: 'touch'
 	})
 
 }

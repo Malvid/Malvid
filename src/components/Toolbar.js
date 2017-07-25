@@ -4,6 +4,7 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
+const selectable = require('../styles/selectable')
 const { HEIGHT } = require('../constants/sizes')
 const { BLUE, MID, DARK } = require('../constants/colors')
 
@@ -21,7 +22,7 @@ const style = {
 		borderBottom: `1px solid ${ MID }`
 	}),
 
-	label: css({
+	label: css(selectable, {
 		margin: '0',
 		padding: '.4em',
 		color: DARK,
