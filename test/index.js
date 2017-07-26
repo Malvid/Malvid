@@ -11,6 +11,20 @@ const fsify = require('fsify')({
 
 describe('index()', function() {
 
+	it('should return an error when called without a filePath', async function() {
+
+		return index().then((result) => {
+
+			throw new Error('Returned without error')
+
+		}, (err) => {
+
+			assert.strictEqual(`'filePath' must be a string`, err.message)
+
+		})
+
+	})
+
 	it('should return an error when called with invalid options', async function() {
 
 		return index(null, '').then((result) => {

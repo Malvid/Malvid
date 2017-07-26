@@ -26,6 +26,7 @@ const clientJS = (() => {
  */
 module.exports = async function(filePath, opts = {}) {
 
+	if (typeof filePath!=='string') throw new Error(`'filePath' must be a string`)
 	if (isPlainObj(opts)===false && opts!=null) throw new Error(`'opts' must be an object, null or undefined`)
 
 	const resolvers = [
