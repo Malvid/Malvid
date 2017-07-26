@@ -88,12 +88,17 @@ module.exports = async function(filePath, opts = {}) {
 	const components = componentsLookup(opts.pattern, opts.resolvers, { cwd: opts.src })
 	const js = await clientJS
 
-	const initalState = {
+	const state = {
 		components,
 		opts
 	}
 
+	const jsonRequest = filePath.substr(-5)==='.json'
+
+	// Return the state when client requests JSON
+	if (jsonRequest===true) return JSON.stringify(state)
+
 	// Render the page
-	return pify(server)(initalState, js)
+	return pify(server)(state, js)
 
 }

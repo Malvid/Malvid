@@ -8,17 +8,18 @@ const createHistory = require('history').createHashHistory
 const h = require('./utils/h')
 const createStore = require('./utils/createStore')
 const parsePath = require('./utils/parsePath')
+const requestState = require('./utils/requestState')
+const loop = require('./utils/loop')
 const global = require('./styles/global')
 const markdown = require('./styles/markdown')
-const { setRoute } = require('./actions')
+const { setRoute, hydrate } = require('./actions')
 
 const Main = require('./components/Main')
 
 css.insert(global)
 css.insert(markdown)
 
-// Create store with the data from the server
-createStore(window.__STATE__, (err, store) => {
+const init = (initialState) => createStore(initialState, (err, store) => {
 
 	if (err!=null) throw err
 
@@ -46,4 +47,22 @@ createStore(window.__STATE__, (err, store) => {
 
 	render(html, root)
 
+	// Check periodically for state updates
+	loop((next) => {
+
+		requestState(location.href).then((nextState) => {
+
+			const action = hydrate(nextState)
+
+			store.dispatch(action)
+
+			// Parse the location in case the current component doesn't exist anymore
+			parseLocation(history.location)
+
+		}).then(next).catch(console.error)
+
+	}, 1000)
+
 })
+
+requestState(location.href).then(init).catch(console.error)

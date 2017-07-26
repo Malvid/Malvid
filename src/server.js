@@ -11,8 +11,8 @@ module.exports = (initalState, js, next) => {
 
 		if (err!=null) return next(err)
 
-		const state = store.getState()
-		const html = layout('<div id="main"></div>', js, state)
+		const opts = store.getState().opts
+		const html = layout('<div id="main"></div>', js, opts)
 
 		next(null, html)
 
