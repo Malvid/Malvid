@@ -2,7 +2,7 @@
 
 module.exports = (fn, delay) => {
 
-	const next = setTimeout(
+	const next = () => setTimeout(
 		() => module.exports(fn, delay),
 		delay
 	)
