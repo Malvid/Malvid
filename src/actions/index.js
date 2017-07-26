@@ -2,7 +2,7 @@
 
 const { setRoute } = require('./route')
 const { setCurrentSizeStatus, setCurrentSizeVertical, setCurrentSizeHorizontal } = require('./currentSize')
-const { hydrate } = require('./hydrate')
+const hydrate = require('./hydrate')
 
 module.exports = {
 	setRoute,
