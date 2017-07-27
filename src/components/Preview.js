@@ -4,6 +4,7 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
+const requestState = require('../utils/requestState')
 const getStatus = require('../selectors/getStatus')
 const shadowBox = require('../styles/shadowBox')
 const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
@@ -29,7 +30,7 @@ const style = {
 
 }
 
-module.exports = ({ statuses, currentComponent }) => (
+module.exports = ({ statuses, currentComponent, hydrate }) => (
 
 	h('section', { className: style.self.toString() },
 		h(Toolbar, {
@@ -40,7 +41,8 @@ module.exports = ({ statuses, currentComponent }) => (
 		h('iframe', {
 			key: currentComponent.id,
 			className: style.iframe.toString(),
-			src: currentComponent.url
+			src: currentComponent.url,
+			onLoad: () => requestState(location.href).then(hydrate).catch(console.error)
 		})
 	)
 
@@ -49,6 +51,7 @@ module.exports = ({ statuses, currentComponent }) => (
 module.exports.propTypes = {
 
 	statuses: propTypes.object.isRequired,
-	currentComponent: propTypes.object.isRequired
+	currentComponent: propTypes.object.isRequired,
+	hydrate: propTypes.func.isRequired
 
 }

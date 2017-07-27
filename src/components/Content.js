@@ -27,7 +27,8 @@ module.exports = (props) => (
 	h('content', { className: style.self.toString() },
 		h(Preview, {
 			statuses: props.opts.statuses,
-			currentComponent: props.currentComponent
+			currentComponent: props.currentComponent,
+			hydrate: props.hydrate
 		}),
 		h(Resizer, {
 			direction: 'vertical',

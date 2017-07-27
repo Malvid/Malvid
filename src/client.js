@@ -9,7 +9,6 @@ const h = require('./utils/h')
 const createStore = require('./utils/createStore')
 const parsePath = require('./utils/parsePath')
 const requestState = require('./utils/requestState')
-const loop = require('./utils/loop')
 const global = require('./styles/global')
 const markdown = require('./styles/markdown')
 const { setRoute, hydrate } = require('./actions')
@@ -46,22 +45,6 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 	const html = h(Provider, { store }, h(Main))
 
 	render(html, root)
-
-	// Check periodically for state updates
-	loop((next) => {
-
-		requestState(location.href).then((nextState) => {
-
-			const action = hydrate(nextState)
-
-			store.dispatch(action)
-
-			// Parse the location in case the current component doesn't exist anymore
-			parseLocation(history.location)
-
-		}).then(next).catch(console.error)
-
-	}, 1000)
 
 })
 
