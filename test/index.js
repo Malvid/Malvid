@@ -27,7 +27,7 @@ describe('index()', function() {
 
 	it('should return an error when called with invalid options', async function() {
 
-		return index(null, '').then((result) => {
+		return index(`${ uuid() }.html`, '').then((result) => {
 
 			throw new Error('Returned without error')
 
@@ -39,7 +39,7 @@ describe('index()', function() {
 
 	})
 
-	it('should render a page with siteData', async function() {
+	it('should render HTML with a head and react placeholder', async function() {
 
 		this.timeout(20000)
 
@@ -49,15 +49,16 @@ describe('index()', function() {
 			description: uuid()
 		}
 
-		const result = await index(null, opts)
+		const result = await index(`${ uuid() }.html`, opts)
 
 		assert.include(result, `<html lang="${ opts.lang }">`)
 		assert.include(result, `<title>${ opts.title }</title>`)
 		assert.include(result, `<meta name="description" content="${ opts.description }">`)
+		assert.include(result, `<div id="main"></div>`)
 
 	})
 
-	it('should render a page without components', async function() {
+	it('should render JSON without components', async function() {
 
 		this.timeout(20000)
 
@@ -73,13 +74,14 @@ describe('index()', function() {
 			src: structure[0].name
 		}
 
-		const result = await index(null, opts)
+		const result = await index(`${ uuid() }.html.json`, opts)
+		const json = JSON.parse(result)
 
-		assert.include(result, 'No components found')
+		assert.deepEqual(json.components, [])
 
 	})
 
-	it('should render a page with components', async function() {
+	it('should render JSON with a component', async function() {
 
 		this.timeout(20000)
 
@@ -102,6 +104,11 @@ describe('index()', function() {
 					},
 					{
 						type: fsify.FILE,
+						name: `${ componentName }.config.json`,
+						contents: JSON.stringify({})
+					},
+					{
+						type: fsify.FILE,
 						name: `${ componentName }.md`,
 						contents: '# Hello World'
 					}
@@ -113,9 +120,11 @@ describe('index()', function() {
 			src: structure[0].name
 		}
 
-		const result = await index(null, opts)
+		const result = await index(`${ uuid() }.html.json`, opts)
+		const json = JSON.parse(result)
 
-		assert.include(result, componentName)
+		assert.strictEqual(json.components.length, 1)
+		assert.strictEqual(json.components[0].name, componentName)
 
 	})
 
