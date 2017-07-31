@@ -4,11 +4,8 @@ module.exports = (reducers, type) => (state, action) => {
 
 	if (action.type!==type) return reducers(state, action)
 
-	// Keep the data generated during runtime
-	const nextState = Object.assign({}, action.state, {
-		currentSize: state.currentSize,
-		route: state.route
-	})
+	// Assign action.state into original state to keep new keys in state
+	const nextState = Object.assign({}, state, action.state)
 
 	return reducers(nextState, action)
 
