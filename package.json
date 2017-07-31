@@ -29,7 +29,7 @@
     "prepublish": "npm test"
   },
   "dependencies": {
-    "components-lookup": "^3.1.1",
+    "components-lookup": "^4.0.0",
     "glamor": "^3.0.0-2",
     "highlight.js": "^9.12.0",
     "history": "^4.6.3",
@@ -51,6 +51,6 @@
     "coveralls": "^2.13.1",
     "fsify": "^2.0.3",
     "mocha": "^3.4.2",
-    "nyc": "^11.0.3"
+    "nyc": "^11.1.0"
   }
 }

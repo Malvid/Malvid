@@ -85,7 +85,7 @@ module.exports = async function(filePath, opts = {}) {
 		statuses
 	}, opts)
 
-	const components = componentsLookup(opts.pattern, opts.resolvers, { cwd: opts.src })
+	const components = await componentsLookup(opts.pattern, opts.resolvers, { cwd: opts.src })
 	const js = await clientJS
 
 	const state = {
