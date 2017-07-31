@@ -1,9 +1,9 @@
 'use strict'
 
 const { compose, createStore } = require('redux')
-const { persistStore, autoRehydrate } = require('redux-persist')
 
 const hydratable = require('./hydratable')
+const isClient = require('./isClient')
 const { HYDRATE } = require('../constants/actions')
 
 // Make reducers hydratable by wrapping a function around
@@ -12,25 +12,15 @@ const reducers = hydratable(
 	HYDRATE
 )
 
-// Enhance the store with third-party capabilities
-const enhancers = compose(
-	autoRehydrate()
-)
-
-// Reducers to persist
-const whitelist = []
+// Enhance the store with DevTools
+const hasDevTools = isClient===true && typeof window.__REDUX_DEVTOOLS_EXTENSION__==='function'
+const devTools = hasDevTools===true ? window.__REDUX_DEVTOOLS_EXTENSION__() : undefined
 
 // Create the store
 module.exports = (state, next) => {
 
-	const store = createStore(reducers, state, enhancers)
+	const store = createStore(reducers, state, devTools)
 
-	// Begin periodically persisting the store
-	persistStore(store, { whitelist }, () => {
-
-		// Rehydration complete
-		next(null, store)
-
-	})
+	next(null, store)
 
 }

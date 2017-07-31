@@ -43,7 +43,6 @@
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "redux": "^3.7.2",
-    "redux-persist": "^4.8.2",
     "rosid-handler-js": "^10.0.0",
     "url-pattern": "^1.0.3"
   },
