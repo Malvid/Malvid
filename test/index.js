@@ -77,7 +77,7 @@ describe('index()', function() {
 		const result = await index(`${ uuid() }.html.json`, opts)
 		const json = JSON.parse(result)
 
-		assert.deepEqual(json.components, [])
+		assert.strictEqual(json.components.length, 0)
 
 	})
 
