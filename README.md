@@ -17,24 +17,35 @@ npm install rosid-handler-components
 ```js
 const components = require('rosid-handler-components')
 
-components().then((data) => {})
+components('.html').then(console.log) // Returns HTML of the UI
+components('.json').then(console.log) // Returns JSON for the UI
 ```
 
 ### Rosid
 
-Add the following object to your `rosidfile.json`, `rosidfile.js` or [routes array](https://github.com/electerious/Rosid/blob/master/docs/Routes.md). `rosid-handler-components` will always return the HTML of the UI that can be viewed in the browser.
+Add the following object to your `rosidfile.json`, `rosidfile.js` or [routes array](https://github.com/electerious/Rosid/blob/master/docs/Routes.md). `rosid-handler-components` will return the HTML of the UI or the JSON for the UI depending on the path.
 
 ```json
 {
 	"name"    : "Components",
-	"path"    : "ui/**/*.html*",
+	"path"    : "ui/**/index.{html,html.json}",
 	"handler" : "rosid-handler-components"
 }
 ```
 
+Disable automatic page reloads for the UI to get realtime updates when developing components. You can do so by using the `--static` or `-s` option in the CLI or by using the `static` option.
+
+```sh
+rosid serve src/ dist/ -s '/ui/index.html'
+```
+
+```js
+Rosid.serve('src/', { static: '/ui/index.html' }, (err) => {})
+```
+
 ## Parameters
 
-- `filePath` `{?*}` Not used by this module.
+- `filePath` `{?*}` Fictive path that ends with `.html` or `.json`
 - `opts` `{?Object}` Options.
 
 ## Returns
