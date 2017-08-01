@@ -11,18 +11,14 @@ const style = {
 
 	self: css({
 		flexGrow: '1',
-		display: 'flex',
-		flexDirection: 'column',
-		margin: '0'
+		margin: '0',
+		overflow: 'auto',
+		WebkitOverflowScrolling: 'touch'
 	}),
 
 	code: css(selectable, {
-		flexGrow: '1',
-		padding: '1.5em 2em',
-		height: '100%',
-		background: 'transparent',
-		overflow: 'auto',
-		WebkitOverflowScrolling: 'touch'
+		display: 'block',
+		padding: '1.5em 2em'
 	})
 
 }
