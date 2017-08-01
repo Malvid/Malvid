@@ -14,17 +14,10 @@ const NavItem = require('./NavItem')
 const style = {
 
 	self: css({
-		display: 'flex',
-		flexDirection: 'column',
+		padding: '1em 0 1em 1em',
 		minWidth: NAV_MIN_WIDTH,
 		width: `calc(${ NAV_WIDTH } - var(--currentSize-horizontal, 0px))`,
-		maxWidth: `calc(100% - ${ CONTENT_MIN_WIDTH })`
-	}),
-
-	scroller: css({
-		flexGrow: '1',
-		padding: '1em 0 1em 1em',
-		height: '100%',
+		maxWidth: `calc(100% - ${ CONTENT_MIN_WIDTH })`,
 		overflow: 'auto',
 		WebkitOverflowScrolling: 'touch'
 	})
@@ -55,9 +48,7 @@ module.exports = ({ statuses, components, currentComponent, currentTab }) => {
 
 	return (
 		h('nav', { className: style.self.toString() },
-			h('div', { className: style.scroller.toString() },
-				items
-			)
+			items
 		)
 	)
 
