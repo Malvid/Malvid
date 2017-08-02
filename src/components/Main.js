@@ -8,7 +8,7 @@ const h = require('../utils/h')
 const enhanceState = require('../utils/enhanceState')
 const actions = require('../actions')
 const { DARK } = require('../constants/colors')
-const { CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')
+const { SIZE_STATUS_ACTIVE } = require('../constants/size')
 
 const DocumentTitle = require('react-document-title')
 const ResizeOverlay = require('./ResizeOverlay')
@@ -47,8 +47,8 @@ const Main = (props) => {
 				id: 'main',
 				className: style.self.toString(),
 				style: {
-					'--currentSize-vertical': `${ props.currentSize.vertical }px`,
-					'--currentSize-horizontal': `${ props.currentSize.horizontal }px`
+					'--size-vertical': `${ props.size.vertical }px`,
+					'--size-horizontal': `${ props.size.horizontal }px`
 				}
 			},
 				h(Nav, {
@@ -59,12 +59,12 @@ const Main = (props) => {
 				}),
 				h(Resizer, {
 					direction: 'horizontal',
-					setCurrentSize: props.setCurrentSizeHorizontal,
-					setCurrentSizeStatus: props.setCurrentSizeStatus
+					setSize: props.setSizeHorizontal,
+					setSizeStatus: props.setSizeStatus
 				}),
 				h(Content, props),
 				h(ResizeOverlay, {
-					visible: props.currentSize.status===CURRENT_SIZE_STATUS_ACTIVE
+					visible: props.size.status===SIZE_STATUS_ACTIVE
 				})
 			)
 		)

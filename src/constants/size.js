@@ -1,0 +1,9 @@
+'use strict'
+
+const SIZE_STATUS_ACTIVE = 'SIZE_STATUS_active'
+const SIZE_STATUS_INACTIVE = 'SIZE_STATUS_INACTIVE'
+
+module.exports = {
+	SIZE_STATUS_ACTIVE,
+	SIZE_STATUS_INACTIVE
+}

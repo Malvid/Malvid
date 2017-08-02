@@ -7,7 +7,7 @@ const propTypes = require('prop-types')
 const h = require('../utils/h')
 const eventPos = require('../utils/eventPos')
 const mousePos = require('../utils/mousePos')
-const { CURRENT_SIZE_STATUS_INACTIVE, CURRENT_SIZE_STATUS_ACTIVE } = require('../constants/currentSize')
+const { SIZE_STATUS_INACTIVE, SIZE_STATUS_ACTIVE } = require('../constants/size')
 
 const style = {
 
@@ -25,7 +25,7 @@ const style = {
 	}),
 
 	selfVisibility: ({ status }) => css({
-		opacity: status===CURRENT_SIZE_STATUS_ACTIVE ? .99 : .01
+		opacity: status===SIZE_STATUS_ACTIVE ? .99 : .01
 	}),
 
 	selfVertical: css({
@@ -62,7 +62,7 @@ module.exports = class extends Component {
 		super(props)
 
 		this.state = {
-			status: CURRENT_SIZE_STATUS_INACTIVE,
+			status: SIZE_STATUS_INACTIVE,
 			startPos: null
 		}
 
@@ -76,19 +76,19 @@ module.exports = class extends Component {
 
 	onMouseDown(e) {
 
-		this.props.setCurrentSizeStatus(CURRENT_SIZE_STATUS_ACTIVE)
+		this.props.setSizeStatus(SIZE_STATUS_ACTIVE)
 
 		this.setState({
-			status: CURRENT_SIZE_STATUS_ACTIVE,
+			status: SIZE_STATUS_ACTIVE,
 			startPos: this.state.startPos || eventPos(e)
 		})
 
 		document.documentElement.onmouseup = () => {
 
-			this.props.setCurrentSizeStatus(CURRENT_SIZE_STATUS_INACTIVE)
+			this.props.setSizeStatus(SIZE_STATUS_INACTIVE)
 
 			this.setState({
-				status: CURRENT_SIZE_STATUS_INACTIVE
+				status: SIZE_STATUS_INACTIVE
 			})
 
 		}
@@ -99,7 +99,7 @@ module.exports = class extends Component {
 
 		const self = this.onResize.bind(this)
 
-		if (this.state.status==CURRENT_SIZE_STATUS_ACTIVE) {
+		if (this.state.status==SIZE_STATUS_ACTIVE) {
 
 			const direction = this.props.direction
 
@@ -108,7 +108,7 @@ module.exports = class extends Component {
 				horizontal: this.state.startPos.x - mousePos().x
 			}
 
-			this.props.setCurrentSize(offsets[direction])
+			this.props.setSize(offsets[direction])
 
 		}
 
@@ -151,7 +151,7 @@ module.exports = class extends Component {
 module.exports.propTypes = {
 
 	direction: propTypes.string.isRequired,
-	setCurrentSizeStatus: propTypes.func.isRequired,
-	setCurrentSize: propTypes.func.isRequired
+	setSizeStatus: propTypes.func.isRequired,
+	setSize: propTypes.func.isRequired
 
 }

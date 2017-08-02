@@ -17,7 +17,7 @@ const style = {
 		display: 'flex',
 		flexDirection: 'column',
 		minHeight: PREVIEW_MIN_HEIGHT,
-		height: `calc(${ PREVIEW_HEIGHT } - var(--currentSize-vertical, 0px))`,
+		height: `calc(${ PREVIEW_HEIGHT } - var(--size-vertical, 0px))`,
 		maxHeight: `calc(100vh - ${ INSPECTOR_MIN_HEIGHT })`
 	}),
 

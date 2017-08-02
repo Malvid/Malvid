@@ -4,12 +4,12 @@ const { combineReducers } = require('redux')
 
 const components = require('./components')
 const route = require('./route')
-const currentSize = require('./currentSize')
+const size = require('./size')
 const opts = require('./opts')
 
 module.exports = combineReducers({
 	components,
 	route,
-	currentSize,
+	size,
 	opts
 })

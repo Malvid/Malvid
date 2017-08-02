@@ -1,13 +1,13 @@
 'use strict'
 
 const { setRoute } = require('./route')
-const { setCurrentSizeStatus, setCurrentSizeVertical, setCurrentSizeHorizontal } = require('./currentSize')
+const { setSizeStatus, setSizeVertical, setSizeHorizontal } = require('./size')
 const hydrate = require('./hydrate')
 
 module.exports = {
 	setRoute,
-	setCurrentSizeStatus,
-	setCurrentSizeVertical,
-	setCurrentSizeHorizontal,
+	setSizeStatus,
+	setSizeVertical,
+	setSizeHorizontal,
 	hydrate
 }

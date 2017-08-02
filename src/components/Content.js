@@ -16,7 +16,7 @@ const style = {
 		flexDirection: 'column',
 		padding: '1em 1em 1em 0',
 		minWidth: CONTENT_MIN_WIDTH,
-		width: `calc(100% - ${ NAV_WIDTH } + var(--currentSize-horizontal, 0px))`,
+		width: `calc(100% - ${ NAV_WIDTH } + var(--size-horizontal, 0px))`,
 		maxWidth: `calc(100% - ${ NAV_MIN_WIDTH })`
 	})
 
@@ -32,8 +32,8 @@ module.exports = (props) => (
 		}),
 		h(Resizer, {
 			direction: 'vertical',
-			setCurrentSize: props.setCurrentSizeVertical,
-			setCurrentSizeStatus: props.setCurrentSizeStatus
+			setSize: props.setSizeVertical,
+			setSizeStatus: props.setSizeStatus
 		}),
 		h(Inspector, {
 			currentComponent: props.currentComponent,

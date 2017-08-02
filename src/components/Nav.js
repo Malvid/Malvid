@@ -16,7 +16,7 @@ const style = {
 	self: css({
 		padding: '1em 0 1em 1em',
 		minWidth: NAV_MIN_WIDTH,
-		width: `calc(${ NAV_WIDTH } - var(--currentSize-horizontal, 0px))`,
+		width: `calc(${ NAV_WIDTH } - var(--size-horizontal, 0px))`,
 		maxWidth: `calc(100% - ${ CONTENT_MIN_WIDTH })`,
 		overflow: 'auto',
 		WebkitOverflowScrolling: 'touch'

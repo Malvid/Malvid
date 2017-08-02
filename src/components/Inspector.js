@@ -17,7 +17,7 @@ const style = {
 	self: css({
 		display: 'flex',
 		minHeight: INSPECTOR_MIN_HEIGHT,
-		height: `calc(100vh - ${ PREVIEW_HEIGHT } + var(--currentSize-vertical, 0px))`,
+		height: `calc(100vh - ${ PREVIEW_HEIGHT } + var(--size-vertical, 0px))`,
 		maxHeight: `calc(100vh - ${ PREVIEW_MIN_HEIGHT })`
 	}),
 
