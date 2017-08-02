@@ -7,7 +7,6 @@ const { css } = require('glamor')
 const h = require('../utils/h')
 const enhanceState = require('../utils/enhanceState')
 const actions = require('../actions')
-const { DARK } = require('../constants/colors')
 const { SIZE_STATUS_ACTIVE } = require('../constants/size')
 
 const DocumentTitle = require('react-document-title')
@@ -35,7 +34,7 @@ const Main = (props) => {
 	if (props.currentComponent==null) return (
 		h(DocumentTitle, { title: props.opts.title },
 			h(Empty, {
-				color: DARK,
+				color: 'currentcolor',
 				text: 'No components found'
 			})
 		)

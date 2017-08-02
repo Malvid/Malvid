@@ -5,14 +5,12 @@ const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
-const { DARK } = require('../constants/colors')
 
 const style = {
 
 	self: css({
 		padding: `.9em ${ BORDER_RADIUS }`,
 		width: '100%',
-		color: DARK,
 		fontSize: '.7em',
 		fontWeight: 'bold',
 		textTransform: 'uppercase',

@@ -6,7 +6,7 @@ const propTypes = require('prop-types')
 const h = require('../utils/h')
 const selectable = require('../styles/selectable')
 const { HEIGHT } = require('../constants/sizes')
-const { BLUE, MID, DARK } = require('../constants/colors')
+const { BLUE, MID } = require('../constants/colors')
 
 const Status = require('./Status')
 
@@ -25,7 +25,6 @@ const style = {
 	label: css(selectable, {
 		margin: '0',
 		padding: '.4em',
-		color: DARK,
 		fontSize: '1em',
 		fontWeight: 'normal'
 	}),
@@ -44,7 +43,7 @@ const style = {
 		background: 'transparent',
 		appearance: 'none',
 		border: 'none',
-		color: DARK,
+		color: 'currentcolor',
 		fontSize: '1.2em',
 		textDecoration: 'none',
 		outline: 'none',

@@ -5,7 +5,7 @@ const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
-const { BLUE_LIGHT, DARK } = require('../constants/colors')
+const { BLUE_LIGHT } = require('../constants/colors')
 
 const NavStatus = require('./NavStatus')
 
@@ -17,7 +17,7 @@ const style = {
 		marginBottom: '1px',
 		padding: '.8em 1.2em',
 		width: '100%',
-		color: DARK,
+		color: 'currentcolor',
 		textDecoration: 'none',
 		borderRadius: BORDER_RADIUS,
 		outline: 'none',

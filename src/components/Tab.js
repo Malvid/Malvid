@@ -5,7 +5,7 @@ const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const { HEIGHT } = require('../constants/sizes')
-const { BLUE, MID, DARK } = require('../constants/colors')
+const { BLUE, MID } = require('../constants/colors')
 
 const style = {
 
@@ -17,7 +17,7 @@ const style = {
 		padding: '0 .95em',
 		width: '100%',
 		height: HEIGHT,
-		color: DARK,
+		color: 'currentcolor',
 		textOverflow: 'ellipsis',
 		textDecoration: 'none',
 		whiteSpace: 'nowrap',

@@ -19,13 +19,11 @@ const style = {
 
 	icon: css({
 		marginBottom: '.1em',
-		color: 'currentColor',
 		fontSize: '5em'
 	}),
 
 	text: css({
-		margin: '0',
-		color: 'currentColor'
+		margin: '0'
 	})
 
 }
@@ -33,7 +31,7 @@ const style = {
 module.exports = ({ color, text }) => (
 
 	h('div', { className: style.self({ color }).toString() },
-		h('div', { className: `ion ion-android-sad ${ style.icon.toString() }` }),
+		h('div', { className: `${ style.icon.toString() } ion ion-android-sad` }),
 		h('p', { className: style.text.toString() }, text)
 	)
 
