@@ -7,6 +7,10 @@ const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
 const { MID } = require('../constants/colors')
 
+// DOM Element reference must be used to select the whole input content
+// on focus. The event of onFocus can't be used after a delay.
+let elem
+
 const style = {
 
 	self: css({
@@ -47,6 +51,8 @@ module.exports = ({ filter, setFilter }) => (
 			className: style.input.toString(),
 			placeholder: 'Search…',
 			value: filter,
+			ref: (_elem) => elem = _elem,
+			onFocus: (e) => requestAnimationFrame(() => elem.select()),
 			onChange: (e) => setFilter(e.target.value)
 		})
 	)
