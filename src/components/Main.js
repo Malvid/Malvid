@@ -54,7 +54,9 @@ const Main = (props) => {
 					statuses: props.opts.statuses,
 					components: props.components,
 					currentComponent: props.currentComponent,
-					currentTab: props.currentTab
+					currentTab: props.currentTab,
+					filter: props.filter,
+					setFilter: props.setFilter
 				}),
 				h(Resizer, {
 					direction: 'horizontal',

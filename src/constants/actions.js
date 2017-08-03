@@ -1,5 +1,6 @@
 'use strict'
 
+const SET_FILTER = 'set_filter'
 const SET_ROUTE = 'set_route'
 const SET_SIZE_STATUS = 'SET_SIZE_STATUS'
 const SET_SIZE_VERTICAL = 'SET_SIZE_VERTICAL'
@@ -7,6 +8,7 @@ const SET_SIZE_HORIZONTAL = 'SET_SIZE_HORIZONTAL'
 const HYDRATE = 'hydrate'
 
 module.exports = {
+	SET_FILTER,
 	SET_ROUTE,
 	SET_SIZE_STATUS,
 	SET_SIZE_VERTICAL,
