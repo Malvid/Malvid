@@ -33,7 +33,7 @@ const style = {
 
 	items: css({
 		flexGrow: '1',
-		padding: `calc(${ BORDER_RADIUS } + .5em) 0 0 1em`,
+		padding: `calc(${ BORDER_RADIUS } + .5em) 0 1em 1em`,
 		overflow: 'auto',
 		WebkitOverflowScrolling: 'touch'
 	})
