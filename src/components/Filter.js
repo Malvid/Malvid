@@ -2,6 +2,7 @@
 
 const { css } = require('glamor')
 const propTypes = require('prop-types')
+const rgba = require('color-alpha')
 
 const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
@@ -17,14 +18,11 @@ const style = {
 		position: 'relative',
 		display: 'flex',
 		alignItems: 'center',
-		marginBottom: '.5em',
 		padding: '1.05em 1.2em',
 		width: '100%',
 		background: MID,
 		borderRadius: BORDER_RADIUS
 	}),
-
-	icon: css({}),
 
 	input: css({
 		position: 'absolute',
@@ -45,7 +43,7 @@ module.exports = ({ filter, setFilter }) => (
 
 	h('div', { className: style.self.toString() },
 		h('div', {
-			className: `${ style.icon.toString() } ion ion-android-search`
+			className: 'ion ion-android-search'
 		}),
 		h('input', {
 			className: style.input.toString(),
