@@ -2,10 +2,11 @@
 
 const { css } = require('glamor')
 const propTypes = require('prop-types')
+const rgba = require('color-alpha')
 
 const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
-const { BLUE_LIGHT } = require('../constants/colors')
+const { BLUE } = require('../constants/colors')
 
 const NavStatus = require('./NavStatus')
 
@@ -22,12 +23,12 @@ const style = {
 		borderRadius: BORDER_RADIUS,
 		outline: 'none',
 		':active': {
-			background: BLUE_LIGHT
+			background: rgba(BLUE, .15)
 		}
 	}),
 
 	active: css({
-		background: BLUE_LIGHT
+		background: rgba(BLUE, .15)
 	}),
 
 	label: css({

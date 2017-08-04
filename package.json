@@ -29,6 +29,7 @@
     "prepublish": "npm test"
   },
   "dependencies": {
+    "color-alpha": "^1.0.2",
     "components-lookup": "^4.0.0",
     "glamor": "^3.0.0-2",
     "highlight.js": "^9.12.0",
