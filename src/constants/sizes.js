@@ -9,7 +9,7 @@ const CONTENT_MIN_WIDTH = '300px'
 
 const PREVIEW_MIN_HEIGHT = '200px'
 const PREVIEW_HEIGHT = '60vh'
-const INSPECTOR_MIN_HEIGHT = '300px'
+const INSPECTOR_MIN_HEIGHT = '200px'
 
 const HEIGHT = '3.4em'
 
