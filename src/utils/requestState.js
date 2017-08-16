@@ -9,7 +9,8 @@ module.exports = async function(url) {
 
 	if (response.ok===false) throw new Error('Failed to request components data')
 
-	try { return response.json() }
+	// Must await promise otherwise the catch can't catch the error
+	try { return await response.json() }
 	catch (err) { throw new Error('Failed to parse components data') }
 
 }

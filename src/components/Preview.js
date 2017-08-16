@@ -5,6 +5,7 @@ const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const requestState = require('../utils/requestState')
+const errorToState = require('../utils/errorToState')
 const getStatus = require('../selectors/getStatus')
 const shadowBox = require('../styles/shadowBox')
 const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
@@ -42,7 +43,9 @@ module.exports = ({ statuses, currentComponent, hydrate }) => (
 			key: currentComponent.id,
 			className: style.iframe.toString(),
 			src: currentComponent.url,
-			onLoad: () => requestState(location.href).then(hydrate).catch(console.error)
+			onLoad: () => requestState(location.href)
+				.then(hydrate, (err) => hydrate(errorToState(err)))
+				.catch(console.error)
 		})
 	)
 

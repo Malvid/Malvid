@@ -30,6 +30,15 @@ const style = {
 
 const Main = (props) => {
 
+	if (props.error!=null) return (
+		h(DocumentTitle, { title: 'Rosid' },
+			h(Empty, {
+				color: 'currentcolor',
+				text: props.error
+			})
+		)
+	)
+
 	// No currentComponent means that there are no components at all
 	if (props.currentComponent==null) return (
 		h(DocumentTitle, { title: props.opts.title },

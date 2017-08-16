@@ -9,6 +9,7 @@ const h = require('./utils/h')
 const createStore = require('./utils/createStore')
 const parsePath = require('./utils/parsePath')
 const requestState = require('./utils/requestState')
+const errorToState = require('./utils/errorToState')
 const global = require('./styles/global')
 const markdown = require('./styles/markdown')
 const { setRoute, hydrate } = require('./actions')
@@ -48,4 +49,6 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 
 })
 
-requestState(location.href).then(init).catch(console.error)
+requestState(location.href)
+	.then(init, (err) => init(errorToState(err)))
+	.catch(console.error)
