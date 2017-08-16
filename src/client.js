@@ -41,8 +41,8 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 	// Reparse the location when the user navigates
 	history.listen(parseLocation)
 
-	const root = document.querySelector('#main')
 	const html = h(Provider, { store }, h(Main))
+	const root = document.querySelector('#main')
 
 	render(html, root)
 
