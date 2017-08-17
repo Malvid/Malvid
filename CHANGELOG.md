@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### New
 
-- Tests for actions
+- Tests for actions and reducers
 
 ## [3.1.2] - 2017-08-16
 
