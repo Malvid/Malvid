@@ -19,7 +19,7 @@ describe('index()', function() {
 
 		}, (err) => {
 
-			assert.strictEqual(`'filePath' must be a string`, err.message)
+			assert.strictEqual(err.message, `'filePath' must be a string`)
 
 		})
 
@@ -33,7 +33,7 @@ describe('index()', function() {
 
 		}, (err) => {
 
-			assert.strictEqual(`'opts' must be an object, null or undefined`, err.message)
+			assert.strictEqual(err.message, `'opts' must be an object, null or undefined`)
 
 		})
 

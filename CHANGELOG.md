@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Tests for actions and reducers
 
+### Fixed
+
+- Assert parameter order in tests
+
 ## [3.1.2] - 2017-08-16
 
 ### New
