@@ -22,7 +22,7 @@ const clientJS = (() => {
  * @public
  * @param {?*} filePath - Not used by this module.
  * @param {?Object} opts - Options.
- * @returns {Promise} Returns the following properties if resolved: {String}.
+ * @returns {Promise<String>} HTML of the UI or the state as a serialized JSON.
  */
 module.exports = async function(filePath, opts = {}) {
 
