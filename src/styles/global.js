@@ -6,7 +6,7 @@ module.exports = `
 	html {
 		width: 100%;
 		height: 100%;
-		font: normal 400 100%/1.6 'Open Sans', sans-serif;
+		font: normal 400 100%/1.6 system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 		color: ${ DARK };
 	}
 
