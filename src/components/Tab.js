@@ -23,6 +23,7 @@ const style = {
 		whiteSpace: 'nowrap',
 		overflow: 'hidden',
 		outline: 'none',
+		cursor: 'default',
 		transition: 'box-shadow .3s ease',
 		boxShadow: `inset 0 -1px 0 ${ MID }, inset -1px 0 0 ${ MID }`,
 		':last-child': {

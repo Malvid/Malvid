@@ -22,6 +22,7 @@ const style = {
 		textDecoration: 'none',
 		borderRadius: BORDER_RADIUS,
 		outline: 'none',
+		cursor: 'default',
 		':active': {
 			background: rgba(BLUE, .15)
 		}
