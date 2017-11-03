@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Updated to React 16
 - Improved JSDoc annotation
+- Use system font instead of Open Sans
+- Removed unused Markdown styling
 
 ### Fixed
 
