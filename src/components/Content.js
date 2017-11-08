@@ -24,7 +24,7 @@ const style = {
 
 module.exports = (props) => (
 
-	h('content', { className: style.self.toString() },
+	h('div', { className: style.self.toString() },
 		h(Preview, {
 			statuses: props.opts.statuses,
 			currentComponent: props.currentComponent,
