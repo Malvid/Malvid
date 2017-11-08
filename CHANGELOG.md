@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Added more tests
 - Group config is now case-insensitive
 
+### Fixed
+
+- Empty config throws error
+
 ## [3.1.3] - 2017-11-03
 
 ### New
