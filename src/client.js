@@ -10,14 +10,18 @@ const createStore = require('./utils/createStore')
 const parsePath = require('./utils/parsePath')
 const requestState = require('./utils/requestState')
 const errorToState = require('./utils/errorToState')
-const global = require('./styles/global')
+const normalize = require('./styles/normalize')
+const atomOneLight = require('./styles/atomOneLight')
 const markdown = require('./styles/markdown')
+const global = require('./styles/global')
 const { setRoute, hydrate } = require('./actions')
 
 const Main = require('./components/Main')
 
-css.insert(global)
+css.insert(normalize)
+css.insert(atomOneLight)
 css.insert(markdown)
+css.insert(global)
 
 const init = (initialState) => createStore(initialState, (err, store) => {
 

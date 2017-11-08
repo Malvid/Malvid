@@ -5,6 +5,8 @@ const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 
+const IconSad = require('./IconSad')
+
 const style = {
 
 	self: ({ color }) => css({
@@ -18,8 +20,9 @@ const style = {
 	}),
 
 	icon: css({
-		marginBottom: '.1em',
-		fontSize: '5em'
+		marginBottom: '.75em',
+		width: '4em',
+		height: '4em'
 	}),
 
 	text: css({
@@ -31,7 +34,9 @@ const style = {
 module.exports = ({ color, text }) => (
 
 	h('div', { className: style.self({ color }).toString() },
-		h('div', { className: `${ style.icon.toString() } ion ion-android-sad` }),
+		h('div', { className: style.icon.toString() },
+			h(IconSad)
+		),
 		h('p', { className: style.text.toString() }, text)
 	)
 

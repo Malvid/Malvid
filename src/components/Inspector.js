@@ -44,7 +44,7 @@ module.exports = ({ currentComponent, currentTab }) => {
 					data
 				}),
 				data==null && h(Empty, {
-					color: '#ccc',
+					color: '#bbb',
 					text: 'No data found'
 				})
 			)

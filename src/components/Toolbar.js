@@ -9,6 +9,7 @@ const { HEIGHT } = require('../constants/sizes')
 const { BLUE, MID } = require('../constants/colors')
 
 const Status = require('./Status')
+const IconTab = require('./IconTab')
 
 const style = {
 
@@ -40,6 +41,8 @@ const style = {
 
 	button: css({
 		padding: '.4em',
+		width: '1.8em',
+		height: '1.8em',
 		background: 'transparent',
 		appearance: 'none',
 		border: 'none',
@@ -63,11 +66,13 @@ module.exports = ({ status, label, url }) => (
 		),
 		h('div', { className: style.tools.toString() },
 			h('a', {
-				className: `${ style.button.toString() } ion ion-android-exit`,
+				className: style.button.toString(),
 				title: 'Open in new tab',
 				href: url,
 				target: '_blank'
-			}),
+			},
+				h(IconTab)
+			),
 			status!=null && h('div', { className: style.separator.toString() }),
 			status!=null && h(Status, status)
 		)
