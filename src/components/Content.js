@@ -3,7 +3,6 @@
 const { css } = require('glamor')
 
 const h = require('../utils/h')
-const { NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 
 const Preview = require('./Preview')
 const Resizer = require('./Resizer')
@@ -12,12 +11,11 @@ const Inspector = require('./Inspector')
 const style = {
 
 	self: css({
+		flexGrow: '1',
 		display: 'flex',
 		flexDirection: 'column',
 		padding: '1em 1em 1em 0',
-		minWidth: CONTENT_MIN_WIDTH,
-		width: `calc(100% - ${ NAV_WIDTH } + var(--size-horizontal, 0px))`,
-		maxWidth: `calc(100% - ${ NAV_MIN_WIDTH })`
+		minWidth: '0'
 	})
 
 }

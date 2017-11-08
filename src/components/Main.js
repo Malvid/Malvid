@@ -22,8 +22,10 @@ const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch)
 const style = {
 
 	self: css({
+		flexGrow: 1,
 		display: 'flex',
-		width: '100%'
+		minWidth: 0,
+		minHeight: 0
 	})
 
 }
@@ -52,7 +54,6 @@ const Main = (props) => {
 	return (
 		h(DocumentTitle, { title: `${ props.currentComponent.name } | ${ props.opts.title }` },
 			h('div', {
-				id: 'main',
 				className: style.self.toString(),
 				style: {
 					'--size-vertical': `${ props.size.vertical }px`,

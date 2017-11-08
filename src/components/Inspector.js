@@ -5,7 +5,6 @@ const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const shadowBox = require('../styles/shadowBox')
-const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
 
 const Tabs = require('./Tabs')
 const Code = require('./Code')
@@ -15,10 +14,9 @@ const Empty = require('./Empty')
 const style = {
 
 	self: css({
+		flexGrow: '1',
 		display: 'flex',
-		minHeight: INSPECTOR_MIN_HEIGHT,
-		height: `calc(100vh - ${ PREVIEW_HEIGHT } + var(--size-vertical, 0px))`,
-		maxHeight: `calc(100vh - ${ PREVIEW_MIN_HEIGHT })`
+		minHeight: '0'
 	}),
 
 	shadowBox: css(shadowBox, {
@@ -35,7 +33,7 @@ module.exports = ({ currentComponent, currentTab }) => {
 	const Viewer = languages[0]==='markdown' ? Markdown : Code
 
 	return (
-		h('section', { className: style.self.toString() },
+		h('div', { className: style.self.toString() },
 			h('div', { className: style.shadowBox.toString() },
 				h(Tabs, {
 					currentComponent,

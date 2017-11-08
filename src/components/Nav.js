@@ -18,6 +18,7 @@ const Filter = require('./Filter')
 const style = {
 
 	self: css({
+		flexShrink: '0',
 		display: 'flex',
 		flexDirection: 'column',
 		minWidth: NAV_MIN_WIDTH,
