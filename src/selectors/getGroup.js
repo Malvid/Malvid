@@ -10,7 +10,9 @@ module.exports = (component) => {
 	if (config==null) return null
 	if (config.data==null) return null
 
+	const group = config.data.group
+
 	// Returns undefined when the config has no group
-	return config.data.group
+	return group==null ? group : group.toLowerCase()
 
 }
