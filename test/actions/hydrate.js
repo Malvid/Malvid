@@ -4,7 +4,7 @@ const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const hydrate = require('../../src/actions/hydrate')
 
-describe('hydrate', function() {
+describe('hydrate()', function() {
 
 	it('should be a function that returns an action object', function() {
 

@@ -4,7 +4,7 @@ const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const passThrough = require('../../src/utils/passThrough')
 
-describe('passThrough', function() {
+describe('passThrough()', function() {
 
 	it('should return the input', function() {
 

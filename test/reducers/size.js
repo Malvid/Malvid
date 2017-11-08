@@ -5,7 +5,7 @@ const { SET_SIZE_STATUS, SET_SIZE_VERTICAL, SET_SIZE_HORIZONTAL } = require('../
 const { SIZE_STATUS_INACTIVE, SIZE_STATUS_ACTIVE } = require('../../src/constants/size')
 const size = require('../../src/reducers/size')
 
-describe('size', function() {
+describe('size()', function() {
 
 	it('should return initial state', function() {
 

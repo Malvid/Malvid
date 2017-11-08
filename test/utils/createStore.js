@@ -3,7 +3,7 @@
 const assert = require('chai').assert
 const createStore = require('../../src/utils/createStore')
 
-describe('createStore', function() {
+describe('createStore()', function() {
 
 	it('should return an object', function(done) {
 

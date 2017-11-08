@@ -4,7 +4,7 @@ const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const components = require('../../src/reducers/components')
 
-describe('components', function() {
+describe('components()', function() {
 
 	it('should return initial state', function() {
 

@@ -5,7 +5,7 @@ const uuid = require('uuid/v4')
 const { SET_ROUTE } = require('../../src/constants/actions')
 const route = require('../../src/reducers/route')
 
-describe('route', function() {
+describe('route()', function() {
 
 	it('should return initial state', function() {
 

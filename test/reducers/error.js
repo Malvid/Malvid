@@ -4,7 +4,7 @@ const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const error = require('../../src/reducers/error')
 
-describe('error', function() {
+describe('error()', function() {
 
 	it('should return initial state', function() {
 

@@ -3,7 +3,7 @@
 const assert = require('chai').assert
 const h = require('../../src/utils/h')
 
-describe('h', function() {
+describe('h()', function() {
 
 	it('should be a function', function() {
 

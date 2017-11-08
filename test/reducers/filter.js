@@ -5,7 +5,7 @@ const uuid = require('uuid/v4')
 const { SET_FILTER } = require('../../src/constants/actions')
 const filter = require('../../src/reducers/filter')
 
-describe('filter', function() {
+describe('filter()', function() {
 
 	it('should return initial state', function() {
 

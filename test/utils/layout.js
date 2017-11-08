@@ -4,7 +4,7 @@ const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const layout = require('../../src/utils/layout')
 
-describe('layout', function() {
+describe('layout()', function() {
 
 	it('should include a custom body', function() {
 

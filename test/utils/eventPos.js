@@ -4,7 +4,7 @@ const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const eventPos = require('../../src/utils/eventPos')
 
-describe('eventPos', function() {
+describe('eventPos()', function() {
 
 	it('should extract pageX and pageY out of an event', function() {
 

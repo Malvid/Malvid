@@ -3,7 +3,7 @@
 const assert = require('chai').assert
 const normalizeURL = require('../../src/utils/normalizeURL')
 
-describe('normalizeURL', function() {
+describe('normalizeURL()', function() {
 
 	it('should remove query and hash from URL', function() {
 
