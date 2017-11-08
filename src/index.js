@@ -3,7 +3,6 @@
 const path = require('path')
 const isPlainObj = require('is-plain-obj')
 const pify = require('pify')
-const parseJSON = require('parse-json')
 const componentsLookup = require('components-lookup')
 const server = require('./server')
 
@@ -53,7 +52,7 @@ module.exports = async function(filePath, opts = {}) {
 			id: 'config',
 			label: 'Config',
 			languages: [ 'json' ],
-			parse: parseJSON,
+			parse: (contents) => contents=='' ? {} : JSON.parse(contents),
 			resolve: (fileName, fileExt) => [ `${ fileName }.config.json` ]
 		}
 	]
