@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 
 - Added more tests
+- Removed external CSS files
+- SVG icons instead of icon font
+- Rewritten layout styling
 - Group config is now case-insensitive
 
 ### Fixed
