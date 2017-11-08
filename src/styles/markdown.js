@@ -41,7 +41,6 @@ module.exports = `
 	}
 
 	.markdown code,
-	.markdown kbd,
 	.markdown pre {
 		font-family: monospace, monospace;
 		font-size: 1em;
@@ -128,36 +127,31 @@ module.exports = `
 	.markdown h6 {
 		margin-top: 0;
 		margin-bottom: 0;
+		font-weight: 600;
 	}
 
 	.markdown h1 {
 		font-size: 32px;
-		font-weight: 600;
 	}
 
 	.markdown h2 {
 		font-size: 24px;
-		font-weight: 600;
 	}
 
 	.markdown h3 {
 		font-size: 20px;
-		font-weight: 600;
 	}
 
 	.markdown h4 {
 		font-size: 16px;
-		font-weight: 600;
 	}
 
 	.markdown h5 {
 		font-size: 14px;
-		font-weight: 600;
 	}
 
 	.markdown h6 {
 		font-size: 12px;
-		font-weight: 600;
 	}
 
 	.markdown p {
@@ -258,20 +252,6 @@ module.exports = `
 
 	.markdown blockquote>:last-child {
 		margin-bottom: 0;
-	}
-
-	.markdown kbd {
-		display: inline-block;
-		padding: 3px 5px;
-		font-size: 11px;
-		line-height: 10px;
-		color: #444d56;
-		vertical-align: middle;
-		background-color: #fafbfc;
-		border: solid 1px #c6cbd1;
-		border-bottom-color: #959da5;
-		border-radius: 3px;
-		box-shadow: inset 0 -1px 0 #959da5;
 	}
 
 	.markdown h1,
@@ -442,20 +422,6 @@ module.exports = `
 	.markdown pre code::before,
 	.markdown pre code::after {
 		content: normal;
-	}
-
-	.markdown kbd {
-		display: inline-block;
-		padding: 3px 5px;
-		font: 11px 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-		line-height: 10px;
-		color: #444d56;
-		vertical-align: middle;
-		background-color: #fcfcfc;
-		border: solid 1px #c6cbd1;
-		border-bottom-color: #959da5;
-		border-radius: 3px;
-		box-shadow: inset 0 -1px 0 #959da5;
 	}
 
 	.markdown hr {
