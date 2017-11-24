@@ -6,7 +6,7 @@ const handler = require('rosid-handler-js')
 module.exports = (() => {
 
 	const filePath = path.resolve(__dirname, './client.js')
-	const babel = { babelrc: false }
+	const babel = { babelrc: false, compact: false }
 	const opts = { optimize: false, babel }
 
 	return handler(filePath, opts)
