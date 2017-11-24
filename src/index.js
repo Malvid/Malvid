@@ -1,32 +1,19 @@
 'use strict'
 
-const path = require('path')
 const isPlainObj = require('is-plain-obj')
 const pify = require('pify')
 const componentsLookup = require('components-lookup')
 const server = require('./server')
-
-const clientJS = (() => {
-
-	const filePath = path.resolve(__dirname, './client.js')
-	const babel = { babelrc: false }
-	const opts = { optimize: false, babel }
-
-	// Load and transform js for the client
-	return require('rosid-handler-js')(filePath, opts)
-
-})()
+const script = require('./script')
 
 /**
- * Return the HTML of the UI that can be viewed in the browser.
+ * Returns the HTML and JSON of the UI.
  * @public
- * @param {?*} filePath - Not used by this module.
  * @param {?Object} opts - Options.
- * @returns {Promise<String>} HTML of the UI or the state as a serialized JSON.
+ * @returns {Promise<Object>} HTML and JSON of the UI.
  */
-module.exports = async function(filePath, opts = {}) {
+module.exports = async function(opts = {}) {
 
-	if (typeof filePath!=='string') throw new Error(`'filePath' must be a string`)
 	if (isPlainObj(opts)===false && opts!=null) throw new Error(`'opts' must be an object, null or undefined`)
 
 	const resolvers = [
@@ -86,19 +73,16 @@ module.exports = async function(filePath, opts = {}) {
 	}, opts)
 
 	const components = await componentsLookup(opts.pattern, opts.resolvers, { cwd: opts.src })
-	const js = await clientJS
+	const js = await script
 
 	const state = {
 		components,
 		opts
 	}
 
-	const jsonRequest = filePath.substr(-5)==='.json'
-
-	// Return the state when client requests JSON
-	if (jsonRequest===true) return JSON.stringify(state)
-
-	// Render the page
-	return pify(server)(state, js)
+	return {
+		html: pify(server)(state, js),
+		json: Promise.resolve(state)
+	}
 
 }

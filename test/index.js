@@ -11,23 +11,9 @@ const fsify = require('fsify')({
 
 describe('index()', function() {
 
-	it('should return an error when called without a filePath', async function() {
-
-		return index().then((result) => {
-
-			throw new Error('Returned without error')
-
-		}, (err) => {
-
-			assert.strictEqual(err.message, `'filePath' must be a string`)
-
-		})
-
-	})
-
 	it('should return an error when called with invalid options', async function() {
 
-		return index(`${ uuid() }.html`, '').then((result) => {
+		return index('').then((result) => {
 
 			throw new Error('Returned without error')
 
@@ -49,12 +35,14 @@ describe('index()', function() {
 			description: uuid()
 		}
 
-		const result = await index(`${ uuid() }.html`, opts)
+		const result = await index(opts)
+		const html = await result.html
 
-		assert.include(result, `<html lang="${ opts.lang }">`)
-		assert.include(result, `<title>${ opts.title }</title>`)
-		assert.include(result, `<meta name="description" content="${ opts.description }">`)
-		assert.include(result, `<div id="main"></div>`)
+		assert.isString(html)
+		assert.include(html, `<html lang="${ opts.lang }">`)
+		assert.include(html, `<title>${ opts.title }</title>`)
+		assert.include(html, `<meta name="description" content="${ opts.description }">`)
+		assert.include(html, `<div id="main"></div>`)
 
 	})
 
@@ -74,9 +62,10 @@ describe('index()', function() {
 			src: structure[0].name
 		}
 
-		const result = await index(`${ uuid() }.html.json`, opts)
-		const json = JSON.parse(result)
+		const result = await index(opts)
+		const json = await result.json
 
+		assert.isObject(json)
 		assert.strictEqual(json.components.length, 0)
 
 	})
@@ -120,9 +109,10 @@ describe('index()', function() {
 			src: structure[0].name
 		}
 
-		const result = await index(`${ uuid() }.html.json`, opts)
-		const json = JSON.parse(result)
+		const result = await index(opts)
+		const json = await result.json
 
+		assert.isObject(json)
 		assert.strictEqual(json.components.length, 1)
 		assert.strictEqual(json.components[0].name, componentName)
 

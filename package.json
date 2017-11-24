@@ -1,5 +1,5 @@
 {
-  "name": "rosid-handler-components",
+  "name": "malvid",
   "version": "3.1.5",
   "authors": [
     "Tobias Reich <tobias@electerious.com>"
@@ -15,10 +15,10 @@
     "components"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/comwrap/rosid-handler-components",
+  "homepage": "https://github.com/comwrap/Malvid",
   "repository": {
     "type": "git",
-    "url": "https://github.com/comwrap/rosid-handler-components.git"
+    "url": "https://github.com/comwrap/Malvid.git"
   },
   "files": [
     "src"
