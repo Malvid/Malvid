@@ -64,7 +64,7 @@ module.exports = async function(opts = {}) {
 
 	opts = Object.assign({
 		lang: 'en',
-		title: 'Rosid',
+		title: 'Malvid',
 		description: 'UI to help you build and document web components.',
 		src: '',
 		pattern: '**/[^_]*.{ejs,njk}',

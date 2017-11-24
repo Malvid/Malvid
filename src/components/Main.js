@@ -33,7 +33,7 @@ const style = {
 const Main = (props) => {
 
 	if (props.error!=null) return (
-		h(DocumentTitle, { title: 'Rosid' },
+		h(DocumentTitle, { title: 'Malvid' },
 			h(Empty, {
 				color: 'currentcolor',
 				text: props.error
