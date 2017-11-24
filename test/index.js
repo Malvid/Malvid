@@ -27,7 +27,7 @@ describe('index()', function() {
 
 	it('should render HTML with a head and react placeholder', async function() {
 
-		this.timeout(20000)
+		this.timeout(50000)
 
 		const opts = {
 			lang: uuid(),
@@ -48,7 +48,7 @@ describe('index()', function() {
 
 	it('should render JSON without components', async function() {
 
-		this.timeout(20000)
+		this.timeout(50000)
 
 		const structure = await fsify([
 			{
@@ -72,7 +72,7 @@ describe('index()', function() {
 
 	it('should render JSON with a component', async function() {
 
-		this.timeout(20000)
+		this.timeout(50000)
 
 		const componentName = uuid()
 
