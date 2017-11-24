@@ -50,4 +50,4 @@ Rosid.serve('src/', { static: '/ui/index.html' }, (err) => {})
 
 ## Returns
 
-- `{Promise<String|Buffer>}` HTML of the UI.
+- `{Promise<String|Buffer>}` HTML or JSON of the UI.
