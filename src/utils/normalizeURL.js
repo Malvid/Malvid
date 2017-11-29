@@ -10,7 +10,7 @@ module.exports = (url) => {
 		removeQueryParameters: [ /^/i ]
 	})
 
-	// Add directory index when url contains no file
-	return url.substr(-5)==='.href' ? url : `${ url }/index.html`
+	// Add directory index when url contains no HTML file
+	return url.substr(-5)==='.html' ? url : `${ url }/index.html`
 
 }
