@@ -24,7 +24,7 @@ describe('normalizeURL()', function() {
 
 	it('should reuse the file name in the URL', function() {
 
-		const url = uuid(`http://localhost:3000/${ uuid() }.html`)
+		const url = `http://localhost:3000/${ uuid() }.html`
 		const result = normalizeURL(url)
 
 		assert.strictEqual(result, url)
