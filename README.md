@@ -4,6 +4,8 @@
 
 UI to help you build and document web components.
 
+![Malvid UI in a browser](https://l.electerious.com/uploads/big/e6cb112abd2afd7aafeb210074dfeb2a.png)
+
 ## Contents
 
 - 🏃 [Get started](#get-started)
@@ -12,7 +14,7 @@ UI to help you build and document web components.
 
 ## Get started
 
-Malvid can be integrated into your project in two ways: Using the CLI *or* using the API of Malvid.
+Malvid can be integrated into your project in two ways: Using the CLI *or* using the API.
 
 ## Introduction
 
