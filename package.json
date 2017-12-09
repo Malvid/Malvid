@@ -44,7 +44,7 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "rosid-handler-js": "^10.0.1",
+    "rosid-handler-js": "^10.1.0",
     "searchstring": "^1.0.2",
     "url-pattern": "^1.0.3"
   },
