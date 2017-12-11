@@ -1,8 +1,8 @@
 'use strict'
 
 module.exports = {
-	WebkitUserSelect: 'auto',
-	MozUserSelect: 'auto',
-	MsUserSelect: 'auto',
-	UserSelect: 'auto'
+	WebkitUserSelect: 'text',
+	MozUserSelect: 'text',
+	MsUserSelect: 'text',
+	UserSelect: 'text'
 }
