@@ -5,9 +5,7 @@ const normalizeURL = require('./normalizeURL')
 module.exports = async function(url) {
 
 	const endpoint = `${ normalizeURL(url) }.json`
-	const request = new Request(endpoint, {
-		credentials: 'same-origin'
-	})
+	const request = new Request(endpoint, { credentials: 'same-origin' })
 	const response = await fetch(request)
 
 	if (response.ok===false) throw new Error('Failed to request components data')
