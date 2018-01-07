@@ -25,8 +25,7 @@
   ],
   "scripts": {
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "test": "nyc node_modules/mocha/bin/_mocha --recursive",
-    "prepublish": "npm test"
+    "test": "nyc node_modules/mocha/bin/_mocha --recursive"
   },
   "dependencies": {
     "color-alpha": "^1.0.2",
