@@ -1,6 +1,6 @@
 'use strict'
 
-const { compose, createStore } = require('redux')
+const { createStore } = require('redux')
 
 const hydratable = require('./hydratable')
 const isClient = require('./isClient')

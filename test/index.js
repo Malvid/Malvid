@@ -13,7 +13,7 @@ describe('index()', function() {
 
 	it('should return an error when called with invalid options', async function() {
 
-		return index('').then((result) => {
+		return index('').then(() => {
 
 			throw new Error('Returned without error')
 

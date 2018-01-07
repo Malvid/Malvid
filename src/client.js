@@ -14,7 +14,7 @@ const normalize = require('./styles/normalize')
 const atomOneLight = require('./styles/atomOneLight')
 const markdown = require('./styles/markdown')
 const global = require('./styles/global')
-const { setRoute, hydrate } = require('./actions')
+const { setRoute } = require('./actions')
 
 const Main = require('./components/Main')
 

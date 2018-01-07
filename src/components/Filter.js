@@ -2,7 +2,6 @@
 
 const { css } = require('glamor')
 const propTypes = require('prop-types')
-const rgba = require('color-alpha')
 
 const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
@@ -59,7 +58,7 @@ module.exports = ({ filter, setFilter }) => (
 			placeholder: 'Search…',
 			value: filter,
 			ref: (_elem) => elem = _elem,
-			onFocus: (e) => requestAnimationFrame(() => elem.select()),
+			onFocus: () => requestAnimationFrame(() => elem.select()),
 			onChange: (e) => setFilter(e.target.value)
 		})
 	)

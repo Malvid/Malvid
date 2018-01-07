@@ -2,14 +2,12 @@
 
 const { css } = require('glamor')
 const propTypes = require('prop-types')
-const rgba = require('color-alpha')
 
 const h = require('../utils/h')
 const filtrate = require('../utils/filtrate')
 const sort = require('../utils/sort')
 const getStatus = require('../selectors/getStatus')
 const { BORDER_RADIUS, NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
-const { LIGHT } = require('../constants/colors')
 
 const NavGroup = require('./NavGroup')
 const NavItem = require('./NavItem')

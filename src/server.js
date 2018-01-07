@@ -1,7 +1,5 @@
 'use strict'
 
-const { css } = require('glamor')
-
 const createStore = require('./utils/createStore')
 const layout = require('./utils/layout')
 
