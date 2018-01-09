@@ -1,7 +1,7 @@
 'use strict'
 
+const util = require('util')
 const isPlainObj = require('is-plain-obj')
-const pify = require('pify')
 const componentsLookup = require('components-lookup')
 const server = require('./server')
 const script = require('./script')
@@ -81,7 +81,7 @@ module.exports = async function(opts = {}) {
 	}
 
 	return {
-		html: pify(server)(state, js),
+		html: util.promisify(server)(state, js),
 		json: Promise.resolve(state)
 	}
 

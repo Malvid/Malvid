@@ -36,7 +36,6 @@
     "is-plain-obj": "^1.1.0",
     "marked": "^0.3.6",
     "normalize-url": "^1.9.1",
-    "pify": "^3.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-document-title": "^2.0.3",
