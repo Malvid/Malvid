@@ -102,6 +102,6 @@ Example:
 
 ```json
 {
-  "group": "wip"
+  "status": "wip"
 }
 ```
