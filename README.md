@@ -76,7 +76,7 @@ A component typically consists of two files:
 
 Combing template and data is up to you. Malvid doesn't care about the build process and can only display what a browser can display.
 
-> The following examples will mention generated files in round brackets to indicate that those are required to display the component in the browser, but aren't files that are written or added by hand.
+> 👉 The following examples will mention generated files in round brackets to indicate that those are required to display the component in the browser, but aren't files that are written or added by hand.
 
 A minimal component structure with a Nunjucks component looks like the following:
 
@@ -84,9 +84,9 @@ A minimal component structure with a Nunjucks component looks like the following
 .
 ├── src
 │   ├── button
-│   │   └── (button.html)
-│   │   ├── button.{js|json}
+│   │   ├── (button.html)
 │   │   ├── button.njk
+│   │   └── button.{js|json}
 ```
 
 - The entry folder name is just an example and can be chosen freely
@@ -102,9 +102,9 @@ Put a Markdown file aside your component to write a documentation for it. This m
 ├── src
 │   ├── button
 │   │   ├── (button.html)
+│   │   ├── button.njk
 │   │   ├── button.{js|json}
-│   │   ├── button.md
-│   │   └── button.njk
+│   │   └── button.md
 ```
 
 Malvid supports [GitHub flavored Markdown](https://github.github.com/gfm/).
@@ -117,10 +117,10 @@ Put a configuration file aside your component to feed the UI with additional inf
 .
 ├── src
 │   ├── button
-│   │   ├── button.config.{js|json}
 │   │   ├── (button.html)
-│   │   ├── button.json
-│   │   └── button.njk
+│   │   ├── button.njk
+│   │   ├── button.{js|json}
+│   │   └── button.config.{js|json}
 ```
 
 Configuration files can be formatted as JSON or as a JavaScript file in the style of a module that exports a configuration object.
