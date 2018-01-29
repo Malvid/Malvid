@@ -6,7 +6,8 @@ module.exports = (components, toNavGroup, toNavItem) => {
 
 	const ungrouped = components.reduce((acc, component) => {
 
-		const hasGroup = getGroup(component)!=null
+		const group = getGroup(component)
+		const hasGroup = group!=null
 
 		if (hasGroup===true) return acc
 
