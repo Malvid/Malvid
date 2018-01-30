@@ -72,7 +72,7 @@ module.exports = {
 }
 ```
 
-#### Group
+### Group
 
 Type: `String` Default: `undefined` Optional: `true`
 
@@ -88,7 +88,7 @@ Example:
 }
 ```
 
-#### Status
+### Status
 
 Type: `String` Default: `undefined` Optional: `true`
 
