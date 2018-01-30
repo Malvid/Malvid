@@ -39,3 +39,9 @@ Malvid expects that you generate a HTML preview for it. The preview file must be
 Example:
 
 Your component lives in `src/button/` and the template is called `button.njk`. Malvid now tries to preview the URL `/src/button/button.html` that you must have generated.
+
+## Inspector
+
+See the parts of your component on the bottom right.
+
+The inspector typically shows the view, data and notes of your currently selected component. The amount, order and content of the tabs can be adjusted by specifying [custom resolvers](Options.md#Resolvers).
