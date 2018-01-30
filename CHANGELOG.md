@@ -6,10 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+### New
+
+- Documentation
+
 ### Changed
 
 - Removed `prepublish` script from `package.json`
 - Only support Node.js 8
+- More template engines supported by default
 
 ## [4.0.3] - 2017-12-11
 
