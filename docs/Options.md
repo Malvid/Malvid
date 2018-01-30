@@ -183,7 +183,16 @@ Resolvers like the `view` and `config` should always be part of the array. Other
 
 Example:
 
-Malvid scans your folders and finds a component called `button.njk`. It will run though all resolvers to find files that could belong to this button component. It executes the `resolve` function with the parameter `button` and `.njk`. The `resolve` function returns `[ 'button.data.json', 'button.data.js' ]` and Malvid looks for files called `button.data.json` and `button.data.js` in the same folder as the component. Let's say the JSON file exists and Malvid continues to process the resolver. It executes the `parse` function (when defined) to parse the contents of the file. The returned value will be shown in the [inspector of the UI](Interface.md#inspector) in a tab with the name specified in the `label`. Malvid does this for all components and resolvers.
+```js
+{
+	id: 'style',
+	label: 'Style',
+	languages: [ 'sass', 'scss', 'css' ],
+	resolve: (fileName, fileExt) => [ `${ fileName }.sass`, `${ fileName }.scss`, `${ fileName }.css` ]
+}
+```
+
+Malvid scans your folders and finds a component called `button.njk`. It will run though all resolvers to find files that could belong to this button component. It executes the `resolve` function with the parameter `button` and `.njk`. The `resolve` function returns `[ 'button.sass', 'button.scss', 'button.css' ]` and Malvid looks for files called `button.sass`, `button.scss` and `button.css` in the same folder as the component. Let's say the SASS file exists and Malvid continues to process the resolver. It executes the `parse` function (when defined) to parse the contents of the file. The returned value will be shown in the [inspector of the UI](Interface.md#inspector) in a tab with the name `Style`. Malvid does this for all components and resolvers.
 
 #### Id
 
@@ -222,3 +231,35 @@ A resolver without a `parse` property will show the contents without modifying i
 Type: `Function` Optional: `false`
 
 Function that returns an array of file names that Malvid should look for.
+
+### Statuses
+
+Type: `Object` Optional: `true`
+
+Available statuses.
+
+Components can have [statuses associated with them](Interface.md#statuses). Those will be shown in the navigation and preview when specified in the [configuration of a component](Components.md#status). A status must be defined before you can use it and this is the right option to do so.
+
+#### Label
+
+Type: `String` Optional: `false`
+
+Label of the status.
+
+Should be short as the label will be displayed on the top right in the [preview of the UI](Interface.md#preview).
+
+#### Description
+
+Type: `String` Optional: `false`
+
+Description of the status.
+
+Will be displayed as a tooltip when you hover the status in the [navigation](Interface.md#navigation) or the status label on the top right in the [preview of the UI](Interface.md#preview).
+
+#### Color
+
+Type: `String` Optional: `false`
+
+Hex color of the status.
+
+Will be used for the status indicator in the [navigation](Interface.md#navigation) and for the status label background on the top right in the [preview of the UI](Interface.md#preview).
