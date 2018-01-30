@@ -179,11 +179,11 @@ Type: `Array` Optional: `true`
 
 Specify the files that belong to components. Each item represents a tab in the UI.
 
-Resolvers like the `view` and `config` should always be part of the array. Otherwise you can't see the view or adjust the [behaviour of a component](Components.md#Configuration). The nice thing however is that you can specify how Malvid should parse those files. Use a custom function in the `parse` property and Malvid works with every format you can think of. Want to use YML instead of JS or JSON for the configuration? No problem!
+Resolvers like the `view` and `config` should always be part of the array. Otherwise you can't see the view or adjust the [behaviour of a component](Components.md#configuration). The nice thing however is that you can specify how Malvid should parse those files. Use a custom function in the `parse` property and Malvid works with every format you can think of. Want to use YML instead of JS or JSON for the configuration? No problem!
 
 Example:
 
-Malvid scans your folders and finds a component called `button.njk`. It will run though all resolvers to find files that could belong to this button component. It executes the `resolve` function with the parameter `button` and `.njk`. The `resolve` function returns `[ 'button.data.json', 'button.data.js' ]` and Malvid looks for files called `button.data.json` and `button.data.js` in the same folder as the component. Let's say the JSON file exists and Malvid continues to process the resolver. It executes the `parse` function (when defined) to parse the contents of the file. The returned value will be shown in the [inspector of the UI](Interface.md#Inspector) in a tab with the name specified in the `label`. Malvid does this for all components and resolvers.
+Malvid scans your folders and finds a component called `button.njk`. It will run though all resolvers to find files that could belong to this button component. It executes the `resolve` function with the parameter `button` and `.njk`. The `resolve` function returns `[ 'button.data.json', 'button.data.js' ]` and Malvid looks for files called `button.data.json` and `button.data.js` in the same folder as the component. Let's say the JSON file exists and Malvid continues to process the resolver. It executes the `parse` function (when defined) to parse the contents of the file. The returned value will be shown in the [inspector of the UI](Interface.md#inspector) in a tab with the name specified in the `label`. Malvid does this for all components and resolvers.
 
 #### Id
 
@@ -199,7 +199,7 @@ Type: `String` Optional: `false`
 
 Name that describes the content of the file.
 
-The output of the resolver will be shown as a tab in the [inspector of the UI](Interface.md#Inspector). This label will be used for the name of the tab.
+The output of the resolver will be shown as a tab in the [inspector of the UI](Interface.md#inspector). This label will be used for the name of the tab.
 
 #### Languages
 
@@ -207,7 +207,7 @@ Type: `Array` Optional: `false`
 
 Syntax highlighting languages.
 
-Supports any language supported by [highlight.js](https://highlightjs.org). Will be used to highlight the output of the resolver in the [inspector of the UI](Interface.md#Inspector). Multiple values are helpful when a resolver accepts multiple formats.
+Supports any language supported by [highlight.js](https://highlightjs.org). Will be used to highlight the output of the resolver in the [inspector of the UI](Interface.md#inspector). Multiple values are helpful when a resolver accepts multiple formats.
 
 #### Parse
 
