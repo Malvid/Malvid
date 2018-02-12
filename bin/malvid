@@ -2,14 +2,11 @@
 
 'use strict'
 
-const util = require('util')
-const fs = require('fs')
+const fse = require('fs-extra')
 const mri = require('mri')
 const ora = require('ora')
 const findUp = require('find-up')
 const pkg = require('./../package')
-
-const write = util.promisify(fs.writeFile)
 
 const alias = {
 	o: 'output',
@@ -64,12 +61,12 @@ const execute = async function(command, output) {
 		spinner.succeed()
 		spinner.start('Writing output')
 
-		if (command==='html') write(output[0], html)
-		if (command==='json') write(output[0], JSON.stringify(json))
+		if (command==='html') fse.outputFile(output[0], html)
+		if (command==='json') fse.outputFile(output[0], JSON.stringify(json))
 
 		if (command==='all') {
-			write(output[0], html)
-			write(output[1], JSON.stringify(json))
+			fse.outputFile(output[0], html)
+			fse.outputFile(output[1], JSON.stringify(json))
 		}
 
 		spinner.succeed()
