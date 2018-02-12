@@ -39,7 +39,7 @@ Malvid helps you to build, document and visualise components by turning a direct
 
 ### What are components?
 
-Components are independent and reusable pieces of a project. A component could be a tiny chunk of HTML, a whole page or something in between. Malvid does not enforce any specific templating engine or naming conversation for those components.
+Components are independent and reusable pieces of a project. A component could be a tiny chunk of HTML, a whole page or something in between. Malvid does not enforce any specific templating engine or naming conventions for those components.
 
 ## Links
 
@@ -73,7 +73,7 @@ The interface of Malvid puts the focus on your components. This chapter gives yo
 
 ### Components
 
-Malvid scans folders and detects all components in the given structure. This chapter explains how to store and manage components and how to add additional informations to the UI using a configuration file. [Components &#187;](docs/Components.md)
+Malvid scans folders and detects all components in the given structure. This chapter explains how to store and manage components and how to add additional information to the UI using a configuration file. [Components &#187;](docs/Components.md)
 
 ### CLI
 
