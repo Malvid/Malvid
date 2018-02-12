@@ -147,6 +147,20 @@ Example:
 }
 ```
 
+### Src
+
+Type: `String` Optional: `true`
+
+Path to the folder Malvid should scan.
+
+Example:
+
+```json
+{
+  "src": "src/"
+}
+```
+
 ### Pattern
 
 Type: `String` Optional: `true`
