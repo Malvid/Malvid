@@ -10,7 +10,7 @@ The navigation lets you browse through your components.
 
 ### Search
 
-Use the search field at the top to find the component you are looking for. Prepend you search term with an indicator to limit the results:
+Use the search field at the top to find the component you are looking for. Prepend your search term with an indicator to limit the results:
 
 - `view:<term>`: Only search through the templates of your components
 - `data:<term>`: Only search through the data of your components
@@ -22,7 +22,7 @@ The input `view:"<a class="` shows all components whose template contains an `<a
 
 ### Groups
 
-Malvid doesn't care about the original folder structure and displays all components below each other. This allows you see all of them at a glance without getting distracted by a deeply nested list. Some components however belong together and that's what groups are for. A group can be defined in the [configuration](Components.md#configuration) of a component. Components with the same group name will be shown beside each other.
+Malvid doesn't care about the original folder structure and displays all components below each other. This allows you see all of them at a glance without getting distracted by a deeply nested list. Some components however belong together and that's what groups are for. A group can be defined in the [configuration](Components.md#configuration) of a component. Components with the same group name will be grouped together inside of the navigation.
 
 ### Statuses
 
