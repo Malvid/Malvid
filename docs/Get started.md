@@ -62,7 +62,7 @@ It's also worth to note that you don't want to make the layout (`<html>`, `<body
 
 ## 3. Create a configuration
 
-Malvid is installed and your first component ready. You can now create a [configuration file](Get%20started.md) in the current working directory to adjust the UI of Malvid to your needs. This step is optional and can be skipped if you wish to stay with the default configuration.
+Malvid is installed and your first component is ready. You can now create a [configuration file](Get%20started.md) in the current working directory to adjust the UI of Malvid to your needs. This step is optional and can be skipped if you wish to stay with the default configuration.
 
 Create a file named `malvidfile.json` in the root folder of your project.
 
