@@ -49,7 +49,7 @@ Malvid is now installed in your project, but needs a few files to do anything us
 </html>
 ```
 
-```html
+```json
 {
   "href": "#",
   "label": "Button"
