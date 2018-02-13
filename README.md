@@ -15,7 +15,7 @@ UI to help you build and document web components.
 
 ## Get started
 
-Malvid can be integrated into your project in two ways: Using the CLI *or* using the API.
+Malvid can be integrated into your project in two ways: Using the CLI *or* using the API of Malvid. Check out our guide for more information. [Get started with Malvid &#187;](docs/Get%20started.md)
 
 ## Introduction
 
