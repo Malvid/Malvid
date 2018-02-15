@@ -49,6 +49,8 @@ Boilerplates:
 
 Guides:
 
+- 📄 [Get started](docs/Get%20started.md)
+- 📄 [Styleguide](docs/Styleguide.md)
 - 📄 [Sharing components between front-end and back-end](https://medium.com/@electerious/sharing-components-between-front-end-and-back-end-1e9a624bceae)
 
 Similar tools:

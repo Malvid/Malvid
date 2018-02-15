@@ -244,7 +244,7 @@ A resolver without a `parse` property will show the contents without modifying i
 
 Type: `Function` Optional: `false`
 
-Function that returns an array of file names that Malvid should look for.
+Function that returns an array of filenames that Malvid should look for.
 
 ### Statuses
 
