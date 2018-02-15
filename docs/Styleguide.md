@@ -48,7 +48,7 @@ Example:
 
 ## Text
 
-- The text of a component should be named `bodytext`
+The text of a component should be named `bodytext`.
 
 Example:
 
