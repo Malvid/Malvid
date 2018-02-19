@@ -254,6 +254,18 @@ Available statuses.
 
 Components can have [statuses associated with them](Interface.md#statuses). Those will be shown in the navigation and preview when specified in the [configuration of a component](Components.md#status). A status must be defined before you can use it and this is the right option to do so.
 
+Example:
+
+```json
+"statuses": {
+  "wip": {
+    "label": "WIP",
+    "description": "Work in progress",
+    "color": "#fe913d"
+  }
+}
+```
+
 #### Label
 
 Type: `String` Optional: `false`
