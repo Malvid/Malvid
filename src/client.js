@@ -3,6 +3,7 @@
 const { render } = require('react-dom')
 const { Provider } = require('react-redux')
 const { css } = require('glamor')
+const keyboardJS = require('keyboardjs')
 const createHistory = require('history').createHashHistory
 
 const h = require('./utils/h')
@@ -10,6 +11,10 @@ const createStore = require('./utils/createStore')
 const parsePath = require('./utils/parsePath')
 const requestState = require('./utils/requestState')
 const errorToState = require('./utils/errorToState')
+const enhanceState = require('./utils/enhanceState')
+const navigation = require('./utils/navigation')
+const isInput = require('./utils/isInput')
+const createRoute = require('./utils/createRoute')
 const normalize = require('./styles/normalize')
 const atomOneLight = require('./styles/atomOneLight')
 const markdown = require('./styles/markdown')
@@ -32,7 +37,8 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 	// Set the state based on the location
 	const parseLocation = (location) => {
 
-		const components = store.getState().components
+		const state = store.getState()
+		const { components } = enhanceState(state)
 		const parsedPath = parsePath(location.pathname, components)
 		const action = setRoute(parsedPath.componentId, parsedPath.tabId)
 
@@ -50,6 +56,47 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 	const root = document.querySelector('#main')
 
 	render(html, root)
+
+	const navigateToComponent = (nextComponent) => {
+
+		const state = store.getState()
+		const { currentTab } = enhanceState(state)
+
+		location.href = createRoute(nextComponent.id, currentTab.id)
+
+	}
+
+	keyboardJS.bind('enter', (e) => {
+
+		if (isInput(e.target)===false) return
+
+		const nextComponent = navigation(store).firstComponent()
+
+		if (nextComponent==null) return
+
+		navigateToComponent(nextComponent)
+
+	})
+
+	keyboardJS.bind('up', () => {
+
+		const nextComponent = navigation(store).prevComponent()
+
+		if (nextComponent==null) return
+
+		navigateToComponent(nextComponent)
+
+	})
+
+	keyboardJS.bind('down', () => {
+
+		const nextComponent = navigation(store).nextComponent()
+
+		if (nextComponent==null) return
+
+		navigateToComponent(nextComponent)
+
+	})
 
 })
 
