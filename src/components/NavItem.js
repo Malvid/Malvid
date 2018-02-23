@@ -5,6 +5,7 @@ const propTypes = require('prop-types')
 const rgba = require('color-alpha')
 
 const h = require('../utils/h')
+const createRoute = require('../utils/createRoute')
 const { BORDER_RADIUS } = require('../constants/sizes')
 const { BLUE } = require('../constants/colors')
 
@@ -45,7 +46,7 @@ module.exports = ({ id, label, status, active, currentTab }) => (
 
 	h('a', {
 		className: css(style.self, active && style.active).toString(),
-		href: `#/${ id }/${ currentTab.id }`
+		href: createRoute(id, currentTab.id)
 	},
 		h('span', { className: style.label.toString() }, label),
 		status!=null && h(NavStatus, status)

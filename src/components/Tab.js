@@ -4,6 +4,7 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
+const createRoute = require('../utils/createRoute')
 const { HEIGHT } = require('../constants/sizes')
 const { BLUE, MID } = require('../constants/colors')
 
@@ -44,7 +45,7 @@ module.exports = ({ id, label, active, currentComponent }) => (
 
 	h('a', {
 		className: css(style.self, active && style.active).toString(),
-		href: `#/${ currentComponent.id }/${ id }`
+		href: createRoute(currentComponent.id, id)
 	}, label)
 
 )
