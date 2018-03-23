@@ -66,7 +66,7 @@ Example:
 
 - Text containing content from the TYPO3 RTE should be [marked as safe](https://mozilla.github.io/nunjucks/templating.html#safe)
 - Don't include RTE content from TYPO3 inside a `<p>`-Tag as TYPO3 already wraps text in `<p>`-Tags
-- Use `<p>`-Tags in the example data to imitate the behaviour of real RTE content
+- Use `<p>`-Tags in the example data to imitate the behavior of real RTE content
 
 Example:
 
@@ -128,4 +128,28 @@ Images are file references in TYPO3. Their data should always look like the foll
   "link": "https://en.wikipedia.org/wiki/Cat",
   "src": "http://via.placeholder.com/350x150"
 }
+```
+
+## Forms
+
+- Include a placeholder for additional hidden fields required by TYPO3
+- Provide an optional `message` field to display errors
+- Use HTML5 form validation for a validation in the front-end and an additional validation in TYPO3 for safety reasons
+
+```
+<form action="{{ action }}" method="{{ method }}">
+
+	{{ hidden | safe }}
+
+	{% if message %}
+		<p>{{ message }}</p>
+	{% endif %}
+
+	<input type="email" name="{{ email.name }}" placeholder="{{ email.placeholder }}" required>
+	<input type="password" name="{{ password.name }}" placeholder="{{ password.placeholder }}" data-rsa-encryption required>
+
+	<a href="{{ reset.href.value }}" {% if reset.href.target %}target="{{ reset.href.target }}"{% endif %}>{{ reset.label }}</a>
+	<button>{{ submit.label }}</button>
+
+</form>
 ```
