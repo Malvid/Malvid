@@ -136,7 +136,7 @@ Images are file references in TYPO3. Their data should always look like the foll
 - Provide an optional `message` field to display errors
 - Use HTML5 form validation for a validation in the front-end and an additional validation in TYPO3 for safety reasons
 
-```
+```njk
 <form action="{{ action }}" method="{{ method }}">
 
 	{{ hidden | safe }}
