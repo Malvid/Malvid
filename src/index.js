@@ -27,20 +27,20 @@ module.exports = async function(opts = {}) {
 			id: 'data',
 			label: 'Data',
 			languages: [ 'json', 'js' ],
-			resolve: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
+			resolve: (fileName) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
 		},
 		{
 			id: 'notes',
 			label: 'Notes',
 			languages: [ 'markdown' ],
-			resolve: (fileName, fileExt) => [ `${ fileName }.md` ]
+			resolve: (fileName) => [ `${ fileName }.md` ]
 		},
 		{
 			id: 'config',
 			label: 'Config',
 			languages: [ 'json' ],
-			parse: (contents) => contents=='' ? {} : JSON.parse(contents),
-			resolve: (fileName, fileExt) => [ `${ fileName }.config.json` ]
+			parse: (contents) => contents === '' ? {} : JSON.parse(contents),
+			resolve: (fileName) => [ `${ fileName }.config.json` ]
 		}
 	]
 

@@ -99,7 +99,7 @@ module.exports = class extends Component {
 
 		const self = this.onResize.bind(this)
 
-		if (this.state.status==SIZE_STATUS_ACTIVE) {
+		if (this.state.status===SIZE_STATUS_ACTIVE) {
 
 			const direction = this.props.direction
 
