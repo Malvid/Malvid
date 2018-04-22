@@ -30,7 +30,7 @@ css.insert(global)
 
 const init = (initialState) => createStore(initialState, (err, store) => {
 
-	if (err!=null) throw err
+	if (err != null) throw err
 
 	const history = createHistory()
 
@@ -68,11 +68,11 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 
 	keyboardJS.bind('enter', (e) => {
 
-		if (isInput(e.target)===false) return
+		if (isInput(e.target) === false) return
 
 		const nextComponent = navigation(store).firstComponent()
 
-		if (nextComponent==null) return
+		if (nextComponent == null) return
 
 		navigateToComponent(nextComponent)
 
@@ -82,7 +82,7 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 
 		const nextComponent = navigation(store).prevComponent()
 
-		if (nextComponent==null) return
+		if (nextComponent == null) return
 
 		navigateToComponent(nextComponent)
 
@@ -92,7 +92,7 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 
 		const nextComponent = navigation(store).nextComponent()
 
-		if (nextComponent==null) return
+		if (nextComponent == null) return
 
 		navigateToComponent(nextComponent)
 

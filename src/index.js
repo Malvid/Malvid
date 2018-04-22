@@ -14,7 +14,7 @@ const script = require('./script')
  */
 module.exports = async function(opts = {}) {
 
-	if (isPlainObj(opts)===false && opts!=null) throw new Error(`'opts' must be an object, null or undefined`)
+	if (isPlainObj(opts) === false && opts != null) throw new Error(`'opts' must be an object, null or undefined`)
 
 	const resolvers = [
 		{

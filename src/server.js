@@ -7,7 +7,7 @@ module.exports = (initalState, js, next) => {
 
 	createStore(initalState, (err, store) => {
 
-		if (err!=null) return next(err)
+		if (err != null) return next(err)
 
 		const opts = store.getState().opts
 		const html = layout('<div id="main"></div>', js, opts)

@@ -2,9 +2,9 @@
 
 module.exports = (component, tabId) => {
 
-	if (component==null) return null
-	if (component.data==null) return null
+	if (component == null) return null
+	if (component.data == null) return null
 
-	return component.data.filter((tab) => tab.id===tabId)[0]
+	return component.data.filter((tab) => tab.id === tabId)[0]
 
 }

@@ -10,7 +10,7 @@ const defaultState = {
 }
 
 const setSizeStatus = ({ vertical, horizontal }, status) => ({
-	status: status===SIZE_STATUS_ACTIVE ? SIZE_STATUS_ACTIVE : SIZE_STATUS_INACTIVE,
+	status: status === SIZE_STATUS_ACTIVE ? SIZE_STATUS_ACTIVE : SIZE_STATUS_INACTIVE,
 	vertical,
 	horizontal
 })
