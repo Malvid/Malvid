@@ -18,7 +18,7 @@ const getConfig = function() {
 
 	const configPath = findUp.sync([ 'malvidfile.js', 'malvidfile.json' ])
 
-	if (configPath==null) return undefined
+	if (configPath == null) return undefined
 
 	return require(configPath)
 
@@ -45,7 +45,7 @@ const execute = async function(command, output) {
 		const config = getConfig()
 		const malvid = getMalvid()
 
-		if (config==null) spinner.warn()
+		if (config == null) spinner.warn()
 		else spinner.succeed()
 
 		spinner.start('Gathering components')
@@ -55,16 +55,16 @@ const execute = async function(command, output) {
 		spinner.succeed()
 		spinner.start('Gathering output')
 
-		const html = (command==='html' || command==='all') ? await response.html : undefined
-		const json = (command==='json' || command==='all') ? await response.json : undefined
+		const html = (command === 'html' || command === 'all') ? await response.html : undefined
+		const json = (command === 'json' || command === 'all') ? await response.json : undefined
 
 		spinner.succeed()
 		spinner.start('Writing output')
 
-		if (command==='html') fse.outputFile(output[0], html)
-		if (command==='json') fse.outputFile(output[0], JSON.stringify(json))
+		if (command === 'html') fse.outputFile(output[0], html)
+		if (command === 'json') fse.outputFile(output[0], JSON.stringify(json))
 
-		if (command==='all') {
+		if (command === 'all') {
 			fse.outputFile(output[0], html)
 			fse.outputFile(output[1], JSON.stringify(json))
 		}
@@ -118,19 +118,19 @@ const all = (filenames) => execute('all', filenames)
 const parse = function(argv) {
 
 	// Output the version number
-	if (argv.version===true) return version()
+	if (argv.version === true) return version()
 
 	// Output usage information
-	if (argv.help===true) return help()
+	if (argv.help === true) return help()
 
 	// Output HTML
-	if (argv._[0]==='html' && argv._[1]!=null) return html(argv._[1])
+	if (argv._[0] === 'html' && argv._[1] != null) return html(argv._[1])
 
 	// Output HTML
-	if (argv._[0]==='json' && argv._[1]!=null) return json(argv._[1])
+	if (argv._[0] === 'json' && argv._[1] != null) return json(argv._[1])
 
 	// Output everything
-	if (argv._[0]!=null && argv._[1]!=null) return all([ argv._[0], argv._[1] ])
+	if (argv._[0] != null && argv._[1] != null) return all([ argv._[0], argv._[1] ])
 
 	// Show usage information when no known arg was found
 	help()

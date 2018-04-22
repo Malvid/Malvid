@@ -11,6 +11,6 @@ module.exports = (url) => {
 	})
 
 	// Add directory index when url contains no HTML file
-	return url.substr(-5)==='.html' ? url : `${ url }/index.html`
+	return url.substr(-5) === '.html' ? url : `${ url }/index.html`
 
 }

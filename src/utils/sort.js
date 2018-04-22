@@ -7,9 +7,9 @@ module.exports = (components, toNavGroup, toNavItem) => {
 	const ungrouped = components.reduce((acc, component) => {
 
 		const group = getGroup(component)
-		const hasGroup = group!=null
+		const hasGroup = group != null
 
-		if (hasGroup===true) return acc
+		if (hasGroup === true) return acc
 
 		return [
 			...acc,
@@ -21,9 +21,9 @@ module.exports = (components, toNavGroup, toNavItem) => {
 	const grouped = components.reduce((acc, component) => {
 
 		const group = getGroup(component)
-		const hasGroup = group!=null
+		const hasGroup = group != null
 
-		if (hasGroup===false) return acc
+		if (hasGroup === false) return acc
 
 		acc[group] = [
 			...(acc[group] || []),

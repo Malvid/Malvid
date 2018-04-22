@@ -5,7 +5,7 @@ const eventPos = require('./eventPos')
 
 module.exports = (() => {
 
-	if (isClient===false) return null
+	if (isClient === false) return null
 
 	let pos = {}
 

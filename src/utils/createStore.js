@@ -13,8 +13,8 @@ const reducers = hydratable(
 )
 
 // Enhance the store with DevTools
-const hasDevTools = isClient===true && typeof window.__REDUX_DEVTOOLS_EXTENSION__==='function'
-const devTools = hasDevTools===true ? window.__REDUX_DEVTOOLS_EXTENSION__() : undefined
+const hasDevTools = isClient === true && typeof window.__REDUX_DEVTOOLS_EXTENSION__ === 'function'
+const devTools = hasDevTools === true ? window.__REDUX_DEVTOOLS_EXTENSION__() : undefined
 
 // Create the store
 module.exports = (state, next) => {

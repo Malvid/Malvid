@@ -11,8 +11,8 @@ module.exports = (components, filter) => {
 	const term = s.terms.join(' ').toLowerCase()
 	const props = s.props
 
-	const hasTerm = term!==''
-	const hasProps = Object.keys(props).length!==0
+	const hasTerm = term !== ''
+	const hasProps = Object.keys(props).length !== 0
 
 	return components.filter((component) => {
 
@@ -25,19 +25,19 @@ module.exports = (components, filter) => {
 			const value = props[prop].toLowerCase()
 			const tab = getTab(component, prop)
 
-			if (tab==null) return false
+			if (tab == null) return false
 
 			// Data might be parsed by a user-defined function.
 			// In this case it's not a searchable string.
-			if (typeof tab.data!=='string') return false
+			if (typeof tab.data !== 'string') return false
 
 			return tab.data.includes(value)
 
 		})
 
 		return (
-			(hasTerm===true ? inName===true : true) &&
-			(hasProps===true ? inTabs===true : true)
+			(hasTerm === true ? inName === true : true) &&
+			(hasProps === true ? inTabs === true : true)
 		)
 
 	})

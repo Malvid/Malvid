@@ -17,7 +17,7 @@ module.exports = (store) => {
 	)
 
 	// All components without groups
-	const filteredItems = items.filter((item) => item!=null)
+	const filteredItems = items.filter((item) => item != null)
 
 	const nearCurrentComponent = (offset) => {
 
