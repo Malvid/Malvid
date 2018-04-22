@@ -32,7 +32,7 @@ const style = {
 
 const Main = (props) => {
 
-	if (props.error!=null) return (
+	if (props.error != null) return (
 		h(DocumentTitle, { title: 'Malvid' },
 			h(Empty, {
 				color: 'currentcolor',
@@ -42,7 +42,7 @@ const Main = (props) => {
 	)
 
 	// No currentComponent means that there are no components at all
-	if (props.currentComponent==null) return (
+	if (props.currentComponent == null) return (
 		h(DocumentTitle, { title: props.opts.title },
 			h(Empty, {
 				color: 'currentcolor',
@@ -75,7 +75,7 @@ const Main = (props) => {
 				}),
 				h(Content, props),
 				h(ResizeOverlay, {
-					visible: props.size.status===SIZE_STATUS_ACTIVE
+					visible: props.size.status === SIZE_STATUS_ACTIVE
 				})
 			)
 		)

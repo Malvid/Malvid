@@ -25,7 +25,7 @@ const style = {
 	}),
 
 	selfVisibility: ({ status }) => css({
-		opacity: status===SIZE_STATUS_ACTIVE ? .99 : .01
+		opacity: status === SIZE_STATUS_ACTIVE ? .99 : .01
 	}),
 
 	selfVertical: css({
@@ -99,7 +99,7 @@ module.exports = class extends Component {
 
 		const self = this.onResize.bind(this)
 
-		if (this.state.status===SIZE_STATUS_ACTIVE) {
+		if (this.state.status === SIZE_STATUS_ACTIVE) {
 
 			const direction = this.props.direction
 
@@ -127,8 +127,8 @@ module.exports = class extends Component {
 				className: css(
 					style.self,
 					style.selfVisibility({ status: this.state.status }),
-					direction==='horizontal' && style.selfHorizontal,
-					direction==='vertical' && style.selfVertical
+					direction === 'horizontal' && style.selfHorizontal,
+					direction === 'vertical' && style.selfVertical
 				).toString()
 			},
 				Array.apply(null, { length: 3 }).map((item, i) =>
@@ -136,8 +136,8 @@ module.exports = class extends Component {
 						key: i,
 						className: css(
 							style.handle,
-							direction==='horizontal' && style.handleHorizontal,
-							direction==='vertical' && style.handleVertical
+							direction === 'horizontal' && style.handleHorizontal,
+							direction === 'vertical' && style.handleVertical
 						).toString()
 					})
 				)

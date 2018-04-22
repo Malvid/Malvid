@@ -54,7 +54,7 @@ module.exports = ({ statuses, components, currentComponent, currentTab, filter, 
 			id: component.id,
 			label: component.name,
 			status: getStatus(statuses, component),
-			active: component.id===currentComponent.id,
+			active: component.id === currentComponent.id,
 			currentTab
 		})
 	)

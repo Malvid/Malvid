@@ -30,7 +30,7 @@ module.exports = ({ currentComponent, currentTab }) => {
 
 	const { data, languages } = currentTab
 
-	const Viewer = languages[0]==='markdown' ? Markdown : Code
+	const Viewer = languages[0] === 'markdown' ? Markdown : Code
 
 	return (
 		h('div', { className: style.self.toString() },
@@ -39,11 +39,11 @@ module.exports = ({ currentComponent, currentTab }) => {
 					currentComponent,
 					currentTab
 				}),
-				data!=null && h(Viewer, {
+				data != null && h(Viewer, {
 					languages,
 					data
 				}),
-				data==null && h(Empty, {
+				data == null && h(Empty, {
 					color: '#bbb',
 					text: 'No data found'
 				})

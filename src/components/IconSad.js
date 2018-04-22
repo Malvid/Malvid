@@ -11,7 +11,7 @@ const style = {
 
 }
 
-module.exports = ({ visible }) => (
+module.exports = () => (
 
 	h('svg', {
 		className: style.self.toString(),

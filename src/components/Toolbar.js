@@ -73,8 +73,8 @@ module.exports = ({ status, label, url }) => (
 			},
 				h(IconTab)
 			),
-			status!=null && h('div', { className: style.separator.toString() }),
-			status!=null && h(Status, status)
+			status != null && h('div', { className: style.separator.toString() }),
+			status != null && h(Status, status)
 		)
 	)
 

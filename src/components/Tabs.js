@@ -25,7 +25,7 @@ module.exports = ({ currentComponent, currentTab }) => (
 				key: tab.id,
 				id: tab.id,
 				label: tab.label,
-				active: tab.id===currentTab.id,
+				active: tab.id === currentTab.id,
 				currentComponent
 			})
 		)

@@ -49,7 +49,7 @@ module.exports = ({ id, label, status, active, currentTab }) => (
 		href: createRoute(id, currentTab.id)
 	},
 		h('span', { className: style.label.toString() }, label),
-		status!=null && h(NavStatus, status)
+		status != null && h(NavStatus, status)
 	)
 
 )
