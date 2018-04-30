@@ -7,4 +7,4 @@ The following hotkeys are available while the UI of Malvid is in focus. Hotkeys 
 | `esc` | Clear and focus the filter field |
 | `enter` | Navigate to the first result while filtering |
 | `up` | Previous component |
-| `down` | next component |
+| `down` | Next component |
