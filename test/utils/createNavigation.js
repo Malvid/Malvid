@@ -2,9 +2,9 @@
 
 const assert = require('chai').assert
 const uuid = require('uuid/v4')
-const navigation = require('../../src/utils/navigation')
+const createNavigation = require('../../src/utils/createNavigation')
 
-describe('navigation()', function() {
+describe('createNavigation()', function() {
 
 	it('should return object', function() {
 
@@ -21,7 +21,7 @@ describe('navigation()', function() {
 			getState: () => state
 		}
 
-		const result = navigation(store)
+		const result = createNavigation(store)
 
 		assert.isObject(result)
 
@@ -65,7 +65,7 @@ describe('navigation()', function() {
 			getState: () => state
 		}
 
-		const component = navigation(store).firstComponent()
+		const component = createNavigation(store).firstComponent()
 
 		assert.deepEqual(component, components[0])
 
@@ -109,7 +109,7 @@ describe('navigation()', function() {
 			getState: () => state
 		}
 
-		const component = navigation(store).prevComponent()
+		const component = createNavigation(store).prevComponent()
 
 		assert.deepEqual(component, components[0])
 
@@ -153,7 +153,7 @@ describe('navigation()', function() {
 			getState: () => state
 		}
 
-		const component = navigation(store).nextComponent()
+		const component = createNavigation(store).nextComponent()
 
 		assert.deepEqual(component, components[1])
 
@@ -197,7 +197,7 @@ describe('navigation()', function() {
 			getState: () => state
 		}
 
-		const component = navigation(store).firstComponent()
+		const component = createNavigation(store).firstComponent()
 
 		assert.deepEqual(component, components[1])
 
@@ -231,7 +231,7 @@ describe('navigation()', function() {
 			getState: () => state
 		}
 
-		const component = navigation(store).firstComponent()
+		const component = createNavigation(store).firstComponent()
 
 		assert.isUndefined(component)
 
@@ -265,8 +265,8 @@ describe('navigation()', function() {
 			getState: () => state
 		}
 
-		const prevComponent = navigation(store).prevComponent()
-		const nextComponent = navigation(store).nextComponent()
+		const prevComponent = createNavigation(store).prevComponent()
+		const nextComponent = createNavigation(store).nextComponent()
 
 		assert.isUndefined(prevComponent)
 		assert.isUndefined(nextComponent)
