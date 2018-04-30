@@ -81,6 +81,10 @@ Malvid scans folders and detects all components in the given structure. This cha
 
 The CLI of Malvid is located in the `bin` folder and allows you to run Malvid without adding JS files to your project. This approach is simpler than using the API, but provides less flexibility. [CLI &#187;](docs/CLI.md)
 
+### Hotkeys
+
+Navigate through your components using the hotkeys provided by Malvid. [Hotkeys &#187;](docs/Hotkeys.md)
+
 ### Options
 
 If you want more control over Malvid, pass an object of options to it. [Options &#187;](docs/Options.md)
