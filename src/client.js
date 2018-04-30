@@ -78,7 +78,7 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 	const clearFilter = () => store.dispatch(setFilter(''))
 	const focusFilter = () => document.querySelector('#filter').focus()
 
-	document.documentElement.addEventListener('keydown', (e) => {
+	document.documentElement.onkeydown = (e) => {
 
 		if (isClearKey(e) === true) {
 			clearFilter()
@@ -101,7 +101,7 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 			return stopEvent(e)
 		}
 
-	})
+	}
 
 })
 
