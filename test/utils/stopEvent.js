@@ -2,7 +2,7 @@
 
 const stopEvent = require('../../src/utils/stopEvent')
 
-describe.only('stopEvent()', function() {
+describe('stopEvent()', function() {
 
 	it('should call stopPropagation', function(done) {
 
