@@ -3,7 +3,7 @@
 const { render } = require('react-dom')
 const { Provider } = require('react-redux')
 const { css } = require('glamor')
-const keyboardJS = require('keyboardjs')
+const { isHotkey } = require('is-hotkey')
 const createHistory = require('history').createHashHistory
 
 const h = require('./utils/h')
@@ -12,14 +12,15 @@ const parsePath = require('./utils/parsePath')
 const requestState = require('./utils/requestState')
 const errorToState = require('./utils/errorToState')
 const enhanceState = require('./utils/enhanceState')
-const navigation = require('./utils/navigation')
 const isInput = require('./utils/isInput')
+const createNavigation = require('./utils/createNavigation')
 const createRoute = require('./utils/createRoute')
+const stopEvent = require('./utils/stopEvent')
 const normalize = require('./styles/normalize')
 const atomOneLight = require('./styles/atomOneLight')
 const markdown = require('./styles/markdown')
 const global = require('./styles/global')
-const { setRoute } = require('./actions')
+const { setRoute, setFilter } = require('./actions')
 
 const Main = require('./components/Main')
 
@@ -57,7 +58,15 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 
 	render(html, root)
 
+	// Curry the hotkey string for better performance
+	const isClearKey = isHotkey('esc')
+	const isConfirmKey = isHotkey('enter')
+	const isPrevKey = isHotkey('up')
+	const isNextKey = isHotkey('down')
+
 	const navigateToComponent = (nextComponent) => {
+
+		if (nextComponent == null) return
 
 		const state = store.getState()
 		const { currentTab } = enhanceState(state)
@@ -66,35 +75,31 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 
 	}
 
-	keyboardJS.bind('enter', (e) => {
+	const clearFilter = () => store.dispatch(setFilter(''))
+	const focusFilter = () => document.querySelector('#filter').focus()
 
-		if (isInput(e.target) === false) return
+	document.documentElement.addEventListener('keydown', (e) => {
 
-		const nextComponent = navigation(store).firstComponent()
+		if (isClearKey(e) === true) {
+			clearFilter()
+			focusFilter()
+			return stopEvent(e)
+		}
 
-		if (nextComponent == null) return
+		if (isConfirmKey(e) === true && isInput(e.target) === true) {
+			navigateToComponent(createNavigation(store).firstComponent())
+			return stopEvent(e)
+		}
 
-		navigateToComponent(nextComponent)
+		if (isPrevKey(e) === true) {
+			navigateToComponent(createNavigation(store).prevComponent())
+			return stopEvent(e)
+		}
 
-	})
-
-	keyboardJS.bind('up', () => {
-
-		const nextComponent = navigation(store).prevComponent()
-
-		if (nextComponent == null) return
-
-		navigateToComponent(nextComponent)
-
-	})
-
-	keyboardJS.bind('down', () => {
-
-		const nextComponent = navigation(store).nextComponent()
-
-		if (nextComponent == null) return
-
-		navigateToComponent(nextComponent)
+		if (isNextKey(e) === true) {
+			navigateToComponent(createNavigation(store).nextComponent())
+			return stopEvent(e)
+		}
 
 	})
 

@@ -54,6 +54,7 @@ module.exports = ({ filter, setFilter }) => (
 			h(IconSearch)
 		),
 		h('input', {
+			id: 'filter',
 			className: style.input.toString(),
 			placeholder: 'Search…',
 			value: filter,
