@@ -33,7 +33,7 @@ describe('getGroup()', function() {
 
 	})
 
-	it('should return undefined when group is missing', function() {
+	it('should return null when group is missing', function() {
 
 		const component = {
 			data: [
@@ -46,18 +46,18 @@ describe('getGroup()', function() {
 
 		const group = getGroup(component)
 
-		assert.strictEqual(group, undefined)
+		assert.strictEqual(group, null)
 
 	})
 
-	it('should return lowercase group', function() {
+	it('should return null when group is empty', function() {
 
 		const component = {
 			data: [
 				{
 					id: 'config',
 					data: {
-						group: 'Group'
+						group: ''
 					}
 				}
 			]
@@ -65,7 +65,26 @@ describe('getGroup()', function() {
 
 		const group = getGroup(component)
 
-		assert.strictEqual(group, component.data[0].data.group.toLowerCase())
+		assert.strictEqual(group, null)
+
+	})
+
+	it('should return lowercase and trimmed group', function() {
+
+		const component = {
+			data: [
+				{
+					id: 'config',
+					data: {
+						group: ' Group '
+					}
+				}
+			]
+		}
+
+		const group = getGroup(component)
+
+		assert.strictEqual(group, component.data[0].data.group.toLowerCase().trim())
 
 	})
 

@@ -10,9 +10,16 @@ module.exports = (component) => {
 	if (config == null) return null
 	if (config.data == null) return null
 
-	const group = config.data.group
+	const rawGroup = config.data.group
 
-	// Returns undefined when the config has no group
-	return group == null ? group : group.toLowerCase()
+	// The group is optional
+	if (rawGroup == null) return null
+
+	const polishedGroup = rawGroup.toLowerCase().trim()
+
+	// An empty group is not a group
+	if (polishedGroup === '') return null
+
+	return polishedGroup
 
 }

@@ -10,7 +10,11 @@ module.exports = (statuses, component) => {
 	if (config == null) return null
 	if (config.data == null) return null
 
-	// Returns undefined when the config has no status
-	return statuses[config.data.status]
+	const status = statuses[config.data.status]
+
+	// The status is optional
+	if (status == null) return null
+
+	return status
 
 }

@@ -38,6 +38,25 @@ describe('getStatus()', function() {
 
 	})
 
+	it('should return null when status is missing', function() {
+
+		const statuses = {}
+
+		const component = {
+			data: [
+				{
+					id: 'config',
+					data: {}
+				}
+			]
+		}
+
+		const status = getStatus(statuses, component)
+
+		assert.strictEqual(status, null)
+
+	})
+
 	it('should return status', function() {
 
 		const statusId = uuid()

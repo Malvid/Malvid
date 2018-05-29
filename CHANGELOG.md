@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+### Changed
+
+- Empty groups will be ignored
+
 ### Fixed
 
 - Error when all components are inside groups

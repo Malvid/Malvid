@@ -78,7 +78,7 @@ Type: `String` Default: `undefined` Optional: `true`
 
 Visually group multiple components. It's like a folder. All components with the same group name are grouped together.
 
-> ⚠️ The group name is case insensitive and will be displayed uppercase.
+> ⚠️ The group name is case insensitive and will be displayed uppercase. An empty string will be ignored.
 
 Example:
 
