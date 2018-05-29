@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 
+- Incorrect sorting of groups
 - Error when all components are inside groups
 
 ## [4.2.0] - 2018-04-30
