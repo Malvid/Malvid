@@ -1,13 +1,9 @@
 'use strict'
 
-const enhanceState = require('./enhanceState')
 const filtrate = require('./filtrate')
 const sort = require('./sort')
 
-module.exports = (store) => {
-
-	const state = store.getState()
-	const { components, filter, currentComponent } = enhanceState(state)
+module.exports = (components, filter, currentComponent) => {
 
 	// Components and groups filtered and sorted
 	const items = sort(

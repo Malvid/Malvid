@@ -64,14 +64,11 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 	const isPrevKey = isHotkey('up')
 	const isNextKey = isHotkey('down')
 
-	const navigateToComponent = (nextComponent) => {
+	const navigateTo = (nextComponent, nextTab) => {
 
 		if (nextComponent == null) return
 
-		const state = store.getState()
-		const { currentTab } = enhanceState(state)
-
-		location.href = createRoute(nextComponent.id, currentTab.id)
+		location.href = createRoute(nextComponent.id, nextTab.id)
 
 	}
 
@@ -80,6 +77,9 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 
 	document.documentElement.onkeydown = (e) => {
 
+		const state = store.getState()
+		const { components, filter, currentComponent, currentTab } = enhanceState(state)
+
 		if (isClearKey(e) === true) {
 			clearFilter()
 			focusFilter()
@@ -87,17 +87,20 @@ const init = (initialState) => createStore(initialState, (err, store) => {
 		}
 
 		if (isConfirmKey(e) === true && isInput(e.target) === true) {
-			navigateToComponent(createNavigation(store).firstComponent())
+			const nextComponent = createNavigation(components, filter, currentComponent).firstComponent()
+			navigateTo(nextComponent, currentTab)
 			return stopEvent(e)
 		}
 
 		if (isPrevKey(e) === true) {
-			navigateToComponent(createNavigation(store).prevComponent())
+			const nextComponent = createNavigation(components, filter, currentComponent).prevComponent()
+			navigateTo(nextComponent, currentTab)
 			return stopEvent(e)
 		}
 
 		if (isNextKey(e) === true) {
-			navigateToComponent(createNavigation(store).nextComponent())
+			const nextComponent = createNavigation(components, filter, currentComponent).nextComponent()
+			navigateTo(nextComponent, currentTab)
 			return stopEvent(e)
 		}
 

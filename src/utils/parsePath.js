@@ -2,8 +2,7 @@
 
 const UrlPattern = require('url-pattern')
 
-const sort = require('../utils/sort')
-const passThrough = require('../utils/passThrough')
+const createNavigation = require('../utils/createNavigation')
 const getComponent = require('../selectors/getComponent')
 const getTab = require('../selectors/getTab')
 const getTabs = require('../selectors/getTabs')
@@ -26,7 +25,7 @@ module.exports = (path, components) => {
 
 	// Use the specified or the first component depending on what's available
 	const hasComponentId = getComponent(components, componentId) != null
-	const firstComponentId = sort(components, passThrough, passThrough)[0].id
+	const firstComponentId = createNavigation(components, '').firstComponent().id
 	const nextComponentId = hasComponentId === true ? componentId : firstComponentId
 
 	// Get data of the next component and check if it has the specified tab

@@ -8,20 +8,7 @@ describe('createNavigation()', function() {
 
 	it('should return object', function() {
 
-		const state = {
-			filter: '',
-			route: {
-				componentId: uuid(),
-				tabId: uuid()
-			},
-			components: []
-		}
-
-		const store = {
-			getState: () => state
-		}
-
-		const result = createNavigation(store)
+		const result = createNavigation([], '')
 
 		assert.isObject(result)
 
@@ -52,20 +39,7 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const state = {
-			filter: '',
-			route: {
-				componentId: components[1].id,
-				tabId: uuid()
-			},
-			components
-		}
-
-		const store = {
-			getState: () => state
-		}
-
-		const component = createNavigation(store).firstComponent()
+		const component = createNavigation(components, '').firstComponent()
 
 		assert.deepEqual(component, components[0])
 
@@ -96,20 +70,7 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const state = {
-			filter: '',
-			route: {
-				componentId: components[1].id,
-				tabId: uuid()
-			},
-			components
-		}
-
-		const store = {
-			getState: () => state
-		}
-
-		const component = createNavigation(store).prevComponent()
+		const component = createNavigation(components, '', components[1]).prevComponent()
 
 		assert.deepEqual(component, components[0])
 
@@ -140,20 +101,7 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const state = {
-			filter: '',
-			route: {
-				componentId: components[0].id,
-				tabId: uuid()
-			},
-			components
-		}
-
-		const store = {
-			getState: () => state
-		}
-
-		const component = createNavigation(store).nextComponent()
+		const component = createNavigation(components, '', components[0]).nextComponent()
 
 		assert.deepEqual(component, components[1])
 
@@ -184,20 +132,7 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const state = {
-			filter: components[1].name,
-			route: {
-				componentId: components[0].id,
-				tabId: uuid()
-			},
-			components
-		}
-
-		const store = {
-			getState: () => state
-		}
-
-		const component = createNavigation(store).firstComponent()
+		const component = createNavigation(components, components[1].name, components[0]).firstComponent()
 
 		assert.deepEqual(component, components[1])
 
@@ -218,20 +153,7 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const state = {
-			filter: uuid(),
-			route: {
-				componentId: components[0].id,
-				tabId: uuid()
-			},
-			components
-		}
-
-		const store = {
-			getState: () => state
-		}
-
-		const component = createNavigation(store).firstComponent()
+		const component = createNavigation(components, uuid(), components[0]).firstComponent()
 
 		assert.isUndefined(component)
 
@@ -252,21 +174,8 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const state = {
-			filter: '',
-			route: {
-				componentId: components[0].id,
-				tabId: uuid()
-			},
-			components
-		}
-
-		const store = {
-			getState: () => state
-		}
-
-		const prevComponent = createNavigation(store).prevComponent()
-		const nextComponent = createNavigation(store).nextComponent()
+		const prevComponent = createNavigation(components, '', components[0]).prevComponent()
+		const nextComponent = createNavigation(components, '', components[0]).nextComponent()
 
 		assert.isUndefined(prevComponent)
 		assert.isUndefined(nextComponent)
