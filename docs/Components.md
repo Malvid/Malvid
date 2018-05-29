@@ -68,7 +68,7 @@ Examples:
 ```js
 module.exports = {
 	group: 'section',
-	status: "wip"
+	status: 'wip'
 }
 ```
 
