@@ -17,8 +17,7 @@ module.exports = (components, filter, currentComponent) => {
 
 	const nearCurrentComponent = (offset) => {
 
-		const componentIds = filteredItems.map((component) => component.id)
-		const currentComponentIndex = componentIds.indexOf(currentComponent.id)
+		const currentComponentIndex = filteredItems.findIndex(({ id }) => id === currentComponent.id)
 
 		return filteredItems[currentComponentIndex + offset]
 
