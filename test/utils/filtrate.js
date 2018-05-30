@@ -4,6 +4,8 @@ const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const filtrate = require('../../src/utils/filtrate')
 
+const name = (prefix) => prefix + uuid()
+
 describe('filtrate()', function() {
 
 	it('should return components', function() {
@@ -11,7 +13,7 @@ describe('filtrate()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('a'),
 				data: [
 					{
 						id: 'view',
@@ -21,7 +23,7 @@ describe('filtrate()', function() {
 			},
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('b'),
 				data: [
 					{
 						id: 'view',
@@ -42,7 +44,7 @@ describe('filtrate()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('a'),
 				data: [
 					{
 						id: 'view',
@@ -52,7 +54,7 @@ describe('filtrate()', function() {
 			},
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('b'),
 				data: [
 					{
 						id: 'view',
@@ -73,7 +75,7 @@ describe('filtrate()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('a'),
 				data: [
 					{
 						id: 'view',
@@ -83,7 +85,7 @@ describe('filtrate()', function() {
 			},
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('b'),
 				data: [
 					{
 						id: 'view',

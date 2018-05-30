@@ -4,6 +4,8 @@ const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const createNavigation = require('../../src/utils/createNavigation')
 
+const name = (prefix) => prefix + uuid()
+
 describe('createNavigation()', function() {
 
 	it('should return object', function() {
@@ -19,7 +21,7 @@ describe('createNavigation()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('a'),
 				data: [
 					{
 						id: 'view',
@@ -29,7 +31,7 @@ describe('createNavigation()', function() {
 			},
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('b'),
 				data: [
 					{
 						id: 'view',
@@ -50,7 +52,7 @@ describe('createNavigation()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('a'),
 				data: [
 					{
 						id: 'view',
@@ -60,7 +62,7 @@ describe('createNavigation()', function() {
 			},
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('b'),
 				data: [
 					{
 						id: 'view',
@@ -81,7 +83,7 @@ describe('createNavigation()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('a'),
 				data: [
 					{
 						id: 'view',
@@ -91,7 +93,7 @@ describe('createNavigation()', function() {
 			},
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('b'),
 				data: [
 					{
 						id: 'view',
@@ -112,7 +114,7 @@ describe('createNavigation()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('a'),
 				data: [
 					{
 						id: 'view',
@@ -122,7 +124,7 @@ describe('createNavigation()', function() {
 			},
 			{
 				id: uuid(),
-				name: uuid(),
+				name:name('b'),
 				data: [
 					{
 						id: 'view',
@@ -143,7 +145,7 @@ describe('createNavigation()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('a'),
 				data: [
 					{
 						id: 'view',
@@ -164,7 +166,7 @@ describe('createNavigation()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: uuid(),
+				name: name('a'),
 				data: [
 					{
 						id: 'view',

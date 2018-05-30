@@ -9,6 +9,8 @@ const fsify = require('fsify')({
 	cwd: os.tmpdir()
 })
 
+const name = (prefix) => prefix + uuid()
+
 describe('index()', function() {
 
 	it('should return an error when called with invalid options', async function() {
@@ -53,7 +55,7 @@ describe('index()', function() {
 		const structure = await fsify([
 			{
 				type: fsify.DIRECTORY,
-				name: uuid(),
+				name: name('a'),
 				contents: []
 			}
 		])
@@ -79,7 +81,7 @@ describe('index()', function() {
 		const structure = await fsify([
 			{
 				type: fsify.DIRECTORY,
-				name: uuid(),
+				name: name('a'),
 				contents: [
 					{
 						type: fsify.FILE,
