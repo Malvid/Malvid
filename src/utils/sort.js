@@ -2,6 +2,18 @@
 
 const getGroup = require('../selectors/getGroup')
 
+const sortByProp = (prop) => (a, b) => {
+
+	const _a = a[prop]
+	const _b = b[prop]
+
+	if (_a < _b) return -1
+	if (_a > _b) return 1
+
+	return 0
+
+}
+
 module.exports = (components, toNavGroup, toNavItem) => {
 
 	const grouped = components.reduce((acc, component) => {
@@ -26,19 +38,14 @@ module.exports = (components, toNavGroup, toNavItem) => {
 
 	}, [])
 
-	const sorted = grouped.sort((a, b) => {
+	const sortedByName = grouped.map(({ group, components }) => ({
+		group,
+		components: components.sort(sortByProp('name'))
+	}))
 
-		const groupA = a.group
-		const groupB = b.group
+	const sortedByNameAndGroup = sortedByName.sort(sortByProp('group'))
 
-		if (groupA < groupB) return -1
-		if (groupA > groupB) return 1
-
-		return 0
-
-	})
-
-	const rendered = sorted.reduce((acc, item) => [
+	const rendered = sortedByNameAndGroup.reduce((acc, item) => [
 		...acc,
 		item.group === '' ? undefined : toNavGroup(item.group),
 		...item.components.map(toNavItem)
