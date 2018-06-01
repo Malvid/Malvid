@@ -34,6 +34,7 @@ module.exports = (props) => (
 			setSizeStatus: props.setSizeStatus
 		}),
 		h(Inspector, {
+			components: props.components,
 			currentComponent: props.currentComponent,
 			currentTab: props.currentTab
 		})

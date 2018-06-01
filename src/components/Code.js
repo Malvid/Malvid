@@ -5,7 +5,10 @@ const propTypes = require('prop-types')
 const highlight = require('highlight.js')
 
 const h = require('../utils/h')
+const link = require('../utils/link')
+const createRoute = require('../utils/createRoute')
 const selectable = require('../styles/selectable')
+const { BLUE } = require('../constants/colors')
 
 const style = {
 
@@ -19,17 +22,25 @@ const style = {
 	code: css(selectable, {
 		display: 'block',
 		padding: '1.5em 2em'
+	}),
+
+	link: css({
+		color: BLUE
 	})
 
 }
 
-module.exports = ({ data, languages }) => (
+module.exports = ({ components, currentTab }) => (
 
 	h('pre', { className: style.self.toString() },
 		h('code', {
 			className: style.code.toString(),
 			dangerouslySetInnerHTML: {
-				__html: highlight.highlightAuto(data, languages).value
+				__html: link(
+					highlight.highlightAuto(currentTab.data, currentTab.languages).value,
+					components,
+					(component, filename) => `<a class="${ style.link.toString() }" href="${ createRoute(component.id, currentTab.id) }">${ filename }</a>`
+				)
 			}
 		})
 	)
@@ -38,7 +49,7 @@ module.exports = ({ data, languages }) => (
 
 module.exports.propTypes = {
 
-	data: propTypes.string.isRequired,
-	languages: propTypes.array.isRequired
+	components: propTypes.array.isRequired,
+	currentTab: propTypes.object.isRequired
 
 }

@@ -30,6 +30,8 @@
   "dependencies": {
     "color-alpha": "^1.0.2",
     "components-lookup": "^4.0.2",
+    "escape-string-regexp": "^1.0.5",
+    "filename-regex": "^2.0.1",
     "find-up": "^2.1.0",
     "fs-extra": "^5.0.0",
     "glamor": "^3.0.0-2",

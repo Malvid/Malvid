@@ -26,7 +26,7 @@ const style = {
 
 }
 
-module.exports = ({ currentComponent, currentTab }) => {
+module.exports = ({ components, currentComponent, currentTab }) => {
 
 	const { data, languages } = currentTab
 
@@ -40,8 +40,8 @@ module.exports = ({ currentComponent, currentTab }) => {
 					currentTab
 				}),
 				data != null && h(Viewer, {
-					languages,
-					data
+					components,
+					currentTab
 				}),
 				data == null && h(Empty, {
 					color: '#bbb',
@@ -55,6 +55,7 @@ module.exports = ({ currentComponent, currentTab }) => {
 
 module.exports.propTypes = {
 
+	components: propTypes.array.isRequired,
 	currentComponent: propTypes.object.isRequired,
 	currentTab: propTypes.object.isRequired
 
