@@ -1,11 +1,10 @@
 'use strict'
 
 const escapeStringRegexp = require('escape-string-regexp')
-const filenameRegex = require('filename-regex')()
 
-const filename = (src) => src.match(filenameRegex)[0]
+const filename = require('../utils/filename')
 
-module.exports = (html, components, render) => {
+module.exports = (data, components, render) => {
 
 	// The longer the filename the higher the uniqueness of the string
 	const ordered = components.sort((a, b) => {
@@ -35,10 +34,10 @@ module.exports = (html, components, render) => {
 
 		const link = render(component, safeFilename)
 
-		html = html.replace(regex, link)
+		data = data.replace(regex, link)
 
 	})
 
-	return html
+	return data
 
 }
