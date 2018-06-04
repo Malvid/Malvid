@@ -20,12 +20,84 @@ describe('sort()', function() {
 
 	})
 
-	it('should sort groups and components', function() {
+	it('should sort groups', function() {
 
-		const groups = [
-			name('a'),
-			name('b')
+		const components = [
+			{
+				id: uuid(),
+				name: name('a'),
+				data: [
+					{
+						id: 'config',
+						data: {
+							group: name('b')
+						}
+					}
+				]
+			},
+			{
+				id: uuid(),
+				name: name('a'),
+				data: [
+					{
+						id: 'config',
+						data: {
+							group: name('a')
+						}
+					}
+				]
+			}
 		]
+
+		const result = sort(components, passThrough, passThrough)
+
+		assert.strictEqual(result[0], components[1].data[0].data.group)
+		assert.strictEqual(result[1].id, components[1].id)
+		assert.strictEqual(result[2], components[0].data[0].data.group)
+		assert.strictEqual(result[3].id, components[0].id)
+
+	})
+
+	it('should group and sort components by group', function() {
+
+		const group = name('a')
+
+		const components = [
+			{
+				id: uuid(),
+				name: name('b'),
+				data: [
+					{
+						id: 'config',
+						data: {
+							group
+						}
+					}
+				]
+			},
+			{
+				id: uuid(),
+				name: name('a'),
+				data: [
+					{
+						id: 'config',
+						data: {
+							group
+						}
+					}
+				]
+			}
+		]
+
+		const result = sort(components, passThrough, passThrough)
+
+		assert.strictEqual(result[0], components[0].data[0].data.group)
+		assert.strictEqual(result[1].id, components[1].id)
+		assert.strictEqual(result[2].id, components[0].id)
+
+	})
+
+	it('should sort components', function() {
 
 		const components = [
 			{
@@ -35,42 +107,6 @@ describe('sort()', function() {
 			{
 				id: uuid(),
 				name: name('a')
-			},
-			{
-				id: uuid(),
-				name: name('1'),
-				data: [
-					{
-						id: 'config',
-						data: {
-							group: groups[1]
-						}
-					}
-				]
-			},
-			{
-				id: uuid(),
-				name: name('0'),
-				data: [
-					{
-						id: 'config',
-						data: {
-							group: groups[1]
-						}
-					}
-				]
-			},
-			{
-				id: uuid(),
-				name: name('c'),
-				data: [
-					{
-						id: 'config',
-						data: {
-							group: groups[0]
-						}
-					}
-				]
 			}
 		]
 
@@ -78,11 +114,28 @@ describe('sort()', function() {
 
 		assert.strictEqual(result[0].id, components[1].id)
 		assert.strictEqual(result[1].id, components[0].id)
-		assert.strictEqual(result[2], components[4].data[0].data.group)
-		assert.strictEqual(result[3].id, components[4].id)
-		assert.strictEqual(result[4], components[2].data[0].data.group)
-		assert.strictEqual(result[5].id, components[3].id)
-		assert.strictEqual(result[6].id, components[2].id)
+
+	})
+
+	it('should use initial order for components with the same name', function() {
+
+		const name = uuid()
+
+		const components = [
+			{
+				id: name,
+				name
+			},
+			{
+				id: name,
+				name
+			}
+		]
+
+		const result = sort(components, passThrough, passThrough)
+
+		assert.strictEqual(result[0].id, components[0].id)
+		assert.strictEqual(result[1].id, components[1].id)
 
 	})
 

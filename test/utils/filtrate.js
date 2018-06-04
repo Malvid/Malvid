@@ -101,4 +101,40 @@ describe('filtrate()', function() {
 
 	})
 
+	it('should ignore unknown tabs', function() {
+
+		const components = [
+			{
+				id: uuid(),
+				name: name('a')
+			}
+		]
+
+		const result = filtrate(components, `view:${ components[0].name }`)
+
+		assert.strictEqual(result.length, 0)
+
+	})
+
+	it('should ignore custom parsed tabs', function() {
+
+		const components = [
+			{
+				id: uuid(),
+				name: name('a'),
+				data: [
+					{
+						id: 'view',
+						data: {}
+					}
+				]
+			}
+		]
+
+		const result = filtrate(components, `view:$${ components[0].name }`)
+
+		assert.strictEqual(result.length, 0)
+
+	})
+
 })

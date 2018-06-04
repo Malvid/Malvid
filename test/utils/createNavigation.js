@@ -16,6 +16,41 @@ describe('createNavigation()', function() {
 
 	})
 
+	it('should return first component in group', function() {
+
+		const components = [
+			{
+				id: uuid(),
+				name: name('a'),
+				data: [
+					{
+						id: 'config',
+						data: {
+							group: name('b')
+						}
+					}
+				]
+			},
+			{
+				id: uuid(),
+				name: name('b'),
+				data: [
+					{
+						id: 'config',
+						data: {
+							group: name('a')
+						}
+					}
+				]
+			}
+		]
+
+		const result = createNavigation(components, '').firstComponent()
+
+		assert.deepEqual(result, components[1])
+
+	})
+
 	it('should return first component', function() {
 
 		const components = [
@@ -41,9 +76,9 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const component = createNavigation(components, '').firstComponent()
+		const result = createNavigation(components, '').firstComponent()
 
-		assert.deepEqual(component, components[0])
+		assert.deepEqual(result, components[0])
 
 	})
 
@@ -72,9 +107,9 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const component = createNavigation(components, '', components[1]).prevComponent()
+		const result = createNavigation(components, '', components[1]).prevComponent()
 
-		assert.deepEqual(component, components[0])
+		assert.deepEqual(result, components[0])
 
 	})
 
@@ -103,9 +138,9 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const component = createNavigation(components, '', components[0]).nextComponent()
+		const result = createNavigation(components, '', components[0]).nextComponent()
 
-		assert.deepEqual(component, components[1])
+		assert.deepEqual(result, components[1])
 
 	})
 
@@ -134,9 +169,9 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const component = createNavigation(components, components[1].name, components[0]).firstComponent()
+		const result = createNavigation(components, components[1].name, components[0]).firstComponent()
 
-		assert.deepEqual(component, components[1])
+		assert.deepEqual(result, components[1])
 
 	})
 
@@ -155,9 +190,9 @@ describe('createNavigation()', function() {
 			}
 		]
 
-		const component = createNavigation(components, uuid(), components[0]).firstComponent()
+		const result = createNavigation(components, uuid(), components[0]).firstComponent()
 
-		assert.isUndefined(component)
+		assert.isUndefined(result)
 
 	})
 
