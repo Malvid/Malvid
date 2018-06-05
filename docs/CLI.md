@@ -58,6 +58,9 @@ malvid html index.html
 
 Outputs the data of all components as JSON. The UI will use this file to display your components.
 
+- The data should be saved in the same location as the HTML
+- The name of the file should be equal to the HTML file, but end with `.json` (e.g. `index.html.json`)
+
 ```sh
 malvid json [filename]
 ```

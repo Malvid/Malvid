@@ -77,6 +77,10 @@ The interface of Malvid puts the focus on your components. This chapter gives yo
 
 Malvid scans folders and detects all components in the given structure. This chapter explains how to store and manage components and how to add additional information to the UI using a configuration file. [Components &#187;](docs/Components.md)
 
+### API
+
+Malvid can be integrated into your project using its API *or* CLI. The API gives you more flexibility and allows you to use Malvid in your existing asset pipeline or toolset. [API &#187;](docs/API.md)
+
 ### CLI
 
 The CLI of Malvid is located in the `bin` folder and allows you to run Malvid without adding JS files to your project. This approach is simpler than using the API, but provides less flexibility. [CLI &#187;](docs/CLI.md)
