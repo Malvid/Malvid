@@ -18,7 +18,7 @@ Rosid will transpile all files that have to be transpiled to be readable by a br
 
 - Includes a server with live-reloading for HTML, styles and scripts
 - Real-time updates in the UI of Malvid
-- Transpilation of templating languages and other files using preprocessors
+- Transpilation of templating languages and other files
 
 #### Cons
 
@@ -90,7 +90,7 @@ gulp.task('default', [ 'build', 'watch' ])
 #### Pros
 
 - Includes a server with live-reloading for HTML, styles and scripts
-- Transpilation of templating languages and other files using preprocessors
+- Transpilation of templating languages and other files
 - Easy to use and powerful
 
 #### Cons
@@ -135,10 +135,10 @@ Now you can use `npm start` during development or `npm run build` to save the UI
 
 #### Cons
 
-- Doesn't take care of a server to view the UI of Malvid
-- Inefficient rebuilds when file changes
+- No server with live-reloading for HTML, styles and scripts
 - No real-time updates or live-reloading of the UI (you have to reload manually)
-- Not convenient to use when you want to transpile other files like SASS, EJS or Nunjucks
+- Inefficient rebuilds when a file changes
+- No convenient transpilation of templating languages and other files
 
 ### Resources
 
