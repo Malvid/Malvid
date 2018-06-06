@@ -50,6 +50,7 @@ Boilerplates:
 Guides:
 
 - 📄 [Get started](docs/Get%20started.md)
+- 📄 [Integrations](docs/Integrations.md)
 - 📄 [Styleguide](docs/Styleguide.md)
 - 📄 [Sharing components between front-end and back-end](https://medium.com/@electerious/sharing-components-between-front-end-and-back-end-1e9a624bceae)
 
@@ -73,9 +74,9 @@ Make sure to install and update all dependencies before you setup Malvid.
 
 The interface of Malvid puts the focus on your components. This chapter gives you an overview about it's possibilities. [Interface &#187;](docs/Interface.md)
 
-### Components
+### Hotkeys
 
-Malvid scans folders and detects all components in the given structure. This chapter explains how to store and manage components and how to add additional information to the UI using a configuration file. [Components &#187;](docs/Components.md)
+Navigate through your components using the hotkeys provided by Malvid. [Hotkeys &#187;](docs/Hotkeys.md)
 
 ### API
 
@@ -85,9 +86,13 @@ Malvid can be integrated into your project using its API *or* CLI. The API gives
 
 The CLI of Malvid is located in the `bin` folder and allows you to run Malvid without adding JS files to your project. This approach is simpler than using the API, but provides less flexibility. [CLI &#187;](docs/CLI.md)
 
-### Hotkeys
+### Components
 
-Navigate through your components using the hotkeys provided by Malvid. [Hotkeys &#187;](docs/Hotkeys.md)
+Malvid scans folders and detects all components in the given structure. This chapter explains how to store and manage components and how to add additional information to the UI using a configuration file. [Components &#187;](docs/Components.md)
+
+### Integrations
+
+The API of Malvid allows you to use your existing asset pipeline or toolset together with Malvid. This includes Rosid, Gulp, NPM scripts and other systems. [Integrations &#187;](docs/Integrations.md)
 
 ### Options
 
