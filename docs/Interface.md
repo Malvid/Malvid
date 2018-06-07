@@ -34,7 +34,7 @@ See how your component looks and behaves using the preview on the top right.
 
 Malvid expects that you generate a HTML preview for it. The preview file must be placed in the same folder as the template with the same name as the template, but ending with `.html`.
 
-> 🏗 This isn't very flexible and we are working on an option that gives you more control.
+You can modify the URL to the preview with the [`url` option](Options.md#url).
 
 Example:
 

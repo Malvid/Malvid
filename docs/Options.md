@@ -11,6 +11,7 @@ Pass an object of options and functions to Malvid to adjust it's behaviour. The 
 	description: 'UI to help you build and document web components.',
 	src: '',
 	pattern: '**/[^_]*.{ejs,njk,hbs,twig}',
+	url: (url) => url,
 	resolvers: [
 		{
 			id: 'view',
@@ -186,6 +187,20 @@ Pattern examples:
 | `components/*/*.ejs` | Matches all EJS files located in a subdirectory of `components/` |
 | `components/[^_]*/*.ejs` | Matches all EJS files located in a subdirectory of `components/` when the subdirectory does not start with an underscore |
 | `components/**/*.ejs` | Matches all EJS files located in `components/` or in any subdirectory of `components/` |
+
+### URL
+
+Type: `Function` Optional: `true`
+
+Function that accepts and returns a URL. Allows you to modify the preview URL of components.
+
+Example:
+
+```js
+{
+	url: (url) => `http://localhost:3000` + url
+}
+```
 
 ### Resolvers
 
