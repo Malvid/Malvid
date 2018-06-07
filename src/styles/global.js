@@ -10,7 +10,7 @@ module.exports = `
 		color: ${ DARK };
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 1200px) {
 		html {
 			font-size: 87.5%;
 		}
