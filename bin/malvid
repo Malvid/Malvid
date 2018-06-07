@@ -55,8 +55,8 @@ const execute = async function(command, output) {
 		spinner.succeed()
 		spinner.start('Gathering output')
 
-		const html = (command === 'html' || command === 'all') ? await response.html : undefined
-		const json = (command === 'json' || command === 'all') ? await response.json : undefined
+		const html = (command === 'html' || command === 'all') ? await response.html() : undefined
+		const json = (command === 'json' || command === 'all') ? await response.json() : undefined
 
 		spinner.succeed()
 		spinner.start('Writing output')

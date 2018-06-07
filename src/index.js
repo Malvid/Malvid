@@ -72,8 +72,9 @@ module.exports = async function(opts = {}) {
 		statuses
 	}, opts)
 
-	const components = await componentsLookup(opts.pattern, opts.resolvers, { cwd: opts.src })
-	const js = await script
+	const components = await componentsLookup(opts.pattern, opts.resolvers, {
+		cwd: opts.src
+	})
 
 	const state = {
 		components,
@@ -81,8 +82,18 @@ module.exports = async function(opts = {}) {
 	}
 
 	return {
-		html: util.promisify(server)(state, js),
-		json: Promise.resolve(state)
+		html: async () => {
+
+			const js = await script
+
+			return util.promisify(server)(state, js)
+
+		},
+		json: async () => {
+
+			return state
+
+		}
 	}
 
 }

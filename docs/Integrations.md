@@ -53,8 +53,8 @@ gulp.task('build', async function() {
 		src: 'src/'
 	})
 
-	const html = await results.html
-	const json = await results.json
+	const html = await results.html()
+	const json = await results.json()
 
 	await pAll([
 		() => util.promisify(fs.writeFile)('src/index.html', html),

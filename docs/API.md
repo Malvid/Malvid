@@ -35,7 +35,7 @@ Outputs the HTML necessary to view the UI in a browser.
 Syntax:
 
 ```js
-const html = await instance.html
+const html = await instance.html()
 ```
 
 Returns:
@@ -52,7 +52,7 @@ Outputs the data of all components as an object. The UI will use this file to di
 Syntax:
 
 ```js
-const json = await instance.json
+const json = await instance.json()
 ```
 
 Returns:

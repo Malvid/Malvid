@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 
+- Changed HTML API: `instance.html` is now a function
+- Changed JSON API: `instance.json` is now a function
 - Reduce font-size earlier
 
 ## [4.3.0] - 2018-06-04

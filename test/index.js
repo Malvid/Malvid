@@ -38,7 +38,7 @@ describe('index()', function() {
 		}
 
 		const result = await index(opts)
-		const html = await result.html
+		const html = await result.html()
 
 		assert.isString(html)
 		assert.include(html, `<html lang="${ opts.lang }">`)
@@ -65,7 +65,7 @@ describe('index()', function() {
 		}
 
 		const result = await index(opts)
-		const json = await result.json
+		const json = await result.json()
 
 		assert.isObject(json)
 		assert.strictEqual(json.components.length, 0)
@@ -112,11 +112,42 @@ describe('index()', function() {
 		}
 
 		const result = await index(opts)
-		const json = await result.json
+		const json = await result.json()
 
 		assert.isObject(json)
 		assert.strictEqual(json.components.length, 1)
 		assert.strictEqual(json.components[0].name, componentName)
+
+	})
+
+	it('should render JSON with a custom component URL', async function() {
+
+		this.timeout(50000)
+
+		const componentURL = uuid()
+
+		const structure = await fsify([
+			{
+				type: fsify.DIRECTORY,
+				name: name('a'),
+				contents: [
+					{
+						type: fsify.FILE,
+						name: `${ uuid() }.njk`
+					}
+				]
+			}
+		])
+
+		const opts = {
+			src: structure[0].name,
+			url: () => componentURL
+		}
+
+		const result = await index(opts)
+		const json = await result.json()
+
+		assert.strictEqual(json.components[0].url, componentURL)
 
 	})
 
