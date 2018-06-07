@@ -68,12 +68,14 @@ module.exports = async function(opts = {}) {
 		description: 'UI to help you build and document web components.',
 		src: '',
 		pattern: '**/[^_]*.{ejs,njk,hbs,twig}',
+		url: (url) => url,
 		resolvers,
 		statuses
 	}, opts)
 
 	const components = await componentsLookup(opts.pattern, opts.resolvers, {
-		cwd: opts.src
+		cwd: opts.src,
+		url: opts.url
 	})
 
 	const state = {
