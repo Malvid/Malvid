@@ -2,6 +2,12 @@
 
 The [API of Malvid](API.md) allows you to use your existing asset pipeline or toolset together with Malvid.
 
+## Contents
+
+- [Rosid](#rosid)
+- [Gulp](#gulp)
+- [NPM Scripts](#npm-scripts)
+
 ## Rosid
 
 [Rosid](https://github.com/electerious/Rosid) is the recommended way to use Malvid. It's a just-in-time server and static site generator written in Node.js that build and updates your components and UI on-the-fly.
