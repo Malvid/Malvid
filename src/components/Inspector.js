@@ -30,7 +30,8 @@ module.exports = ({ components, currentComponent, currentTab }) => {
 
 	const { data, languages } = currentTab
 
-	const Viewer = languages[0] === 'markdown' ? Markdown : Code
+	const isMarkdown = languages[0] === 'markdown'
+	const isCode = isMarkdown === false
 
 	return (
 		h('div', { className: style.self.toString() },
@@ -39,7 +40,10 @@ module.exports = ({ components, currentComponent, currentTab }) => {
 					currentComponent,
 					currentTab
 				}),
-				data != null && h(Viewer, {
+				data != null && isMarkdown === true && h(Markdown, {
+					data
+				}),
+				data != null && isCode === true && h(Code, {
 					components,
 					currentTab
 				}),
