@@ -198,7 +198,7 @@ Example:
 
 ```js
 {
-	url: (url) => `http://localhost:3000` + url
+	url: (url) => 'http://localhost:3000' + url
 }
 ```
 
