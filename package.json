@@ -32,7 +32,7 @@
     "components-lookup": "^5.0.0",
     "escape-string-regexp": "^1.0.5",
     "filename-regex": "^2.0.1",
-    "find-up": "^2.1.0",
+    "find-up": "^3.0.0",
     "fs-extra": "^6.0.1",
     "glamor": "^3.0.0-2",
     "highlight.js": "^9.12.0",
