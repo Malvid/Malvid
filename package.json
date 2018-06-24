@@ -6,6 +6,7 @@
   ],
   "description": "UI to help you build and document web components",
   "main": "src/index.js",
+  "bin": "bin/malvid",
   "keywords": [
     "rosid",
     "handler",
