@@ -22,6 +22,7 @@
     "url": "https://github.com/comwrap/Malvid.git"
   },
   "files": [
+    "bin",
     "src"
   ],
   "scripts": {
