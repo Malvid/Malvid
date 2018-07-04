@@ -15,7 +15,13 @@ UI to help you build and document web components.
 
 ## Get started
 
+### Guide
+
 Malvid can be integrated into your project in two ways: Using the CLI *or* using the API of Malvid. Check out our guide for more information. [Get started with Malvid &#187;](docs/Get%20started.md)
+
+### Demo
+
+The website of [Malvid](https://malvid.io) is open-source and built entirely with Malvid. You can take a look at the components and how they are made in the [repository of the website](https://github.com/Malvid/Malvid).
 
 ## Introduction
 
@@ -58,6 +64,11 @@ Similar tools:
 
 - 🛠 [Fractal](https://fractal.build)
 - 🛠 [Pattern Lab](http://patternlab.io)
+
+Sites powered by Malvid:
+
+- 🌍 [Malvid](https://malvid.io)
+- 🌏 [Commerz Real AG](https://www.commerzreal.com)
 
 ## Documentation
 
