@@ -21,7 +21,7 @@ Malvid can be integrated into your project in two ways: Using the CLI *or* using
 
 ### Demo
 
-The website of [Malvid](https://malvid.io) is open-source and built entirely with Malvid. You can take a look at the components and how they are made in the [repository of the website](https://github.com/Malvid/Malvid).
+The website of [Malvid](https://malvid.io) is open-source and built entirely with Malvid. You can take a look at the components and how they are made in the [repository of the website](https://github.com/Malvid/website).
 
 ## Introduction
 
