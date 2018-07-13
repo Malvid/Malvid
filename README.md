@@ -111,4 +111,4 @@ If you want more control over Malvid, pass an object of options to it. [Options 
 
 ### FAQ
 
-Questions and answers to frequently asked questions. [FAQ &#187;](docs/FAQ.md)
+Answers to frequently asked questions. [FAQ &#187;](docs/FAQ.md)
