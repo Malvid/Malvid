@@ -16,15 +16,32 @@ A minimal component structure with a Nunjucks component looks like the following
 ├── src
 │   ├── button
 │   │   ├── (button.html)
-│   │   ├── button.njk
-│   │   └── button.{js|json}
+│   │   ├── button.njk <= Template
+│   │   └── button.{js|json} <= Data
 ```
 
 - The entry folder name is just an example and can be chosen freely
 - Malvid detects that files belong to the same component when they start with the same name and are located in the same folder
 - It's recommended—but not required—to place all files that belong to the same component into the same folder
 
-## Notes
+## Preview
+
+Malvid expects a HTML preview for each component. The preview should be transpiled by yourself. Malvid itself isn't doing any template transpilation.
+
+The preview file must be placed in the same folder as the template with the same name as the template, but ending with `.html`.
+
+```
+.
+├── src
+│   ├── button
+│   │   ├── (button.html) <= Preview
+│   │   ├── button.njk
+│   │   └── button.{js|json}
+```
+
+You can modify the URL to the preview with the [`url` option](Options.md#url).
+
+## Note
 
 Put a Markdown file aside your component to write a documentation for it. This might include notes on how and where the component can be used or other useful information for the people who may be using the component library.
 
@@ -35,10 +52,8 @@ Put a Markdown file aside your component to write a documentation for it. This m
 │   │   ├── (button.html)
 │   │   ├── button.njk
 │   │   ├── button.{js|json}
-│   │   └── button.md
+│   │   └── button.md <= Note
 ```
-
-Malvid supports [GitHub flavored Markdown](https://github.github.com/gfm/).
 
 ## Configuration
 
@@ -51,7 +66,7 @@ Put a configuration file aside your component to feed the UI with additional inf
 │   │   ├── (button.html)
 │   │   ├── button.njk
 │   │   ├── button.{js|json}
-│   │   └── button.config.{js|json}
+│   │   └── button.config.{js|json} <= Configuration
 ```
 
 Configuration files can be formatted as JSON or as a JavaScript file in the style of a module that exports a configuration object.
