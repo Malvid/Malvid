@@ -39,8 +39,6 @@ The preview file must be placed in the same folder as the template with the same
 │   │   └── button.{js|json}
 ```
 
-You can modify the URL to the preview with the [`url` option](Options.md#url).
-
 ## Note
 
 Put a Markdown file aside your component to write a documentation for it. This might include notes on how and where the component can be used or other useful information for the people who may be using the component library.
