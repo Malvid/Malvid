@@ -105,7 +105,7 @@ gulp.task('default', [ 'build', 'watch' ])
 
 ### Resources
 
-- ⚙️ [gulp.js](https://gulpjs.com): Automate and enhance your workflow
+- ⚙️ [gulp](https://gulpjs.com): Automate and enhance your workflow
 
 ## NPM Scripts
 
