@@ -108,3 +108,7 @@ The API of Malvid allows you to use your existing asset pipeline or toolset toge
 ### Options
 
 If you want more control over Malvid, pass an object of options to it. [Options &#187;](docs/Options.md)
+
+### FAQ
+
+Questions and answers to frequently asked questions. [FAQ &#187;](docs/FAQ.md)
