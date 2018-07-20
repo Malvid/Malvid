@@ -44,7 +44,6 @@
     "marked": "^0.4.0",
     "mri": "^1.1.0",
     "normalize-url": "^3.0.1",
-    "ora": "^3.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-document-title": "^2.0.3",
