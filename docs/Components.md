@@ -17,7 +17,7 @@ A minimal component structure with a Nunjucks component looks like the following
 │   ├── button
 │   │   ├── (button.html)
 │   │   ├── button.njk <= Template
-│   │   └── button.{js|json} <= Data
+│   │   └── button.data.{js|json} <= Data
 ```
 
 - The entry folder name is just an example and can be chosen freely
@@ -36,7 +36,7 @@ The preview file must be placed in the same folder as the template with the same
 │   ├── button
 │   │   ├── (button.html) <= Preview
 │   │   ├── button.njk
-│   │   └── button.{js|json}
+│   │   └── button.data.{js|json}
 ```
 
 ## Note
@@ -49,7 +49,7 @@ Put a Markdown file aside your component to write a documentation for it. This m
 │   ├── button
 │   │   ├── (button.html)
 │   │   ├── button.njk
-│   │   ├── button.{js|json}
+│   │   ├── button.data.{js|json}
 │   │   └── button.md <= Note
 ```
 
@@ -63,7 +63,7 @@ Put a configuration file aside your component to feed the UI with additional inf
 │   ├── button
 │   │   ├── (button.html)
 │   │   ├── button.njk
-│   │   ├── button.{js|json}
+│   │   ├── button.data.{js|json}
 │   │   └── button.config.{js|json} <= Configuration
 ```
 
