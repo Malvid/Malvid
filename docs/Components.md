@@ -107,7 +107,7 @@ Type: `String` Default: `undefined` Optional: `true`
 
 Components can have statuses associated with them. Each status has a colour and a label that can be displayed in the UI to help people quickly understand the status of each component.
 
-Malvid defines some default statuses _(wip, pending and ready)_, but you are free to define your own to suit the needs of your project, or customise the colours and labels associated with these statuses. Custom statuses can be defined in the options of Malvid.
+Malvid defines some [default statuses](Options.md) *(wip, pending and ready)*, but you are free to define your own to suit the needs of your project, or customise the colours and labels associated with these statuses. Custom statuses can be defined in [the options of Malvid](Options.md#statuses).
 
 > ⚠️ Make sure that a status exists before you use it in a component.
 
