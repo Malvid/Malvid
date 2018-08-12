@@ -2,7 +2,6 @@
 
 Malvid can be integrated into your project in two ways: Using the CLI *or* using the API of Malvid. This guide covers the first way and shows you how to create a simple project.
 
-
 ## 1. Setup your project
 
 Create a new folder called `src` and a folder called `button` inside the `src` folder. Than add a `button.html`, `button.ejs` and `button.data.json` to it.
@@ -70,7 +69,7 @@ Create a file named `malvidfile.json` in the root folder of your project.
 
 ## 3. Run Malvid
 
-First, install or update to the newest version of [Node.js](https://nodejs.org). Malvid is written in Node.js, but you only need to know the basics of Node.js and JavaScript to use it. 
+First, install or update to the newest version of [Node.js](https://nodejs.org). Malvid is written in Node.js, but you only need to know the basics of Node.js and JavaScript to use it.
 
 You can install Malvid using `npm` or you can run it directly using `npx`. If you wonder what `npm` or `npx` are: Both tools ship with Node.js and you should already have them installed now. The first one (`npm`) is a package manager while `npx` is a shortcut to run packages from `npm`.
 
