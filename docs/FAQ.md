@@ -4,9 +4,11 @@
 
 Malvid is very similar to Fractal and highly inspired by it. The key differences are:
 
-- Malvid and Fractal don't care about how you transpile your assets (JS, SCSS, etc.). You can use [gulp](https://gulpjs.com), [Grunt](https://gruntjs.com) or [whatever you want](Integrations.md). Malvid takes this one step further by not caring about the template transpilation either. It's up to you to generate [a HTML preview](Components.md#preview).
+- Malvid and Fractal don't care about how you transpile your assets (JS, SCSS, etc.). You can use [gulp](https://gulpjs.com), [Grunt](https://gruntjs.com) or [whatever you want](Integrations.md). Malvid takes this one step further by not caring about the template transpilation either. It's up to you to generate [a HTML preview](Components.md#preview). That's why Malvid works with many templating languages out of the box.
+- Malvid is a single page application and allows you to switch between components without a page reload
+- A powerful search lets you find the component you're looking for
 - Malvid flattens your folder structure in the UI. You have to specify [the group](Components.md#group) a component belongs to. It won't group you components automatically by folder names.
-- There're no sub-folders in Malvid
+- There're no sub-groups in Malvid
 - There's no support for variants. Each component can only have one associated data set/file. This might change in the future.
 
 ## What templating languages are supported by Malvid?
