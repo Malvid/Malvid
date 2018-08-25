@@ -50,7 +50,7 @@
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.6",
     "redux": "^4.0.0",
-    "rosid-handler-js": "^10.1.0",
+    "rosid-handler-js": "^11.0.0",
     "searchstring": "^1.0.2",
     "url-pattern": "^1.0.3"
   },
