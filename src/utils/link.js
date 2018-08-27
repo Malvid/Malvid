@@ -27,10 +27,10 @@ module.exports = (data, components, render) => {
 		const escapedFilename = escapeStringRegexp(rawFilename)
 		const regex = new RegExp(escapedFilename, 'g')
 
-		// Some components may end with the same filename. We use invisible characters
-		// to make them only match once during the replacement. We clould also use a negative
-		// lookbehind and lookahead, but this feature is only supported by upcoming browsers.
-		const safeFilename = rawFilename.split('').join('&zwnj;')
+		// Some components may end with the same filename. We wrap a span around every character
+		// to make them only match once during the replacement. The span isn't visible and won't
+		// be copied when a user selectes code.
+		const safeFilename = [ ...rawFilename ].map((char) => `<span>${ char }</span>`).join('')
 
 		const link = render(component, safeFilename)
 
