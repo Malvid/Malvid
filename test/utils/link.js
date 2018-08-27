@@ -61,7 +61,7 @@ describe('link()', function() {
 			{
 				// Component that is not used in the HTML
 				id: uuid(),
-				src: srcs[3]
+				src: `${ uuid() }.njk`
 			}
 		]
 
