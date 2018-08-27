@@ -28,7 +28,7 @@ describe('link()', function() {
 		]
 
 		// A name that includes a name of another component
-		srcs.push(uuid() +	srcs[2])
+		srcs.push(uuid() + srcs[2])
 
 		// Unknown component that should not be replaced
 		srcs.push(`${ uuid() }.njk`)
