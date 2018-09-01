@@ -46,7 +46,7 @@ describe('link()', function() {
 		})
 
 		// Unused component
-		components.push({
+		const untouchedComponent = ({
 			id: uuid(),
 			src: `${ uuid() }.njk`
 		})
@@ -56,6 +56,7 @@ describe('link()', function() {
 			{% inject "${ components[1].src }" %}
 			${ components[2].src }
 			${ components[3].src }
+			${ untouchedComponent.src }
 		`
 
 		// The real renderer gets a safe filename from the link function
@@ -72,6 +73,7 @@ describe('link()', function() {
 			{% inject "${ pathWithoutFilename(components[1].src) + fakeRender(filename(components[1].src)) }" %}
 			${ fakeRender(filename(components[2].src)) }
 			${ fakeRender(filename(components[3].src)) }
+			${ untouchedComponent.src }
 		`
 
 		const result = link(html, components, realRender)
