@@ -21,61 +21,60 @@ describe('link()', function() {
 
 	it('should replace names with links', function() {
 
-		const srcs = [
-			`${ uuid() }/${ uuid() }/_${ uuid() }.njk`,
-			`${ uuid() }/${ uuid() }.njk`,
-			`${ uuid() }.njk`
-		]
-
-		// A name that includes a name of another component
-		srcs.push(uuid() + srcs[2])
-
-		// Unknown component that should not be replaced
-		srcs.push(`${ uuid() }.njk`)
-
-		const html = `
-			<span>${ srcs[0] }</span>
-			{% inject "${ srcs[1] }" %}
-			${ srcs[2] }
-			${ srcs[3] }
-			${ srcs[4] }
-		`
-
 		const components = [
 			{
+				// Component with a long path
 				id: uuid(),
-				src: srcs[0]
+				src: `${ uuid() }/${ uuid() }/_${ uuid() }.njk`
 			},
 			{
+				// Component with a path
 				id: uuid(),
-				src: srcs[1]
+				src: `${ uuid() }/${ uuid() }.njk`
 			},
 			{
-				id: uuid(),
-				src: srcs[2]
-			},
-			{
-				id: uuid(),
-				src: srcs[3]
-			},
-			{
-				// Component that is not used in the HTML
+				// Component without a filename only
 				id: uuid(),
 				src: `${ uuid() }.njk`
 			}
 		]
 
-		const render = ({ id }) => id
+		// Component with a name that includes the name of another component
+		components.push({
+			id: uuid(),
+			src: uuid() + components[2].src
+		})
 
-		const expected = `
-			<span>${ srcs[0].replace(filename(srcs[0]), '') + render(components[0]) }</span>
-			{% inject "${ srcs[1].replace(filename(srcs[1]), '') + render(components[1]) }" %}
-			${ render(components[2]) }
-			${ render(components[3]) }
-			${ srcs[4] }
+		// Unused component
+		components.push({
+			id: uuid(),
+			src: `${ uuid() }.njk`
+		})
+
+		const html = `
+			<span>${ components[0].src }</span>
+			{% inject "${ components[1].src }" %}
+			${ components[2].src }
+			${ components[3].src }
 		`
 
-		const result = link(html, components, render)
+		// The real renderer gets a safe filename from the link function
+		const realRender = (component, filename) => filename
+
+		// The fake renderer needs to escape the filename like the link function does
+		const fakeRender = (filename) => [ ...filename ].map((char) => `<span>${ char }</span>`).join('')
+
+		// Removes the filename from a path
+		const pathWithoutFilename = (src) => src.replace(filename(src), '')
+
+		const expected = `
+			<span>${ pathWithoutFilename(components[0].src) + fakeRender(filename(components[0].src)) }</span>
+			{% inject "${ pathWithoutFilename(components[1].src) + fakeRender(filename(components[1].src)) }" %}
+			${ fakeRender(filename(components[2].src)) }
+			${ fakeRender(filename(components[3].src)) }
+		`
+
+		const result = link(html, components, realRender)
 
 		assert.strictEqual(result, expected)
 
