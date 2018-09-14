@@ -29,6 +29,8 @@ module.exports = ({ label, description, color }) => (
 
 )
 
+module.exports.displayName = 'Status'
+
 module.exports.propTypes = {
 
 	label: propTypes.string.isRequired,

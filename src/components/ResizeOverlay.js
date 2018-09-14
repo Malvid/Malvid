@@ -28,6 +28,8 @@ module.exports = ({ visible }) => (
 
 )
 
+module.exports.displayName = 'ResizeOverlay'
+
 module.exports.propTypes = {
 
 	visible: propTypes.bool.isRequired

@@ -33,6 +33,8 @@ module.exports = ({ currentComponent, currentTab }) => (
 
 )
 
+module.exports.displayName = 'Tabs'
+
 module.exports.propTypes = {
 
 	currentComponent: propTypes.object.isRequired,

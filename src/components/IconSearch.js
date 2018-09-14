@@ -21,3 +21,5 @@ module.exports = () => (
 	)
 
 )
+
+module.exports.displayName = 'IconSearch'

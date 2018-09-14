@@ -24,3 +24,5 @@ module.exports = () => (
 	)
 
 )
+
+module.exports.displayName = 'IconSad'

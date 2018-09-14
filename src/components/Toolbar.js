@@ -80,6 +80,8 @@ module.exports = ({ status, label, url }) => (
 
 )
 
+module.exports.displayName = 'Toolbar'
+
 module.exports.propTypes = {
 
 	status: propTypes.object,

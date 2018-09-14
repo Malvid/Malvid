@@ -31,6 +31,8 @@ module.exports = ({ id, url, hydrate }) => (
 
 )
 
+module.exports.displayName = 'Frame'
+
 module.exports.propTypes = {
 
 	id: propTypes.string.isRequired,

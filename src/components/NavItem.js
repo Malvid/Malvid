@@ -54,6 +54,8 @@ module.exports = ({ id, label, status, active, currentTab }) => (
 
 )
 
+module.exports.displayName = 'NavItem'
+
 module.exports.propTypes = {
 
 	id: propTypes.string.isRequired,

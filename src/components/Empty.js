@@ -42,6 +42,8 @@ module.exports = ({ color, text }) => (
 
 )
 
+module.exports.displayName = 'Empty'
+
 module.exports.propTypes = {
 
 	color: propTypes.string.isRequired,

@@ -57,6 +57,8 @@ module.exports = ({ components, currentComponent, currentTab }) => {
 
 }
 
+module.exports.displayName = 'Inspector'
+
 module.exports.propTypes = {
 
 	components: propTypes.array.isRequired,

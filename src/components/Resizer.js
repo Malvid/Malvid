@@ -148,6 +148,8 @@ module.exports = class extends Component {
 
 }
 
+module.exports.displayName = 'Resizer'
+
 module.exports.propTypes = {
 
 	direction: propTypes.string.isRequired,

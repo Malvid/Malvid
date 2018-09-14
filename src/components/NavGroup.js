@@ -32,6 +32,8 @@ module.exports = ({ label }) => (
 
 )
 
+module.exports.displayName = 'NavGroup'
+
 module.exports.propTypes = {
 
 	label: propTypes.string.isRequired

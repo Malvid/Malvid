@@ -47,6 +47,8 @@ module.exports = ({ components, currentTab }) => (
 
 )
 
+module.exports.displayName = 'Code'
+
 module.exports.propTypes = {
 
 	components: propTypes.array.isRequired,

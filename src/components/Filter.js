@@ -66,6 +66,8 @@ module.exports = ({ filter, setFilter }) => (
 
 )
 
+module.exports.displayName = 'Filter'
+
 module.exports.propTypes = {
 
 	filter: propTypes.string.isRequired,

@@ -54,6 +54,8 @@ module.exports = ({ statuses, currentComponent, hydrate }) => (
 
 )
 
+module.exports.displayName = 'Preview'
+
 module.exports.propTypes = {
 
 	statuses: propTypes.object.isRequired,

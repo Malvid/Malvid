@@ -41,3 +41,5 @@ module.exports = (props) => (
 	)
 
 )
+
+module.exports.displayName = 'Content'

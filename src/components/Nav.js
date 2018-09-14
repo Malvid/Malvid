@@ -76,6 +76,8 @@ module.exports = ({ statuses, components, currentComponent, currentTab, filter, 
 
 }
 
+module.exports.displayName = 'Nav'
+
 module.exports.propTypes = {
 
 	statuses: propTypes.object.isRequired,

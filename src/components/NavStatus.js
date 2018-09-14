@@ -27,6 +27,8 @@ module.exports = ({ description, color }) => (
 
 )
 
+module.exports.displayName = 'NavStatus'
+
 module.exports.propTypes = {
 
 	description: propTypes.string.isRequired,

@@ -50,6 +50,8 @@ module.exports = ({ id, label, active, currentComponent }) => (
 
 )
 
+module.exports.displayName = 'Tab'
+
 module.exports.propTypes = {
 
 	id: propTypes.string.isRequired,

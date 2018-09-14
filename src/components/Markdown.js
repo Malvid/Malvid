@@ -38,6 +38,8 @@ module.exports = ({ data }) => (
 
 )
 
+module.exports.displayName = 'Markdown'
+
 module.exports.propTypes = {
 
 	data: propTypes.string.isRequired
