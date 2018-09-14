@@ -4,6 +4,7 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
+const createRoute = require('../utils/createRoute')
 const getTabs = require('../selectors/getTabs')
 
 const Tab = require('./Tab')
@@ -23,10 +24,9 @@ module.exports = ({ currentComponent, currentTab }) => (
 		getTabs(currentComponent).map((tab) =>
 			h(Tab, {
 				key: tab.id,
-				id: tab.id,
 				label: tab.label,
 				active: tab.id === currentTab.id,
-				currentComponent
+				href: createRoute(currentComponent.id, tab.id)
 			})
 		)
 	)

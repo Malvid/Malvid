@@ -4,7 +4,6 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
-const createRoute = require('../utils/createRoute')
 const { HEIGHT } = require('../constants/sizes')
 const { BLUE, MID } = require('../constants/colors')
 
@@ -41,11 +40,11 @@ const style = {
 
 }
 
-module.exports = ({ id, label, active, currentComponent }) => (
+module.exports = ({ label, active, href }) => (
 
 	h('a', {
 		className: css(style.self, active && style.active).toString(),
-		href: createRoute(currentComponent.id, id)
+		href
 	}, label)
 
 )
@@ -54,9 +53,8 @@ module.exports.displayName = 'Tab'
 
 module.exports.propTypes = {
 
-	id: propTypes.string.isRequired,
 	label: propTypes.string.isRequired,
 	active: propTypes.bool.isRequired,
-	currentComponent: propTypes.object.isRequired
+	href: propTypes.string.isRequired
 
 }

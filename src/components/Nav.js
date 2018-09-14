@@ -4,6 +4,7 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
+const createRoute = require('../utils/createRoute')
 const filtrate = require('../utils/filtrate')
 const sort = require('../utils/sort')
 const getStatus = require('../selectors/getStatus')
@@ -51,11 +52,10 @@ module.exports = ({ statuses, components, currentComponent, currentTab, filter, 
 	const toNavItem = (component) => (
 		h(NavItem, {
 			key: component.id,
-			id: component.id,
 			label: component.name,
 			status: getStatus(statuses, component),
 			active: component.id === currentComponent.id,
-			currentTab
+			href: createRoute(component.id, currentTab.id)
 		})
 	)
 

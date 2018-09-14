@@ -5,7 +5,6 @@ const propTypes = require('prop-types')
 const rgba = require('color-alpha')
 
 const h = require('../utils/h')
-const createRoute = require('../utils/createRoute')
 const { BORDER_RADIUS } = require('../constants/sizes')
 const { BLUE } = require('../constants/colors')
 
@@ -42,11 +41,11 @@ const style = {
 
 }
 
-module.exports = ({ id, label, status, active, currentTab }) => (
+module.exports = ({ label, status, active, href }) => (
 
 	h('a', {
 		className: css(style.self, active && style.active).toString(),
-		href: createRoute(id, currentTab.id)
+		href
 	},
 		h('span', { className: style.label.toString() }, label),
 		status != null && h(NavStatus, status)
@@ -58,10 +57,9 @@ module.exports.displayName = 'NavItem'
 
 module.exports.propTypes = {
 
-	id: propTypes.string.isRequired,
 	label: propTypes.string.isRequired,
 	status: propTypes.object,
 	active: propTypes.bool.isRequired,
-	currentTab: propTypes.object.isRequired
+	href: propTypes.string.isRequired
 
 }
