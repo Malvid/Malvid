@@ -118,16 +118,83 @@ The text of a button should be called `label`.
 
 ## Images
 
-Images are file references in TYPO3. Their data should always look like the following:
+- Images are file references in TYPO3
+- It's not possible to add or rename properties inside the `image` object
+- `width` and `height` aren't part of the `image` object and must be added outside of it
+- The data must always follow the structure shown below
 
 ```json
 {
-  "title": "Cat",
-  "alternative": "Fluffy cat playing with a ball",
-  "description": "Cats love balls",
-  "link": "https://en.wikipedia.org/wiki/Cat",
-  "src": "http://via.placeholder.com/350x150"
+  "image": {
+    "title": "Cat",
+    "alternative": "Fluffy cat playing with a ball",
+    "description": "Cats love balls",
+    "link": "https://en.wikipedia.org/wiki/Cat",
+    "src": "http://via.placeholder.com/350x150"
+  },
+  "image_width": 350,
+  "image_height": 150
 }
+```
+
+Usage examples:
+
+```njk
+<img src="{{ image.src }}" alt="{{ image.alternative }}" width="{{ image_width }}" height="{{ image_height }}">
+```
+
+```njk
+<figure>
+	<img src="{{ image.src }}" alt="{{ image.alternative }}" width="{{ image_width }}" height="{{ image_height }}">
+	{% if description %}
+		<figcaption>{{ description }}</figcaption>
+	{% endif %}
+</figure>
+```
+
+```njk
+<svg>
+  <use xlink:href="{{ image.src }}"></use>
+</svg>
+```
+
+## Videos
+
+- Videos are file references in TYPO3
+- It's not possible to add or rename properties inside the `video` object
+- `width`, `height`, `loop`, `autoplay` and `muted` aren't part of the `video` object and must be added outside of it
+- `poster` must be added outside of the `video` object as an `image` object (see [Images](#images))
+- The data must always follow the structure shown below
+
+
+```json
+{
+  "video": {
+    "title": "Cat",
+    "alternative": "Fluffy cat playing with a ball",
+    "description": "Cats love balls",
+    "link": "https://en.wikipedia.org/wiki/Cat",
+    "src": "http://example.com/video.mp4"
+  },
+  "video_width": 350,
+  "video_height": 150,
+  "video_loop": true,
+  "video_autoplay": true,
+  "video_muted": true
+}
+```
+
+Usage example:
+
+```njk
+<video
+	src="{{ video.src }}"
+	width="{{ video_width }}"
+	height="{{ video_height }}"
+	{% if video_loop %}loop{% endif %}
+	{% if video_autoplay %}autoplay{% endif %}
+	{% if video_muted %}muted{% endif %}
+></video>
 ```
 
 ## Forms
