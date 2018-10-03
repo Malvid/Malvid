@@ -31,7 +31,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [5.0.0] - 2018-06-13
 
-### New
+### Added
 
 - More documentation
 - Function that accepts and returns a URL for the preview (`url` option)
@@ -48,7 +48,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [4.3.0] - 2018-06-04
 
-### New
+### Added
 
 - Detect and link other components in the view
 
@@ -65,7 +65,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [4.2.0] - 2018-04-30
 
-### New
+### Added
 
 - More tests
 - Keyboard navigation
@@ -76,7 +76,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [4.1.0] - 2018-02-19
 
-### New
+### Added
 
 - CLI
 - Documentation
@@ -138,7 +138,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [3.1.3] - 2017-11-03
 
-### New
+### Added
 
 - Tests for actions and reducers
 
@@ -155,7 +155,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [3.1.2] - 2017-08-16
 
-### New
+### Added
 
 - Show error when data fails to load
 
@@ -171,7 +171,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [3.1.0] - 2017-08-04
 
-### New
+### Added
 
 - Filter components
 
@@ -181,7 +181,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [3.0.0] - 2017-08-01
 
-### New
+### Added
 
 - Realtime UI updates without page reloads
 - Debug with Redux DevTools
@@ -207,7 +207,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [2.0.0] - 2017-07-24
 
-### New
+### Added
 
 - Only support Node.js 7 and 8
 
