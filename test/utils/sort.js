@@ -5,7 +5,6 @@ const uuid = require('uuid/v4')
 const sort = require('../../src/utils/sort')
 
 const passThrough = (_) => _
-const name = (prefix) => prefix + uuid()
 
 describe('sort()', function() {
 
@@ -25,24 +24,24 @@ describe('sort()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: name('a'),
+				name: 'a',
 				data: [
 					{
 						id: 'config',
 						data: {
-							group: name('b')
+							group: 'b'
 						}
 					}
 				]
 			},
 			{
 				id: uuid(),
-				name: name('a'),
+				name: 'a',
 				data: [
 					{
 						id: 'config',
 						data: {
-							group: name('a')
+							group: 'a'
 						}
 					}
 				]
@@ -60,12 +59,12 @@ describe('sort()', function() {
 
 	it('should group and sort components by group', function() {
 
-		const group = name('a')
+		const group = 'a'
 
 		const components = [
 			{
 				id: uuid(),
-				name: name('b'),
+				name: 'b',
 				data: [
 					{
 						id: 'config',
@@ -77,7 +76,7 @@ describe('sort()', function() {
 			},
 			{
 				id: uuid(),
-				name: name('a'),
+				name: 'a',
 				data: [
 					{
 						id: 'config',
@@ -102,18 +101,28 @@ describe('sort()', function() {
 		const components = [
 			{
 				id: uuid(),
-				name: name('b')
+				name: 'a-2'
 			},
 			{
 				id: uuid(),
-				name: name('a')
+				name: 'ä-10'
+			},
+			{
+				id: uuid(),
+				name: 'b-1'
+			},
+			{
+				id: uuid(),
+				name: 'a-1'
 			}
 		]
 
 		const result = sort(components, passThrough, passThrough)
 
-		assert.strictEqual(result[0].id, components[1].id)
+		assert.strictEqual(result[0].id, components[3].id)
 		assert.strictEqual(result[1].id, components[0].id)
+		assert.strictEqual(result[2].id, components[1].id)
+		assert.strictEqual(result[3].id, components[2].id)
 
 	})
 
@@ -123,11 +132,11 @@ describe('sort()', function() {
 
 		const components = [
 			{
-				id: name,
+				id: uuid(),
 				name
 			},
 			{
-				id: name,
+				id: uuid(),
 				name
 			}
 		]

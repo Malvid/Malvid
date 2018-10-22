@@ -7,10 +7,7 @@ const sortByProp = (prop) => (a, b) => {
 	const _a = a[prop]
 	const _b = b[prop]
 
-	if (_a < _b) return -1
-	if (_a > _b) return 1
-
-	return 0
+	return _a.localeCompare(_b, 'en', { numeric: true })
 
 }
 
