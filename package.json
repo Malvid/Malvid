@@ -36,7 +36,7 @@
     "filename-regex": "^2.0.1",
     "find-up": "^3.0.0",
     "fs-extra": "^7.0.0",
-    "glamor": "^3.0.0-2",
+    "glamor": "^2.20.40",
     "highlight.js": "^9.13.1",
     "history": "^4.7.2",
     "is-hotkey": "^0.1.3",
