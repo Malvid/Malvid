@@ -3,5 +3,9 @@ node_js:
   - 'node'
   - '10'
   - '8'
+os:
+  - windows
+  - linux
+  - osx
 after_success:
   - 'npm run coveralls'
