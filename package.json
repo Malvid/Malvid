@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "color-alpha": "^1.0.2",
-    "components-lookup": "^5.0.0",
+    "components-lookup": "^6.0.0",
     "escape-string-regexp": "^1.0.5",
     "filename-regex": "^2.0.1",
     "find-up": "^3.0.0",
