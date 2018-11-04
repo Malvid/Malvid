@@ -3,9 +3,9 @@
 const createStore = require('./utils/createStore')
 const layout = require('./utils/layout')
 
-module.exports = (initalState, js, next) => {
+module.exports = (initialState, js, next) => {
 
-	createStore(initalState, (err, store) => {
+	createStore(initialState, (err, store) => {
 
 		if (err != null) return next(err)
 
