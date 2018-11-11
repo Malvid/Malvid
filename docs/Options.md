@@ -23,6 +23,15 @@ Pass an object of options and functions to Malvid to adjust it's behaviour. The 
 			id: 'data',
 			label: 'Data',
 			languages: [ 'json', 'js' ],
+			parse: async (contents, filePath) => {
+
+				// Allow empty files
+				if ((await contents).trim() === '') return '{}'
+
+				// Require uncached JS or JSON file and stringify it
+				return JSON.stringify(continuousStealthyRequire(filePath), null, 2)
+
+			},
 			resolve: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
 		},
 		{
@@ -35,7 +44,15 @@ Pass an object of options and functions to Malvid to adjust it's behaviour. The 
 			id: 'config',
 			label: 'Config',
 			languages: [ 'json' ],
-			parse: (contents) => contents=='' ? {} : JSON.parse(contents),
+			parse: async (contents, filePath) => {
+
+				// Allow empty files
+				if ((await contents).trim() === '') return {}
+
+				// Require uncached JS or JSON
+				return continuousStealthyRequire(filePath)
+
+			},
 			resolve: (fileName, fileExt) => [ `${ fileName }.config.json` ]
 		}
 	],
@@ -253,7 +270,34 @@ Type: `Function` Optional: `true`
 
 Defines how Malvid should parse the contents of the file.
 
-A resolver without a `parse` property will show the contents without modifying it.
+A resolver without a `parse` property will show the contents without modifying it. The `parse` function should always return a string, except for the `config` file where it should return an object. The output of the `parse` function will be shown in the [inspector of the UI](Interface.md#inspector).
+
+Examples:
+
+```js
+{
+	parse: async (contents, filePath) => {
+
+		// Allow empty JSON files
+		if ((await contents).trim() === '') return '{}'
+
+		// Require uncached JS or JSON file and stringify it
+		return JSON.stringify(continuousStealthyRequire(filePath), null, 2)
+
+	}
+}
+```
+
+```js
+{
+	parse: async (contents, filePath) => {
+
+		// Format contents with opinionated code formatter
+		return prettier.format(await contents)
+
+	}
+}
+```
 
 #### Resolve
 

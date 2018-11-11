@@ -3,6 +3,7 @@
 const util = require('util')
 const isPlainObj = require('is-plain-obj')
 const componentsLookup = require('components-lookup')
+const continuousStealthyRequire = require('continuous-stealthy-require')
 const server = require('./server')
 const script = require('./script')
 
@@ -27,6 +28,15 @@ module.exports = async function(opts = {}) {
 			id: 'data',
 			label: 'Data',
 			languages: [ 'json', 'js' ],
+			parse: async (contents, filePath) => {
+
+				// Allow empty JSON files
+				if ((await contents).trim() === '') return '{}'
+
+				// Require uncached JS or JSON file and stringify it
+				return JSON.stringify(continuousStealthyRequire(filePath), null, 2)
+
+			},
 			resolve: (fileName) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
 		},
 		{
@@ -39,8 +49,16 @@ module.exports = async function(opts = {}) {
 			id: 'config',
 			label: 'Config',
 			languages: [ 'json' ],
-			parse: (contents) => contents === '' ? {} : JSON.parse(contents),
-			resolve: (fileName) => [ `${ fileName }.config.json` ]
+			parse: async (contents, filePath) => {
+
+				// Allow empty JSON files
+				if ((await contents).trim() === '') return {}
+
+				// Require uncached JS or JSON
+				return continuousStealthyRequire(filePath)
+
+			},
+			resolve: (fileName) => [ `${ fileName }.config.json`, `${ fileName }.config.js` ]
 		}
 	]
 
