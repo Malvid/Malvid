@@ -10,6 +10,7 @@ const { BLUE, MID } = require('../constants/colors')
 
 const Status = require('./Status')
 const IconTab = require('./IconTab')
+const IconReload = require('./IconReload')
 
 const style = {
 
@@ -65,6 +66,13 @@ module.exports = ({ status, label, url }) => (
 			label
 		),
 		h('div', { className: style.tools.toString() },
+			h('button', {
+				className: style.button.toString(),
+				title: 'Refresh preview',
+				onClick: () => document.querySelector('#iframe').contentWindow.location.reload()
+			},
+				h(IconReload)
+			),
 			h('a', {
 				className: style.button.toString(),
 				title: 'Open in new tab',

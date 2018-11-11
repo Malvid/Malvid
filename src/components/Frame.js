@@ -22,6 +22,7 @@ module.exports = ({ id, url, hydrate }) => (
 
 	h('iframe', {
 		key: id,
+		id: 'iframe',
 		className: style.self.toString(),
 		src: url,
 		onLoad: () => requestState(location.href)
