@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+### New
+
+- Support JS configuration files
+- Resolve JS data files by default
+
 ### Fixed
 
 - Sorting of components (#12)
