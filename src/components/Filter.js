@@ -1,5 +1,6 @@
 'use strict'
 
+const { createRef } = require('react')
 const { css } = require('glamor')
 const propTypes = require('prop-types')
 
@@ -8,10 +9,6 @@ const { BORDER_RADIUS } = require('../constants/sizes')
 const { MID } = require('../constants/colors')
 
 const IconSearch = require('./IconSearch')
-
-// DOM Element reference must be used to select the whole input content
-// on focus. The event of onFocus can't be used after a delay.
-let elem
 
 const style = {
 
@@ -47,24 +44,30 @@ const style = {
 
 }
 
-module.exports = ({ filter, setFilter }) => (
+module.exports = ({ filter, setFilter }) => {
 
-	h('div', { className: style.self.toString() },
-		h('div', { className: style.icon.toString() },
-			h(IconSearch)
-		),
-		h('input', {
-			id: 'filter',
-			className: style.input.toString(),
-			placeholder: 'Search…',
-			value: filter,
-			ref: (_elem) => elem = _elem,
-			onFocus: () => requestAnimationFrame(() => elem.select()),
-			onChange: (e) => setFilter(e.target.value)
-		})
+	// DOM Element reference must be used to select the whole input content
+	// on focus. The event of onFocus can't be used after a delay.
+	const elem = createRef()
+
+	return (
+		h('div', { className: style.self.toString() },
+			h('div', { className: style.icon.toString() },
+				h(IconSearch)
+			),
+			h('input', {
+				id: 'filter',
+				className: style.input.toString(),
+				placeholder: 'Search…',
+				value: filter,
+				ref: elem,
+				onFocus: () => requestAnimationFrame(() => elem.current.select()),
+				onChange: (e) => setFilter(e.target.value)
+			})
+		)
 	)
 
-)
+}
 
 module.exports.displayName = 'Filter'
 
