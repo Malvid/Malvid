@@ -122,7 +122,6 @@ module.exports = class extends Component {
 
 		return (
 			h('div', {
-				ref: (ref) => this.ref = ref,
 				onMouseDown: this.onMouseDown.bind(this),
 				className: css(
 					style.self,
