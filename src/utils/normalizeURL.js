@@ -7,6 +7,7 @@ module.exports = (url) => {
 	url = normalizeUrl(url, {
 		stripWWW: false,
 		removeDirectoryIndex: true,
+		stripHash: true,
 		removeQueryParameters: [ /^/i ]
 	})
 

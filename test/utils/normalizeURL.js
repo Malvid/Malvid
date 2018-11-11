@@ -6,6 +6,14 @@ const normalizeURL = require('../../src/utils/normalizeURL')
 
 describe('normalizeURL()', function() {
 
+	it('should remove hash from URL with directory', function() {
+
+		const result = normalizeURL('http://localhost:3000/ui/index.html#/6a1bb917bf53e4a7cd968529477c7d3552bd5d81/data')
+
+		assert.strictEqual(result, 'http://localhost:3000/ui/index.html')
+
+	})
+
 	it('should remove query and hash from URL', function() {
 
 		const result = normalizeURL('http://localhost:3000/index.html?query=false#hash')
