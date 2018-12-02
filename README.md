@@ -62,7 +62,7 @@ Guides:
 
 Videos:
 
-- 🎬🇩🇪 [Scalable Front-Ends w/ Web Components and Malvid](https://www.youtube.com/watch?v=4o-WHDXjNgo&index=8&list=LL5lfEWoNEhOh1SDcVlr37iQ&t=0s)
+- 🎬🇩🇪 [Scalable Front-Ends with Web Components and Malvid](https://www.youtube.com/watch?v=4o-WHDXjNgo&index=8&list=LL5lfEWoNEhOh1SDcVlr37iQ&t=0s)
 
 Similar tools:
 
