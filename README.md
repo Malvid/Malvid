@@ -60,6 +60,10 @@ Guides:
 - 📄 [Styleguide](docs/Styleguide.md)
 - 📄 [Sharing components between front-end and back-end](https://medium.com/@electerious/sharing-components-between-front-end-and-back-end-1e9a624bceae)
 
+Videos:
+
+- 🎬🇩🇪 [Scalable Front-Ends w/ Web Components and Malvid](https://www.youtube.com/watch?v=4o-WHDXjNgo&index=8&list=LL5lfEWoNEhOh1SDcVlr37iQ&t=0s)
+
 Similar tools:
 
 - 🛠 [Fractal](https://fractal.build)
