@@ -67,7 +67,7 @@ Put a configuration file aside your component to feed the UI with additional inf
 │   │   └── button.config.{js|json} <= Configuration
 ```
 
-Configuration files can be formatted as JSON or as a JavaScript file in the style of a module that exports a configuration object.
+Configuration files can be formatted as JSON or as a JavaScript file in the style of a module that exports a configuration object, function or async function.
 
 Examples:
 
@@ -83,6 +83,20 @@ module.exports = {
 	group: 'section',
 	status: 'wip'
 }
+```
+
+```js
+module.exports = () => ({
+	group: 'section',
+	status: 'wip'
+})
+```
+
+```js
+module.exports = async () => ({
+	group: 'section',
+	status: 'wip'
+})
 ```
 
 ### Group

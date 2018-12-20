@@ -5,7 +5,10 @@ Pass an object of options and functions to Malvid to adjust it's behaviour. The 
 > ⚠️ Your configuration will be merged with the defaults. You only need to set what you want to modify. Except `resolvers` and `statuses`. Those will be overwritten entirely when you specify them.
 
 ```js
-{
+const requireData = require('require-data')
+const continuousStealthyRequire = require('continuous-stealthy-require')
+
+module.exports = {
 	lang: 'en',
 	title: 'Malvid',
 	description: 'UI to help you build and document web components.',
@@ -25,20 +28,20 @@ Pass an object of options and functions to Malvid to adjust it's behaviour. The 
 			languages: [ 'json', 'js' ],
 			parse: async (contents, filePath) => {
 
-				// Allow empty files
+				// Allow empty JSON files
 				if ((await contents).trim() === '') return '{}'
 
 				// Require uncached JS or JSON file and stringify it
-				return JSON.stringify(continuousStealthyRequire(filePath), null, 2)
+				return JSON.stringify(requireData(filePath, continuousStealthyRequire), null, 2)
 
 			},
-			resolve: (fileName, fileExt) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
+			resolve: (fileName) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
 		},
 		{
 			id: 'notes',
 			label: 'Notes',
 			languages: [ 'markdown' ],
-			resolve: (fileName, fileExt) => [ `${ fileName }.md` ]
+			resolve: (fileName) => [ `${ fileName }.md` ]
 		},
 		{
 			id: 'config',
@@ -46,14 +49,14 @@ Pass an object of options and functions to Malvid to adjust it's behaviour. The 
 			languages: [ 'json' ],
 			parse: async (contents, filePath) => {
 
-				// Allow empty files
+				// Allow empty JSON files
 				if ((await contents).trim() === '') return {}
 
 				// Require uncached JS or JSON
-				return continuousStealthyRequire(filePath)
+				return requireData(filePath, continuousStealthyRequire)
 
 			},
-			resolve: (fileName, fileExt) => [ `${ fileName }.config.json` ]
+			resolve: (fileName) => [ `${ fileName }.config.json`, `${ fileName }.config.js` ]
 		}
 	],
 	statuses: {
@@ -104,6 +107,8 @@ const malvid = require('malvid')
 ### CLI
 
 The configuration should be stored in your current working directory as `malvidfile.json` or `malvidfile.js` when using the CLI. Configuration files formatted as JavaScript should be in the style of a module that exports an object.
+
+A JavaScript configuration is required when you want to overwrite options like `url` or `resolvers`. Those options require JavaScript functionality.
 
 Examples:
 
