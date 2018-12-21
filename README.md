@@ -57,12 +57,13 @@ Guides:
 
 - 📄 [Get started](docs/Get%20started.md)
 - 📄 [Integrations](docs/Integrations.md)
-- 📄 [Styleguide](docs/Styleguide.md)
-- 📄 [Sharing components between front-end and back-end](https://medium.com/@electerious/sharing-components-between-front-end-and-back-end-1e9a624bceae)
+- 📄 [Custom inspector tabs](docs/Custom%20inspector%20tabs.md)
 
-Videos:
+Resources:
 
 - 🎬🇩🇪 [Scalable Front-Ends with Web Components and Malvid](https://www.youtube.com/watch?v=4o-WHDXjNgo&index=8&list=LL5lfEWoNEhOh1SDcVlr37iQ&t=0s)
+- 📄 [Sharing components between front-end and back-end](https://medium.com/@electerious/sharing-components-between-front-end-and-back-end-1e9a624bceae)
+- 📄 [Styleguide](docs/Styleguide.md)
 
 Similar tools:
 

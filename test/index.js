@@ -120,6 +120,54 @@ describe('index()', function() {
 
 	})
 
+	it('should render JSON with a component that has empty files', async function() {
+
+		this.timeout(50000)
+
+		const componentName = uuid()
+
+		const structure = await fsify([
+			{
+				type: fsify.DIRECTORY,
+				name: name('a'),
+				contents: [
+					{
+						type: fsify.FILE,
+						name: `${ componentName }.njk`,
+						contents: ''
+					},
+					{
+						type: fsify.FILE,
+						name: `${ componentName }.data.json`,
+						contents: ''
+					},
+					{
+						type: fsify.FILE,
+						name: `${ componentName }.config.json`,
+						contents: ''
+					},
+					{
+						type: fsify.FILE,
+						name: `${ componentName }.md`,
+						contents: ''
+					}
+				]
+			}
+		])
+
+		const opts = {
+			src: structure[0].name
+		}
+
+		const result = await index(opts)
+		const json = await result.json()
+
+		assert.isObject(json)
+		assert.strictEqual(json.components.length, 1)
+		assert.strictEqual(json.components[0].name, componentName)
+
+	})
+
 	it('should render JSON with a custom component URL', async function() {
 
 		this.timeout(50000)
