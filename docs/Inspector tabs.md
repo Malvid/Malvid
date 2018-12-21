@@ -1,4 +1,4 @@
-# Custom inspector tabs
+# Inspector tabs
 
 The tabs you see when you start Malvid are just a set of [default resolvers](Options.md). Resolvers specify the files that belong to components. Including how to load their content, how to label the tab and how to highlight the code in the inspector. The default set includes the view, data, notes and a configuration for each component.
 

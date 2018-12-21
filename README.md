@@ -57,7 +57,7 @@ Guides:
 
 - 📄 [Get started](docs/Get%20started.md)
 - 📄 [Integrations](docs/Integrations.md)
-- 📄 [Custom inspector tabs](docs/Custom%20inspector%20tabs.md)
+- 📄 [Inspector tabs](docs/Inspector%20tabs.md)
 
 Resources:
 
