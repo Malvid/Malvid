@@ -4,7 +4,7 @@
 
 UI to help you build and document web components.
 
-![Malvid UI in a browser](http://s.electerious.com/images/malvid/readme.png)
+![Malvid UI in a browser](https://s.electerious.com/images/malvid/readme.png)
 
 ## Contents
 
@@ -68,7 +68,7 @@ Resources:
 Similar tools:
 
 - 🛠 [Fractal](https://fractal.build)
-- 🛠 [Pattern Lab](http://patternlab.io)
+- 🛠 [Pattern Lab](https://patternlab.io)
 
 Sites powered by Malvid:
 

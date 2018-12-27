@@ -2,7 +2,7 @@
 
 The interface of Malvid consists of three areas: Navigation, preview and inspector.
 
-![Malvid UI in a browser](http://s.electerious.com/images/malvid/readme.png)
+![Malvid UI in a browser](https://s.electerious.com/images/malvid/readme.png)
 
 ## Navigation
 

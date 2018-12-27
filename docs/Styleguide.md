@@ -1,6 +1,6 @@
 # Styleguide
 
-This styleguide presents preferred conventions we follow at [comwrap GmbH](http://comwrap.com) to integrate our components into TYPO3.
+This styleguide presents preferred conventions we follow at [comwrap GmbH](https://comwrap.com) to integrate our components into TYPO3.
 
 ## Workflow
 

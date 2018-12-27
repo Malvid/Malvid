@@ -103,7 +103,7 @@ Fire up a static file server of your choice and navigate to the HTML file. Here'
 npx http-serve ./src -c-1
 ```
 
-![Malvid UI in a browser](http://s.electerious.com/images/malvid/get-started.png)
+![Malvid UI in a browser](https://s.electerious.com/images/malvid/get-started.png)
 
 ## What's next
 
