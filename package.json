@@ -42,7 +42,7 @@
     "history": "^4.7.2",
     "is-hotkey": "^0.1.4",
     "is-plain-obj": "^1.1.0",
-    "marked": "^0.5.1",
+    "marked": "^0.6.0",
     "mri": "^1.1.0",
     "normalize-url": "^4.0.0",
     "ora": "^3.0.0",
