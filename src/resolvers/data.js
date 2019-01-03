@@ -10,8 +10,11 @@ module.exports = {
 		// Allow empty JSON files
 		if ((await contents).trim() === '') return '{}'
 
-		// Require uncached JS or JSON file and stringify it
-		return JSON.stringify(requireData(filePath, continuousStealthyRequire), null, 2)
+		// Require uncached JS or JSON
+		const data = await requireData(filePath, continuousStealthyRequire)
+
+		// Stringify it with a custom indentation to make it look good
+		return JSON.stringify(data, null, 2)
 
 	},
 	resolve: (fileName) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
