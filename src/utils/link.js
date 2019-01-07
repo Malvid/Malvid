@@ -29,7 +29,7 @@ module.exports = (data, components, render) => {
 
 		// Some components may end with the same filename. We wrap a span around every character
 		// to make them only match once during the replacement. The span isn't visible and won't
-		// be copied when a user selectes code.
+		// be copied when a user selects code.
 		const safeFilename = [ ...rawFilename ].map((char) => `<span>${ char }</span>`).join('')
 
 		const link = render(component, safeFilename)
