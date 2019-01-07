@@ -14,5 +14,5 @@ module.exports = {
 		return requireData(filePath, continuousStealthyRequire)
 
 	},
-	resolve: (fileName) => [ `${ fileName }.config.json`, `${ fileName }.config.js` ]
+	resolve: (filename) => [ `${ filename }.config.json`, `${ filename }.config.js` ]
 }

@@ -20,7 +20,7 @@ module.exports = {
 			id: 'view',
 			label: 'View',
 			languages: [ 'twig' ],
-			resolve: (fileName, fileExt) => [ `${ fileName }${ fileExt }` ]
+			resolve: (filename, fileExt) => [ `${ filename }${ fileExt }` ]
 		},
 		{
 			id: 'data',
@@ -35,13 +35,13 @@ module.exports = {
 				return JSON.stringify(requireData(filePath, continuousStealthyRequire), null, 2)
 
 			},
-			resolve: (fileName) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
+			resolve: (filename) => [ `${ filename }.data.json`, `${ filename }.data.js` ]
 		},
 		{
 			id: 'notes',
 			label: 'Notes',
 			languages: [ 'markdown' ],
-			resolve: (fileName) => [ `${ fileName }.md` ]
+			resolve: (filename) => [ `${ filename }.md` ]
 		},
 		{
 			id: 'config',
@@ -56,7 +56,7 @@ module.exports = {
 				return requireData(filePath, continuousStealthyRequire)
 
 			},
-			resolve: (fileName) => [ `${ fileName }.config.json`, `${ fileName }.config.js` ]
+			resolve: (filename) => [ `${ filename }.config.json`, `${ filename }.config.js` ]
 		}
 	],
 	statuses: {
@@ -239,7 +239,7 @@ Example:
 	id: 'style',
 	label: 'Style',
 	languages: [ 'sass', 'scss', 'css' ],
-	resolve: (fileName, fileExt) => [ `${ fileName }.sass`, `${ fileName }.scss`, `${ fileName }.css` ]
+	resolve: (filename, fileExt) => [ `${ filename }.sass`, `${ filename }.scss`, `${ filename }.css` ]
 }
 ```
 

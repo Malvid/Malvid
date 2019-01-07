@@ -17,5 +17,5 @@ module.exports = {
 		return JSON.stringify(data, null, 2)
 
 	},
-	resolve: (fileName) => [ `${ fileName }.data.json`, `${ fileName }.data.js` ]
+	resolve: (filename) => [ `${ filename }.data.json`, `${ filename }.data.js` ]
 }
