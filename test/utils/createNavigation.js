@@ -159,7 +159,7 @@ describe('createNavigation()', function() {
 			},
 			{
 				id: uuid(),
-				name:name('b'),
+				name: name('b'),
 				data: [
 					{
 						id: 'view',

@@ -4,12 +4,17 @@ const searchstring = require('searchstring')
 
 const getTab = require('../selectors/getTab')
 
+const hasProp = (value) => value.prop != null
+const hasNoProp = (value) => value.prop == null
+
 module.exports = (components, filter) => {
 
-	const s = searchstring(filter)
+	const conditions = searchstring(filter)
 
-	const term = s.terms.join(' ').toLowerCase()
-	const props = s.props
+	const terms = conditions.filter(hasNoProp)
+	const props = conditions.filter(hasProp)
+
+	const term = terms.map((condition) => condition.value).join(' ').toLowerCase()
 
 	const hasTerm = term !== ''
 	const hasProps = Object.keys(props).length !== 0
@@ -20,10 +25,10 @@ module.exports = (components, filter) => {
 
 		const inName = name.includes(term)
 
-		const inTabs = Object.keys(props).some((prop) => {
+		const inTabs = props.some((condition) => {
 
-			const value = props[prop].toLowerCase()
-			const tab = getTab(component, prop)
+			const value = condition.value.toLowerCase()
+			const tab = getTab(component, condition.prop)
 
 			if (tab == null) return false
 
