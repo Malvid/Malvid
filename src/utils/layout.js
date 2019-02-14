@@ -19,6 +19,12 @@ module.exports = (body, js, opts) => `
 			<!-- JS -->
 			<script>${ js }</script>
 
+			<!-- Custom CSS -->
+			<style>${ opts.style }</style>
+
+			<!-- Custom JS -->
+			<script>${ opts.script }</script>
+
 		</body>
 	</html>
 `

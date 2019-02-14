@@ -45,6 +45,8 @@ module.exports = async function(opts = {}) {
 		lang: 'en',
 		title: 'Malvid',
 		description: 'UI to help you build and document web components.',
+		style: '',
+		script: '',
 		src: '',
 		pattern: '**/[^_]*.{ejs,njk,hbs,twig}',
 		url: (url) => url,

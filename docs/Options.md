@@ -12,6 +12,8 @@ module.exports = {
 	lang: 'en',
 	title: 'Malvid',
 	description: 'UI to help you build and document web components.',
+	style: '',
+	script: '',
 	src: '',
 	pattern: '**/[^_]*.{ejs,njk,hbs,twig}',
 	url: (url) => url,
@@ -167,6 +169,34 @@ Example:
 ```json
 {
   "description": "Component library for our awesome project."
+}
+```
+
+### Style
+
+Type: `String` Optional: `true`
+
+Custom CSS that gets injected at the end of the body.
+
+Example:
+
+```json
+{
+  "style": "#iframe { padding: 0 }"
+}
+```
+
+### Script
+
+Type: `String` Optional: `true`
+
+Custom JS that gets injected at the end of the body.
+
+Example:
+
+```json
+{
+  "script": "console.log('Injected')"
 }
 ```
 
