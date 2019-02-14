@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [5.4.0] - 2019-02-14
+
+### Added
+
+- Inject custom CSS and JS using the new `style` and `script` options (#33)
+
+### Fixed
+
+- Filter input showing interfering autocomplete suggestions while typing
+
 ## [5.3.1] - 2019-01-03
 
 ### Fixed
@@ -12,14 +22,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [5.3.0] - 2018-12-21
 
-### New
+### Added
 
 - [Inspector tabs](docs/Inspector%20tabs.md) documentation
 - Extend existing resolvers using the default resolvers located in [the resolvers folder](../src/resolvers/)
 
 ## [5.2.0] - 2018-12-20
 
-### New
+### Added
 
 - Support for several kinds of data files for the data and config using [require-data](https://github.com/electerious/require-data)
 - Support for data and config files returning a function
@@ -33,7 +43,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [5.1.0] - 2018-11-11
 
-### New
+### Added
 
 - Reload button in the inspector
 - Support JS configuration files
