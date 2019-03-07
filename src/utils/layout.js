@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = (body, js, opts) => `
+module.exports = (body, css, js, opts) => `
 	<!doctype html>
 	<html lang="${ opts.lang }">
 		<head>
@@ -10,6 +10,9 @@ module.exports = (body, js, opts) => `
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<meta name="description" content="${ opts.description }">
+
+			<!-- CSS -->
+			<style>${ css }</style>
 
 		</head>
 		<body>

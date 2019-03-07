@@ -5,6 +5,10 @@ const isPlainObj = require('is-plain-obj')
 const componentsLookup = require('components-lookup')
 const server = require('./server')
 const script = require('./script')
+const normalize = require('./styles/normalize')
+const atomOneLight = require('./styles/atomOneLight')
+const markdown = require('./styles/markdown')
+const global = require('./styles/global')
 
 /**
  * Returns the HTML and JSON of the UI.
@@ -67,9 +71,16 @@ module.exports = async function(opts = {}) {
 	return {
 		html: async () => {
 
+			const css = `
+				${ normalize }
+				${ atomOneLight }
+				${ markdown }
+				${ global }
+			`
+
 			const js = await script
 
-			return util.promisify(server)(state, js)
+			return util.promisify(server)(state, css, js)
 
 		},
 		json: async () => {

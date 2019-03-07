@@ -2,7 +2,6 @@
 
 const { render } = require('react-dom')
 const { Provider } = require('react-redux')
-const { css } = require('glamor')
 const { isHotkey } = require('is-hotkey')
 const createHistory = require('history').createHashHistory
 
@@ -16,18 +15,9 @@ const isInput = require('./utils/isInput')
 const createNavigation = require('./utils/createNavigation')
 const createRoute = require('./utils/createRoute')
 const stopEvent = require('./utils/stopEvent')
-const normalize = require('./styles/normalize')
-const atomOneLight = require('./styles/atomOneLight')
-const markdown = require('./styles/markdown')
-const global = require('./styles/global')
 const { setRoute, setFilter } = require('./actions')
 
 const Main = require('./components/Main')
-
-css.insert(normalize)
-css.insert(atomOneLight)
-css.insert(markdown)
-css.insert(global)
 
 const init = (initialState) => createStore(initialState, (err, store) => {
 
