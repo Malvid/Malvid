@@ -10,9 +10,19 @@ describe('layout()', function() {
 
 		const body = `<div id="main">${ uuid() }</div>`
 
-		const result = layout(body, '', {})
+		const result = layout(body, '', '', {})
 
 		assert.include(result, body)
+
+	})
+
+	it('should include custom styles', function() {
+
+		const css = uuid()
+
+		const result = layout('', css, '', {})
+
+		assert.include(result, `<style>${ css }</style>`)
 
 	})
 
@@ -20,7 +30,7 @@ describe('layout()', function() {
 
 		const js = uuid()
 
-		const result = layout('', js, {})
+		const result = layout('', '', js, {})
 
 		assert.include(result, `<script>${ js }</script>`)
 
@@ -34,7 +44,7 @@ describe('layout()', function() {
 			description: uuid()
 		}
 
-		const result = layout('', '', opts)
+		const result = layout('', '', '', opts)
 
 		assert.include(result, `<html lang="${ opts.lang }">`)
 		assert.include(result, `<title>${ opts.title }</title>`)
