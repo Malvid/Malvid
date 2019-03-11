@@ -8,7 +8,7 @@ module.exports = (() => {
 	const filePath = path.resolve(__dirname, './client.js')
 
 	const browserify = {}
-	const babel = { babelrc: false }
+	const babel = { babelrc: false, compact: false }
 	const opts = { optimize: false, browserify, babel }
 
 	return handler(filePath, opts)
