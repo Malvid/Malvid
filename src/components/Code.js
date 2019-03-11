@@ -2,11 +2,11 @@
 
 const { css } = require('glamor')
 const propTypes = require('prop-types')
-const highlight = require('highlight.js')
 
 const h = require('../utils/h')
 const link = require('../utils/link')
 const createRoute = require('../utils/createRoute')
+const highlight = require('../utils/highlight')
 const selectable = require('../styles/selectable')
 const { BLUE } = require('../constants/colors')
 

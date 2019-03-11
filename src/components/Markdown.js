@@ -3,9 +3,9 @@
 const { css } = require('glamor')
 const propTypes = require('prop-types')
 const marked = require('marked')
-const highlight = require('highlight.js')
 
 const h = require('../utils/h')
+const highlight = require('../utils/highlight')
 const selectable = require('../styles/selectable')
 
 const style = {

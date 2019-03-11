@@ -268,12 +268,12 @@ Example:
 {
 	id: 'style',
 	label: 'Style',
-	languages: [ 'sass', 'scss', 'css' ],
-	resolve: (filename, fileExt) => [ `${ filename }.sass`, `${ filename }.scss`, `${ filename }.css` ]
+	languages: [ 'scss', 'css' ],
+	resolve: (filename, fileExt) => [ `${ filename }.scss`, `${ filename }.css` ]
 }
 ```
 
-Malvid scans your folders and finds a component called `button.njk`. It will run though all resolvers to find files that could belong to this button component. It executes the `resolve` function with the parameter `button` and `.njk`. The `resolve` function returns `[ 'button.sass', 'button.scss', 'button.css' ]` and Malvid looks for files called `button.sass`, `button.scss` and `button.css` in the same folder as the component. Let's say the SASS file exists and Malvid continues to process the resolver. It executes the `parse` function (when defined) to parse the contents of the file. The returned value will be shown in the [inspector of the UI](Interface.md#inspector) in a tab with the name `Style`. Malvid does this for all components and resolvers.
+Malvid scans your folders and finds a component called `button.njk`. It will run though all resolvers to find files that could belong to this button component. It executes the `resolve` function with the parameter `button` and `.njk`. The `resolve` function returns `[ 'button.scss', 'button.css' ]` and Malvid looks for files called `button.scss` and `button.css` in the same folder as the component. Let's say the SCSS file exists and Malvid continues to process the resolver. It executes the `parse` function (when defined) to parse the contents of the file. The returned value will be shown in the [inspector of the UI](Interface.md#inspector) in a tab with the name `Style`. Malvid does this for all components and resolvers.
 
 #### Id
 
@@ -297,7 +297,9 @@ Type: `Array` Optional: `false`
 
 Syntax highlighting languages.
 
-Supports any language supported by [highlight.js](https://highlightjs.org). Will be used to highlight the output of the resolver in the [inspector of the UI](Interface.md#inspector). Multiple values are helpful when a resolver accepts multiple formats.
+Supports a subset of languages supported by [highlight.js](https://highlightjs.org). Will be used to highlight the output of the resolver in the [inspector of the UI](Interface.md#inspector). Multiple values are helpful when a resolver accepts multiple formats.
+
+Supported languages: `php`, `python`, `css`, `coffeescript`, `reasonml`, `xml`, `json`, `javascript`, `markdown,` `django`, `elm`, `htmlbars`, `haml`, `handlebars`, `less`, `scss`, `stylus`, `twig`, `typescript`, `yaml`, `plaintext`
 
 #### Parse
 
