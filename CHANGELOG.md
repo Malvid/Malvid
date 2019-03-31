@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [5.5.0] - 2019-03-31
+
+### Changed
+
+- Limit highlighting support to improve page generation time. Supported languages for highlighting are now limited to `php`, `python`, `css`, `coffeescript`, `reasonml`, `xml`, `json`, `javascript`, `markdown,` `django`, `elm`, `htmlbars`, `haml`, `handlebars`, `less`, `scss`, `stylus`, `twig`, `typescript`, `yaml`, `plaintext`
+
 ## [5.4.2] - 2019-03-11
 
 ### Fixed
