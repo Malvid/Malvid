@@ -48,22 +48,23 @@ Example:
 
 ## Text
 
-The text of a component should be named `bodytext`.
+The text of a component should be named `text`.
 
 Example:
 
 ```njk
-<p>{{ bodytext }}</p>
+<p>{{ text }}</p>
 ```
 
 ```json
 {
-  "bodytext": "Lorem ipsum dolor sit amet..."
+  "text": "Lorem ipsum dolor sit amet..."
 }
 ```
 
 ## RTE text
 
+- RTE text of a component should be named `bodytext`
 - Text containing content from the TYPO3 RTE should be [marked as safe](https://mozilla.github.io/nunjucks/templating.html#safe)
 - Don't include RTE content from TYPO3 inside a `<p>`-Tag as TYPO3 already wraps text in `<p>`-Tags
 - Use `<p>`-Tags in the example data to imitate the behavior of real RTE content
