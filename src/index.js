@@ -1,14 +1,19 @@
 'use strict'
 
-const util = require('util')
+const { readFile } = require('fs')
+const { resolve } = require('path')
+const { promisify } = require('util')
 const isPlainObj = require('is-plain-obj')
 const componentsLookup = require('components-lookup')
+
 const server = require('./server')
-const script = require('./script')
 const normalize = require('./styles/normalize')
 const atomOneLight = require('./styles/atomOneLight')
 const markdown = require('./styles/markdown')
 const global = require('./styles/global')
+
+const clientPath = resolve(__dirname, '../dist/client.min.js')
+const clientData = promisify(readFile)(clientPath)
 
 /**
  * Returns the HTML and JSON of the UI.
@@ -78,9 +83,9 @@ module.exports = async function(opts = {}) {
 				${ global }
 			`
 
-			const js = await script
+			const js = await clientData
 
-			return util.promisify(server)(state, css, js)
+			return promisify(server)(state, css, js)
 
 		},
 		json: async () => {

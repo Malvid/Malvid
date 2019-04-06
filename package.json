@@ -26,6 +26,7 @@
     "src"
   ],
   "scripts": {
+    "build": "node build.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test": "nyc node_modules/mocha/bin/_mocha --recursive"
   },
