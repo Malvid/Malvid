@@ -7,7 +7,8 @@ const save = promisify(writeFile)
 
 js('src/client.js', {
 
-	optimize: true
+	optimize: true,
+	babel: { babelrc: false, compact: false }
 
 }).then((data) => {
 
