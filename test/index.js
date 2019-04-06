@@ -27,9 +27,16 @@ describe('index()', function() {
 
 	})
 
-	it('should render HTML with a head and react placeholder', async function() {
+	it('should render HTML', async function() {
 
-		this.timeout(50000)
+		const result = await index()
+		const html = await result.html()
+
+		assert.include(html, `<div id="main"></div>`)
+
+	})
+
+	it('should render HTML with custom options', async function() {
 
 		const opts = {
 			lang: uuid(),
@@ -40,17 +47,13 @@ describe('index()', function() {
 		const result = await index(opts)
 		const html = await result.html()
 
-		assert.isString(html)
 		assert.include(html, `<html lang="${ opts.lang }">`)
 		assert.include(html, `<title>${ opts.title }</title>`)
 		assert.include(html, `<meta name="description" content="${ opts.description }">`)
-		assert.include(html, `<div id="main"></div>`)
 
 	})
 
 	it('should render JSON without components', async function() {
-
-		this.timeout(50000)
 
 		const structure = await fsify([
 			{
@@ -73,8 +76,6 @@ describe('index()', function() {
 	})
 
 	it('should render JSON with a component', async function() {
-
-		this.timeout(50000)
 
 		const componentName = uuid()
 
@@ -122,8 +123,6 @@ describe('index()', function() {
 
 	it('should render JSON with a component that has empty files', async function() {
 
-		this.timeout(50000)
-
 		const componentName = uuid()
 
 		const structure = await fsify([
@@ -169,8 +168,6 @@ describe('index()', function() {
 	})
 
 	it('should render JSON with a custom component URL', async function() {
-
-		this.timeout(50000)
 
 		const componentURL = uuid()
 
