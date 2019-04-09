@@ -122,6 +122,7 @@ The text of a button should be called `label`.
 - Images are file references in TYPO3
 - It's not possible to add or rename properties inside the `image` object
 - `width` and `height` aren't part of the `image` object and must be added outside of it
+- `x` and `y` represent the center of the focus area in percent (see below for more information)
 - The data must always follow the structure shown below
 
 ```json
@@ -131,12 +132,18 @@ The text of a button should be called `label`.
     "alternative": "Fluffy cat playing with a ball",
     "description": "Cats love balls",
     "link": "https://en.wikipedia.org/wiki/Cat",
-    "src": "http://via.placeholder.com/350x150"
+    "src": "http://via.placeholder.com/350x150",
+    "x": 0.5,
+    "y": 0.5
   },
   "image_width": 350,
   "image_height": 150
 }
 ```
+
+Focus area:
+
+TYPO3 allows to set a focus area in the image editor. The center of this area is available in the image data as `x` and `y`. Both coordinates are relative to the width and height of the image. `0.5` is therefore equal to 50% and means that the focus point is positioned in the middle of the image. The focus area can be used to enhance the way images are scaled on different viewport sizes. This is especially helpful when using `background-position`.
 
 Usage examples:
 
@@ -157,6 +164,10 @@ Usage examples:
 <svg>
   <use xlink:href="{{ image.src }}"></use>
 </svg>
+```
+
+```njk
+<div style="background-image: url('{{ image.src }}'); {% if x and y %}background-position: calc({{ image.x }} * 100%) calc({{ image.y }} * 100%){% endif %}"></div>
 ```
 
 ## Videos
