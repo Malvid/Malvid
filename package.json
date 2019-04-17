@@ -43,7 +43,7 @@
     "require-data": "^1.0.0"
   },
   "devDependencies": {
-    "escape-string-regexp": "^1.0.5",
+    "escape-string-regexp": "^2.0.0",
     "filename-regex": "^2.0.1",
     "glamor": "^2.20.40",
     "highlight.js": "^9.13.1",
