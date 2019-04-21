@@ -36,7 +36,7 @@
     "continuous-stealthy-require": "^1.0.0",
     "find-up": "^3.0.0",
     "fs-extra": "^7.0.1",
-    "is-plain-obj": "^1.1.0",
+    "is-plain-obj": "^2.0.0",
     "mri": "^1.1.4",
     "ora": "^3.4.0",
     "redux": "^4.0.1",
