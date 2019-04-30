@@ -6,8 +6,9 @@ module.exports = `
 	html {
 		width: 100%;
 		height: 100%;
-		font: normal 400 100%/1.6 system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 		color: ${ DARK };
+		font: normal 400 100%/1.6 system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+		overflow: hidden;
 	}
 
 	@media (max-width: 800px) {
