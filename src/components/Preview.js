@@ -22,13 +22,6 @@ const style = {
 	shadowBox: css(shadowBox, {
 		display: 'flex',
 		flexDirection: 'column'
-	}),
-
-	iframe: css({
-		flexGrow: '1',
-		padding: '.5em',
-		minHeight: '0',
-		border: 'none'
 	})
 
 }
