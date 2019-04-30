@@ -52,7 +52,6 @@ module.exports = (props) => {
 	const toNavItem = (component) => (
 		h('option', {
 			key: component.id,
-			selected: component.id === props.currentComponent.id,
 			value: createRoute(component.id, props.currentTab.id)
 		}, component.name)
 	)
@@ -66,6 +65,7 @@ module.exports = (props) => {
 	return (
 		h('select', {
 			className: style.self.toString(),
+			value: createRoute(props.currentComponent.id, props.currentTab.id),
 			onChange: (e) => location.href = e.target.value
 		}, items)
 	)
