@@ -47,7 +47,7 @@ module.exports = (props) => (
 		href: props.href
 	},
 		h('span', { className: style.label.toString() }, props.label),
-		status != null && h(NavStatus, status)
+		props.status != null && h(NavStatus, props.status)
 	)
 
 )

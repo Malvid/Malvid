@@ -1,7 +1,6 @@
 'use strict'
 
 const { css } = require('glamor')
-const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const shadowBox = require('../styles/shadowBox')
@@ -39,7 +38,7 @@ module.exports = (props) => (
 	h('div', { className: style.self.toString() },
 		h('div', { className: style.shadowBox.toString() },
 			h(Toolbar, {
-				statuses: props.statuses,
+				statuses: props.opts.statuses,
 				components: props.components,
 				currentComponent: props.currentComponent,
 				currentTab: props.currentTab
