@@ -3,6 +3,7 @@
 const { css } = require('glamor')
 
 const h = require('../utils/h')
+const { MOBILE_MENU } = require('../constants/breakpoints')
 
 const Preview = require('./Preview')
 const Resizer = require('./Resizer')
@@ -15,7 +16,10 @@ const style = {
 		display: 'flex',
 		flexDirection: 'column',
 		padding: '1em 1em 1em 0',
-		minWidth: '0'
+		minWidth: '0',
+		[MOBILE_MENU]: {
+			padding: '1em'
+		}
 	})
 
 }

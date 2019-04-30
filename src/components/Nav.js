@@ -9,6 +9,7 @@ const filtrate = require('../utils/filtrate')
 const sort = require('../utils/sort')
 const getStatus = require('../selectors/getStatus')
 const { BORDER_RADIUS, NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
+const { MOBILE_MENU } = require('../constants/breakpoints')
 
 const NavGroup = require('./NavGroup')
 const NavItem = require('./NavItem')
@@ -22,7 +23,10 @@ const style = {
 		flexDirection: 'column',
 		minWidth: NAV_MIN_WIDTH,
 		width: `calc(${ NAV_WIDTH } - var(--size-horizontal, 0px))`,
-		maxWidth: `calc(100% - ${ CONTENT_MIN_WIDTH })`
+		maxWidth: `calc(100% - ${ CONTENT_MIN_WIDTH })`,
+		[MOBILE_MENU]: {
+			display: 'none'
+		}
 	}),
 
 	filter: css({

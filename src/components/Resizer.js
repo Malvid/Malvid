@@ -8,24 +8,31 @@ const h = require('../utils/h')
 const eventPos = require('../utils/eventPos')
 const mousePos = require('../utils/mousePos')
 const { SIZE_STATUS_INACTIVE, SIZE_STATUS_ACTIVE } = require('../constants/size')
+const { MOBILE_MENU } = require('../constants/breakpoints')
+
+const DIRECTION_VERTICAL = 'vertical'
+const DIRECTION_HORIZONTAL = 'horizontal'
 
 const style = {
 
-	self: css({
-		flexShrink: '0',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		padding: '.4em',
-		transition: 'opacity .3s ease',
-		willChange: 'opacity',
+	self: ({ direction }) => css({
+		'flexShrink': '0',
+		'display': 'flex',
+		'justifyContent': 'center',
+		'alignItems': 'center',
+		'padding': '.4em',
+		'transition': 'opacity .3s ease',
+		'willChange': 'opacity',
 		':hover': {
-			opacity: .99
+			opacity: 0.99
+		},
+		[MOBILE_MENU]: {
+			display: direction === DIRECTION_HORIZONTAL ? 'none' : 'flex'
 		}
 	}),
 
 	selfVisibility: ({ status }) => css({
-		opacity: status === SIZE_STATUS_ACTIVE ? .99 : .01
+		opacity: status === SIZE_STATUS_ACTIVE ? 0.99 : 0.01
 	}),
 
 	selfVertical: css({
@@ -124,10 +131,10 @@ module.exports = class extends Component {
 			h('div', {
 				onMouseDown: this.onMouseDown.bind(this),
 				className: css(
-					style.self,
+					style.self({ direction }),
 					style.selfVisibility({ status: this.state.status }),
-					direction === 'horizontal' && style.selfHorizontal,
-					direction === 'vertical' && style.selfVertical
+					direction === DIRECTION_VERTICAL && style.selfVertical,
+					direction === DIRECTION_HORIZONTAL && style.selfHorizontal
 				).toString()
 			},
 				Array.apply(null, { length: 3 }).map((item, i) =>
@@ -135,8 +142,8 @@ module.exports = class extends Component {
 						key: i,
 						className: css(
 							style.handle,
-							direction === 'horizontal' && style.handleHorizontal,
-							direction === 'vertical' && style.handleVertical
+							direction === DIRECTION_VERTICAL && style.handleVertical,
+							direction === DIRECTION_HORIZONTAL && style.handleHorizontal
 						).toString()
 					})
 				)
