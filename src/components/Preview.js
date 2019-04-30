@@ -34,20 +34,19 @@ const style = {
 
 }
 
-module.exports = ({ statuses, components, currentComponent, currentTab, hydrate }) => (
+module.exports = (props) => (
 
 	h('div', { className: style.self.toString() },
 		h('div', { className: style.shadowBox.toString() },
 			h(Toolbar, {
-				statuses,
-				components,
-				currentComponent,
-				currentTab
+				statuses: props.statuses,
+				components: props.components,
+				currentComponent: props.currentComponent,
+				currentTab: props.currentTab
 			}),
 			h(Frame, {
-				id: currentComponent.id,
-				url: currentComponent.url,
-				hydrate
+				currentComponent: props.currentComponent,
+				hydrate: props.hydrate
 			})
 		)
 	)
@@ -55,13 +54,3 @@ module.exports = ({ statuses, components, currentComponent, currentTab, hydrate 
 )
 
 module.exports.displayName = 'Preview'
-
-module.exports.propTypes = {
-
-	statuses: propTypes.object.isRequired,
-	components: propTypes.array.isRequired,
-	currentComponent: propTypes.object.isRequired,
-	currentTab: propTypes.object.isRequired,
-	hydrate: propTypes.func.isRequired
-
-}

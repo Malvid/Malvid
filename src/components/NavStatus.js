@@ -18,11 +18,11 @@ const style = {
 
 }
 
-module.exports = ({ description, color }) => (
+module.exports = (props) => (
 
 	h('div', {
-		title: description,
-		className: style.self({ color: color }).toString()
+		title: props.description,
+		className: style.self({ color: props.color }).toString()
 	})
 
 )

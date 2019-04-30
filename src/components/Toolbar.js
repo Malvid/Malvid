@@ -65,16 +65,16 @@ const style = {
 
 }
 
-module.exports = ({ statuses, components, currentComponent, currentTab }) => (
+module.exports = (props) => (
 
 	h('div', { className: style.self.toString() },
 		h('h1', { className: style.name.toString() },
-			currentComponent.name
+			props.currentComponent.name
 		),
 		h(SelectNav, {
-			components,
-			currentComponent,
-			currentTab
+			components: props.components,
+			currentComponent: props.currentComponent,
+			currentTab: props.currentTab
 		}),
 		h('div', { className: style.tools.toString() },
 			h('button', {
@@ -87,13 +87,13 @@ module.exports = ({ statuses, components, currentComponent, currentTab }) => (
 			h('a', {
 				className: style.button.toString(),
 				title: 'Open in new tab',
-				href: currentComponent.url,
+				href: props.currentComponent.url,
 				target: '_blank'
 			},
 				h(IconTab)
 			),
-			getStatus(statuses, currentComponent) != null && h('div', { className: style.separator.toString() }),
-			getStatus(statuses, currentComponent) != null && h(Status, getStatus(statuses, currentComponent))
+			getStatus(props.statuses, props.currentComponent) != null && h('div', { className: style.separator.toString() }),
+			getStatus(props.statuses, props.currentComponent) != null && h(Status, getStatus(props.statuses, props.currentComponent))
 		)
 	)
 

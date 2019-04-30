@@ -23,13 +23,13 @@ const style = {
 
 }
 
-module.exports = ({ data }) => (
+module.exports = (props) => (
 
 	h('div', { className: style.self.toString() },
 		h('div', {
 			className: `${ style.content.toString() } markdown`,
 			dangerouslySetInnerHTML: {
-				__html: marked(data, {
+				__html: marked(props.data, {
 					highlight: (code) => highlight.highlightAuto(code).value
 				})
 			}

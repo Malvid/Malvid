@@ -44,7 +44,7 @@ const style = {
 
 }
 
-module.exports = ({ filter, setFilter }) => {
+module.exports = (props) => {
 
 	// DOM Element reference must be used to select the whole input content
 	// on focus. The event of onFocus can't be used after a delay.
@@ -62,10 +62,10 @@ module.exports = ({ filter, setFilter }) => {
 				autoCorrect: 'off',
 				autoCapitalize: 'off',
 				autoComplete: 'off',
-				value: filter,
+				value: props.filter,
 				ref: elem,
 				onFocus: () => requestAnimationFrame(() => elem.current.select()),
-				onChange: (e) => setFilter(e.target.value)
+				onChange: (e) => props.setFilter(e.target.value)
 			})
 		)
 	)

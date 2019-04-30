@@ -18,15 +18,15 @@ const style = {
 
 }
 
-module.exports = ({ id, url, hydrate }) => (
+module.exports = (props) => (
 
 	h('iframe', {
-		key: id,
+		key: props.currentComponent.id,
 		id: 'iframe',
 		className: style.self.toString(),
-		src: url,
+		src: props.currentComponent.url,
 		onLoad: () => requestState(location.href)
-			.then(hydrate, (err) => hydrate(errorToState(err)))
+			.then(props.hydrate, (err) => props.hydrate(errorToState(err)))
 			.catch(console.error)
 	})
 
@@ -36,8 +36,7 @@ module.exports.displayName = 'Frame'
 
 module.exports.propTypes = {
 
-	id: propTypes.string.isRequired,
-	url: propTypes.string.isRequired,
+	currentComponent: propTypes.object.isRequired,
 	hydrate: propTypes.func.isRequired
 
 }

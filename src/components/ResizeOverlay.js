@@ -22,9 +22,9 @@ const style = {
 
 }
 
-module.exports = ({ visible }) => (
+module.exports = (props) => (
 
-	h('div', { className: css(style.self, visible && style.visible).toString() })
+	h('div', { className: css(style.self, props.visible && style.visible).toString() })
 
 )
 

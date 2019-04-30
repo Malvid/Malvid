@@ -24,11 +24,9 @@ const style = {
 
 }
 
-module.exports = ({ label }) => (
+module.exports = (props) => (
 
-	h('div', { className: style.self.toString() },
-		label
-	)
+	h('div', { className: style.self.toString() }, props.label)
 
 )
 

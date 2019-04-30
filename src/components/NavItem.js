@@ -12,16 +12,16 @@ const NavStatus = require('./NavStatus')
 const style = {
 
 	self: css({
-		display: 'flex',
-		alignItems: 'center',
-		marginBottom: '1px',
-		padding: '.8em 1.2em',
-		width: '100%',
-		color: 'currentColor',
-		textDecoration: 'none',
-		borderRadius: BORDER_RADIUS,
-		outline: 'none',
-		cursor: 'default',
+		'display': 'flex',
+		'alignItems': 'center',
+		'marginBottom': '1px',
+		'padding': '.8em 1.2em',
+		'width': '100%',
+		'color': 'currentColor',
+		'textDecoration': 'none',
+		'borderRadius': BORDER_RADIUS,
+		'outline': 'none',
+		'cursor': 'default',
 		':active': {
 			background: BLUE_LIGHT
 		}
@@ -40,13 +40,13 @@ const style = {
 
 }
 
-module.exports = ({ label, status, active, href }) => (
+module.exports = (props) => (
 
 	h('a', {
-		className: css(style.self, active && style.active).toString(),
-		href
+		className: css(style.self, props.active && style.active).toString(),
+		href: props.href
 	},
-		h('span', { className: style.label.toString() }, label),
+		h('span', { className: style.label.toString() }, props.label),
 		status != null && h(NavStatus, status)
 	)
 

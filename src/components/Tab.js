@@ -40,12 +40,12 @@ const style = {
 
 }
 
-module.exports = ({ label, active, href }) => (
+module.exports = (props) => (
 
 	h('a', {
-		className: css(style.self, active && style.active).toString(),
-		href
-	}, label)
+		className: css(style.self, props.active && style.active).toString(),
+		href: props.href
+	}, props.label)
 
 )
 

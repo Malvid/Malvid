@@ -30,16 +30,16 @@ const style = {
 
 }
 
-module.exports = ({ components, currentTab }) => (
+module.exports = (props) => (
 
 	h('pre', { className: style.self.toString() },
 		h('code', {
 			className: style.code.toString(),
 			dangerouslySetInnerHTML: {
 				__html: link(
-					highlight.highlightAuto(currentTab.data, currentTab.languages).value,
-					components,
-					(component, filename) => `<a class="${ style.link.toString() }" href="${ createRoute(component.id, currentTab.id) }">${ filename }</a>`
+					highlight.highlightAuto(props.currentTab.data, props.currentTab.languages).value,
+					props.components,
+					(component, filename) => `<a class="${ style.link.toString() }" href="${ createRoute(component.id, props.currentTab.id) }">${ filename }</a>`
 				)
 			}
 		})

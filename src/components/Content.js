@@ -27,23 +27,13 @@ const style = {
 module.exports = (props) => (
 
 	h('div', { className: style.self.toString() },
-		h(Preview, {
-			statuses: props.opts.statuses,
-			components: props.components,
-			currentComponent: props.currentComponent,
-			currentTab: props.currentTab,
-			hydrate: props.hydrate
-		}),
+		h(Preview, props),
 		h(Resizer, {
 			direction: 'vertical',
 			setSize: props.setSizeVertical,
 			setSizeStatus: props.setSizeStatus
 		}),
-		h(Inspector, {
-			components: props.components,
-			currentComponent: props.currentComponent,
-			currentTab: props.currentTab
-		})
+		h(Inspector, props)
 	)
 
 )

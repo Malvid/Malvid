@@ -40,7 +40,7 @@ const style = {
 
 }
 
-module.exports = ({ components, currentComponent, currentTab }) => {
+module.exports = (props) => {
 
 	const toNavGroup = (group) => (
 		h('option', {
@@ -52,13 +52,13 @@ module.exports = ({ components, currentComponent, currentTab }) => {
 	const toNavItem = (component) => (
 		h('option', {
 			key: component.id,
-			selected: component.id === currentComponent.id,
-			value: createRoute(component.id, currentTab.id)
+			selected: component.id === props.currentComponent.id,
+			value: createRoute(component.id, props.currentTab.id)
 		}, component.name)
 	)
 
 	const items = sort(
-		components,
+		props.components,
 		toNavGroup,
 		toNavItem
 	)

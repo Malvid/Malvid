@@ -18,15 +18,15 @@ const style = {
 
 }
 
-module.exports = ({ currentComponent, currentTab }) => (
+module.exports = (props) => (
 
 	h('div', { className: style.self.toString() },
-		getTabs(currentComponent).map((tab) =>
+		getTabs(props.currentComponent).map((tab) =>
 			h(Tab, {
 				key: tab.id,
 				label: tab.label,
-				active: tab.id === currentTab.id,
-				href: createRoute(currentComponent.id, tab.id)
+				active: tab.id === props.currentTab.id,
+				href: createRoute(props.currentComponent.id, tab.id)
 			})
 		)
 	)

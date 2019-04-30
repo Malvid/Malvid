@@ -44,7 +44,7 @@ const style = {
 
 }
 
-module.exports = ({ statuses, components, currentComponent, currentTab, filter, setFilter }) => {
+module.exports = (props) => {
 
 	const toNavGroup = (group) => (
 		h(NavGroup, {
@@ -57,14 +57,14 @@ module.exports = ({ statuses, components, currentComponent, currentTab, filter, 
 		h(NavItem, {
 			key: component.id,
 			label: component.name,
-			status: getStatus(statuses, component),
-			active: component.id === currentComponent.id,
-			href: createRoute(component.id, currentTab.id)
+			status: getStatus(props.statuses, component),
+			active: component.id === props.currentComponent.id,
+			href: createRoute(component.id, props.currentTab.id)
 		})
 	)
 
 	const items = sort(
-		filtrate(components, filter),
+		filtrate(props.components, props.filter),
 		toNavGroup,
 		toNavItem
 	)
@@ -72,7 +72,10 @@ module.exports = ({ statuses, components, currentComponent, currentTab, filter, 
 	return (
 		h('nav', { className: style.self.toString() },
 			h('div', { className: style.filter.toString() },
-				h(Filter, { filter, setFilter })
+				h(Filter, {
+					filter: props.filter,
+					setFilter: props.setFilter
+				})
 			),
 			h('div', { className: style.items.toString() }, items)
 		)

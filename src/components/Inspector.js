@@ -26,9 +26,9 @@ const style = {
 
 }
 
-module.exports = ({ components, currentComponent, currentTab }) => {
+module.exports = (props) => {
 
-	const { data, languages } = currentTab
+	const { data, languages } = props.currentTab
 
 	const isMarkdown = languages[0] === 'markdown'
 	const isCode = isMarkdown === false
@@ -37,15 +37,15 @@ module.exports = ({ components, currentComponent, currentTab }) => {
 		h('div', { className: style.self.toString() },
 			h('div', { className: style.shadowBox.toString() },
 				h(Tabs, {
-					currentComponent,
-					currentTab
+					currentComponent: props.currentComponent,
+					currentTab: props.currentTab
 				}),
 				data != null && isMarkdown === true && h(Markdown, {
 					data
 				}),
 				data != null && isCode === true && h(Code, {
-					components,
-					currentTab
+					components: props.components,
+					currentTab: props.currentTab
 				}),
 				data == null && h(Empty, {
 					color: '#bbb',
@@ -58,11 +58,3 @@ module.exports = ({ components, currentComponent, currentTab }) => {
 }
 
 module.exports.displayName = 'Inspector'
-
-module.exports.propTypes = {
-
-	components: propTypes.array.isRequired,
-	currentComponent: propTypes.object.isRequired,
-	currentTab: propTypes.object.isRequired
-
-}
