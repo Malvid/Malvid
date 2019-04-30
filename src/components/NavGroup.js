@@ -9,14 +9,14 @@ const { BORDER_RADIUS } = require('../constants/sizes')
 const style = {
 
 	self: css({
-		padding: `.9em ${ BORDER_RADIUS }`,
-		width: '100%',
-		fontSize: '.7em',
-		fontWeight: 'bold',
-		textTransform: 'uppercase',
-		textOverflow: 'ellipsis',
-		whiteSpace: 'nowrap',
-		overflow: 'hidden',
+		'padding': `.9em ${ BORDER_RADIUS }`,
+		'width': '100%',
+		'fontSize': '.7em',
+		'fontWeight': 'bold',
+		'textTransform': 'uppercase',
+		'textOverflow': 'ellipsis',
+		'whiteSpace': 'nowrap',
+		'overflow': 'hidden',
 		':first-child': {
 			paddingTop: '0'
 		}

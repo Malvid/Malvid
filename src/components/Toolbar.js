@@ -41,17 +41,17 @@ const style = {
 	}),
 
 	button: css({
-		padding: '.4em',
-		width: '1.8em',
-		height: '1.8em',
-		background: 'transparent',
-		appearance: 'none',
-		border: 'none',
-		color: 'currentColor',
-		fontSize: '1.2em',
-		textDecoration: 'none',
-		outline: 'none',
-		cursor: 'default',
+		'padding': '.4em',
+		'width': '1.8em',
+		'height': '1.8em',
+		'background': 'transparent',
+		'appearance': 'none',
+		'border': 'none',
+		'color': 'currentColor',
+		'fontSize': '1.2em',
+		'textDecoration': 'none',
+		'outline': 'none',
+		'cursor': 'default',
 		':active': {
 			color: BLUE
 		}
