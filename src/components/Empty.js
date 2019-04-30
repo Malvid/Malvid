@@ -15,8 +15,7 @@ const style = {
 		alignItems: 'center',
 		justifyContent: 'center',
 		color: color,
-		width: '100%',
-		height: '100vh'
+		width: '100%'
 	}),
 
 	icon: css({

@@ -1,83 +1,76 @@
 'use strict'
 
+const { Fragment, useEffect } = require('react')
 const { bindActionCreators } = require('redux')
 const { connect } = require('react-redux')
-const { css } = require('glamor')
 
 const h = require('../utils/h')
 const enhanceState = require('../utils/enhanceState')
 const actions = require('../actions')
 const { SIZE_STATUS_ACTIVE } = require('../constants/size')
 
-const DocumentTitle = require('react-document-title')
-const ResizeOverlay = require('./ResizeOverlay')
 const Nav = require('./Nav')
 const Resizer = require('./Resizer')
+const ResizeOverlay = require('./ResizeOverlay')
 const Content = require('./Content')
 const Empty = require('./Empty')
 
 const mapStateToProps = (state) => enhanceState(state)
 const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch)
 
-const style = {
-
-	self: css({
-		flexGrow: 1,
-		display: 'flex',
-		minWidth: 0,
-		minHeight: 0
-	})
-
-}
-
 const Main = (props) => {
 
-	if (props.error != null) return (
-		h(DocumentTitle, { title: 'Malvid' },
-			h(Empty, {
-				color: 'currentColor',
-				text: props.error
-			})
-		)
+	const hasError = props.error != null
+	const hasNoComponent = props.currentComponent == null
+
+	const title = (() => {
+
+		if (hasError === true) return 'Malvid'
+		if (hasNoComponent === true) return props.opts.title
+
+		return `${ props.currentComponent.name } | ${ props.opts.title }`
+
+	})()
+
+	useEffect(() => { document.documentElement.style.setProperty('--size-vertical', `${ props.size.vertical }px`) }, [ props.size.vertical ])
+	useEffect(() => { document.documentElement.style.setProperty('--size-horizontal', `${ props.size.horizontal }px`) }, [ props.size.horizontal ])
+	useEffect(() => { document.title = title }, [ title ])
+
+	// Something went wrong
+	if (hasError === true) return (
+		h(Empty, {
+			color: 'currentColor',
+			text: props.error
+		})
 	)
 
 	// No currentComponent means that there are no components at all
-	if (props.currentComponent == null) return (
-		h(DocumentTitle, { title: props.opts.title },
-			h(Empty, {
-				color: 'currentColor',
-				text: 'No components found'
-			})
-		)
+	if (hasNoComponent === true) return (
+		h(Empty, {
+			color: 'currentColor',
+			text: 'No components found'
+		})
 	)
 
 	return (
-		h(DocumentTitle, { title: `${ props.currentComponent.name } | ${ props.opts.title }` },
-			h('div', {
-				className: style.self.toString(),
-				style: {
-					'--size-vertical': `${ props.size.vertical }px`,
-					'--size-horizontal': `${ props.size.horizontal }px`
-				}
-			},
-				h(Nav, {
-					statuses: props.opts.statuses,
-					components: props.components,
-					currentComponent: props.currentComponent,
-					currentTab: props.currentTab,
-					filter: props.filter,
-					setFilter: props.setFilter
-				}),
-				h(Resizer, {
-					direction: 'horizontal',
-					setSize: props.setSizeHorizontal,
-					setSizeStatus: props.setSizeStatus
-				}),
-				h(Content, props),
-				h(ResizeOverlay, {
-					visible: props.size.status === SIZE_STATUS_ACTIVE
-				})
-			)
+		h(Fragment, {},
+			h(Nav, {
+				statuses: props.opts.statuses,
+				components: props.components,
+				currentComponent: props.currentComponent,
+				currentTab: props.currentTab,
+				filter: props.filter,
+				setFilter: props.setFilter
+			}),
+			h(Resizer, {
+				direction: 'horizontal',
+				setSize: props.setSizeHorizontal,
+				setSizeStatus: props.setSizeStatus
+			}),
+			h(Content, props),
+			h(ResizeOverlay, {
+				visible: props.size.status === SIZE_STATUS_ACTIVE
+			})
 		)
 	)
 
