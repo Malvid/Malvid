@@ -17,7 +17,7 @@ const style = {
 		padding: '0 .95em',
 		width: '100%',
 		height: HEIGHT,
-		color: 'currentcolor',
+		color: 'currentColor',
 		textOverflow: 'ellipsis',
 		textDecoration: 'none',
 		whiteSpace: 'nowrap',

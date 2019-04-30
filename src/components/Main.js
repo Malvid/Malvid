@@ -35,7 +35,7 @@ const Main = (props) => {
 	if (props.error != null) return (
 		h(DocumentTitle, { title: 'Malvid' },
 			h(Empty, {
-				color: 'currentcolor',
+				color: 'currentColor',
 				text: props.error
 			})
 		)
@@ -45,7 +45,7 @@ const Main = (props) => {
 	if (props.currentComponent == null) return (
 		h(DocumentTitle, { title: props.opts.title },
 			h(Empty, {
-				color: 'currentcolor',
+				color: 'currentColor',
 				text: 'No components found'
 			})
 		)

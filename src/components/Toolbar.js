@@ -47,7 +47,7 @@ const style = {
 		background: 'transparent',
 		appearance: 'none',
 		border: 'none',
-		color: 'currentcolor',
+		color: 'currentColor',
 		fontSize: '1.2em',
 		textDecoration: 'none',
 		outline: 'none',

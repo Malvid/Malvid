@@ -36,7 +36,7 @@ const style = {
 		width: '100%',
 		height: '100%',
 		background: 'transparent',
-		color: 'currentcolor',
+		color: 'currentColor',
 		font: 'inherit',
 		outline: 'none',
 		border: '0'
