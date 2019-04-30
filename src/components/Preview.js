@@ -4,7 +4,6 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
-const getStatus = require('../selectors/getStatus')
 const shadowBox = require('../styles/shadowBox')
 const { PREVIEW_MIN_HEIGHT, PREVIEW_HEIGHT, INSPECTOR_MIN_HEIGHT } = require('../constants/sizes')
 
@@ -35,14 +34,15 @@ const style = {
 
 }
 
-module.exports = ({ statuses, currentComponent, hydrate }) => (
+module.exports = ({ statuses, components, currentComponent, currentTab, hydrate }) => (
 
 	h('div', { className: style.self.toString() },
 		h('div', { className: style.shadowBox.toString() },
 			h(Toolbar, {
-				status: getStatus(statuses, currentComponent),
-				label: currentComponent.name,
-				url: currentComponent.url
+				statuses,
+				components,
+				currentComponent,
+				currentTab
 			}),
 			h(Frame, {
 				id: currentComponent.id,
@@ -59,7 +59,9 @@ module.exports.displayName = 'Preview'
 module.exports.propTypes = {
 
 	statuses: propTypes.object.isRequired,
+	components: propTypes.array.isRequired,
 	currentComponent: propTypes.object.isRequired,
+	currentTab: propTypes.object.isRequired,
 	hydrate: propTypes.func.isRequired
 
 }

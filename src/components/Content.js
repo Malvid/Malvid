@@ -29,7 +29,9 @@ module.exports = (props) => (
 	h('div', { className: style.self.toString() },
 		h(Preview, {
 			statuses: props.opts.statuses,
+			components: props.components,
 			currentComponent: props.currentComponent,
+			currentTab: props.currentTab,
 			hydrate: props.hydrate
 		}),
 		h(Resizer, {

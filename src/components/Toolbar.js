@@ -4,10 +4,13 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
+const getStatus = require('../selectors/getStatus')
 const selectable = require('../styles/selectable')
 const { HEIGHT } = require('../constants/sizes')
 const { BLUE, MID } = require('../constants/colors')
+const { MOBILE_MENU } = require('../constants/breakpoints')
 
+const SelectNav = require('./SelectNav')
 const Status = require('./Status')
 const IconTab = require('./IconTab')
 const IconReload = require('./IconReload')
@@ -24,11 +27,14 @@ const style = {
 		borderBottom: `1px solid ${ MID }`
 	}),
 
-	label: css(selectable, {
+	name: css(selectable, {
 		margin: '0',
 		padding: '.4em',
 		fontSize: '1em',
-		fontWeight: 'normal'
+		fontWeight: 'normal',
+		[MOBILE_MENU]: {
+			display: 'none'
+		}
 	}),
 
 	tools: css({
@@ -59,12 +65,17 @@ const style = {
 
 }
 
-module.exports = ({ status, label, url }) => (
+module.exports = ({ statuses, components, currentComponent, currentTab }) => (
 
 	h('div', { className: style.self.toString() },
-		h('h1', { className: style.label.toString() },
-			label
+		h('h1', { className: style.name.toString() },
+			currentComponent.name
 		),
+		h(SelectNav, {
+			components,
+			currentComponent,
+			currentTab
+		}),
 		h('div', { className: style.tools.toString() },
 			h('button', {
 				className: style.button.toString(),
@@ -76,13 +87,13 @@ module.exports = ({ status, label, url }) => (
 			h('a', {
 				className: style.button.toString(),
 				title: 'Open in new tab',
-				href: url,
+				href: currentComponent.url,
 				target: '_blank'
 			},
 				h(IconTab)
 			),
-			status != null && h('div', { className: style.separator.toString() }),
-			status != null && h(Status, status)
+			getStatus(statuses, currentComponent) != null && h('div', { className: style.separator.toString() }),
+			getStatus(statuses, currentComponent) != null && h(Status, getStatus(statuses, currentComponent))
 		)
 	)
 
@@ -92,8 +103,9 @@ module.exports.displayName = 'Toolbar'
 
 module.exports.propTypes = {
 
-	status: propTypes.object,
-	label: propTypes.string.isRequired,
-	url: propTypes.string.isRequired
+	statuses: propTypes.object.isRequired,
+	components: propTypes.array.isRequired,
+	currentComponent: propTypes.object.isRequired,
+	currentTab: propTypes.object.isRequired
 
 }
