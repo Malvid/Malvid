@@ -30,16 +30,18 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h('div', { className: style.self({ color: props.color }).toString() },
-		h('div', { className: style.icon.toString() },
-			h(IconSad)
-		),
-		h('p', { className: style.text.toString() }, props.text)
+	return (
+		h('div', { className: style.self({ color: props.color }).toString() },
+			h('div', { className: style.icon.toString() },
+				h(IconSad)
+			),
+			h('p', { className: style.text.toString() }, props.text)
+		)
 	)
 
-)
+}
 
 module.exports.displayName = 'Empty'
 

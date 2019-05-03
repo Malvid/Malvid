@@ -18,19 +18,21 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h('iframe', {
-		key: props.currentComponent.id,
-		id: 'iframe',
-		className: style.self.toString(),
-		src: props.currentComponent.url,
-		onLoad: () => requestState(location.href)
-			.then(props.hydrate, (err) => props.hydrate(errorToState(err)))
-			.catch(console.error)
-	})
+	return (
+		h('iframe', {
+			key: props.currentComponent.id,
+			id: 'iframe',
+			className: style.self.toString(),
+			src: props.currentComponent.url,
+			onLoad: () => requestState(location.href)
+				.then(props.hydrate, (err) => props.hydrate(errorToState(err)))
+				.catch(console.error)
+		})
+	)
 
-)
+}
 
 module.exports.displayName = 'Frame'
 

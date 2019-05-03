@@ -18,20 +18,22 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h('div', { className: style.self.toString() },
-		getTabs(props.currentComponent).map((tab) =>
-			h(Tab, {
-				key: tab.id,
-				label: tab.label,
-				active: tab.id === props.currentTab.id,
-				href: createRoute(props.currentComponent.id, tab.id)
-			})
+	return (
+		h('div', { className: style.self.toString() },
+			getTabs(props.currentComponent).map((tab) =>
+				h(Tab, {
+					key: tab.id,
+					label: tab.label,
+					active: tab.id === props.currentTab.id,
+					href: createRoute(props.currentComponent.id, tab.id)
+				})
+			)
 		)
 	)
 
-)
+}
 
 module.exports.displayName = 'Tabs'
 

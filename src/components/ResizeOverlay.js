@@ -22,11 +22,13 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h('div', { className: css(style.self, props.visible && style.visible).toString() })
+	return (
+		h('div', { className: css(style.self, props.visible && style.visible).toString() })
+	)
 
-)
+}
 
 module.exports.displayName = 'ResizeOverlay'
 

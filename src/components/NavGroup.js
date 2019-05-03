@@ -33,17 +33,19 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h(Fragment, {},
-		h('button', {
-			className: style.self.toString(),
-			onClick: props.onClick
-		}, props.label),
-		props.children
+	return (
+		h(Fragment, {},
+			h('button', {
+				className: style.self.toString(),
+				onClick: props.onClick
+			}, props.label),
+			props.children
+		)
 	)
 
-)
+}
 
 module.exports.displayName = 'NavGroup'
 

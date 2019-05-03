@@ -40,14 +40,16 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h('a', {
-		className: css(style.self, props.active && style.active).toString(),
-		href: props.href
-	}, props.label)
+	return (
+		h('a', {
+			className: css(style.self, props.active && style.active).toString(),
+			href: props.href
+		}, props.label)
+	)
 
-)
+}
 
 module.exports.displayName = 'Tab'
 

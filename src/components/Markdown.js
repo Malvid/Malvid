@@ -23,20 +23,22 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h('div', { className: style.self.toString() },
-		h('div', {
-			className: `${ style.content.toString() } markdown`,
-			dangerouslySetInnerHTML: {
-				__html: marked(props.data, {
-					highlight: (code) => highlight.highlightAuto(code).value
-				})
-			}
-		})
+	return (
+		h('div', { className: style.self.toString() },
+			h('div', {
+				className: `${ style.content.toString() } markdown`,
+				dangerouslySetInnerHTML: {
+					__html: marked(props.data, {
+						highlight: (code) => highlight.highlightAuto(code).value
+					})
+				}
+			})
+		)
 	)
 
-)
+}
 
 module.exports.displayName = 'Markdown'
 

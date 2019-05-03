@@ -18,14 +18,16 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h('div', {
-		title: props.description,
-		className: style.self({ color: props.color }).toString()
-	})
+	return (
+		h('div', {
+			title: props.description,
+			className: style.self({ color: props.color }).toString()
+		})
+	)
 
-)
+}
 
 module.exports.displayName = 'NavStatus'
 

@@ -26,23 +26,25 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h('div', { className: style.self.toString() },
-		h('div', { className: style.shadowBox.toString() },
-			h(Toolbar, {
-				statuses: props.opts.statuses,
-				components: props.components,
-				currentComponent: props.currentComponent,
-				currentTab: props.currentTab
-			}),
-			h(Frame, {
-				currentComponent: props.currentComponent,
-				hydrate: props.hydrate
-			})
+	return (
+		h('div', { className: style.self.toString() },
+			h('div', { className: style.shadowBox.toString() },
+				h(Toolbar, {
+					statuses: props.opts.statuses,
+					components: props.components,
+					currentComponent: props.currentComponent,
+					currentTab: props.currentTab
+				}),
+				h(Frame, {
+					currentComponent: props.currentComponent,
+					hydrate: props.hydrate
+				})
+			)
 		)
 	)
 
-)
+}
 
 module.exports.displayName = 'Preview'

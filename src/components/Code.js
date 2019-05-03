@@ -30,22 +30,24 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h('pre', { className: style.self.toString() },
-		h('code', {
-			className: style.code.toString(),
-			dangerouslySetInnerHTML: {
-				__html: link(
-					highlight.highlightAuto(props.currentTab.data, props.currentTab.languages).value,
-					props.components,
-					(component, filename) => `<a class="${ style.link.toString() }" href="${ createRoute(component.id, props.currentTab.id) }">${ filename }</a>`
-				)
-			}
-		})
+	return (
+		h('pre', { className: style.self.toString() },
+			h('code', {
+				className: style.code.toString(),
+				dangerouslySetInnerHTML: {
+					__html: link(
+						highlight.highlightAuto(props.currentTab.data, props.currentTab.languages).value,
+						props.components,
+						(component, filename) => `<a class="${ style.link.toString() }" href="${ createRoute(component.id, props.currentTab.id) }">${ filename }</a>`
+					)
+				}
+			})
+		)
 	)
 
-)
+}
 
 module.exports.displayName = 'Code'
 

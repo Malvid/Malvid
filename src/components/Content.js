@@ -24,18 +24,20 @@ const style = {
 
 }
 
-module.exports = (props) => (
+module.exports = (props) => {
 
-	h('div', { className: style.self.toString() },
-		h(Preview, props),
-		h(Resizer, {
-			direction: 'vertical',
-			setSize: props.setSizeVertical,
-			setSizeStatus: props.setSizeStatus
-		}),
-		h(Inspector, props)
+	return (
+		h('div', { className: style.self.toString() },
+			h(Preview, props),
+			h(Resizer, {
+				direction: 'vertical',
+				setSize: props.setSizeVertical,
+				setSizeStatus: props.setSizeStatus
+			}),
+			h(Inspector, props)
+		)
 	)
 
-)
+}
 
 module.exports.displayName = 'Content'
