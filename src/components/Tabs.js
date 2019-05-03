@@ -6,6 +6,7 @@ const propTypes = require('prop-types')
 const h = require('../utils/h')
 const createRoute = require('../utils/createRoute')
 const getTabs = require('../selectors/getTabs')
+const { MID } = require('../constants/colors')
 
 const Tab = require('./Tab')
 
@@ -13,7 +14,10 @@ const style = {
 
 	self: css({
 		flexShrink: '0',
-		display: 'flex'
+		display: 'grid',
+		columnGap: '1px',
+		gridAutoFlow: 'column',
+		background: MID
 	})
 
 }
