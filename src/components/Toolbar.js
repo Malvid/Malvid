@@ -67,7 +67,7 @@ const style = {
 
 module.exports = (props) => {
 
-	const status = getStatus(props.statuses, props.currentComponent)
+	const status = props.statuses[getStatus(props.currentComponent)]
 	const hasStatus = status != null
 
 	return (

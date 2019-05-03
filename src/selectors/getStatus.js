@@ -2,7 +2,7 @@
 
 const getTab = require('./getTab')
 
-module.exports = (statuses, component) => {
+module.exports = (component) => {
 
 	const config = getTab(component, 'config')
 
@@ -10,9 +10,9 @@ module.exports = (statuses, component) => {
 	if (config == null) return null
 	if (config.data == null) return null
 
-	const status = statuses[config.data.status]
+	const status = config.data.status
 
-	// The status is optional
+	// The group is optional
 	if (status == null) return null
 
 	return status

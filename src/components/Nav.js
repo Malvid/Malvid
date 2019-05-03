@@ -50,7 +50,7 @@ module.exports = (props) => {
 		h(NavItem, {
 			key: component.id,
 			label: component.name,
-			status: getStatus(props.statuses, component),
+			status: props.statuses[getStatus(component)],
 			active: component.id === props.currentComponent.id,
 			href: createRoute(component.id, props.currentTab.id)
 		})

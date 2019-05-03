@@ -4,6 +4,7 @@ const searchstring = require('searchstring')
 
 const getTab = require('../selectors/getTab')
 const getGroup = require('../selectors/getGroup')
+const getStatus = require('../selectors/getStatus')
 
 const clean = (value) => value.trim().toLowerCase()
 
@@ -37,10 +38,13 @@ module.exports = (components, filter) => {
 			if (tab == null) {
 
 				const group = getGroup(component)
+				const status = getStatus(component)
 
 				const hasGroup = group != null
+				const hasStatus = status != null
 
 				if (condition.prop === 'group' && hasGroup === true) return group.includes(value)
+				if (condition.prop === 'status' && hasStatus === true) return status.includes(value)
 
 				return false
 
