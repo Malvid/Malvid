@@ -59,7 +59,8 @@ module.exports = (props) => {
 	const toGroup = (group, children) => (
 		h(NavGroup, {
 			key: group,
-			label: group
+			label: group,
+			onClick: () => props.setFilter(`group:"${ group }"`)
 		}, children)
 	)
 
