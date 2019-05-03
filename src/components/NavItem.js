@@ -5,7 +5,7 @@ const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const { BORDER_RADIUS } = require('../constants/sizes')
-const { BLUE_LIGHT } = require('../constants/colors')
+const { BLUE_LIGHT, MID } = require('../constants/colors')
 
 const NavStatus = require('./NavStatus')
 
@@ -23,7 +23,7 @@ const style = {
 		'outline': 'none',
 		'cursor': 'default',
 		':active': {
-			background: BLUE_LIGHT
+			background: MID
 		}
 	}),
 
