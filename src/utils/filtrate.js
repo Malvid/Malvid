@@ -3,6 +3,9 @@
 const searchstring = require('searchstring')
 
 const getTab = require('../selectors/getTab')
+const getGroup = require('../selectors/getGroup')
+
+const clean = (value) => value.trim().toLowerCase()
 
 const hasProp = (value) => value.prop != null
 const hasNoProp = (value) => value.prop == null
@@ -14,7 +17,7 @@ module.exports = (components, filter) => {
 	const terms = conditions.filter(hasNoProp)
 	const props = conditions.filter(hasProp)
 
-	const term = terms.map((condition) => condition.value).join(' ').toLowerCase()
+	const term = clean(terms.map((condition) => condition.value).join(' '))
 
 	const hasTerm = term !== ''
 	const hasProps = Object.keys(props).length !== 0
@@ -25,12 +28,23 @@ module.exports = (components, filter) => {
 
 		const inName = name.includes(term)
 
-		const inTabs = props.some((condition) => {
+		const inTabs = props.every((condition) => {
 
-			const value = condition.value.toLowerCase()
+			const value = clean(condition.value)
 			const tab = getTab(component, condition.prop)
 
-			if (tab == null) return false
+			// Look for special filters when the prop is not a tab
+			if (tab == null) {
+
+				const group = getGroup(component)
+
+				const hasGroup = group != null
+
+				if (condition.prop === 'group' && hasGroup === true) return group.includes(value)
+
+				return false
+
+			}
 
 			// Data might be parsed by a user-defined function.
 			// In this case it's not a searchable string.

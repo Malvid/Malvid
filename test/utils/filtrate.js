@@ -101,6 +101,41 @@ describe('filtrate()', function() {
 
 	})
 
+	it('should return components filtered by group', function() {
+
+		const components = [
+			{
+				id: uuid(),
+				name: name('a'),
+				data: [
+					{
+						id: 'config',
+						data: {
+							group: uuid()
+						}
+					}
+				]
+			},
+			{
+				id: uuid(),
+				name: name('b'),
+				data: [
+					{
+						id: 'config',
+						data: {
+							group: uuid()
+						}
+					}
+				]
+			}
+		]
+
+		const result = filtrate(components, `group:${ components[1].data[0].data.group }`)
+
+		assert.deepEqual(result, [ components[1] ])
+
+	})
+
 	it('should ignore unknown tabs', function() {
 
 		const components = [
