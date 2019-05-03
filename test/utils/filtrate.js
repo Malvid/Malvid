@@ -136,6 +136,41 @@ describe('filtrate()', function() {
 
 	})
 
+	it('should return components filtered by status', function() {
+
+		const components = [
+			{
+				id: uuid(),
+				name: name('a'),
+				data: [
+					{
+						id: 'config',
+						data: {
+							status: uuid()
+						}
+					}
+				]
+			},
+			{
+				id: uuid(),
+				name: name('b'),
+				data: [
+					{
+						id: 'config',
+						data: {
+							status: uuid()
+						}
+					}
+				]
+			}
+		]
+
+		const result = filtrate(components, `status:${ components[1].data[0].data.status }`)
+
+		assert.deepEqual(result, [ components[1] ])
+
+	})
+
 	it('should ignore unknown tabs', function() {
 
 		const components = [
