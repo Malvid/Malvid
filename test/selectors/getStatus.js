@@ -4,7 +4,7 @@ const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const getStatus = require('../../src/selectors/getStatus')
 
-describe.only('getStatus()', function() {
+describe('getStatus()', function() {
 
 	it('should return null when config is missing', function() {
 
