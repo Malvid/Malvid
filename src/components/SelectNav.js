@@ -42,25 +42,32 @@ const style = {
 
 module.exports = (props) => {
 
-	const toNavGroup = (group) => (
-		h('option', {
-			key: group,
-			disabled: true
-		}, group)
-	)
-
-	const toNavItem = (component) => (
+	const toItem = (component) => (
 		h('option', {
 			key: component.id,
 			value: createRoute(component.id, props.currentTab.id)
 		}, component.name)
 	)
 
-	const items = sort(
-		props.components,
-		toNavGroup,
-		toNavItem
+	const toGroup = (group, children) => (
+		h('optgroup', {
+			key: group,
+			label: group
+		}, children)
 	)
+
+	const render = ({ group, components }) => {
+
+		const hasGroup = group !== ''
+		const children = components.map(toItem)
+
+		// Always return an array even when it's just one group.
+		// This makes handling the response of the function easier.
+		return hasGroup === true ? [ toGroup(group, children) ] : children
+
+	}
+
+	const items = sort(props.components, render)
 
 	return (
 		h('select', {

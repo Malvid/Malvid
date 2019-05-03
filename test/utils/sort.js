@@ -4,7 +4,7 @@ const assert = require('chai').assert
 const uuid = require('uuid/v4')
 const sort = require('../../src/utils/sort')
 
-const passThrough = (_) => _
+const passThrough = (_) => [ _ ]
 
 describe('sort()', function() {
 
@@ -12,7 +12,7 @@ describe('sort()', function() {
 
 		const components = []
 
-		const result = sort(components, passThrough, passThrough)
+		const result = sort(components, passThrough)
 
 		assert.isArray(result)
 		assert.strictEqual(result.length, components.length)
@@ -48,12 +48,12 @@ describe('sort()', function() {
 			}
 		]
 
-		const result = sort(components, passThrough, passThrough)
+		const result = sort(components, passThrough)
 
-		assert.strictEqual(result[0], components[1].data[0].data.group)
-		assert.strictEqual(result[1].id, components[1].id)
-		assert.strictEqual(result[2], components[0].data[0].data.group)
-		assert.strictEqual(result[3].id, components[0].id)
+		assert.strictEqual(result[0].group, components[1].data[0].data.group)
+		assert.strictEqual(result[0].components[0].id, components[1].id)
+		assert.strictEqual(result[1].group, components[0].data[0].data.group)
+		assert.strictEqual(result[1].components[0].id, components[0].id)
 
 	})
 
@@ -88,11 +88,11 @@ describe('sort()', function() {
 			}
 		]
 
-		const result = sort(components, passThrough, passThrough)
+		const result = sort(components, passThrough)
 
-		assert.strictEqual(result[0], components[0].data[0].data.group)
-		assert.strictEqual(result[1].id, components[1].id)
-		assert.strictEqual(result[2].id, components[0].id)
+		assert.strictEqual(result[0].group, components[0].data[0].data.group)
+		assert.strictEqual(result[0].components[0].id, components[1].id)
+		assert.strictEqual(result[0].components[1].id, components[0].id)
 
 	})
 
@@ -117,12 +117,12 @@ describe('sort()', function() {
 			}
 		]
 
-		const result = sort(components, passThrough, passThrough)
+		const result = sort(components, passThrough)
 
-		assert.strictEqual(result[0].id, components[3].id)
-		assert.strictEqual(result[1].id, components[0].id)
-		assert.strictEqual(result[2].id, components[1].id)
-		assert.strictEqual(result[3].id, components[2].id)
+		assert.strictEqual(result[0].components[0].id, components[3].id)
+		assert.strictEqual(result[0].components[1].id, components[0].id)
+		assert.strictEqual(result[0].components[2].id, components[1].id)
+		assert.strictEqual(result[0].components[3].id, components[2].id)
 
 	})
 
@@ -141,10 +141,10 @@ describe('sort()', function() {
 			}
 		]
 
-		const result = sort(components, passThrough, passThrough)
+		const result = sort(components, passThrough)
 
-		assert.strictEqual(result[0].id, components[0].id)
-		assert.strictEqual(result[1].id, components[1].id)
+		assert.strictEqual(result[0].components[0].id, components[0].id)
+		assert.strictEqual(result[0].components[1].id, components[1].id)
 
 	})
 

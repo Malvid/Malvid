@@ -11,7 +11,7 @@ const sortByProp = (prop) => (a, b) => {
 
 }
 
-module.exports = (components, toNavGroup, toNavItem) => {
+module.exports = (components, render) => {
 
 	const grouped = components.reduce((acc, component) => {
 
@@ -44,8 +44,7 @@ module.exports = (components, toNavGroup, toNavItem) => {
 
 	const rendered = sortedByNameAndGroup.reduce((acc, item) => [
 		...acc,
-		item.group === '' ? undefined : toNavGroup(item.group),
-		...item.components.map(toNavItem)
+		...render(item)
 	], [])
 
 	const cleaned = rendered.filter((item) => item != null)

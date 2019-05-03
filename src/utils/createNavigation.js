@@ -5,26 +5,25 @@ const sort = require('./sort')
 
 module.exports = (components, filter, currentComponent) => {
 
+	// Just use the components and ignore the group
+	const render = ({ components }) => components
+
 	// Components and groups filtered and sorted
 	const items = sort(
 		filtrate(components, filter),
-		() => undefined,
-		(component) => component
+		render
 	)
-
-	// All components without groups
-	const filteredItems = items.filter((item) => item != null)
 
 	const nearCurrentComponent = (offset) => {
 
-		const currentComponentIndex = filteredItems.findIndex(({ id }) => id === currentComponent.id)
+		const currentComponentIndex = items.findIndex(({ id }) => id === currentComponent.id)
 
-		return filteredItems[currentComponentIndex + offset]
+		return items[currentComponentIndex + offset]
 
 	}
 
 	return {
-		firstComponent: () => filteredItems[0],
+		firstComponent: () => items[0],
 		prevComponent: () => nearCurrentComponent(-1),
 		nextComponent: () => nearCurrentComponent(1)
 	}
