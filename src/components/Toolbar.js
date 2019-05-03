@@ -67,6 +67,9 @@ const style = {
 
 module.exports = (props) => {
 
+	const status = getStatus(props.statuses, props.currentComponent)
+	const hasStatus = status != null
+
 	return (
 		h('div', { className: style.self.toString() },
 			h('h1', { className: style.name.toString() },
@@ -93,8 +96,8 @@ module.exports = (props) => {
 				},
 					h(IconTab)
 				),
-				getStatus(props.statuses, props.currentComponent) != null && h('div', { className: style.separator.toString() }),
-				getStatus(props.statuses, props.currentComponent) != null && h(Status, getStatus(props.statuses, props.currentComponent))
+				hasStatus === true && h('div', { className: style.separator.toString() }),
+				hasStatus === true && h(Status, status)
 			)
 		)
 	)
