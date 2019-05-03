@@ -9,7 +9,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### New
 
 - Malvid now works on small screens
-- Select navigation on small screens
+- Filter by group simply by clicking the name of a group
+- Filter by group using the search term `group:`
 
 ## [5.5.1] - 2019-04-06
 
