@@ -10,6 +10,7 @@ const IconSad = require('./IconSad')
 const style = {
 
 	self: ({ color }) => css({
+		flexGrow: '1',
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
