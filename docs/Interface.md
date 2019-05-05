@@ -15,14 +15,20 @@ Use the search field at the top to find the component you are looking for. Prepe
 - `view:<term>`: Only search through the templates of your components
 - `data:<term>`: Only search through the data of your components
 - `notes:<term>`: Only search through the notes of your components
+- `group:<term>`: Search by group
+- `status:<term>`: Search by status
 
-Example:
+Examples:
 
-The input `view:"<a class="` shows all components whose template contains an `<a>` Tag starting with a `class` attribute.
+- The input `view:"<a class="` shows all components whose template contains an `<a>` Tag starting with a `class` attribute.
+- The input `group:` shows all components that are part of a group.
+- The input `status:wip` shows all components that are marked with the `wip` status.
 
 ### Groups
 
 Malvid doesn't care about the original folder structure and displays all components below each other. This allows you see all of them at a glance without getting distracted by a deeply nested list. Some components however belong together and that's what groups are for. A group can be defined in the [configuration](Components.md#configuration) of a component. Components with the same group name will be grouped together inside of the navigation.
+
+> 💡 Click the name of a group to hide all components that are not part of that group.
 
 ### Statuses
 
