@@ -13,7 +13,6 @@ const { MOBILE_MENU } = require('../constants/breakpoints')
 const SelectNav = require('./SelectNav')
 const Status = require('./Status')
 const IconTab = require('./IconTab')
-const IconReload = require('./IconReload')
 
 const style = {
 
@@ -38,12 +37,10 @@ const style = {
 	}),
 
 	tools: css({
-		display: 'flex',
+		display: 'grid',
+		gridAutoFlow: 'column',
+		gridGap: '1em',
 		alignItems: 'center'
-	}),
-
-	separator: css({
-		width: '1em'
 	}),
 
 	button: css({
@@ -81,13 +78,6 @@ module.exports = (props) => {
 				currentTab: props.currentTab
 			}),
 			h('div', { className: style.tools.toString() },
-				h('button', {
-					className: style.button.toString(),
-					title: 'Refresh preview',
-					onClick: () => document.querySelector('#iframe').contentWindow.location.reload()
-				},
-					h(IconReload)
-				),
 				h('a', {
 					className: style.button.toString(),
 					title: 'Open in new tab',
@@ -96,7 +86,6 @@ module.exports = (props) => {
 				},
 					h(IconTab)
 				),
-				hasStatus === true && h('div', { className: style.separator.toString() }),
 				hasStatus === true && h(Status, status)
 			)
 		)
