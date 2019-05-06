@@ -5,7 +5,7 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
-const { BORDER_RADIUS } = require('../constants/sizes')
+const { BORDER_RADIUS, HEIGHT } = require('../constants/sizes')
 const { MID } = require('../constants/colors')
 
 const IconSearch = require('./IconSearch')
@@ -16,8 +16,9 @@ const style = {
 		position: 'relative',
 		display: 'flex',
 		alignItems: 'center',
-		padding: '1.05em 1.2em',
+		padding: '0 1.2em',
 		width: '100%',
+		height: HEIGHT,
 		background: MID,
 		borderRadius: BORDER_RADIUS
 	}),
