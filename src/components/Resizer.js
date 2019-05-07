@@ -125,16 +125,17 @@ module.exports = class extends Component {
 
 	render() {
 
-		const direction = this.props.direction
+		const isVertical = this.props.direction === DIRECTION_VERTICAL
+		const isHorizontal = this.props.direction === DIRECTION_HORIZONTAL
 
 		return (
 			h('div', {
 				onMouseDown: this.onMouseDown.bind(this),
 				className: css(
-					style.self({ direction }),
-					style.selfVisibility({ status: this.state.status }),
-					direction === DIRECTION_VERTICAL && style.selfVertical,
-					direction === DIRECTION_HORIZONTAL && style.selfHorizontal
+					style.self({ direction: this.props.direction }),
+					style.selfVisibility({ status: this.props.size.status }),
+					isVertical === true && style.selfVertical,
+					isHorizontal === true && style.selfHorizontal
 				).toString()
 			},
 				Array.apply(null, { length: 3 }).map((item, i) =>
@@ -142,8 +143,8 @@ module.exports = class extends Component {
 						key: i,
 						className: css(
 							style.handle,
-							direction === DIRECTION_VERTICAL && style.handleVertical,
-							direction === DIRECTION_HORIZONTAL && style.handleHorizontal
+							isVertical === true && style.handleVertical,
+							isHorizontal === true && style.handleHorizontal
 						).toString()
 					})
 				)
@@ -158,7 +159,10 @@ module.exports.displayName = 'Resizer'
 
 module.exports.propTypes = {
 
-	direction: propTypes.string.isRequired,
+	direction: propTypes.oneOf([
+		DIRECTION_VERTICAL,
+		DIRECTION_HORIZONTAL
+	]).isRequired,
 	size: propTypes.object.isRequired,
 	setSizeStatus: propTypes.func.isRequired,
 	setSize: propTypes.func.isRequired
