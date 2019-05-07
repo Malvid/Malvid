@@ -90,7 +90,7 @@ module.exports = class extends Component {
 			startPos: this.state.startPos || eventPos(e)
 		})
 
-		document.documentElement.onmouseup = () => {
+		document.documentElement.addEventListener('mouseup', () => {
 
 			this.props.setSizeStatus(SIZE_STATUS_INACTIVE)
 
@@ -98,7 +98,7 @@ module.exports = class extends Component {
 				status: SIZE_STATUS_INACTIVE
 			})
 
-		}
+		}, { once: true })
 
 	}
 
