@@ -4,7 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Removed reload icon in toolbar
+- Adjust clear area of group
+
+### Fixed
+
+- Crash when using incorrect filter terms in the search
+
 ## [5.6.0] - 2019-05-05
+
+### New
 
 - Malvid now works on small screens
 - Filter by group simply by clicking the name of a group
