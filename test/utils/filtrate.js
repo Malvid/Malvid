@@ -201,7 +201,15 @@ describe('filtrate()', function() {
 			}
 		]
 
-		const result = filtrate(components, `view:$${ components[0].name }`)
+		const result = filtrate(components, `view:${ components[0].name }`)
+
+		assert.strictEqual(result.length, 0)
+
+	})
+
+	it('should fail silently with incorrect user input', function() {
+
+		const result = filtrate([], `view:a"`)
 
 		assert.strictEqual(result.length, 0)
 

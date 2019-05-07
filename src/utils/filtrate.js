@@ -11,9 +11,20 @@ const clean = (value) => value.trim().toLowerCase()
 const hasProp = (value) => value.prop != null
 const hasNoProp = (value) => value.prop == null
 
+const getConditions = (filter) => {
+
+	try {
+		return searchstring(filter)
+	} catch (err) {
+		console.error('Failed to parse `filter`', err)
+		return []
+	}
+
+}
+
 module.exports = (components, filter) => {
 
-	const conditions = searchstring(filter)
+	const conditions = getConditions(filter)
 
 	const terms = conditions.filter(hasNoProp)
 	const props = conditions.filter(hasProp)
