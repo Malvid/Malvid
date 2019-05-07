@@ -11,7 +11,6 @@ const style = {
 
 	self: css({
 		'padding': `.9em ${ BORDER_RADIUS }`,
-		'width': '100%',
 		'background': 'transparent',
 		'appearance': 'none',
 		'border': 'none',
@@ -25,7 +24,7 @@ const style = {
 		'textOverflow': 'ellipsis',
 		'whiteSpace': 'nowrap',
 		'overflow': 'hidden',
-		'cursor': 'default',
+		'cursor': 'pointer',
 		':first-child': {
 			paddingTop: '0'
 		}
