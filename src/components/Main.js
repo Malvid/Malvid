@@ -55,7 +55,7 @@ const Main = (props) => {
 	return (
 		h(Fragment, {},
 			h(Nav, {
-				statuses: props.opts.statuses,
+				opts: props.opts,
 				components: props.components,
 				currentComponent: props.currentComponent,
 				currentTab: props.currentTab,

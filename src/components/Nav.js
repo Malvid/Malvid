@@ -50,7 +50,7 @@ module.exports = (props) => {
 		h(NavItem, {
 			key: component.id,
 			label: component.name,
-			status: props.statuses[getStatus(component)],
+			status: props.opts.statuses[getStatus(component)],
 			active: component.id === props.currentComponent.id,
 			href: createRoute(component.id, props.currentTab.id)
 		})
@@ -98,7 +98,7 @@ module.exports.displayName = 'Nav'
 
 module.exports.propTypes = {
 
-	statuses: propTypes.object.isRequired,
+	opts: propTypes.object.isRequired,
 	components: propTypes.array.isRequired,
 	currentComponent: propTypes.object.isRequired,
 	currentTab: propTypes.object.isRequired,
