@@ -31,6 +31,7 @@ module.exports = (props) => {
 			h(Preview, props),
 			h(Resizer, {
 				direction: 'vertical',
+				size: props.size,
 				setSize: props.setSizeVertical,
 				setSizeStatus: props.setSizeStatus
 			}),

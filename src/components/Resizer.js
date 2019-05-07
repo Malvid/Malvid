@@ -108,14 +108,14 @@ module.exports = class extends Component {
 
 		if (this.state.status === SIZE_STATUS_ACTIVE) {
 
-			const direction = this.props.direction
-
 			const offsets = {
 				vertical: this.state.startPos.y - mousePos().y,
 				horizontal: this.state.startPos.x - mousePos().x
 			}
 
-			this.props.setSize(offsets[direction])
+			const hasChanged = this.props.size[this.props.direction] !== offsets[this.props.direction]
+
+			if (hasChanged === true) this.props.setSize(offsets[this.props.direction])
 
 		}
 
@@ -159,6 +159,7 @@ module.exports.displayName = 'Resizer'
 module.exports.propTypes = {
 
 	direction: propTypes.string.isRequired,
+	size: propTypes.object.isRequired,
 	setSizeStatus: propTypes.func.isRequired,
 	setSize: propTypes.func.isRequired
 
