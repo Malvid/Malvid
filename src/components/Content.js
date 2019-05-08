@@ -24,7 +24,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Content = (props) => {
 
 	return (
 		h('div', { className: style.self.toString() },
@@ -41,4 +41,6 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Content'
+Content.displayName = 'Content'
+
+module.exports = Content

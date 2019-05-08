@@ -44,7 +44,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Nav = (props) => {
 
 	const toItem = (component) => (
 		h(NavItem, {
@@ -94,9 +94,9 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Nav'
+Nav.displayName = 'Nav'
 
-module.exports.propTypes = {
+Nav.propTypes = {
 
 	opts: propTypes.object.isRequired,
 	components: propTypes.array.isRequired,
@@ -106,3 +106,5 @@ module.exports.propTypes = {
 	setFilter: propTypes.func.isRequired
 
 }
+
+module.exports = Nav

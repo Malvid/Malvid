@@ -11,7 +11,7 @@ const style = {
 
 }
 
-module.exports = () => {
+const IconTab = () => {
 
 	return (
 		h('svg', {
@@ -24,4 +24,6 @@ module.exports = () => {
 
 }
 
-module.exports.displayName = 'IconTab'
+IconTab.displayName = 'IconTab'
+
+module.exports = IconTab

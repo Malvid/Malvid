@@ -18,7 +18,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Frame = (props) => {
 
 	return (
 		h('iframe', {
@@ -34,11 +34,13 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Frame'
+Frame.displayName = 'Frame'
 
-module.exports.propTypes = {
+Frame.propTypes = {
 
 	currentComponent: propTypes.object.isRequired,
 	hydrate: propTypes.func.isRequired
 
 }
+
+module.exports = Frame

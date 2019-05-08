@@ -40,7 +40,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const SelectNav = (props) => {
 
 	const toItem = (component) => (
 		h('option', {
@@ -79,12 +79,14 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'SelectNav'
+SelectNav.displayName = 'SelectNav'
 
-module.exports.propTypes = {
+SelectNav.propTypes = {
 
 	components: propTypes.array.isRequired,
 	currentComponent: propTypes.object.isRequired,
 	currentTab: propTypes.object.isRequired
 
 }
+
+module.exports = SelectNav

@@ -77,4 +77,6 @@ const Main = (props) => {
 
 }
 
+Main.displayName = 'Main'
+
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Main)

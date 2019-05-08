@@ -26,7 +26,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Preview = (props) => {
 
 	return (
 		h('div', { className: style.self.toString() },
@@ -47,4 +47,6 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Preview'
+Preview.displayName = 'Preview'
+
+module.exports = Preview

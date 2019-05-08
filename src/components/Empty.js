@@ -31,7 +31,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Empty = (props) => {
 
 	return (
 		h('div', { className: style.self({ color: props.color }).toString() },
@@ -44,11 +44,13 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Empty'
+Empty.displayName = 'Empty'
 
-module.exports.propTypes = {
+Empty.propTypes = {
 
 	color: propTypes.string.isRequired,
 	text: propTypes.string.isRequired
 
 }
+
+module.exports = Empty

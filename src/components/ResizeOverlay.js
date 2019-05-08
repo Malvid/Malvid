@@ -22,7 +22,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const ResizeOverlay = (props) => {
 
 	return (
 		h('div', { className: css(style.self, props.visible && style.visible).toString() })
@@ -30,10 +30,12 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'ResizeOverlay'
+ResizeOverlay.displayName = 'ResizeOverlay'
 
-module.exports.propTypes = {
+ResizeOverlay.propTypes = {
 
 	visible: propTypes.bool.isRequired
 
 }
+
+module.exports = ResizeOverlay

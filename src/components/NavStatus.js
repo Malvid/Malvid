@@ -18,7 +18,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const NavStatus = (props) => {
 
 	return (
 		h('div', {
@@ -29,11 +29,13 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'NavStatus'
+NavStatus.displayName = 'NavStatus'
 
-module.exports.propTypes = {
+NavStatus.propTypes = {
 
 	description: propTypes.string.isRequired,
 	color: propTypes.string.isRequired
 
 }
+
+module.exports = NavStatus

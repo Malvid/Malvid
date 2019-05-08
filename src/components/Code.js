@@ -30,7 +30,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Code = (props) => {
 
 	return (
 		h('pre', { className: style.self.toString() },
@@ -49,11 +49,13 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Code'
+Code.displayName = 'Code'
 
-module.exports.propTypes = {
+Code.propTypes = {
 
 	components: propTypes.array.isRequired,
 	currentTab: propTypes.object.isRequired
 
 }
+
+module.exports = Code

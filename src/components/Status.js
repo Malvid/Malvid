@@ -20,7 +20,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Status = (props) => {
 
 	return (
 		h('div', {
@@ -31,12 +31,14 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Status'
+Status.displayName = 'Status'
 
-module.exports.propTypes = {
+Status.propTypes = {
 
 	label: propTypes.string.isRequired,
 	description: propTypes.string.isRequired,
 	color: propTypes.string.isRequired
 
 }
+
+module.exports = Status

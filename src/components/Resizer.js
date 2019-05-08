@@ -62,7 +62,7 @@ const style = {
 
 }
 
-module.exports = class extends Component {
+const Resizer = class extends Component {
 
 	constructor(props) {
 
@@ -155,9 +155,9 @@ module.exports = class extends Component {
 
 }
 
-module.exports.displayName = 'Resizer'
+Resizer.displayName = 'Resizer'
 
-module.exports.propTypes = {
+Resizer.propTypes = {
 
 	direction: propTypes.oneOf([
 		DIRECTION_VERTICAL,
@@ -168,3 +168,5 @@ module.exports.propTypes = {
 	setSize: propTypes.func.isRequired
 
 }
+
+module.exports = Resizer

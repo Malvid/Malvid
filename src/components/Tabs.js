@@ -22,7 +22,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Tabs = (props) => {
 
 	return (
 		h('div', { className: style.self.toString() },
@@ -39,11 +39,13 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Tabs'
+Tabs.displayName = 'Tabs'
 
-module.exports.propTypes = {
+Tabs.propTypes = {
 
 	currentComponent: propTypes.object.isRequired,
 	currentTab: propTypes.object.isRequired
 
 }
+
+module.exports = Tabs

@@ -45,7 +45,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Filter = (props) => {
 
 	// DOM Element reference must be used to select the whole input content
 	// on focus. The event of onFocus can't be used after a delay.
@@ -73,11 +73,13 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Filter'
+Filter.displayName = 'Filter'
 
-module.exports.propTypes = {
+Filter.propTypes = {
 
 	filter: propTypes.string.isRequired,
 	setFilter: propTypes.func.isRequired
 
 }
+
+module.exports = Filter

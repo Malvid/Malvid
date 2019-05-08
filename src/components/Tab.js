@@ -35,7 +35,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Tab = (props) => {
 
 	return (
 		h('a', {
@@ -46,12 +46,14 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Tab'
+Tab.displayName = 'Tab'
 
-module.exports.propTypes = {
+Tab.propTypes = {
 
 	label: propTypes.string.isRequired,
 	active: propTypes.bool.isRequired,
 	href: propTypes.string.isRequired
 
 }
+
+module.exports = Tab

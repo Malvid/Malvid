@@ -32,7 +32,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const NavGroup = (props) => {
 
 	return (
 		h(Fragment, {},
@@ -46,12 +46,14 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'NavGroup'
+NavGroup.displayName = 'NavGroup'
 
-module.exports.propTypes = {
+NavGroup.propTypes = {
 
 	label: propTypes.string.isRequired,
 	onClick: propTypes.func.isRequired,
 	children: propTypes.arrayOf(propTypes.node).isRequired
 
 }
+
+module.exports = NavGroup

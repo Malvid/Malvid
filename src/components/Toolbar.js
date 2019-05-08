@@ -62,7 +62,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Toolbar = (props) => {
 
 	const status = props.statuses[getStatus(props.currentComponent)]
 	const hasStatus = status != null
@@ -93,9 +93,9 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Toolbar'
+Toolbar.displayName = 'Toolbar'
 
-module.exports.propTypes = {
+Toolbar.propTypes = {
 
 	statuses: propTypes.object.isRequired,
 	components: propTypes.array.isRequired,
@@ -103,3 +103,5 @@ module.exports.propTypes = {
 	currentTab: propTypes.object.isRequired
 
 }
+
+module.exports = Toolbar

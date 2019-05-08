@@ -1,7 +1,6 @@
 'use strict'
 
 const { css } = require('glamor')
-const propTypes = require('prop-types')
 
 const h = require('../utils/h')
 const shadowBox = require('../styles/shadowBox')
@@ -26,7 +25,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Inspector = (props) => {
 
 	const { data, languages } = props.currentTab
 
@@ -57,4 +56,6 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Inspector'
+Inspector.displayName = 'Inspector'
+
+module.exports = Inspector

@@ -40,7 +40,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const NavItem = (props) => {
 
 	return (
 		h('a', {
@@ -54,9 +54,9 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'NavItem'
+NavItem.displayName = 'NavItem'
 
-module.exports.propTypes = {
+NavItem.propTypes = {
 
 	label: propTypes.string.isRequired,
 	status: propTypes.object,
@@ -64,3 +64,5 @@ module.exports.propTypes = {
 	href: propTypes.string.isRequired
 
 }
+
+module.exports = NavItem

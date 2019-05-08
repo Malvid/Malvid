@@ -11,7 +11,7 @@ const style = {
 
 }
 
-module.exports = () => {
+const IconSad = () => {
 
 	return (
 		h('svg', {
@@ -27,4 +27,6 @@ module.exports = () => {
 
 }
 
-module.exports.displayName = 'IconSad'
+IconSad.displayName = 'IconSad'
+
+module.exports = IconSad

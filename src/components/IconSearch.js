@@ -11,7 +11,7 @@ const style = {
 
 }
 
-module.exports = () => {
+const IconSearch = () => {
 
 	return (
 		h('svg', {
@@ -24,4 +24,6 @@ module.exports = () => {
 
 }
 
-module.exports.displayName = 'IconSearch'
+IconSearch.displayName = 'IconSearch'
+
+module.exports = IconSearch

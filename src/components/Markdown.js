@@ -23,7 +23,7 @@ const style = {
 
 }
 
-module.exports = (props) => {
+const Markdown = (props) => {
 
 	return (
 		h('div', { className: style.self.toString() },
@@ -40,10 +40,12 @@ module.exports = (props) => {
 
 }
 
-module.exports.displayName = 'Markdown'
+Markdown.displayName = 'Markdown'
 
-module.exports.propTypes = {
+Markdown.propTypes = {
 
 	data: propTypes.string.isRequired
 
 }
+
+module.exports = Markdown
