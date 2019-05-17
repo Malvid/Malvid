@@ -132,3 +132,17 @@ Example:
   "status": "wip"
 }
 ```
+
+### Preview
+
+Type: `boolean` Default: `true` Optional: `true`
+
+You can disable the preview for certain components for cases where you do not want or need the preview to be rendered. For example when a component does not have markup but only consists of data.
+
+Example:
+
+```json
+{
+  "preview": true
+}
+```
