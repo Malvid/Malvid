@@ -10,11 +10,10 @@ module.exports = (component) => {
 	if (config == null) return true
 	if (config.data == null) return true
 
-	const previewStatus = config.data.preview
+	// Only return false when preview is false
+	if (config.data.preview === false) return false
 
-	// The group is optional
-	if (previewStatus === false) return false
-
+	// Return the default
 	return true
 
 }

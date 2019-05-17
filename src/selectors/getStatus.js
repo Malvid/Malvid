@@ -10,10 +10,8 @@ module.exports = (component) => {
 	if (config == null) return null
 	if (config.data == null) return null
 
-	const status = config.data.status
-
-	// The group is optional
-	if (status == null) return null
+	// The status is optional
+	if (config.data.status == null) return null
 
 	return status
 
