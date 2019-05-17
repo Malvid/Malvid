@@ -7,7 +7,7 @@ const h = require('../utils/h')
 const getStatus = require('../selectors/getStatus')
 const selectable = require('../styles/selectable')
 const { HEIGHT } = require('../constants/sizes')
-const { BLUE, MID } = require('../constants/colors')
+const { BLUE } = require('../constants/colors')
 const { MOBILE_MENU } = require('../constants/breakpoints')
 
 const SelectNav = require('./SelectNav')
@@ -22,8 +22,7 @@ const style = {
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		padding: '0 1.2em',
-		height: HEIGHT,
-		borderBottom: `1px solid ${ MID }`
+		height: HEIGHT
 	}),
 
 	name: css(selectable, {
