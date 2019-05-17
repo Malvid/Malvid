@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+### New
+
+- Add `preview: false` to the config of a component to hide the preview
+
 ### Fixed
 
 - Crash when typing numeric characters in the search
