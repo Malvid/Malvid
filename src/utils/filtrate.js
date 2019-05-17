@@ -6,7 +6,7 @@ const getTab = require('../selectors/getTab')
 const getGroup = require('../selectors/getGroup')
 const getStatus = require('../selectors/getStatus')
 
-const clean = (value) => value.trim().toLowerCase()
+const clean = (value) => String(value).trim().toLowerCase()
 
 const hasProp = (value) => value.prop != null
 const hasNoProp = (value) => value.prop == null
