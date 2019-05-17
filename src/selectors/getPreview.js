@@ -13,7 +13,7 @@ module.exports = (component) => {
 	const previewStatus = config.data.preview
 
 	// The group is optional
-	if (previewStatus == null) return true
+	if (previewStatus == null || previewStatus === '') return true
 
 	return previewStatus
 
