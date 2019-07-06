@@ -52,7 +52,7 @@
     "highlight.js": "^9.15.8",
     "history": "^4.9.0",
     "is-hotkey": "^0.1.4",
-    "marked": "^0.6.3",
+    "marked": "^0.7.0",
     "mocha": "^6.1.4",
     "normalize-url": "^4.3.0",
     "nyc": "^14.1.1",
