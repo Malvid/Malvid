@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [5.7.2] - 2019-10-09
+## [5.8.0] - 2019-10-09
 
 ### Added
 
@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [5.7.0] - 2019-07-04
 
-### New
+### Added
 
 - Add `preview: false` to the config of a component to hide the preview
 
@@ -39,7 +39,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [5.6.0] - 2019-05-05
 
-### New
+### Added
 
 - Malvid now works on small screens
 - Filter by group simply by clicking the name of a group
@@ -48,7 +48,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [5.5.1] - 2019-04-06
 
-### New
+### Added
 
 - Huge performance boost and size reduction
 - Pre-build client JS
