@@ -46,6 +46,15 @@ const style = {
 
 const Nav = (props) => {
 
+	const toggleGroup = (group) => {
+
+		const nextFilter = `group:"${ group }"`
+		const hasFilter = props.filter === nextFilter
+
+		props.setFilter(hasFilter === true ? '' : nextFilter)
+
+	}
+
 	const toItem = (component) => (
 		h(NavItem, {
 			key: component.id,
@@ -60,7 +69,7 @@ const Nav = (props) => {
 		h(NavGroup, {
 			key: group,
 			label: group,
-			onClick: () => props.setFilter(`group:"${ group }"`)
+			onClick: () => toggleGroup(group)
 		}, children)
 	)
 
