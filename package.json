@@ -16,10 +16,10 @@
     "components"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/comwrap/Malvid",
+  "homepage": "https://github.com/Malvid/Malvid",
   "repository": {
     "type": "git",
-    "url": "https://github.com/comwrap/Malvid.git"
+    "url": "https://github.com/Malvid/Malvid.git"
   },
   "files": [
     "bin",
