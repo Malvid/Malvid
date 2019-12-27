@@ -11,6 +11,9 @@ This styleguide presents preferred conventions we follow at [comwrap GmbH](https
 ## Filenames
 
 - The filename of a component must be written in lowercase
+- SVG components should start with `icon_`
+- Components that contain the content of a lightbox should start with `lightbox_`
+- Components that contain a hero should start with `hero_`
 - Components that fill a whole section on a site should start with `section_`
 - Components that contain other components to form a whole page should start with `template_`
 
@@ -21,28 +24,97 @@ Example:
 ├── src
 │   ├── button.njk
 │   ├── logo.njk
+│   ├── icon_arrow.njk
+│   ├── icon_close.njk
+│   ├── lightbox_image.njk
+│   ├── lightbox_video.njk
+│   ├── hero_main.njk
+│   ├── hero_detail.njk
 │   ├── section_features.njk
 │   ├── section_footer.njk
 │   ├── template_index.njk
 │   └── template_about.njk
 ```
 
-## Headlines
+## Headline
 
-- The headline of a component should be named `header`
-- The subheadline of a component should be named `subheader`
+- The headline of a component should be named `headline`
+- It's not possible to add or rename properties inside the `headline` object
+- Custom properties (e.g. the color) must be added outside of the `headline` object
+- `position` can be `left`, `center` or `right`
 
 Example:
 
 ```njk
-<h1>{{ header }}</h1>
-<h2>{{ subheader }}</h2>
+<{{ headline.type }} class="{{ headline.style }} align-{{ headline.position }} color-{{ headline_color }}">{{ headline.text }}</{{ headline.type }}>
 ```
 
 ```json
 {
-  "header": "Headline",
-  "subheader": "Subheadline"
+  "headline": {
+    "text": "Headline",
+    "type": "h1",
+    "style": "h2",
+    "position": "left"
+  },
+  "headline_color": "primary"
+}
+```
+
+You don't need to use all properties as it's recommended to keep the amount of configuration low.
+
+Example:
+
+```njk
+<h1>{{ headline.text }}</h1>
+```
+
+```json
+{
+  "headline": {
+    "text": "Headline"
+  }
+}
+```
+
+## Subheadline
+
+- The subheadline of a component should be named `subheadline`
+- It's not possible to add or rename properties inside the `subheadline` object
+- Custom properties (e.g. the color) must be added outside of the `subheadline` object
+- `position` can be `left`, `center` or `right`
+
+Example:
+
+```njk
+<{{ subheadline.type }} class="{{ subheadline.style }} align-{{ subheadline.position }} color-{{ subheadline_color }}">{{ subheadline.text }}</{{ subheadline.type }}>
+```
+
+```json
+{
+  "subheadline": {
+    "text": "Subheadline",
+    "type": "h1",
+    "style": "h2",
+    "position": "left"
+  },
+  "subheadline_color": "primary"
+}
+```
+
+You don't need to use all properties as it's recommended to keep the amount of configuration low.
+
+Example:
+
+```njk
+<h2>{{ subheadline.text }}</h2>
+```
+
+```json
+{
+  "subheadline": {
+    "text": "Subheadline"
+  }
 }
 ```
 
@@ -65,7 +137,7 @@ Example:
 ## RTE text
 
 - RTE text of a component should be named `bodytext`
-- Text containing content from the TYPO3 RTE should be [marked as safe](https://mozilla.github.io/nunjucks/templating.html#safe)
+- Text containing content from the TYPO3 RTE must be [marked as safe](https://mozilla.github.io/nunjucks/templating.html#safe)
 - Don't include RTE content from TYPO3 inside a `<p>`-Tag as TYPO3 already wraps text in `<p>`-Tags
 - Use `<p>`-Tags in the example data to imitate the behavior of real RTE content
 
@@ -83,37 +155,45 @@ Example:
 
 ## Links
 
-- The text of a link should be called `label`
-- All links should accept optional targets
-- The `href` should be an object in the data
+- The link of a component should be named `link`
+- It's not possible to add or rename properties inside the `link` object
+- Custom properties (e.g. the color) must be added outside of the `link` object
+- All links must accept optional targets
 
 Example:
 
 ```njk
-<a href="{{ href.value }}" {% if href.target %}target="{{ href.target }}"{% endif %}>{{ label }}</a>
+<a href="{{ link.value }}" {% if link.target %}target="{{ link.target }}"{% endif %}>{{ link.label }}</a>
 ```
 
 ```json
 {
-  "label": "Link",
-  "href": {
+  "link": {
+    "label": "Link",
     "value": "#",
     "target": "_blank"
-  }
+  },
+  "link_color": "primary"
 }
 ```
 
+## Link Buttons
+
+Links that look like buttons should be named `button`. They must have the same structure as [links](#links).
+
 ## Buttons
 
-The text of a button should be called `label`.
+- The button of a component should be named `button`
+- Custom properties (e.g. the color) must be added beside `button`
 
 ```njk
-<button>{{ label }}</button>
+<button>{{ button }}</button>
 ```
 
 ```json
 {
-  "label": "Button"
+  "button": "Button",
+  "button_color": "primary"
 }
 ```
 
@@ -121,7 +201,7 @@ The text of a button should be called `label`.
 
 - Images are file references in TYPO3
 - It's not possible to add or rename properties inside the `image` object
-- `width` and `height` aren't part of the `image` object and must be added outside of it
+- Custom properties (e.g. the width and height) must be added outside of the `image` object
 - `x` and `y` represent the center of the focus area in percent (see below for more information)
 - The data must always follow the structure shown below
 
@@ -174,10 +254,8 @@ Usage examples:
 
 - Videos are file references in TYPO3
 - It's not possible to add or rename properties inside the `video` object
-- `width`, `height`, `loop`, `autoplay` and `muted` aren't part of the `video` object and must be added outside of it
+- Custom properties (e.g. `width`, `height`, `loop`, `autoplay` or `muted`) must be added outside of the `video` object
 - `poster` must be added outside of the `video` object as an `image` object (see [Images](#images))
-- The data must always follow the structure shown below
-
 
 ```json
 {
