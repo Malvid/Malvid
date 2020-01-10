@@ -4,29 +4,14 @@ const { css } = require('glamor')
 const propTypes = require('prop-types')
 
 const h = require('../utils/h')
-const { BORDER_RADIUS } = require('../constants/sizes')
-const { MID } = require('../constants/colors')
+const navItem = require('../styles/navItem')
 
 const NavIcon = require('./NavIcon')
 const IconLink = require('./IconLink')
 
 const style = {
 
-	self: css({
-		'display': 'flex',
-		'alignItems': 'center',
-		'marginBottom': '1px',
-		'padding': '.8em 1.2em',
-		'width': '100%',
-		'color': 'currentColor',
-		'textDecoration': 'none',
-		'borderRadius': BORDER_RADIUS,
-		'outline': 'none',
-		'cursor': 'default',
-		':active': {
-			background: MID
-		}
-	}),
+	self: css(navItem),
 
 	label: css({
 		textOverflow: 'ellipsis',
