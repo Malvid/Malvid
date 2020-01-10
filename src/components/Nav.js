@@ -59,7 +59,7 @@ const Nav = (props) => {
 
 	const toLink = (link, i) => (
 		h(NavLink, {
-			key: i,
+			key: `${ link.href }${ link.label }`,
 			label: link.label,
 			href: link.href
 		})
