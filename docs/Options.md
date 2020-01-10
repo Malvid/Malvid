@@ -205,7 +205,7 @@ Example:
 
 Type: `Array` Optional: `true`
 
-Malvid can show links in the navigation. This is helpful for project related files or sites that aren't part of Malvid (e.g. Jira board, API documentation, InVision design, etc.).
+Malvid can show links between search field and components. This is helpful for project related files or sites that aren't part of Malvid (e.g. Jira board, API documentation, InVision design, etc.).
 
 Example:
 

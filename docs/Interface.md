@@ -24,6 +24,10 @@ Examples:
 - The input `group:` shows all components that are part of a group.
 - The input `status:wip` shows all components that are marked with the `wip` status.
 
+### Links
+
+Malvid can show [links](Options.md#links) between search field and components. This is helpful for project related files or sites that aren't part of Malvid (e.g. Jira board, API documentation, InVision design, etc.).
+
 ### Groups
 
 Malvid doesn't care about the original folder structure and displays all components below each other. This allows you see all of them at a glance without getting distracted by a deeply nested list. Some components however belong together and that's what groups are for. A group can be defined in the [configuration](Components.md#configuration) of a component. Components with the same group name will be grouped together inside of the navigation.
