@@ -7,7 +7,7 @@ const filename = require('../utils/filename')
 module.exports = (data, components, render) => {
 
 	// The longer the filename the higher the uniqueness of the string
-	const ordered = components.sort((a, b) => {
+	const ordered = [ ...components ].sort((a, b) => {
 
 		const lengthA = filename(a.src).length
 		const lengthB = filename(b.src).length
