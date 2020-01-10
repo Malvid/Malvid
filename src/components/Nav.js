@@ -14,6 +14,7 @@ const { MOBILE_MENU } = require('../constants/breakpoints')
 const NavLink = require('./NavLink')
 const NavGroup = require('./NavGroup')
 const NavItem = require('./NavItem')
+const NavSeparator = require('./NavSeparator')
 const Filter = require('./Filter')
 
 const style = {
@@ -101,6 +102,8 @@ const Nav = (props) => {
 		}
 	)
 
+	const needsSeparator = links.length > 0 && items.length > 0
+
 	return (
 		h('nav', { className: style.self.toString() },
 			h('div', { className: style.filter.toString() },
@@ -111,6 +114,7 @@ const Nav = (props) => {
 			),
 			h('div', { className: style.items.toString() }, [
 				...links,
+				needsSeparator === true ? h(NavSeparator) : undefined,
 				...items
 			])
 		)
