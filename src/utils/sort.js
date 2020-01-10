@@ -15,7 +15,7 @@ const links = (links, render) => {
 
 	const sortedByName = [ ...links ].sort(sortByProp('label'))
 
-	const rendered = sortedByName.map(render)
+	const rendered = sortedByName.map((item) => render(item))
 
 	return rendered
 
