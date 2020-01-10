@@ -67,7 +67,7 @@ const SelectNav = (props) => {
 
 	}
 
-	const items = sort(props.components, render)
+	const items = sort.components(props.components, render)
 
 	return (
 		h('select', {

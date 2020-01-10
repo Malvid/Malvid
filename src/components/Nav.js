@@ -11,6 +11,7 @@ const getStatus = require('../selectors/getStatus')
 const { BORDER_RADIUS, NAV_MIN_WIDTH, NAV_WIDTH, CONTENT_MIN_WIDTH } = require('../constants/sizes')
 const { MOBILE_MENU } = require('../constants/breakpoints')
 
+const NavLink = require('./NavLink')
 const NavGroup = require('./NavGroup')
 const NavItem = require('./NavItem')
 const Filter = require('./Filter')
@@ -55,6 +56,14 @@ const Nav = (props) => {
 
 	}
 
+	const toLink = (link, i) => (
+		h(NavLink, {
+			key: i,
+			label: link.label,
+			href: link.href
+		})
+	)
+
 	const toItem = (component) => (
 		h(NavItem, {
 			key: component.id,
@@ -73,20 +82,23 @@ const Nav = (props) => {
 		}, children)
 	)
 
-	const render = ({ group, components }) => {
+	const links = sort.links(
+		filtrate.links(props.opts.links, props.filter),
+		toLink
+	)
 
-		const hasGroup = group !== ''
-		const children = components.map(toItem)
+	const items = sort.components(
+		filtrate.components(props.components, props.filter),
+		({ group, components }) => {
 
-		// Always return an array even when it's just one group.
-		// This makes handling the response of the function easier.
-		return hasGroup === true ? [ toGroup(group, children) ] : children
+			const hasGroup = group !== ''
+			const children = components.map(toItem)
 
-	}
+			// Always return an array even when it's just one group.
+			// This makes handling the response of the function easier.
+			return hasGroup === true ? [ toGroup(group, children) ] : children
 
-	const items = sort(
-		filtrate(props.components, props.filter),
-		render
+		}
 	)
 
 	return (
@@ -97,7 +109,10 @@ const Nav = (props) => {
 					setFilter: props.setFilter
 				})
 			),
-			h('div', { className: style.items.toString() }, items)
+			h('div', { className: style.items.toString() }, [
+				...links,
+				...items
+			])
 		)
 	)
 

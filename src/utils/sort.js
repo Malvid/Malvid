@@ -11,7 +11,17 @@ const sortByProp = (prop) => (a, b) => {
 
 }
 
-module.exports = (components, render) => {
+const links = (links, render) => {
+
+	const sortedByName = [ ...links ].sort(sortByProp('label'))
+
+	const rendered = sortedByName.map(render)
+
+	return rendered
+
+}
+
+const components = (components, render) => {
 
 	const grouped = components.reduce((acc, component) => {
 
@@ -37,11 +47,13 @@ module.exports = (components, render) => {
 
 	const sortedByName = grouped.map(({ group, components }) => ({
 		group,
-		components: components.sort(sortByProp('name'))
+		components: [ ...components ].sort(sortByProp('name'))
 	}))
 
-	const sortedByNameAndGroup = sortedByName.sort(sortByProp('group'))
+	const sortedByNameAndGroup = [ ...sortedByName ].sort(sortByProp('group'))
 
+	// The render function always returns an array no matter if it's one group or
+	// multiple components. This makes handling the response easier.
 	const rendered = sortedByNameAndGroup.reduce((acc, item) => [
 		...acc,
 		...render(item)
@@ -51,4 +63,9 @@ module.exports = (components, render) => {
 
 	return cleaned
 
+}
+
+module.exports = {
+	links,
+	components
 }

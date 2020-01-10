@@ -57,6 +57,7 @@ module.exports = async function(opts = {}) {
 		style: '',
 		script: '',
 		src: '',
+		links: [],
 		pattern: '**/[^_]*.{ejs,njk,hbs,twig}',
 		url: (url) => url,
 		resolvers,

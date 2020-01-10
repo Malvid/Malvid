@@ -14,6 +14,7 @@ module.exports = {
 	description: 'UI to help you build and document web components.',
 	style: '',
 	script: '',
+	links: [],
 	src: '',
 	pattern: '**/[^_]*.{ejs,njk,hbs,twig}',
 	url: (url) => url,
@@ -197,6 +198,25 @@ Example:
 ```json
 {
   "script": "console.log('Injected')"
+}
+```
+
+### Links
+
+Type: `Array` Optional: `true`
+
+Malvid can show links in the navigation. This is helpful for project related files or sites that aren't part of Malvid (e.g. Jira board, API documentation, InVision design, etc.).
+
+Example:
+
+```json
+{
+  "links": [
+    {
+      "label": "Example",
+      "href": "https://example.com"
+    }
+  ]
 }
 ```
 

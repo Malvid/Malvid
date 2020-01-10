@@ -22,7 +22,7 @@ const parse = (filter) => {
 
 }
 
-module.exports = (components, filter) => {
+const prepare = (filter) => {
 
 	const conditions = parse(filter)
 
@@ -34,11 +34,47 @@ module.exports = (components, filter) => {
 	const hasTerm = term !== ''
 	const hasProps = Object.keys(props).length !== 0
 
+	return {
+		terms,
+		props,
+		term,
+		hasTerm,
+		hasProps
+	}
+
+}
+
+const links = (links, filter) => {
+
+	const {
+		term,
+		hasTerm
+	} = prepare(filter)
+
+	return links.filter((link) => {
+
+		const inLabel = clean(link.label).includes(term)
+
+		return (
+			(hasTerm === true ? inLabel === true : true)
+		)
+
+	})
+
+}
+
+const components = (components, filter) => {
+
+	const {
+		props,
+		term,
+		hasTerm,
+		hasProps
+	} = prepare(filter)
+
 	return components.filter((component) => {
 
-		const name = component.name
-
-		const inName = name.includes(term)
+		const inName = clean(component.name).includes(term)
 
 		const inTabs = props.every((condition) => {
 
@@ -54,8 +90,8 @@ module.exports = (components, filter) => {
 				const hasGroup = group != null
 				const hasStatus = status != null
 
-				if (condition.prop === 'group' && hasGroup === true) return group.includes(value)
-				if (condition.prop === 'status' && hasStatus === true) return status.includes(value)
+				if (condition.prop === 'group' && hasGroup === true) return clean(group).includes(value)
+				if (condition.prop === 'status' && hasStatus === true) return clean(status).includes(value)
 
 				return false
 
@@ -76,4 +112,9 @@ module.exports = (components, filter) => {
 
 	})
 
+}
+
+module.exports = {
+	links,
+	components
 }

@@ -9,8 +9,8 @@ module.exports = (components, filter, currentComponent) => {
 	const render = ({ components }) => components
 
 	// Components and groups filtered and sorted
-	const items = sort(
-		filtrate(components, filter),
+	const items = sort.components(
+		filtrate.components(components, filter),
 		render
 	)
 
