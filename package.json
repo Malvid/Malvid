@@ -54,7 +54,7 @@
     "is-hotkey": "^0.1.6",
     "marked": "^0.8.0",
     "mocha": "^7.0.1",
-    "normalize-url": "^4.5.0",
+    "normalize-url": "^5.0.0",
     "nyc": "^15.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.10.2",
