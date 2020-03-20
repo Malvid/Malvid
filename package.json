@@ -35,7 +35,7 @@
     "components-lookup": "^6.0.0",
     "continuous-stealthy-require": "^1.0.0",
     "find-up": "^4.1.0",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "is-plain-obj": "^2.0.0",
     "mri": "^1.1.4",
     "ora": "^4.0.2",
