@@ -1,7 +1,7 @@
 'use strict'
 
 const assert = require('chai').assert
-const uuid = require('uuid/v4')
+const uuid = require('uuid').v4
 const filtrate = require('../../src/utils/filtrate')
 
 const name = (prefix) => prefix + uuid()

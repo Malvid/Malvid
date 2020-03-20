@@ -1,7 +1,7 @@
 'use strict'
 
 const assert = require('chai').assert
-const uuid = require('uuid/v4')
+const uuid = require('uuid').v4
 const { SET_ROUTE } = require('../../src/constants/actions')
 const route = require('../../src/reducers/route')
 

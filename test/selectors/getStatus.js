@@ -1,7 +1,7 @@
 'use strict'
 
 const assert = require('chai').assert
-const uuid = require('uuid/v4')
+const uuid = require('uuid').v4
 const getStatus = require('../../src/selectors/getStatus')
 
 describe('getStatus()', function() {

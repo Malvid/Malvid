@@ -1,7 +1,7 @@
 'use strict'
 
 const assert = require('chai').assert
-const uuid = require('uuid/v4')
+const uuid = require('uuid').v4
 const sort = require('../../src/utils/sort')
 
 // Imitates the behaviour of the render function for links.

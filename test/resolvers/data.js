@@ -2,7 +2,7 @@
 
 const os = require('os')
 const assert = require('chai').assert
-const uuid = require('uuid/v4')
+const uuid = require('uuid').v4
 const data = require('../../src/resolvers/data')
 
 const fsify = require('fsify')({
