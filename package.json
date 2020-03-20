@@ -32,7 +32,7 @@
     "test": "nyc node_modules/mocha/bin/_mocha --recursive"
   },
   "dependencies": {
-    "components-lookup": "^6.0.0",
+    "components-lookup": "^7.0.0",
     "continuous-stealthy-require": "^1.0.0",
     "find-up": "^4.1.0",
     "fs-extra": "^9.0.0",
