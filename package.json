@@ -32,8 +32,8 @@
     "test": "nyc node_modules/mocha/bin/_mocha --recursive"
   },
   "dependencies": {
-    "components-lookup": "^6.0.0",
-    "continuous-stealthy-require": "^1.0.0",
+    "components-lookup": "^7.0.0",
+    "continuous-stealthy-require": "^2.0.0",
     "find-up": "^4.1.0",
     "fs-extra": "^9.0.0",
     "is-plain-obj": "^2.0.0",
@@ -47,7 +47,7 @@
     "coveralls": "^3.0.6",
     "escape-string-regexp": "^2.0.0",
     "filename-regex": "^2.0.1",
-    "fsify": "^3.0.0",
+    "fsify": "^4.0.0",
     "glamor": "^2.20.40",
     "highlight.js": "^9.15.10",
     "history": "^4.10.1",
