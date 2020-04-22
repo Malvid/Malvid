@@ -49,7 +49,7 @@
     "filename-regex": "^2.0.1",
     "fsify": "^4.0.0",
     "glamor": "^2.20.40",
-    "highlight.js": "^9.15.10",
+    "highlight.js": "^10.0.0",
     "history": "^4.10.1",
     "is-hotkey": "^0.1.6",
     "marked": "^1.0.0",
