@@ -1,9 +1,7 @@
 'use strict'
 
-const { writeFile } = require('fs')
-const { promisify } = require('util')
+const { writeFile } = require('fs').promises
 const js = require('rosid-handler-js')
-const save = promisify(writeFile)
 
 js('src/client.js', {
 
@@ -12,6 +10,6 @@ js('src/client.js', {
 
 }).then((data) => {
 
-	return save('dist/client.min.js', data)
+	return writeFile('dist/client.min.js', data)
 
 })

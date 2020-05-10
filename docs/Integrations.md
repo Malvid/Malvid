@@ -46,8 +46,7 @@ The following is an example `gulpfile.js` that defines two tasks, one to build a
 Once added, these can be run the tasks as `gulp` and `gulp build`. However you can of course change them to be called whatever you like!
 
 ```js
-const fs = require('fs')
-const util = require('util')
+const fs = require('fs').promises
 const gulp = require('gulp')
 const connect = require('gulp-connect')
 const malvid = require('malvid')
@@ -63,8 +62,8 @@ gulp.task('build', async function() {
 	const json = await results.json()
 
 	await pAll([
-		() => util.promisify(fs.writeFile)('src/index.html', html),
-		() => util.promisify(fs.writeFile)('src/index.html.json',  JSON.stringify(json))
+		() => fs.writeFile('src/index.html', html),
+		() => fs.writeFile('src/index.html.json',  JSON.stringify(json))
 	])
 
 	connect.reload()
