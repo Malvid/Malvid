@@ -16,6 +16,7 @@ const NavGroup = require('./NavGroup')
 const NavItem = require('./NavItem')
 const NavSeparator = require('./NavSeparator')
 const Filter = require('./Filter')
+const NavLogo = require('./NavLogo')
 
 const style = {
 
@@ -30,6 +31,10 @@ const style = {
 			display: 'none'
 		}
 	}),
+
+    navLogo: css({
+        padding: '1em 0 0 1em'
+    }),
 
 	filter: css({
 		flexShrink: '0',
@@ -106,6 +111,11 @@ const Nav = (props) => {
 
 	return (
 		h('nav', { className: style.self.toString() },
+            ('logo' in props.opts && props.opts.logo) ? h('div', { className: style.navLogo.toString() },
+                h(NavLogo, {
+                    logo: props.opts.logo
+                })
+            ) : null,
 			h('div', { className: style.filter.toString() },
 				h(Filter, {
 					filter: props.filter,

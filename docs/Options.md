@@ -12,6 +12,7 @@ module.exports = {
 	lang: 'en',
 	title: 'Malvid',
 	description: 'UI to help you build and document web components.',
+	logo: 'logo.svg',
 	style: '',
 	script: '',
 	links: [],
@@ -170,6 +171,20 @@ Example:
 ```json
 {
   "description": "Component library for our awesome project."
+}
+```
+
+### Logo
+
+Type: `String` Optional: `true`
+
+Logo which should be shown at the top of the navigation.
+
+Example:
+
+```json
+{
+  "logo": "path/to/logo.svg"
 }
 ```
 
